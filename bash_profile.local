@@ -1,0 +1,66 @@
+# LS Colors
+export CLICOLOR=1
+
+# Git
+export GIT_SSL_NO_VERIFY=true
+
+# Github support
+eval "$(hub alias -s)"
+
+# Grep
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;33'
+
+# Editor
+export EDITOR='vim'
+
+# Python
+export PYTHONPATH=~/lib/python2.6/site-packages
+
+# Rvm
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Ruby Motion
+export RUBYMOTION_ANDROID_SDK=/Users/herry/.rubymotion-android/sdk
+
+# Grep Color
+# export GREP_OPTIONS='--color=auto'
+# export GREP_COLOR='1;33'
+
+# Disable logout Ctrl-D shortcut
+# IGNOREEOF=10
+# set -o ignoreeof  # Same as setting IGNOREEOF=10
+
+# rbenv init
+# eval "$(rbenv init -)"
+
+# Set vi mode
+# set -o vi
+
+# X11 DISPLAY destination
+# CLIENT_IP=`echo $SSH_CLIENT | awk '{print $1}'`
+# export DISPLAY="$CLIENT_IP:0"
+
+# Node
+export NODE_PATH=$NODE_PATH:`npm root -g`
+export PATH=$PATH:./node_modules/.bin:$HOME/node_modules/.bin
+export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
+
+# Nvm
+export NVM_DIR="/Users/herry/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Travis
+[ -f /Users/herry/.travis/travis.sh ] && source /Users/herry/.travis/travis.sh
+
+# Disable control flow shortcuts (C-s and C-q), so they can be used in vim
+stty -ixon -ixoff
+
+# Java
+export JAVA_HOME="/usr/libexec/java_home -v 1.7"
+
+# Auto start tmux
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi

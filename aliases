@@ -1,0 +1,440 @@
+##
+# Commands
+####################
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias l='ls -GFlah'
+alias o='open .'
+alias c='clear'
+alias f='fg'
+alias s='subl'
+alias h='help'
+alias i='info --vi-keys'
+alias j=jobs
+alias f=fg
+alias tf='tail -f -n 500'
+alias ll='ls -laFo'
+alias g='git'
+alias his='fc -l'
+alias les='less'
+alias mkr='mkdir -p'
+alias rmr='rm -rf'
+alias vi='vim'
+alias mvc='mvim .'
+alias agi='ag -i'
+alias agl='ag -l'
+alias pgrepl='pgrep -l'
+alias lsgrep='ls -al | grep'
+alias psgrep='ps -fe | grep'
+alias pscom='ps -eo ruser,f,comm'
+alias fname='ag -g'
+alias clipfile='pbcopy <'
+alias ctagsr='ctags -R'
+alias epath='echo $PATH'
+
+alias te='tree'
+alias t1='tree -L 1'
+alias t2='tree -L 2'
+alias t3='tree -L 3'
+
+alias yuicomp='yuicompressor'
+alias yuijsmin='yuicomp --type js --nomunge'
+alias yuicssmin='yuicomp i--type css'
+
+# sudo
+alias sfname='sudo fname'
+alias svi='sudo vi'
+
+# vi
+alias valias='vi ~/.aliases'
+alias vbash='vi ~/.bashrc'
+alias vhalias='vi ~/.aliases.local'
+alias vhbash='vi ~/.bashrc.local'
+alias vhprofile='vi ~/.profile.local'
+alias vvimrc='vi ~/.vimrc'
+alias vvbundle='vi ~/.vimrc.bundles'
+alias vvulti='dvulti && visnip'
+alias vvsnip='dvsnip && visnip'
+alias vesrc='vi ~/.eslintrc'
+alias vslate='vi ~/.slate'
+alias vihosts='sudo vi /etc/hosts'
+
+# reload scripts
+alias rprofile='. .bash_profile'
+alias rbash='. ~/.bashrc'
+alias ralias='. ~/.aliases'
+alias rbashrc='. ~/.bashrc'
+
+# tmux
+alias tm='tmux'
+alias tmnew='tm new -s'
+alias tmat='tm attach'
+alias tmatt='tm attach -t'
+alias tmvim='tm new vim'
+alias tmls='tm ls'
+alias tmkses='tm kill-session -a'
+alias tmkser='tm kill-server'
+alias tmrs='tm rename-session'
+alias tmrsdir='tm rename-session $(basename $PWD)'
+alias tmrw='tm rename-window $(basename $PWD)'
+alias tmrwdir='tm rename-window $(basename $PWD)'
+
+# tmuxinator
+alias me='mux edit'
+alias me1='mux edit1'
+alias me2='mux edit2'
+alias me3='mux edit3'
+alias mn='mux node'
+alias mr='mux rails'
+
+alias vtmux='vi ~/.tmux.conf'
+alias vtlocal='vi ~/.tmux.conf.local'
+alias vtedit='vi ~/.tmuxinator/edit.yml'
+alias vtnode='vi ~/.tmuxinator/node.yml'
+alias vtrails='vi ~/.tmuxinator/rails.yml'
+
+# perl
+alias perld='perl -de 42'
+alias perlw='perl -w'
+
+# mysql
+alias smysql='mysql.server start'
+alias stmysql='mysql.server stop'
+alias rmysql='mysql.server restart'
+alias cmysql='ps -fe | grep mysqld'
+
+# squid
+alias ssquid='sudo squid'
+alias ssquidc='sudo squid -N -d 2'
+alias stsquid='sudo squid -k shutdown'
+alias rsquid='sudo squid -k reconfigure'
+alias csquid='ps -fe | grep squid'
+alias rscache='rm -rf /usr/local/var/cache/squid; squid -z'
+alias pscache='squidclient -p 80 PURGE'
+
+alias ssel='java -jar /usr/lib/selenium-server-standalone.jar'
+alias sarr='arrow_server'
+
+# Throttle bandwidth
+# that 15KB/s
+alias th='sudo ipfw pipe 1 config bw'
+alias thslow='th 20KByte/s'
+alias th3g='th 120KByte/s'
+alias thfast='th 100MByte/s'
+alias th80='sudo ipfw add 1 pipe 1 src-port 80'
+alias thrm='sudo ipfw delete 1'
+
+# # be paranoid
+# alias cp='cp -ip'
+# alias mv='mv -i'
+# alias rm='rm -i'
+
+alias httperfh='httperf --uri / --num-conn 100 --num-call 5 --rate 10 --timeout 5 --server'
+alias abh='ab -n 20'
+alias ab1='ab -n 1'
+alias sid='siege -c 1 -d 5 -r 10'
+alias sid10='siege -c 1 -d 10 -r 10'
+
+# Node
+alias nh='node --harmony'
+alias ng='node --harmony-generators'
+alias ndev='node-dev'
+alias nmon='nodemon'
+alias nmona='nodemon app.js'
+alias nmonh='nodemon --harmony'
+alias nmonhg='nodemon --harmony-generators'
+alias snode='sudo node'
+alias snapp='sudo node app'
+alias sndapp='sudo node-dev app'
+alias napp='node app'
+alias ndbapp='node --debug app'
+alias ndapp='node-dev --debug app'
+alias nddbapp='node-dev --debug app'
+alias nhndapp='nohup node-dev app.js &'
+alias nhnapp='nohup node app.js &'
+alias ndappnohup='PORT=8000 nohup node-dev app.js &'
+alias nappnohup='PORT=8000 nohup node app.js &'
+alias ndev='node-dev'
+alias noded='node --debug'
+alias nodedb='node --debug-brk'
+alias ndebug='node-debug'
+alias ndebugnb='node-debug --no-debug-brk'
+alias ninsp='node-inspector'
+alias ninspnb='node-inspector --no-debug-brk'
+alias nvi='node-vim-inspector'
+
+alias debugnapp='DEBUG=express:* napp'
+alias dndapp='DEBUG=express:* ndapp'
+
+# Npm
+alias ni='npm install'
+alias nis='npm install --save'
+alias nisd='npm install --save-dev'
+alias nin='npm info'
+alias nu='npm uninstall'
+alias ns='npm start'
+alias nr='npm run --silent'
+alias nrp='npm repo'
+alias nig='npm install -g'
+alias nll='npm list --depth=0'
+alias nlg='npm list -g --depth=0'
+alias ntest='npm test'
+alias nrun='npm run'
+alias nrlint='npm run lint'
+alias nrcover='npm run cover'
+alias nrep='npm repo'
+
+# Nvm
+alias nv='nvm'
+alias nus='nvm use system'
+alias nun='nvm use node'
+alias nui='nvm use iojs'
+alias nu10='nvm use 0.10'
+alias nu11='nvm use 0.11'
+
+# Python
+alias pyhttpd='python -m SimpleHTTPServer 3000'
+alias pyhttp='python -m SimpleHTTPServer'
+
+# Ruby
+alias rhttpd='ruby -run -e httpd . -p 8080'
+
+# Misc
+alias patcha='patch -p 0 <'
+
+# Screen cast your terminal
+alias startttycast='ttyreccast outfile.tty' # http://localhost:13377/
+alias startttyrec='reset && ttyrec /tmp/ttycast'
+
+# MongoDB
+alias mongos='mongod --config /usr/local/etc/mongod.conf'
+alias mongof='mongod --fork --logpath /var/log/mongodb.log'
+
+# Bower
+alias bowerc='bower install --config.directory=.'
+
+# rake
+alias raket='rake -T'
+
+# To support issue with opening app in tmux
+# alias open='reattach-to-user-namespace open'
+# alias subl='reattach-to-user-namespace subl'
+alias mate='reattach-to-user-namespace mate'
+
+# jsx
+alias jsx6='jsx --es6module --harmony'
+
+alias jgver='jsgrep package.json version'
+alias jgdep='jsgrep package.json dependencies'
+alias jgddep='jsgrep package.json devDependencies'
+alias jgscripts='jsgrep package.json scripts'
+
+# Grunt
+alias grh='grunt --help'
+alias grve='grunt --verbose'
+alias grd='grunt --debug'
+
+alias gulpt='gulp -T'
+
+# sed
+alias sedi='sed -i ""'
+
+# ES6
+alias mocha6='mocha --compilers js:babel/register'
+
+# istanbul
+
+alias is='istanbul'
+alias isc='is cover --report text --report html'
+alias iscmoc='isc _mocha'
+
+##
+# iOS Commands
+####################
+
+# Check Qos
+# $1 - [AppName]
+alias ispinqos='sudo spindump -timeline'
+alias ipowerqos='sudo powermetrics --show-process-qos --samplers tasks'
+# $1 - [AppName]
+alias itimer='sudo timerfires -s -g -p'
+
+# Debug CPU usage
+alias ifsusage='sudo fs_usage'
+
+# Swift
+alias s="swift"
+
+##
+# Directories
+##################
+alias dh='cd ~'
+alias ddocs='cd ~/Documents'
+alias dapp='cd ~/Applications'
+alias ddown='cd ~/Downloads'
+alias ddesk='cd ~/Desktop'
+
+# vim
+alias dvbundle='cd ~/.vim/bundle'
+alias dvsnip='cd ~/.vim/bundle/vim-snippets/snippets'
+alias dvulti='cd ~/.vim/bundle/vim-snippets/UltiSnips'
+alias dvultir='cd ~/.vim/bundle/vim-react-snippets/UltiSnips'
+alias dtmux='cd ~/.tmuxinator'
+
+# user local
+alias dulocal='cd /usr/local'
+alias dulcache='cd /usr/local/var/cache'
+alias dullogs='cd /usr/local/var/logs'
+
+###
+# Ruby/Rails
+#################
+alias p='pry'
+alias sc='./script/console'
+alias tdev='tail -f -n 1000 log/development.log'
+alias tprod='tail -f -n 1000 log/production.log'
+alias ttest='tail -f -n 1000 log/test.log'
+alias ms='mongrel_rails start'
+alias mcs='mongrel_rails cluster::start'
+alias mcst='mongrel_rails cluster::stop'
+alias mcr='mongrel_rails cluster::restart'
+alias mgrep='ps -fe | grep mongrel'
+alias aut='autotest'
+
+alias ssd='./script/server --debugger'
+alias rs='rdebug script/server'
+
+alias fall='ag'
+alias fcur='ag --depth 0'
+alias frb='ag --ruby'
+alias fphp='ag --php'
+alias fxml='ag --xml'
+alias fjava='ag --java'
+alias fyml='ag --yml'
+alias fjson='ag --json'
+alias fjs='ag --js'
+alias fcss='ag --css'
+alias fsass='ag --sass'
+alias fsql='ag --sql'
+
+alias mvrails1='mv vendor/rails vendor/rails1'
+alias mvrails='mv vendor/rails1 vendor/rails'
+
+alias pryr='pry -r ./config/environment'
+
+###
+# SVN
+################
+alias svnup='svn up .'
+alias svnst='svn st'
+alias svnstu='svn st -u'
+alias svnc='svn commit'
+alias svnadd='svn status | grep "^\?" | awk "{print \$2}" | xargs svn add'
+alias svnl='svn log -l 10'
+alias svndr='svn diff -r'
+alias svnr='svn revert'
+alias svnrr='svn revert -R .'
+alias svncl='svn st | grep ? | awk '"'"'{print $2}'"'"' | xargs rm'
+
+alias visvnconfig='vi ~/.subversion/config'
+
+###
+# GIT
+################
+alias gst='git status'
+alias gpl='git pull --rebase'
+alias gpu='git push'
+alias gd='git diff'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcom='git checkout master'
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gba='git branch -a'
+alias gbsu='git branch --set-upstream'
+alias gbsumas='gbsu master origin/master'
+alias gcl='git clone'
+alias gcld='git clone --depth=1'
+alias greorig='git reset --hard ORIG_HEAD'
+alias grb='git rebase'
+alias grm='git remote'
+alias grmv='git remote --verbose'
+alias gfop='git format-patch -1 | xargs cat'
+alias gad='git add .'
+alias gmer='git merge --no-ff'
+alias glg='git log --pretty=format:'"'"'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"'"' --abbrev-commit'
+alias glgg='gl --graph'
+alias gcnpm='gitclonenpm'
+alias gbnpm='gitbrowsenpm'
+
+###
+# Github Extension
+################
+alias gbr='git browse'
+alias gf='git fork'
+
+###
+# RVM
+################
+alias rvi='rvm info'
+alias rvud='rvm --default use'
+alias r19='rvm 1.9.2-head'
+alias r18='rvm 1.8.7'
+alias r186='rvm 1.8.6'
+alias rgc='rvm gemset create'
+alias rgd='rvm gemset delete'
+alias rgl='rvm gemset list'
+alias rgla='rvm gemset list_all'
+alias rgdir='rvm gemset dir'
+alias rgu='rvm gemset use'
+alias rguc='rvm gemset use --create' # 1.9.2-head@name
+alias rgcp='rvm gemset copy'
+alias rgcrails3='rvm gemset copy 1.9.2-head@rails3'
+
+###
+# Image Optimization
+####################
+alias cjpg='jpegtran -copy none -progressive'
+alias cjpgs='jpegtran -copy none -optimize' # image less than 10K
+alias cpng='optipng'
+alias idenv='identify -verbose'
+
+###
+# Extension
+################
+
+alias dcodes='cd ~/codes'
+alias drapp='cd ~/codes/rubyapp'
+alias druby='cd ~/codes/ruby'
+alias dpapp='cd ~/codes/phpapp'
+alias dphp='cd ~/codes/php'
+alias dpyapp='cd ~/codes/pythonapp'
+alias dpy='cd ~/codes/python'
+alias djapp='cd ~/codes/jsapp'
+alias dfront='cd ~/codes/frontend'
+alias djsapp='cd ~/codes/jsapp'
+alias dhtml='cd ~/codes/html'
+alias dobj='cd ~/codes/obj'
+alias doapp='cd ~/codes/objapp'
+alias dswift='cd ~/codes/swift'
+alias dsapp='cd ~/codes/swiftapp'
+alias dnode='cd ~/codes/node'
+alias dnapp='cd ~/codes/nodeapp'
+alias dhtml5='cd ~/codes/html5'
+alias dhapp='cd ~/codes/html5app'
+alias dmisc='cd ~/codes/misc'
+alias dbashinit='cd ~/codes/misc/bash_init'
+alias dgadm='cd ~/codes/misc/gitosis-admin'
+alias dmojito='cd ~/codes/mojito'
+alias dmapp='cd ~/codes/mojitoapp'
+alias dgithub='cd ~/codes/github'
+alias dobjapp='cd ~/codes/objapp'
+alias dobj='cd ~/codes/obj'
+alias dsapp='cd ~/codes/swiftapp'
+alias dtest='cd ~/codes/test'
+alias dbooks='cd ~/codes/misc/books'
+alias ddoc='cd ~/codes/doc'
+

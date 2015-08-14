@@ -1,9 +1,7 @@
-echo 'bash_profile loaded'
-# export PATH=$HOME/bin:/usr/local/bin:/usr/bin:$PATH
 export PATH=$HOME/bin:$PATH
 
 # Load the shell dotfiles, and then some:
-for file in {aliases,aliases.local,bash_profile.local,bash_prompt,functions,git_completion}; do
+for file in .{aliases,aliases.local,bash_profile.local,bash_prompt,functions,git_completion}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

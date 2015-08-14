@@ -46,3 +46,23 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal TweetDeck" killall;
+
+# Editor
+export EDITOR='vim'
+
+# LS Colors
+export CLICOLOR=1
+
+# Git
+export GIT_SSL_NO_VERIFY=true
+
+# Github support
+eval "$(hub alias -s)"
+
+# Grep
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;33'
+
+# Disable control flow shortcuts (C-s and C-q), so they can be used in vim
+stty -ixon -ixoff
+

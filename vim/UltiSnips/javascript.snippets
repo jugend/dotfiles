@@ -1,0 +1,113 @@
+# ES6
+snippet rim "import Object from 'path'" b
+import ${1:Object} from '${2:path}';
+endsnippet
+
+snippet rexd "export default" b
+export default $1
+endsnippet
+
+snippet rexdc "export default class Class extends Parent" b
+export default class ${1:ClassName} extends ${2:Parent} {
+	$3
+}
+endsnippet
+
+snippet rcon "constructor() {}" b
+constructor(${1:props}) {
+	super(${2:props});
+	$3
+}
+endsnippet
+
+snippet rfun "function() { }" b
+${1:function}($2) {
+	$3
+}
+endsnippet
+
+snippet rren "render() { }" b
+render() {
+	return (
+		${1:<div />}
+	)
+}
+endsnippet
+
+# Common Snippets
+
+snippet todo "TODO" b
+// TODO: ${1:Description}
+endsnippet
+
+snippet varc "var ClassName = require('path')" b
+var ${1:ClassName} = require('${2:path}');
+endsnippet
+
+snippet funcc "(function() { ... })()" b
+(function() {
+	$1
+})();
+endsnippet
+
+snippet fer "function(error, results) { ... }" i
+function(${1:error}, ${2:results}) {
+	$3
+}
+endsnippet
+
+snippet frr "function(req, res) {}" i
+function(req, res) {
+	$1
+}
+endsnippet
+
+snippet frrn "function(req, res, next) {}" i
+function(req, res, next) {
+	$1
+}
+endsnippet
+
+snippet ferrn "function(err, req, res, next) {}" i
+function(err, req, res, next) {
+	$1
+}
+endsnippet
+
+snippet fo "for (var i = 0; i < array.lengh; i++) { ... }"
+for (var i = 0; i < ${1:length}; i++) {
+	$1
+}
+endsnippet
+
+# console.log
+snippet cl "console.log(object)" b
+console.log(${1:object});
+endsnippet
+
+snippet cli "console.info(object)" b
+console.info(${1:object});
+endsnippet
+
+snippet cle "console.error(object)" b
+console.error(${1:object});
+endsnippet
+
+snippet clo "console.log('message', object)" b
+console.log('${1:message}', ${2:object});
+endsnippet
+
+snippet clm "console.log('message')" b
+console.log('${1:message}');
+endsnippet
+
+# React
+snippet reqr "require('react')" b
+var React = require('react');
+endsnippet
+
+# Node.js Snipppets
+
+snippet modex "module.exports = ClassName" b
+module.exports = ${1:ClassName};
+endsnippet

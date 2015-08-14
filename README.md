@@ -1,10 +1,21 @@
 # Herryanto's dotfiles
 
-## Installation
+## Setup
 
 ```bash
-git clone https://github.com/jugend/dotfiles.git && cd dotfiles && source bootstrap.sh
+git clone https://github.com/jugend/dotfiles.git
+cd dotfiles
+source setup.sh
 ```
+
+* Install brew
+* Install iTerm2
+* Install macvim
+* Install slate
+* Run brew.sh
+
+## TODO
+* Bash & git completion
 
 ## Inspired by:
 * [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)

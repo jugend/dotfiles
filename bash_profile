@@ -1,13 +1,15 @@
+echo 'bash_profile loaded'
 # export PATH=$HOME/bin:/usr/local/bin:/usr/bin:$PATH
 export PATH=$HOME/bin:$PATH
 
 # Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra,aliases.local,bash_profile.local,bashrc.local}; do
+for file in {aliases,aliases.local,bash_profile.local,bash_prompt,functions,git_completion}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+# Coloured man pages
+export PAGER=most
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;

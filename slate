@@ -1,6 +1,6 @@
 ##
-# Slate Vim Mode
-################
+# Slate - Vim Mode
+##################
 
 config defaultToCurrentScreen true
 config nudgePercentOf         screenSize
@@ -117,12 +117,6 @@ bind h:cmd;alt                focus left
 bind k:cmd;alt                focus up
 bind j:cmd;alt                focus down
 bind n:cmd;alt                focus behind
-
-# Extra bindings if Ctrl-l    is occupied by vim emulation
-bind ':ctrl;alt               resize -10% +0 bottom-right
-bind ':ctrl;shift             ${rightWindow}
-bind ':ctrl;shift;cmd         nudge +0.5% +0
-bind ':ctrl;cmd               chain    ${rightHalf} | ${rightOneThird} | ${rightOneQuarter} | ${rightTwoThird}
 
 # Window Hints
 bind esc:cmd hint

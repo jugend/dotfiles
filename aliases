@@ -48,10 +48,9 @@ alias svi='sudo vi'
 
 # vi
 alias valias='vi ~/.aliases'
-alias vbash='vi ~/.bashrc'
-alias vhalias='vi ~/.aliases.local'
-alias vhbash='vi ~/.bashrc.local'
-alias vhprofile='vi ~/.profile.local'
+alias vlalias='vi ~/.aliases.local'
+alias vpro='vi ~/.bash_profile'
+alias vlpro='vi ~/.bash_profile.local'
 alias vvimrc='vi ~/.vimrc'
 alias vvbundle='vi ~/.vimrc.bundles'
 alias vvulti='dvulti && visnip'
@@ -61,10 +60,8 @@ alias vslate='vi ~/.slate'
 alias vihosts='sudo vi /etc/hosts'
 
 # reload scripts
-alias rprofile='. .bash_profile'
-alias rbash='. ~/.bashrc'
-alias ralias='. ~/.aliases'
-alias rbashrc='. ~/.bashrc'
+alias rpro='source ~/.bash_profile'
+alias ralias='source ~/.aliases'
 
 # tmux
 alias tm='tmux'

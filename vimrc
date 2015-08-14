@@ -227,6 +227,8 @@ nnoremap <leader>j :BuffergatorMruCyclePrev<cr>
 nnoremap <leader>J :BuffergatorMruCycleNext<cr>
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>sp :set paste<cr>
+nnoremap <leader>ft :set ft=<space>
+nnoremap <leader>fs :set ft=sh<cr>
 nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
 nnoremap <leader>rw :%s/<C-r><C-w>/

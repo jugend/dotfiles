@@ -3,126 +3,126 @@
 ################
 
 config defaultToCurrentScreen true
-config nudgePercentOf screenSize
-config resizePercentOf screenSize
-config windowHintsShowIcons true
-config windowHintsSpread true
+config nudgePercentOf         screenSize
+config resizePercentOf        screenSize
+config windowHintsShowIcons   true
+config windowHintsSpread      true
 
 # Aliases
-alias full                 move     screenOriginX;screenOriginY screenSizeX;screenSizeY
-alias fullHeight           move     windowTopLeftX;screenOriginY windowSizeX;screenSizeY
+alias full                    move     screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias fullHeight              move     windowTopLeftX;screenOriginY windowSizeX;screenSizeY
 
-alias topHalfHeight        move     windowTopLeftX;screenOriginY windowSizeX;screenSizeY/2
-alias topTwoThirdHeight    move     windowTopLeftX;screenOriginY windowSizeX;screenSizeY*2/3
-alias bottomHalfHeight     move     windowTopLeftX;screenSizeY/2 windowSizeX;screenSizeY/2
-alias bottomTwoThirdHeight move     windowTopLeftX;screenSizeY/3 windowSizeX;screenSizeY*2/3
+alias topHalfHeight           move     windowTopLeftX;screenOriginY windowSizeX;screenSizeY/2
+alias topTwoThirdHeight       move     windowTopLeftX;screenOriginY windowSizeX;screenSizeY*2/3
+alias bottomHalfHeight        move     windowTopLeftX;screenSizeY/2 windowSizeX;screenSizeY/2
+alias bottomTwoThirdHeight    move     windowTopLeftX;screenSizeY/3 windowSizeX;screenSizeY*2/3
 
-alias leftHalf             move     screenOriginX;screenOriginY screenSizeX/2;screenSizeY
-alias leftTwoThird         move     screenOriginX;screenOriginY screenSizeX*2/3;screenSizeY
-alias leftOneThird         move     screenOriginX;screenOriginY screenSizeX/3;screenSizeY
-alias leftOneQuarter       move     screenOriginX;screenOriginY screenSizeX*1/4;screenSizeY
+alias leftHalf                move     screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias leftTwoThird            move     screenOriginX;screenOriginY screenSizeX*2/3;screenSizeY
+alias leftOneThird            move     screenOriginX;screenOriginY screenSizeX/3;screenSizeY
+alias leftOneQuarter          move     screenOriginX;screenOriginY screenSizeX*1/4;screenSizeY
 
-alias rightHalf            move     screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
-alias rightOneThird        move     screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX/3;screenSizeY
-alias rightTwoThird        move     screenOriginX+screenSizeX/3;screenOriginY screenSizeX*2/3;screenSizeY
-alias rightOneQuarter      move     screenOriginX+screenSizeX*3/4;screenOriginY screenSizeX*1/4;screenSizeY
+alias rightHalf               move     screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias rightOneThird           move     screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX/3;screenSizeY
+alias rightTwoThird           move     screenOriginX+screenSizeX/3;screenOriginY screenSizeX*2/3;screenSizeY
+alias rightOneQuarter         move     screenOriginX+screenSizeX*3/4;screenOriginY screenSizeX*1/4;screenSizeY
 
-alias middleThird          move     screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
-alias topHalf              move     screenOriginX;screenOriginY screenSizeX;screenSizeY/2
-alias bottomHalf           move     screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias middleThird             move     screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias topHalf                 move     screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias bottomHalf              move     screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
 
-alias centerScreen         move     screenOriginX+((screenSizeX-windowSizeX)/2);screenOriginY+((screenSizeY-windowSizeY)/2) windowSizeX;windowSizeY
-alias centerScreenHalf     move     screenOriginX+(screenSizeX/4);screenOriginY screenSizeX/2;screenSizeY
-alias centerScreenOneThird move     screenOriginX+((screenSizeX*2/3)/2);screenOriginY screenSizeX*1/3;screenSizeY
-alias centerScreenTwoThird move     screenOriginX+((screenSizeX*1/3)/2);screenOriginY screenSizeX*2/3;screenSizeY
+alias centerScreen            move     screenOriginX+((screenSizeX-windowSizeX)/2);screenOriginY+((screenSizeY-windowSizeY)/2) windowSizeX;windowSizeY
+alias centerScreenHalf        move     screenOriginX+(screenSizeX/4);screenOriginY screenSizeX/2;screenSizeY
+alias centerScreenOneThird    move     screenOriginX+((screenSizeX*2/3)/2);screenOriginY screenSizeX*1/3;screenSizeY
+alias centerScreenTwoThird    move     screenOriginX+((screenSizeX*1/3)/2);screenOriginY screenSizeX*2/3;screenSizeY
 
-alias halfWidth            move     windowTopLeftX;windowTopLeftY windowSizeX/2;windowSizeY
-alias doubleWidth          move     windowTopLeftX;windowTopLeftY windowSizeX*2;windowSizeY
+alias halfWidth               move     windowTopLeftX;windowTopLeftY windowSizeX/2;windowSizeY
+alias doubleWidth             move     windowTopLeftX;windowTopLeftY windowSizeX*2;windowSizeY
 
-alias leftWindow           move     windowTopLeftX-windowSizeX;windowTopLeftY windowSizeX;windowSizeY
-alias rightWindow          move     windowTopLeftX+windowSizeX;windowTopLeftY windowSizeX;windowSizeY
-alias topWindow            move     windowTopLeftX;windowTopLeftY+windowSizeY windowSizeX;windowSizeY
-alias bottomWindow         move     windowTopLeftX;windowTopLeftY-windowSizeY windowSizeX;windowSizeY
+alias leftWindow              move     windowTopLeftX-windowSizeX;windowTopLeftY windowSizeX;windowSizeY
+alias rightWindow             move     windowTopLeftX+windowSizeX;windowTopLeftY windowSizeX;windowSizeY
+alias topWindow               move     windowTopLeftX;windowTopLeftY+windowSizeY windowSizeX;windowSizeY
+alias bottomWindow            move     windowTopLeftX;windowTopLeftY-windowSizeY windowSizeX;windowSizeY
 
-alias topLeftNoResize      move     screenOriginX;screenOriginY windowSizeX;windowSizeY
-alias topRightNoResize     move     screenSizeX-windowSizeX;screenOriginY windowSizeX;windowSizeY
-alias bottomLeftNoResize   move     screenOriginX;screenSizeY-windowSizeY windowSizeX;windowSizeY
-alias bottomRightNoResize  move     screenSizeX-windowSizeX;screenSizeY-windowSizeY windowSizeX;windowSizeY
+alias topLeftNoResize         move     screenOriginX;screenOriginY windowSizeX;windowSizeY
+alias topRightNoResize        move     screenSizeX-windowSizeX;screenOriginY windowSizeX;windowSizeY
+alias bottomLeftNoResize      move     screenOriginX;screenSizeY-windowSizeY windowSizeX;windowSizeY
+alias bottomRightNoResize     move     screenSizeX-windowSizeX;screenSizeY-windowSizeY windowSizeX;windowSizeY
 
-alias topLeft              corner   top-left resize:screenSizeX/2;screenSizeY/2
-alias topRight             corner   top-right resize:screenSizeX/2;screenSizeY/2
-alias bottomLeft           corner   bottom-left resize:screenSizeX/2;screenSizeY/2
-alias bottomRight          corner   bottom-right resize:screenSizeX/2;screenSizeY/2
+alias topLeft                 corner   top-left resize:screenSizeX/2;screenSizeY/2
+alias topRight                corner   top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomLeft              corner   bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomRight             corner   bottom-right resize:screenSizeX/2;screenSizeY/2
 
 # Fixed size bindings
-bind h:ctrl;cmd            chain    ${leftHalf} | ${leftOneThird} | ${leftOneQuarter} | ${leftTwoThird}
-bind l:ctrl;cmd            chain    ${rightHalf} | ${rightOneThird} | ${rightOneQuarter} | ${rightTwoThird}
-bind k:ctrl;cmd            chain    ${topHalfHeight} | ${topTwoThirdHeight} | ${fullHeight}
-bind j:ctrl;cmd            chain    ${bottomHalfHeight} | ${bottomTwoThirdHeight} | ${fullHeight}
+bind h:ctrl;cmd               chain    ${leftHalf} | ${leftOneThird} | ${leftOneQuarter} | ${leftTwoThird}
+bind l:ctrl;cmd               chain    ${rightHalf} | ${rightOneThird} | ${rightOneQuarter} | ${rightTwoThird}
+bind k:ctrl;cmd               chain    ${topHalfHeight} | ${topTwoThirdHeight} | ${fullHeight}
+bind j:ctrl;cmd               chain    ${bottomHalfHeight} | ${bottomTwoThirdHeight} | ${fullHeight}
 
-bind c:ctrl;cmd            chain    ${centerScreenHalf} | ${centerScreenTwoThird} | ${centerScreenOneThird}
-bind c:ctrl;shift;cmd      ${centerScreen}
+bind c:ctrl;cmd               chain    ${centerScreenHalf} | ${centerScreenTwoThird} | ${centerScreenOneThird}
+bind c:ctrl;shift;cmd         ${centerScreen}
 
-bind v:ctrl;cmd            chain    ${halfWidth} | ${doubleWidth}
+bind v:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 
 # Resize Bindings
-bind l:alt                 resize +10% +0
-bind h:alt                 resize -10% +0
-bind k:alt                 resize +0   -10%
-bind j:alt                 resize +0   +10%
-bind l:ctrl;alt            resize -10% +0 bottom-right
-bind h:ctrl;alt            resize +10% +0 bottom-right
-bind k:ctrl;alt            resize +0   +10% bottom-right
-bind j:ctrl;alt            resize +0   -10% bottom-right
+bind l:alt                    resize +10% +0
+bind h:alt                    resize -10% +0
+bind k:alt                    resize +0   -10%
+bind j:alt                    resize +0   +10%
+bind l:ctrl;alt               resize -10% +0 bottom-right
+bind h:ctrl;alt               resize +10% +0 bottom-right
+bind k:ctrl;alt               resize +0   +10% bottom-right
+bind j:ctrl;alt               resize +0   -10% bottom-right
 
 # Shift Window Bindings
-bind 1:ctrl;shift          ${topLeftNoResize}
-bind 2:ctrl;shift          ${topRightNoResize}
-bind 3:ctrl;shift          ${bottomLeftNoResize}
-bind 4:ctrl;shift          ${bottomRightNoResize}
+bind 1:ctrl;shift             ${topLeftNoResize}
+bind 2:ctrl;shift             ${topRightNoResize}
+bind 3:ctrl;shift             ${bottomLeftNoResize}
+bind 4:ctrl;shift             ${bottomRightNoResize}
 
-bind 1:ctrl;shift;cmd      ${topLeft}
-bind 2:ctrl;shift;cmd      ${topRight}
-bind 3:ctrl;shift;cmd      ${bottomLeft}
-bind 4:ctrl;shift;cmd      ${bottomRight}
+bind 1:ctrl;shift;cmd         ${topLeft}
+bind 2:ctrl;shift;cmd         ${topRight}
+bind 3:ctrl;shift;cmd         ${bottomLeft}
+bind 4:ctrl;shift;cmd         ${bottomRight}
 
-bind l:ctrl;shift          ${rightWindow}
-bind h:ctrl;shift          ${leftWindow}
-bind k:ctrl;shift          ${topWindow}
-bind j:ctrl;shift          ${bottomWindow}
+bind l:ctrl;shift             ${rightWindow}
+bind h:ctrl;shift             ${leftWindow}
+bind k:ctrl;shift             ${topWindow}
+bind j:ctrl;shift             ${bottomWindow}
 
-bind l:ctrl;shift;cmd      nudge +0.5% +0
-bind h:ctrl;shift;cmd      nudge -0.5% +0
-bind k:ctrl;shift;cmd      nudge +0    -1%
-bind j:ctrl;shift;cmd      nudge +0    +1%
+bind l:ctrl;shift;cmd         nudge +0.5% +0
+bind h:ctrl;shift;cmd         nudge -0.5% +0
+bind k:ctrl;shift;cmd         nudge +0    -1%
+bind j:ctrl;shift;cmd         nudge +0    +1%
 
-bind l:cmd;shift           nudge +10% +0
-bind h:cmd;shift           nudge -10% +0
-bind k:cmd;shift           nudge +0   -10%
-bind j:cmd;shift           nudge +0   +10%
+bind l:cmd;shift              nudge +10% +0
+bind h:cmd;shift              nudge -10% +0
+bind k:cmd;shift              nudge +0   -10%
+bind j:cmd;shift              nudge +0   +10%
 
 # Throw Bindings
-bind d:ctrl;shift          chain sequence throw right > ${centerScreen} | sequence throw left > ${centerScreen}
-bind u:ctrl;shift          chain sequence throw left > ${centerScreen} | sequence throw right > ${centerScreen}
+bind d:ctrl;shift             chain sequence throw right > ${centerScreen} | sequence throw left > ${centerScreen}
+bind u:ctrl;shift             chain sequence throw left > ${centerScreen} | sequence throw right > ${centerScreen}
 
-bind l:ctrl;shift;alt      throw right resize
-bind ':ctrl;shift;alt      throw right resize
-bind h:ctrl;shift;alt      throw left  resize
-bind k:ctrl;shift;alt      throw up    resize
-bind j:ctrl;shift;alt      throw down  resize
+bind l:ctrl;shift;alt         throw right resize
+bind ':ctrl;shift;alt         throw right resize
+bind h:ctrl;shift;alt         throw left  resize
+bind k:ctrl;shift;alt         throw up    resize
+bind j:ctrl;shift;alt         throw down  resize
 
 # Focus Bindings
-bind l:cmd;alt             focus right
-bind h:cmd;alt             focus left
-bind k:cmd;alt             focus up
-bind j:cmd;alt             focus down
-bind n:cmd;alt             focus behind
+bind l:cmd;alt                focus right
+bind h:cmd;alt                focus left
+bind k:cmd;alt                focus up
+bind j:cmd;alt                focus down
+bind n:cmd;alt                focus behind
 
-# Extra bindings if Ctrl-l is occupied by vim emulation
-bind ':ctrl;alt            resize -10% +0 bottom-right
-bind ':ctrl;shift          ${rightWindow}
-bind ':ctrl;shift;cmd      nudge +0.5% +0
-bind ':ctrl;cmd            chain    ${rightHalf} | ${rightOneThird} | ${rightOneQuarter} | ${rightTwoThird}
+# Extra bindings if Ctrl-l    is occupied by vim emulation
+bind ':ctrl;alt               resize -10% +0 bottom-right
+bind ':ctrl;shift             ${rightWindow}
+bind ':ctrl;shift;cmd         nudge +0.5% +0
+bind ':ctrl;cmd               chain    ${rightHalf} | ${rightOneThird} | ${rightOneQuarter} | ${rightTwoThird}
 
 # Window Hints
 bind esc:cmd hint

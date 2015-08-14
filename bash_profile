@@ -2,7 +2,8 @@ export PATH=$HOME/bin:$PATH
 
 # Load the shell dotfiles, and then some:
 for file in {aliases,aliases.local,bash_profile.local,bash_prompt,functions}; do
-    [ -r ".$file" ] && [ -f ".$file" ] && source ".$file";
+    file="$PWD/.$file"
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 

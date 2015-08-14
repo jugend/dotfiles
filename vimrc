@@ -38,8 +38,6 @@ set incsearch
 set ignorecase
 set hlsearch
 
-"" speed up ;
-
 "" support resizing in tmux
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
@@ -406,34 +404,6 @@ autocmd FileType javascript let b:syntastic_checkers = findfile('.jshintrc', '.;
 set tags=./tags
 let g:easytags_dynamic_files = 2
 
-" YouCompleteMe and UltiSnips "
-"""""""""""""""""""""
-" https://github.com/Valloric/YouCompleteMe/issues/36
-" function! g:UltiSnips_Complete()
-"   call UltiSnips#ExpandSnippet()
-"   if g:ulti_expand_res == 0
-"     if pumvisible()
-"       return "\<C-n>"
-"     else
-"       call UltiSnips#JumpForwards()
-"       if g:ulti_jump_forwards_res == 0
-"         return "\<TAB>"
-"       endif
-"     endif
-"   endif
-"   return ""
-" endfunction
-" au BufRead,BufNewFile,BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-"
-" " let g:UltiSnipsExpandTrigger="<c-j>"
-" " let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" " let g:UltiSnipsBackwardTrigger="<c-k>"
-" let g:UltiSnipsListSnippets="<c-s>"
-" " this mapping Enter key to <C-y> to chose the current highlight item
-" " and close the selection list, same as other IDEs.
-" " CONFLICT with some plugins like tpope/Endwise
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
-
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -443,11 +413,11 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" If you want :UltiSnipsEdit to split your window.
 
+" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-"Sparkup to create HTML
+" Sparkup to create HTML
 let g:sparkupExecuteMapping = '<c-t>'
 
 " The Silver Searcher
@@ -554,7 +524,7 @@ let g:tagbar_previewwin_pos = "bottom"
 " Instant markdown
 let g:instant_markdown_autostart = 0
 
-" Dust js
+" Dust.js
 let g:surround_{char2nr('d')} = "{\r}"
 
 " Zoom / Restore window.

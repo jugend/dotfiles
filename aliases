@@ -315,26 +315,7 @@ alias fcss='ag --css'
 alias fsass='ag --sass'
 alias fsql='ag --sql'
 
-alias mvrails1='mv vendor/rails vendor/rails1'
-alias mvrails='mv vendor/rails1 vendor/rails'
-
 alias pryr='pry -r ./config/environment'
-
-###
-# SVN
-################
-alias svnup='svn up .'
-alias svnst='svn st'
-alias svnstu='svn st -u'
-alias svnc='svn commit'
-alias svnadd='svn status | grep "^\?" | awk "{print \$2}" | xargs svn add'
-alias svnl='svn log -l 10'
-alias svndr='svn diff -r'
-alias svnr='svn revert'
-alias svnrr='svn revert -R .'
-alias svncl='svn st | grep ? | awk '"'"'{print $2}'"'"' | xargs rm'
-
-alias visvnconfig='vi ~/.subversion/config'
 
 ###
 # GIT

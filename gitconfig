@@ -1,6 +1,3 @@
-[user]
-  email = herryanto@gmail.com
-  name = Herryanto Siatono
 [core]
   excludesFile = ~/.gitignore
 [alias]

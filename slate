@@ -63,7 +63,7 @@ bind j:ctrl;cmd            chain    ${bottomHalfHeight} | ${bottomTwoThirdHeight
 bind c:ctrl;cmd            chain    ${centerScreenHalf} | ${centerScreenTwoThird} | ${centerScreenOneThird}
 bind c:ctrl;shift;cmd      ${centerScreen}
 
-bind v:ctrl;cmd      chain    ${halfWidth} | ${doubleWidth}
+bind v:ctrl;cmd            chain    ${halfWidth} | ${doubleWidth}
 
 # Resize Bindings
 bind l:alt                 resize +10% +0

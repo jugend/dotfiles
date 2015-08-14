@@ -1,9 +1,11 @@
 brew update
 
 brew install ack
+brew install bash-completion
 brew install cheat
 brew install ctags
 brew install htop-osx
+brew install git
 brew install hub
 brew install jsonpp
 brew install reattach-to-user-namespace

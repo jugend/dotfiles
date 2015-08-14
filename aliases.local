@@ -173,10 +173,10 @@ alias iprenew='sudo ifconfig en0 down;sudo ifconfig en0 mtu 1500 up'
 alias ogens='genstrings ./Classes/*.m'
 
 alias m='mate'
-
-alias nd='node debug'
-alias g='grunt'
 alias r='rails'
+alias nd='node debug'
+alias gr='grunt'
+alias gu='gulp'
 alias ru='rackup'
 alias b='bundle'
 alias bi='bundle install'

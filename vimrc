@@ -488,7 +488,16 @@ endfunction
 command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
-" vim-node customization
+" Tabularize
+nnoremap <leader>a= :Tabularize /=<cr>
+vnoremap <leader>a= :Tabularize /=<cr>
+nnoremap <leader>a: :Tabularize /:<cr>
+vnoremap <leader>a: :Tabularize /:<cr>
+vnoremap <leader>a: :Tabularize /:<cr>
+vnoremap <leader>as :Tabularize / <cr>
+vnoremap <leader>as :Tabularize / <cr>
+
+" vim-node
 autocmd User Node
       \ if &filetype == "javascript" |
       \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
@@ -547,8 +556,3 @@ endfunction
 
 autocmd FileType css,scss,sass,stylus,less :call CssSetting()
 
-" Tabularize
-nnoremap <leader>a= :Tabularize /=<cr>
-vnoremap <leader>a= :Tabularize /=<cr>
-nnoremap <leader>a: :Tabularize /:<cr>
-vnoremap <leader>a: :Tabularize /:<cr>

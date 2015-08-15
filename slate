@@ -106,7 +106,6 @@ bind d:ctrl;shift             chain sequence throw right > ${centerScreen} | seq
 bind u:ctrl;shift             chain sequence throw left > ${centerScreen} | sequence throw right > ${centerScreen}
 
 bind l:ctrl;shift;alt         throw right resize
-bind ':ctrl;shift;alt         throw right resize
 bind h:ctrl;shift;alt         throw left  resize
 bind k:ctrl;shift;alt         throw up    resize
 bind j:ctrl;shift;alt         throw down  resize

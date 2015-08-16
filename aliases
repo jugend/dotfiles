@@ -277,6 +277,9 @@ alias ddocs='cd ~/Documents'
 alias dapp='cd ~/Applications'
 alias ddown='cd ~/Downloads'
 alias ddesk='cd ~/Desktop'
+alias dlib='cd ~/Library'
+alias dlpref='cd ~/Library/Preferences'
+alias dlaps='cd ~/Library/Application\ Support'
 
 # vim
 alias dvbundle='cd ~/.vim/bundle'

@@ -1,0 +1,12 @@
+{
+  "libs": [
+    "browser",
+    "jquery",
+    "express",
+    "node-express"
+  ],
+  "plugins": {
+    "node": {},
+    "node-express": {}
+  }
+}

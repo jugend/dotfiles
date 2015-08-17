@@ -122,19 +122,14 @@ bind j:ctrl;shift;alt         nudge +0    +1%
 # bind j:cmd;shift              nudge +0   +10%
 
 # Throw Bindings
-bind d:ctrl;shift             chain sequence throw right > ${center} | sequence throw left > ${center}
-bind u:ctrl;shift             chain sequence throw left > ${center} | sequence throw right > ${center}
-
-bind l:ctrl;alt;cmd           throw right
-bind h:ctrl;alt;cmd           throw left
+bind l:ctrl;alt;cmd           chain sequence throw right > ${center} | sequence throw left > ${center}
+bind h:ctrl;alt;cmd           chain sequence throw left > ${center} | sequence throw right > ${center}
 bind k:ctrl;alt;cmd           throw up
 bind j:ctrl;alt;cmd           throw down
 
 bind n:ctrl;alt;cmd           throw right resize
 bind p:ctrl;alt;cmd           throw left resize
 
-bind d:ctrl;alt;cmd           chain sequence throw right > ${center} | sequence throw left > ${center}
-bind u:ctrl;alt;cmd           chain sequence throw left > ${center} | sequence throw right > ${center}
 
 # Focus Bindings
 bind l:alt                    focus right

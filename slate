@@ -2,11 +2,12 @@
 # Slate - Vim Mode
 ##################
 
-config defaultToCurrentScreen true
-config nudgePercentOf         screenSize
-config resizePercentOf        screenSize
-config windowHintsShowIcons   true
-config windowHintsSpread      true
+config defaultToCurrentScreen         true
+config nudgePercentOf                 screenSize
+config resizePercentOf                screenSize
+config windowHintsShowIcons           true
+config windowHintsSpread              true
+config windowHintsIgnoreHiddenWindows false
 
 # Aliases
 alias full                    move     screenOriginX;screenOriginY screenSizeX;screenSizeY

@@ -54,6 +54,7 @@ alias centerThreeFifth        move     screenOriginX+((screenSizeX*2/5)/2);scree
 alias centerTwoThird          move     screenOriginX+((screenSizeX*1/3)/2);screenOriginY screenSizeX*2/3;screenSizeY
 alias centerThreeFourth       move     screenOriginX+((screenSizeX*1/4)/2);screenOriginY screenSizeX*3/4;screenSizeY
 alias centerFourFifth         move     screenOriginX+((screenSizeX*1/5)/2);screenOriginY screenSizeX*4/5;screenSizeY
+alias centerSevenEighth       move     screenOriginX+((screenSizeX*1/8)/2);screenOriginY screenSizeX*7/8;screenSizeY
 
 alias halfWidth               move     windowTopLeftX;windowTopLeftY windowSizeX/2;windowSizeY
 alias doubleWidth             move     windowTopLeftX;windowTopLeftY windowSizeX*2;windowSizeY
@@ -79,7 +80,7 @@ bind l:ctrl;cmd               chain    ${rightHalf} | ${rightTwoFifth} | ${right
 bind k:ctrl;cmd               chain    ${topHalfHeight} | ${topTwoThirdHeight} | ${fullHeight}
 bind j:ctrl;cmd               chain    ${bottomHalfHeight} | ${bottomTwoThirdHeight} | ${fullHeight}
 bind s:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
-bind c:ctrl;cmd               chain    ${centerHalf} | ${centerOneThird} | ${centerTwoFifth} | ${centerThreeFifth} | ${centerTwoThird} | ${centerThreeFourth} | ${centerFourFifth} | ${full}
+bind c:ctrl;cmd               chain    ${centerHalf} | ${centerOneThird} | ${centerTwoFifth} | ${centerThreeFifth} | ${centerTwoThird} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 
 bind h:shift;alt              chain    ${leftThreeQuarter} | ${leftTwoThird} | ${leftThreeFifth} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
 bind l:shift;alt              chain    ${rightThreeQuarter} | ${rightTwoThird} | ${rightThreeFifth} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
@@ -137,7 +138,8 @@ bind p:ctrl;alt;cmd           throw left resize
 bind l:alt                    focus right
 bind h:alt                    focus left
 bind k:alt                    focus up
-bind j:alt                    focus down
+nter
+j:alt                    focus down
 bind n:alt                    focus behind
 
 # Window Hints

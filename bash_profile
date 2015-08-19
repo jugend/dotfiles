@@ -1,4 +1,3 @@
-echo 'bash profile'
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Load the shell dotfiles, and then some:

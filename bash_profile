@@ -66,5 +66,3 @@ export GREP_COLOR='1;33'
 # Disable control flow shortcuts (C-s and C-q), so they can be used in vim
 stty -ixon -ixoff
 
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

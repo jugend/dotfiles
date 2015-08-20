@@ -172,7 +172,7 @@ cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
-cnoremap sw w !sudo tee %
+" cnoremap sw w !sudo tee %
 
 " Remap alt key for it to work in commandline mode
 execute "set <M-b>=\eb"
@@ -273,6 +273,7 @@ nnoremap <leader>mp :InstantMarkdownPreview<cr>
 
 nnoremap <leader>iw :set invwrap<cr>
 nnoremap <leader>in :set invnumber<cr>
+nnoremap <leader>il :set invlist<cr>
 nnoremap <leader>t2 :set sw=2 ts=2<cr>
 nnoremap <leader>t4 :set sw=2 ts=2<cr>
 nnoremap <leader>0 :set foldlevel=0<cr>

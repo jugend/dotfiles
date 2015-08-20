@@ -84,8 +84,9 @@ bind c:ctrl;cmd               chain    ${centerHalf} | ${centerOneThird} | ${cen
 
 bind h:shift;alt              chain    ${leftThreeQuarter} | ${leftTwoThird} | ${leftThreeFifth} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
 bind l:shift;alt              chain    ${rightThreeQuarter} | ${rightTwoThird} | ${rightThreeFifth} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
+bind c:shift;alt              chain    ${full} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerTwoThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerOneThird} | ${centerHalf}
 
-bind c:ctrl;shift;cmd         ${center}
+bind c:ctrl;shift;alt          chain ${center}
 
 # Resize Bindings
 bind l:ctrl;alt               resize +2% +0

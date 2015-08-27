@@ -164,6 +164,10 @@ alias ninsp='node-inspector'
 alias ninspnb='node-inspector --no-debug-brk'
 alias nvi='node-vim-inspector'
 
+alias 8080="PORT=8080"
+alias 8081="PORT=8081"
+alias 8082="PORT=8082"
+
 alias debugnapp='DEBUG=express:* napp'
 alias dndapp='DEBUG=express:* ndapp'
 
@@ -333,6 +337,7 @@ alias pryr='pry -r ./config/environment'
 ################
 alias gst='git status'
 alias gp='git push'
+alias gpdbranch='git push origin --delete'
 alias gpl='git pull --rebase'
 alias gd='git diff'
 alias gc='git commit -v'

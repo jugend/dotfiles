@@ -90,7 +90,7 @@ set title
 if (&t_Co == 256 || has('gui_running'))
   " $TERM_PROGRAM not set in sudo vim
   if (($TERM_PROGRAM == '') || ($TERM_PROGRAM == 'iTerm.app'))
-    colorscheme solarized
+  colorscheme solarized
   else
     colorscheme molokai
   endif
@@ -199,12 +199,12 @@ nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
 nnoremap <leader>] :TagbarToggle<cr>
-nnoremap <leader><space> :call whitespace#strip_trailing()<cr>
 nnoremap <leader>G :GitGutterToggle<cr>
 nnoremap <leader>i :IndentGuidesToggle<cr>
 nnoremap <leader>W :ToggleWhitespace<cr>
-nnoremap <leader><leader>z :ZoomToggle<cr>
+nnoremap <leader>z :ZoomToggle<cr>
 
+nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
 nnoremap <silent><leader>si :call ToggleAgSkipVcsIgnores()<cr>:NERDTree<cr>:wincmd l<cr>
 
 nnoremap <leader>w :w<cr>
@@ -369,6 +369,7 @@ let php_parent_error_close=1
 
 " better-whitespace
 let g:strip_whitespace_on_save = 1
+let g:better_whitespace_filetypes_blacklist=['dustjs']
 
 " Recommended ragtag mapping
 " noremap <M-o>        <Esc>o
@@ -396,7 +397,10 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
 " let g:syntastic_javascript_checkers = ['eslint']
 
-autocmd FileType javascript let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']
+autocmd FileType javascript
+  \ let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint'] |
+  \ call JavaScriptFold() |
+  \ setl foldlevelstart=99
 
 " mxw/vim-jsx plugin
 " let g:jsx_ext_requirpd = 0 " Allow JSX in normal JS files, causing filetype set to javascript.jsx

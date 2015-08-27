@@ -86,7 +86,7 @@ Plugin 'bling/vim-airline'
 
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'marijnh/tern_for_vim'
 Plugin 'Raimondi/delimitMate'
 " To help to resolve conflict between YouCompleteMe and Ultisnips
 Plugin 'ervandew/supertab'

@@ -139,8 +139,7 @@ bind p:ctrl;alt;cmd           throw left resize
 bind l:alt                    focus right
 bind h:alt                    focus left
 bind k:alt                    focus up
-nter
-j:alt                    focus down
+bind:j:alt                    focus down
 bind n:alt                    focus behind
 
 # Window Hints

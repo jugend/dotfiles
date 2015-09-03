@@ -25,6 +25,7 @@ alias leftHalf                move     screenOriginX;screenOriginY screenSizeX/2
 alias leftTwoFifth            move     screenOriginX;screenOriginY screenSizeX*2/5;screenSizeY
 alias leftOneThird            move     screenOriginX;screenOriginY screenSizeX/3;screenSizeY
 alias leftThreeTenth          move     screenOriginX;screenOriginY screenSizeX*3/10;screenSizeY
+alias leftSevenTenth          move     screenOriginX;screenOriginY screenSizeX*7/10;screenSizeY
 alias leftOneQuarter          move     screenOriginX;screenOriginY screenSizeX*1/4;screenSizeY
 alias leftOneFifth            move     screenOriginX;screenOriginY screenSizeX*1/5;screenSizeY
 alias leftOneSixth            move     screenOriginX;screenOriginY screenSizeX*1/6;screenSizeY
@@ -37,6 +38,7 @@ alias rightHalf               move     screenOriginX+screenSizeX/2;screenOriginY
 alias rightTwoFifth           move     screenOriginX+screenSizeX*3/5;screenOriginY screenSizeX*2/5;screenSizeY
 alias rightOneThird           move     screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX*1/3;screenSizeY
 alias rightThreeTenth         move     screenOriginX+screenSizeX*7/10;screenOriginY screenSizeX*3/10;screenSizeY
+alias rightSevenTenth         move     screenOriginX+screenSizeX*3/10;screenOriginY screenSizeX*7/10;screenSizeY
 alias rightOneQuarter         move     screenOriginX+screenSizeX*3/4;screenOriginY screenSizeX*1/4;screenSizeY
 alias rightOneFifth           move     screenOriginX+screenSizeX*4/5;screenOriginY screenSizeX*1/5;screenSizeY
 alias rightOneSixth           move     screenOriginX+screenSizeX*5/6;screenOriginY screenSizeX*1/6;screenSizeY
@@ -81,9 +83,10 @@ bind k:ctrl;cmd               chain    ${topHalfHeight} | ${topTwoThirdHeight} |
 bind j:ctrl;cmd               chain    ${bottomHalfHeight} | ${bottomTwoThirdHeight} | ${fullHeight}
 bind s:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 bind c:ctrl;cmd               chain    ${centerHalf} | ${centerOneThird} | ${centerTwoFifth} | ${centerThreeFifth} | ${centerTwoThird} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
+bind f:ctrl;cmd               chain    ${full} | ${centerHalf}
 
-bind h:shift;alt              chain    ${leftThreeQuarter} | ${leftTwoThird} | ${leftThreeFifth} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
-bind l:shift;alt              chain    ${rightThreeQuarter} | ${rightTwoThird} | ${rightThreeFifth} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
+bind h:shift;alt              chain    ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftThreeFifth} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
+bind l:shift;alt              chain    ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightThreeFifth} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
 bind c:shift;alt              chain    ${full} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerTwoThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerOneThird} | ${centerHalf}
 
 bind c:ctrl;shift;alt          chain ${center}

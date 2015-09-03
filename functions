@@ -61,3 +61,6 @@ if [ -f ~/.aliases.local ]; then
   . ~/.aliases.local
 fi
 
+function dmenvset() {
+  eval "$(docker-machine env $1)"
+}

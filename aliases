@@ -248,10 +248,27 @@ alias sedi='sed -i ""'
 alias mocha6='mocha --compilers js:babel/register'
 
 # istanbul
-
 alias is='istanbul'
 alias isc='is cover --report text --report html'
 alias iscmoc='isc _mocha'
+
+# docker
+alias d='docker'
+alias dr='docker run'
+alias dim='docker images'
+alias drdp='docker run -d -P'   # run as daemon and expose port
+alias dps='docker ps'           # show processes
+alias dpweb='docker port web'   # view container's ports
+alias dst='docker stop'
+alias drm='docker rm'
+
+# docker-machine
+alias dm='docker-machine'
+alias dmc='dm create --driver virtualbox'
+alias dmls='dm ls'
+alias dme='dm env'              # display env vars
+alias dmeset='dmenvset'         # export env vars
+alias dmip='dm ip'              # docker machine ip
 
 ##
 # iOS Commands
@@ -400,3 +417,4 @@ alias cjpg='jpegtran -copy none -progressive'
 alias cjpgs='jpegtran -copy none -optimize' # image less than 10K
 alias cpng='optipng'
 alias idenv='identify -verbose'
+

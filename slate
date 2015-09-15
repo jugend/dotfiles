@@ -140,7 +140,7 @@ bind l:alt                    focus right
 bind h:alt                    focus left
 bind k:alt                    focus up
 bind:j:alt                    focus down
-bind n:alt                    focus behind
+bind:n:alt                    focus behind
 
 # Window Hints
 bind esc:cmd hint

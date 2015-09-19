@@ -74,9 +74,6 @@ autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-" change focus back to the open file
-autocmd VimEnter * wincmd p
-
 "" ui
 set background=dark
 set ruler
@@ -190,7 +187,7 @@ noremap <C-l> <C-w>l
 noremap <leader>l :Align
 nnoremap <leader>a :Ack<space>
 nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>d :NERDTreeToggle<cr>
+nnoremap <leader>d :NERDTreeTabsToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
 nnoremap <leader>] :TagbarToggle<cr>
@@ -364,6 +361,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:nerdtree_tabs_open_on_console_startup = 1
+
 " bufexplorer & buffergator
 let g:bufExplorerShowRelativePath=1
 let g:buffergator_suppress_keymaps=1
@@ -466,8 +465,12 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', '\.log$', '\.git$', '\.sass-cache$']
 
-autocmd VimEnter * NERDTree
-autocmd BufEnter * silent NERDTreeMirror
+" Replaced with vim-nerdtree-tabs, do not use vundle to install, instad copyh .vim file to ~/.vim/plugin
+" to open NERDTree on start
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd l
+" autocmd BufEnter * silent NERDTreeMirror
+" autocmd BufEnter * wincmd l
 
 " CtrlP settings
 " Doesn't work with ag search, use .agitignore
@@ -571,4 +574,3 @@ function! CssSetting()
 endfunction
 
 autocmd FileType css,scss,sass,stylus,less :call CssSetting()
-

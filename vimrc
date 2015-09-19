@@ -74,9 +74,6 @@ autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-" auto start NERDTree
-autocmd VimEnter * NERDTree
-
 " change focus back to the open file
 autocmd VimEnter * wincmd p
 
@@ -468,6 +465,9 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " NerdTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', '\.log$', '\.git$', '\.sass-cache$']
+
+autocmd VimEnter * NERDTree
+autocmd BufEnter * silent NERDTreeMirror
 
 " CtrlP settings
 " Doesn't work with ag search, use .agitignore

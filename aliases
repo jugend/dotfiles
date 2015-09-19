@@ -4,13 +4,14 @@
 
 alias ..='cd ..'
 alias ...='cd ../..'
+alias hh='cd'
+alias bb='cd -'
 alias l='ls -GFlah'
 alias o='open .'
 alias c='clear'
 alias f='fg'
 alias s='subl'
 alias h='help'
-alias hh='cd'
 alias i='info --vi-keys'
 alias j=jobs
 alias f=fg

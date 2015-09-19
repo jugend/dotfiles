@@ -274,9 +274,10 @@ nnoremap <leader>iw :set invwrap<cr>
 nnoremap <leader>in :set invnumber<cr>
 nnoremap <leader>il :set invlist<cr>
 nnoremap <leader>ic :set invignorecase<cr>
-nnoremap <leader>if :set invfoldcolumn<cr>
 nnoremap <leader>t2 :set sw=2 ts=2<cr>
 nnoremap <leader>t4 :set sw=2 ts=2<cr>
+nnoremap <leader>ff :set foldcolumn=2<cr>
+nnoremap <leader>F :set foldcolumn=0<cr>
 nnoremap <leader>0 :set foldlevel=0<cr>
 nnoremap <leader>1 :set foldlevel=1<cr>
 nnoremap <leader>2 :set foldlevel=2<cr>

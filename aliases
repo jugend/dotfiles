@@ -239,7 +239,9 @@ alias grh='grunt --help'
 alias grve='grunt --verbose'
 alias grd='grunt --debug'
 
-alias gulpt='gulp -T'
+# Gulp
+alias gut='gulp --tasks'
+alias guts='gulp --tasks-simple'
 
 # sed
 alias sedi='sed -i ""'

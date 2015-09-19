@@ -1,4 +1,4 @@
-""""""""""""""""""""""""'
+"""""""""""""""""""""""'
 " vimrc
 "
 """"""""""""""""""""""""
@@ -109,8 +109,7 @@ set foldmethod=indent
 set foldlevelstart=99
 set foldnestmax=10
 set foldminlines=1
-set foldcolumn=2
-
+set foldcolumn=0
 
 "" Vundle
 
@@ -274,6 +273,8 @@ nnoremap <leader>mp :InstantMarkdownPreview<cr>
 nnoremap <leader>iw :set invwrap<cr>
 nnoremap <leader>in :set invnumber<cr>
 nnoremap <leader>il :set invlist<cr>
+nnoremap <leader>ic :set invignorecase<cr>
+nnoremap <leader>if :set invfoldcolumn<cr>
 nnoremap <leader>t2 :set sw=2 ts=2<cr>
 nnoremap <leader>t4 :set sw=2 ts=2<cr>
 nnoremap <leader>0 :set foldlevel=0<cr>

@@ -110,15 +110,15 @@ bind 2:ctrl;alt               ${topRight}
 bind 3:ctrl;alt               ${bottomLeft}
 bind 4:ctrl;alt               ${bottomRight}
 
-bind l:ctrl;shift             ${rightWindow}
-bind h:ctrl;shift             ${leftWindow}
-bind k:ctrl;shift             ${topWindow}
-bind j:ctrl;shift             ${bottomWindow}
+bind l:ctrl;shift             nudge +0.5% +0
+bind h:ctrl;shift             nudge -0.5% +0
+bind k:ctrl;shift             nudge +0    -1%
+bind j:ctrl;shift             nudge +0    +1%
 
-bind l:ctrl;shift;alt         nudge +0.5% +0
-bind h:ctrl;shift;alt         nudge -0.5% +0
-bind k:ctrl;shift;alt         nudge +0    -1%
-bind j:ctrl;shift;alt         nudge +0    +1%
+bind l:ctrl;shift;alt         ${rightWindow}
+bind h:ctrl;shift;alt         ${leftWindow}
+bind k:ctrl;shift;alt         ${topWindow}
+bind j:ctrl;shift;alt         ${bottomWindow}
 
 # bind l:cmd;shift              nudge +10% +0
 # bind h:cmd;shift              nudge -10% +0

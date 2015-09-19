@@ -195,7 +195,6 @@ nnoremap <leader>a :Ack<space>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
-nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
 nnoremap <leader>] :TagbarToggle<cr>
 nnoremap <leader>G :GitGutterToggle<cr>
@@ -236,7 +235,7 @@ nnoremap <leader>R :redraw!<cr>
 nnoremap <leader>ss /\C
 nnoremap <leader>cr :ChromeReload<cr>
 nnoremap <leader>wc :let<space>g:ctrlp_working_path_mode='c'<cr>
-nnoremap <leader>wr :let<space>g:ctrlp_working_path_mode='ra'<cr>
+nnoremap <leader>wp :let<space>g:ctrlp_working_path_mode='ra'<cr>
 
 nnoremap <leader>o :!open %<cr>
 nnoremap <leader>od :!open .<cr>
@@ -278,16 +277,16 @@ nnoremap <leader>t2 :set sw=2 ts=2<cr>
 nnoremap <leader>t4 :set sw=2 ts=2<cr>
 nnoremap <leader>ff :set foldcolumn=2<cr>
 nnoremap <leader>F :set foldcolumn=0<cr>
-nnoremap <leader>0 :set foldlevel=0<cr>
-nnoremap <leader>1 :set foldlevel=1<cr>
-nnoremap <leader>2 :set foldlevel=2<cr>
-nnoremap <leader>3 :set foldlevel=3<cr>
-nnoremap <leader>4 :set foldlevel=4<cr>
-nnoremap <leader>5 :set foldlevel=5<cr>
-nnoremap <leader>9 :set foldlevel=99<cr>
+nnoremap <leader><leader>0 :set foldlevel=0<cr>
+nnoremap <leader><leader>1 :set foldlevel=1<cr>
+nnoremap <leader><leader>2 :set foldlevel=2<cr>
+nnoremap <leader><leader>3 :set foldlevel=3<cr>
+nnoremap <leader><leader>4 :set foldlevel=4<cr>
+nnoremap <leader><leader>5 :set foldlevel=5<cr>
+nnoremap <leader><leader>9 :set foldlevel=99<cr>
 
 " Space to toggle folds
-nnoremap <leader><Space> zA
+" nnoremap <leader><Space> zA
 
 " fugitive git bindings
 nnoremap <leader>ga :Git add %:p<cr><cr>
@@ -307,7 +306,18 @@ nnoremap <leader>gps :Dispatch! git push<cr>
 nnoremap <leader>gpl :Dispatch! git pull<cr>
 
 " Tab mappings
-nnoremap <leader>tt :tabnew<cr>
+nnoremap <leader><Space> :tabnext<cr>
+nnoremap <leader><leader><Space> :tabprevious<cr>
+nnoremap <leader>1 :tabn 1<cr>
+nnoremap <leader>2 :tabn 2<cr>
+nnoremap <leader>3 :tabn 3<cr>
+nnoremap <leader>4 :tabn 4<cr>
+nnoremap <leader>5 :tabn 5<cr>
+nnoremap <leader>6 :tabn 6<cr>
+nnoremap <leader>7 :tabn 7<cr>
+nnoremap <leader>8 :tabn 8<cr>
+
+nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>te :tabedit
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tol :tabonly<cr>
@@ -315,7 +325,6 @@ nnoremap <leader>tn :tabnext<cr>
 nnoremap <leader>tp :tabprevious<cr>
 nnoremap <leader>tl :tabfirst<cr>
 nnoremap <leader>tl :tablast<cr>
-nnoremap <leader>tm :tabmove
 
 " Tern mappings
 nnoremap <leader>rd :TernDoc<cr>

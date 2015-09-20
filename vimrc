@@ -471,7 +471,6 @@ autocmd VimEnter * wincmd l
 " Doesn't work with ag search, use .agitignore
 " let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Storegit|hg|svn|optimized|compiled|node_modules)$'
 let g:ctrlp_match_window = 'order:ttb,max:20'
-let g:ctrlp_working_path_mode = 'c'
 
 " delimitMate, auto indent after braces
 let delimitMate_expand_cr=1

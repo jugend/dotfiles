@@ -45,6 +45,10 @@ gitbrowsenpm() {
   npmrepo $1 | sed "s/.git$//" | xargs open
 }
 
+gitdelremotebranch() {
+  git branch -D $1; git push origin :$1
+}
+
 visnip() {
   vi $1.snippets
 }
@@ -63,4 +67,9 @@ fi
 
 function dmenvset() {
   eval "$(docker-machine env $1)"
+}
+
+# Babel
+function babelwatch() {
+  babel --watch $1 --out-dir $2
 }

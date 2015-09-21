@@ -115,3 +115,46 @@ endsnippet
 snippet modex "module.exports = ClassName" b
 module.exports = ${1:ClassName};
 endsnippet
+
+# Mocha
+snippet describe "Mocha describe"
+describe("`!p snip.rv = fn.split(os.extsep)[0]`", function() {
+	$0
+});
+endsnippet
+
+snippet desc "Mocha describe verbose"
+describe("${1:`!p snip.rv = fn.split(os.extsep)[0]`}", function() {
+	$0
+});
+endsnippet
+
+snippet it "Mocha it"
+it("${1:It}", function() {
+	$0
+});
+endsnippet
+
+snippet bee "Mocha beforeEach"
+beforeEach(function() {
+	$0
+});
+endsnippet
+
+snippet afe "Mocha afterEach"
+afterEach(function() {
+	$0
+});
+endsnippet
+
+snippet before "Mocha before"
+before(function(done) {
+	$0
+});
+endsnippet
+
+snippet after "Mocha after"
+after(function(done) {
+	$0
+});
+endsnippet

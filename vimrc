@@ -186,7 +186,7 @@ noremap <C-l> <C-w>l
 
 noremap <leader>l :Align
 nnoremap <leader>a :Ack<space>
-nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <C-b> :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
@@ -223,6 +223,7 @@ nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
 nnoremap <leader>rw :%s/<C-r><C-w>/
 vnoremap <leader>rw y:%s/<C-r>"/
+nnoremap <leader>ru y:%s/function(/function (/<cr>
 nnoremap <leader>rm :exe "!rm ~/tmp/%.sw*"<cr><cr>:echo 'swap files removed'<cr>
 nnoremap <leader>ri gg=G<cr>
 nnoremap <leader>R :redraw!<cr>
@@ -237,6 +238,7 @@ nnoremap <leader>e :e<space>
 nnoremap <leader>er :e<cr>
 nnoremap <leader>ev :e ~/.vimrc<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
+nnoremap <leader>el :!eslint %<cr>
 nnoremap <leader>es :e ~/.slate<cr>
 nnoremap <leader>eu :UltiSnipsEdit<cr>
 nnoremap <leader>N :noh<cr>

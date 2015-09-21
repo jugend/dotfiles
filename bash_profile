@@ -66,3 +66,5 @@ export GREP_COLOR='1;33'
 # Disable control flow shortcuts (C-s and C-q), so they can be used in vim
 stty -ixon -ixoff
 
+# Alt-h used by slate to switch focus, adding additional shortcut
+bind '"\ex": backward-delete-char'

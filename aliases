@@ -4,13 +4,16 @@
 
 alias ..='cd ..'
 alias ...='cd ../..'
+alias hh='cd'
+alias bb='cd -'
 alias l='ls -GFlah'
+alias v='vim'
+alias vimd='vim -D'
 alias o='open .'
 alias c='clear'
 alias f='fg'
 alias s='subl'
 alias h='help'
-alias hh='cd'
 alias i='info --vi-keys'
 alias j=jobs
 alias f=fg
@@ -239,7 +242,9 @@ alias grh='grunt --help'
 alias grve='grunt --verbose'
 alias grd='grunt --debug'
 
-alias gulpt='gulp -T'
+# Gulp
+alias gut='gulp --tasks'
+alias guts='gulp --tasks-simple'
 
 # sed
 alias sedi='sed -i ""'
@@ -305,6 +310,7 @@ alias dvol='cd /Volumes'
 alias detc='cd /etc'
 
 # vim
+alias dvim='cd ~/.vim/'
 alias dvbundle='cd ~/.vim/bundle'
 alias dvsnip='cd ~/.vim/bundle/vim-snippets/snippets'
 alias dvulti='cd ~/.vim/bundle/vim-snippets/UltiSnips'

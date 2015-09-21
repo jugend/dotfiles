@@ -186,7 +186,7 @@ noremap <C-l> <C-w>l
 
 noremap <leader>l :Align
 nnoremap <leader>a :Ack<space>
-nnoremap <C-b> :CtrlPBuffer<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
@@ -455,11 +455,11 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
 
 " map <c-f> :call JsBeautify()<cr>
 " or
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <leader>F :call JsBeautify()<cr>
 " for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType html noremap <buffer> <leader>F :call HtmlBeautify()<cr>
 " for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType css noremap <buffer> <leader>F :call CSSBeautify()<cr>
 
 " NerdTree
 let NERDTreeShowHidden=1

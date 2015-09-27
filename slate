@@ -87,7 +87,7 @@ bind f:ctrl;cmd               chain    ${full} | ${centerTwoThird} | ${centerHal
 
 bind h:shift;alt              chain    ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftThreeFifth} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
 bind l:shift;alt              chain    ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightThreeFifth} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
-bind c:shift;alt              chain    ${centerOneThird} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerTwoThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerHalf}
+bind c:shift;alt              chain    ${centerTwoFifth} | ${centerOneThird} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerTwoThird} | ${centerThreeFifth} | ${centerHalf}
 
 bind c:ctrl;shift;alt          chain ${center}
 

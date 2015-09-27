@@ -229,8 +229,8 @@ nnoremap <leader>ri gg=G<cr>
 nnoremap <leader>R :redraw!<cr>
 nnoremap <leader>ss /\C
 nnoremap <leader>cr :ChromeReload<cr>
-nnoremap <leader>wc :let<space>g:ctrlp_working_path_mode='c'<cr>
-nnoremap <leader>wp :let<space>g:ctrlp_working_path_mode='ra'<cr>
+nnoremap <leader>wc :let<space>g:ctrlp_working_path_mode=0<cr>
+nnoremap <leader>wd :let<space>g:ctrlp_working_path_mode='ra'<cr>
 
 nnoremap <leader>o :!open %<cr>
 nnoremap <leader>od :!open .<cr>

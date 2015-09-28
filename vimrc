@@ -212,6 +212,8 @@ nnoremap <leader><leader>h :Dash<cr>
 nnoremap <leader>bd :bd<cr>
 nnoremap <leader>bd! :bd!<cr>
 nnoremap <leader>ba :ba<cr>
+nnoremap <leader>bo :bufdo<space>
+nnoremap <leader>br :bufdo e!<cr>
 nnoremap <leader>vba :vert ba<cr>
 nnoremap <leader>j :BuffergatorMruCyclePrev<cr>
 nnoremap <leader>J :BuffergatorMruCycleNext<cr>

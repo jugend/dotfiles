@@ -78,7 +78,7 @@ Plugin 'mxw/vim-jsx'
 
 " Tags
 " Make use of jsctags to parse, slow to load especially for large files
-" Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 "
 " Performance issue, slow on save
 " Plugin "xolox/vim-easytags'

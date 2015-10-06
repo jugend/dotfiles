@@ -142,7 +142,7 @@ alias sid10='siege -c 1 -d 10 -r 10'
 
 # Node
 alias nh='node --harmony'
-alias ng='node --harmony-generators'
+alias nhg='node --harmony-generators'
 alias ndev='node-dev'
 alias nmon='nodemon'
 alias nmona='nodemon app.js'

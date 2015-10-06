@@ -22,6 +22,7 @@ set directory-=.
 set timeoutlen=400
 set splitbelow
 set splitright
+set foldopen-=search
 " set smartcase
 
 set wildmenu
@@ -212,6 +213,8 @@ nnoremap <leader><leader>h :Dash<cr>
 nnoremap <leader>bd :bd<cr>
 nnoremap <leader>bd! :bd!<cr>
 nnoremap <leader>ba :ba<cr>
+nnoremap <leader>bo :bufdo<space>
+nnoremap <leader>br :bufdo e!<cr>
 nnoremap <leader>vba :vert ba<cr>
 nnoremap <leader>j :BuffergatorMruCyclePrev<cr>
 nnoremap <leader>J :BuffergatorMruCycleNext<cr>
@@ -280,9 +283,10 @@ nnoremap <leader><leader>3 :set foldlevel=3<cr>
 nnoremap <leader><leader>4 :set foldlevel=4<cr>
 nnoremap <leader><leader>5 :set foldlevel=5<cr>
 nnoremap <leader><leader>9 :set foldlevel=99<cr>
+nnoremap <leader><leader><leader> :set foldlevel=99<cr>
 
 " Space to toggle folds
-" nnoremap <leader><Space> zA
+nnoremap <leader><leader>f zA
 
 " fugitive git bindings
 nnoremap <leader>ga :Git add %:p<cr><cr>

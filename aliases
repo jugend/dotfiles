@@ -140,7 +140,7 @@ alias sid10='siege -c 1 -d 10 -r 10'
 
 # Node
 alias nh='node --harmony'
-alias ng='node --harmony-generators'
+alias nhg='node --harmony-generators'
 alias ndev='node-dev'
 alias nmon='nodemon'
 alias nmona='nodemon app.js'
@@ -290,6 +290,7 @@ alias ifsusage='sudo fs_usage'
 
 # Swift
 alias s="swift"
+alias xs="xcrun swift"
 
 # Xcode
 alias xcclean="rm -frd ~/Library/Developer/Xcode/DerivedData/* && rm -frd ~/Library/Caches/com.apple.dt.Xcode/*"

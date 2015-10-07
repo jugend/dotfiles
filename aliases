@@ -292,7 +292,6 @@ alias ifsusage='sudo fs_usage'
 
 # Swift
 alias s="swift"
-alias xs="xcrun swift"
 
 # Xcode
 alias xcclean="rm -frd ~/Library/Developer/Xcode/DerivedData/* && rm -frd ~/Library/Caches/com.apple.dt.Xcode/*"

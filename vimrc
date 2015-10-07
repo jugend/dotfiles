@@ -196,6 +196,7 @@ nnoremap <leader>G :GitGutterToggle<cr>
 nnoremap <leader>i :IndentGuidesToggle<cr>
 nnoremap <leader>W :ToggleWhitespace<cr>
 nnoremap <leader>z :ZoomToggle<cr>
+nnoremap <leader>/ /
 
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
 nnoremap <silent><leader>si :call ToggleAgSkipVcsIgnores()<cr>:NERDTree<cr>:wincmd l<cr>
@@ -244,7 +245,8 @@ nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
 nnoremap <leader>el :!eslint %<cr>
 nnoremap <leader>es :e ~/.slate<cr>
 nnoremap <leader>eu :UltiSnipsEdit<cr>
-nnoremap <leader>N :noh<cr>
+nnoremap <leader>N :nohlsearch<cr>
+nnoremap <leader>n />><cr>
 nnoremap <leader>ch :helpc<cr>
 nnoremap <leader>hg :helpg<space>
 nnoremap <leader>lf :lfirst<cr>

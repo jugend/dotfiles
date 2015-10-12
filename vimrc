@@ -151,8 +151,8 @@ inoremap <C-s> <C-o>:w<cr>
 nnoremap <C-s> :w<cr>
 
 " Very magic regex
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 " Command line shortcut
 cnoremap <C-l> <C-c>
@@ -196,7 +196,7 @@ nnoremap <leader>G :GitGutterToggle<cr>
 nnoremap <leader>i :IndentGuidesToggle<cr>
 nnoremap <leader>W :ToggleWhitespace<cr>
 nnoremap <leader>z :ZoomToggle<cr>
-nnoremap <leader>/ /
+nnoremap <leader>/ /\v
 
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
 nnoremap <silent><leader>si :call ToggleAgSkipVcsIgnores()<cr>:NERDTree<cr>:wincmd l<cr>

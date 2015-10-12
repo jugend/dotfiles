@@ -239,6 +239,7 @@ nnoremap <leader>wd :let<space>g:ctrlp_working_path_mode='ra'<cr>
 nnoremap <leader>o :!open %<cr>
 nnoremap <leader>od :!open .<cr>
 nnoremap <leader>e :e<space>
+nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e<cr>
 nnoremap <leader>ev :e ~/.vimrc<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>

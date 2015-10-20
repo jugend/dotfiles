@@ -53,6 +53,9 @@ Plugin 'mileszs/ack.vim'
 " ag.vim search result shows a split second distorted window
 " Plugin 'rking/ag.vim'
 
+" Replace
+Plugin 'terryma/vim-multiple-cursors'
+
 " HTML Tag
 Plugin 'ragtag.vim'
 Plugin 'surround.vim'

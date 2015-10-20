@@ -128,6 +128,8 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
+
+
 " Quicker word move
 " nnoremap w W
 " nnoremap W w
@@ -139,6 +141,11 @@ inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>l
 inoremap <C-b> <C-o>h
 inoremap <C-a> <C-o>0
+
+nnoremap H ^
+nnoremap L $
+nnoremap ^ H
+nnoremap $ L
 
 " Change mapleader to comma to be more productive
 let mapleader=","
@@ -292,6 +299,7 @@ nnoremap <leader><leader><leader> :set foldlevel=99<cr>
 nnoremap <leader><leader>f zA
 
 " fugitive git bindings
+nnoremap <leader>g :Git<space>
 nnoremap <leader>ga :Git add %:p<cr><cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit -v -q<cr>

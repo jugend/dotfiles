@@ -357,8 +357,8 @@ alias pryr='pry -r ./config/environment'
 ###
 # GIT
 ################
-alias gad='git add'
-alias gada='git add .'
+alias ga='git add'
+alias gad='git add .'
 alias gap='git add --patch'
 alias gb='git branch'
 alias gbd='git branch -d'

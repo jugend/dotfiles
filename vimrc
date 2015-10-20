@@ -144,8 +144,6 @@ inoremap <C-a> <C-o>0
 
 nnoremap H ^
 nnoremap L $
-nnoremap ^ H
-nnoremap $ L
 
 " Change mapleader to comma to be more productive
 let mapleader=","
@@ -155,10 +153,12 @@ inoremap jk <esc>
 inoremap jj <esc>
 inoremap <C-l> <esc>
 inoremap <C-s> <C-o>:w<cr>
-nnoremap <C-s> :w<cr>
+
+vnoremap <C-l> <esc>
+vnoremap <C-s> :w<cr>
 
 " Very magic regex
-" nnoremap / /\v
+" vnoremap / /\v
 " vnoremap / /\v
 
 " Command line shortcut
@@ -192,7 +192,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-noremap <leader>l :Align
+nnoremap <leader>l :Align<cr>
 nnoremap <leader>a :Ack<space>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
@@ -277,6 +277,7 @@ nnoremap <leader>sc :SyntasticCheck<cr>
 nnoremap <leader>sr :SyntasticReset<cr>
 nnoremap <leader>st :SyntasticToggleMode<cr>
 nnoremap <leader>mp :InstantMarkdownPreview<cr>
+nnoremap <leader>mf :MultipleCursorsFind<space>
 
 nnoremap <leader>iw :set invwrap<cr>
 nnoremap <leader>in :set invnumber<cr>
@@ -494,6 +495,10 @@ let delimitMate_expand_cr=1
 
 " vim-better-whitepace color
 highlight ExtraWhitespace ctermbg=238 guibg=#465457
+
+" multi-cursors
+let g:multi_cursor_quit_key='<C-c>'
+nnoremap <C-c> :call multiple_cursors#quit()<cr>
 
 " Tern config
 " Enable keyboard shortcuts

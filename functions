@@ -73,3 +73,11 @@ function dmenvset() {
 function babelwatch() {
   babel --watch $1 --out-dir $2
 }
+
+function browsersyncfiles() {
+  browser-sync start --server --files "$1"
+}
+
+function browsersyncproxy() {
+  browser-sync start --proxy "$1" --files "$2"
+}

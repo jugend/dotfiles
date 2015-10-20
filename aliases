@@ -65,7 +65,7 @@ alias vihosts='sudo vi /etc/hosts'
 
 # reload scripts
 alias rbash='source ~/.bash_profile'
-alias ralias='source ~/.aliases; source ~/.aliases.local'
+alias ralias='source ~/.aliases; source ~/.aliases.local; source ~/.functions'
 
 # tmux
 alias tm='tmux'
@@ -444,3 +444,9 @@ alias bwatch='babelwatch'
 alias bwsrc='bwatch src/'
 alias bwsdist='bwatch src/ dist/'
 alias bwsbuild='bwatch src/ build/'
+
+# Browsersync
+alias bsync='browser-sync'
+alias bsfiles='browsersyncfiles'
+alias bsproxy='browsersyncproxy'
+alias bsplocal='browsersyncproxy localhost'

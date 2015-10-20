@@ -223,6 +223,7 @@ nnoremap <leader>bd! :bd!<cr>
 nnoremap <leader>ba :ba<cr>
 nnoremap <leader>bo :bufdo<space>
 nnoremap <leader>br :bufdo e!<cr>
+nnoremap <leader>bq :bufdo bd<cr>
 nnoremap <leader>vba :vert ba<cr>
 nnoremap <leader>j :BuffergatorMruCyclePrev<cr>
 nnoremap <leader>J :BuffergatorMruCycleNext<cr>
@@ -250,11 +251,14 @@ nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e<cr>
 nnoremap <leader>ev :e ~/.vimrc<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
+nnoremap <leader>ea :e ~/.aliases<cr>
+nnoremap <leader>eal :e ~/.aliases.local<cr>
+nnoremap <leader>ef :e ~/.functions<cr>
 nnoremap <leader>el :!eslint %<cr>
 nnoremap <leader>es :e ~/.slate<cr>
 nnoremap <leader>eu :UltiSnipsEdit<cr>
 nnoremap <leader>N :nohlsearch<cr>
-nnoremap <leader>n />><cr>
+nnoremap <leader>n />>><cr>
 nnoremap <leader>ch :helpc<cr>
 nnoremap <leader>hg :helpg<space>
 nnoremap <leader>lf :lfirst<cr>
@@ -283,10 +287,13 @@ nnoremap <leader>iw :set invwrap<cr>
 nnoremap <leader>in :set invnumber<cr>
 nnoremap <leader>il :set invlist<cr>
 nnoremap <leader>ic :set invignorecase<cr>
+nnoremap <leader>fo :set foldcolumn=2<cr>
+nnoremap <leader>fc :set foldcolumn=0<cr>
 nnoremap <leader>t2 :set sw=2 ts=2<cr>
 nnoremap <leader>t4 :set sw=2 ts=2<cr>
-nnoremap <leader>ff :set foldcolumn=2<cr>
-nnoremap <leader>F :set foldcolumn=0<cr>
+nnoremap <leader>k :set foldlevel=0<cr>
+nnoremap <leader>kk :set foldlevel=1<cr>
+nnoremap <leader>K :set foldlevel=2<cr>
 nnoremap <leader><leader>0 :set foldlevel=0<cr>
 nnoremap <leader><leader>1 :set foldlevel=1<cr>
 nnoremap <leader><leader>2 :set foldlevel=2<cr>
@@ -417,7 +424,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
-let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
+" let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
 " let g:syntastic_javascript_checkers = ['eslint']
 
 autocmd FileType javascript
@@ -532,6 +539,8 @@ vnoremap <leader>a: :Tabularize /:<cr>
 vnoremap <leader>a: :Tabularize /:<cr>
 vnoremap <leader>as :Tabularize / <cr>
 vnoremap <leader>as :Tabularize / <cr>
+vnoremap <leader>at :Tabularize /\t<cr>
+vnoremap <leader>at :Tabularize /\t<cr>
 
 " vim-node
 autocmd User Node
@@ -539,9 +548,6 @@ autocmd User Node
       \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
       \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
       \ endif
-
-" map another key to <Plug>Vsurround
-:vmap <Leader>s <Plug>Vsurround
 
 " Invert ag --skip-vcs-ignores
 let g:ag_skip_vcs_ignores = 0

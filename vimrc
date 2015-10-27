@@ -362,6 +362,7 @@ nnoremap <leader>rr :R<cr>
 
 " Selection shortcuts
 nnoremap <leader>vp <S-v>ap
+nnoremap <leader>vP `[v`]
 
 " Common Tasks
 " Open last closed file

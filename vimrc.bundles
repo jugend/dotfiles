@@ -19,7 +19,6 @@ Plugin 'tpope/vim-rails.git'
 Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'facebook/vim-flow'
 
 " HAML, SASS, SCSS support for Vim
 Plugin 'tpope/vim-haml'

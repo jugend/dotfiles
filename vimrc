@@ -224,6 +224,7 @@ nnoremap <leader>ba :ba<cr>
 nnoremap <leader>bo :bufdo<space>
 nnoremap <leader>br :bufdo e!<cr>
 nnoremap <leader>bq :bufdo bd<cr>
+nnoremap <leader>ct :Dispatch! ctags -R -f .tags<cr>
 nnoremap <leader>vba :vert ba<cr>
 nnoremap <leader>j :BuffergatorMruCyclePrev<cr>
 nnoremap <leader>J :BuffergatorMruCycleNext<cr>
@@ -275,7 +276,7 @@ nnoremap <leader>lo :lopen<cr>
 nnoremap <leader>pc :pclose<cr>
 nnoremap <silent><leader>rv :source ~/.vimrc<cr>:filetype detect<cr>:echo 'vimrc reloaded'<cr>
 
-nnoremap <leader>pt :CtrlPTag<cr>
+nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>ll :TagbarToggle<cr>
 nnoremap <leader>sc :SyntasticCheck<cr>
 nnoremap <leader>sr :SyntasticReset<cr>
@@ -437,8 +438,8 @@ autocmd FileType javascript
 " let g:jsx_ext_requirpd = 0 " Allow JSX in normal JS files, causing filetype set to javascript.jsx
 
 " easy tags, to create .tags specific to project directory
-set tags=./tags
-let g:easytags_dynamic_files = 2
+" set tags=./tags
+" let g:easytags_dynamic_files = 2
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']

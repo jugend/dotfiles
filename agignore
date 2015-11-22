@@ -4,4 +4,5 @@ DS_store
 build
 dist
 .git
+.tags
 locales

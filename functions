@@ -49,7 +49,7 @@ gitdelremotebranch() {
   git branch -D $1; git push origin :$1
 }
 
-ctagsgit() {
+ctagsproj() {
   if [ -d ./.git/ ] ; then
     ctags -R -f ./.git/.tags
   else

@@ -49,6 +49,14 @@ gitdelremotebranch() {
   git branch -D $1; git push origin :$1
 }
 
+ctagsgit() {
+  if [ -d ./.git/ ] ; then
+    ctags -R -f ./.git/.tags
+  else
+    ctags -R -f .tags
+  fi
+}
+
 visnip() {
   vi $1.snippets
 }

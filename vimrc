@@ -29,6 +29,8 @@ set wildmenu
 set wildmode=list:longest:full
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 
+set tags=.git/.tags,./tags,tags
+
 "" encoding
 set fenc=utf-8
 set enc=utf-8
@@ -216,7 +218,7 @@ nnoremap <leader>ba :ba<cr>
 nnoremap <leader>bo :bufdo<space>
 nnoremap <leader>br :bufdo e!<cr>
 nnoremap <leader>bq :bufdo bd<cr>
-nnoremap <leader>ct :Dispatch! ctags -R -f .tags<cr>
+nnoremap <leader>ct :Dispatch! ctagsgit<cr>
 nnoremap <leader>vba :vert ba<cr>
 nnoremap <leader>j :BuffergatorMruCyclePrev<cr>
 nnoremap <leader>J :BuffergatorMruCycleNext<cr>
@@ -439,7 +441,7 @@ autocmd FileType javascript
 " mxw/vim-jsx plugin
 " let g:jsx_ext_requirpd = 0 " Allow JSX in normal JS files, causing filetype set to javascript.jsx
 
-" easy tags, to create .tags specific to project directory
+" easytags - create .tags in project directory
 " set tags=./tags
 " let g:easytags_dynamic_files = 2
 

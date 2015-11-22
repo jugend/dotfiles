@@ -83,9 +83,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'majutsushi/tagbar'
 
 " Performance issue, slow on save
-" Plugin "xolox/vim-easytags'
+" Plugin 'xolox/vim-easytags'
 " Plugin 'xolox/vim-misc'
-Plugin 'h1mesuke/unite-outline'
 
 " Status line
 Plugin 'bling/vim-airline'

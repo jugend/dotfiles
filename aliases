@@ -38,7 +38,7 @@ alias fname='ag -g'
 alias fdir='find . -type d -name'
 alias ffile='find . -type f -name'
 alias clipfile='pbcopy <'
-alias ctproj='ctagsproj'
+alias ctpro='ctagsproj'
 alias epath='echo $PATH'
 
 alias te='tree'

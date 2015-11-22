@@ -64,14 +64,6 @@ autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell
 
-" extra rails.vim help
-autocmd User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
-autocmd User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
-autocmd User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
-autocmd User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
-autocmd User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
-autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
-
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -388,26 +380,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" bufexplorer & buffergator
-let g:bufExplorerShowRelativePath=1
-let g:buffergator_suppress_keymaps=1
-
-" php
-let php_sql_query=1
-let php_htmlInStrings=1
-let php_noShortTags=1
-let php_folding=1
-let php_parent_error_close=1
-
-" better-whitespace
-let g:strip_whitespace_on_save = 1
-let g:better_whitespace_filetypes_blacklist=['dustjs']
-
-" Recommended ragtag mapping
-" noremap <M-o>        <Esc>o
-" inoremap <C-j>       <Down>
-let g:ragtag_global_maps = 1
-
 " Disable c-j shortcut to move line down on terminal
 " let g:BASH_Ctrl_j = 'off'
 
@@ -420,7 +392,37 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" Set mode to passive not to auto check
+"" Plugin Configs
+
+" bufexplorer & buffergator
+let g:bufExplorerShowRelativePath=1
+let g:buffergator_suppress_keymaps=1
+
+" php
+let php_sql_query=1
+let php_htmlInStrings=1
+let php_noShortTags=1
+let php_folding=1
+let php_parent_error_close=1
+
+" rails
+autocmd User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
+autocmd User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
+autocmd User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
+autocmd User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
+autocmd User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
+autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
+
+" better-whitespace
+let g:strip_whitespace_on_save = 1
+let g:better_whitespace_filetypes_blacklist=['dustjs']
+
+" ragtag
+" noremap <M-o>        <Esc>o
+" inoremap <C-j>       <Down>
+let g:ragtag_global_maps = 1
+
+" syntastic
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['html'] }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -533,7 +535,7 @@ endfunction
 command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
-" Tabularize
+" tabular
 nnoremap <leader>a= :Tabularize /=<cr>
 vnoremap <leader>a= :Tabularize /=<cr>
 nnoremap <leader>a: :Tabularize /:<cr>

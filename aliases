@@ -192,6 +192,7 @@ alias nrun='npm run'
 alias nrlint='npm run lint'
 alias nrcover='npm run cover'
 alias nrep='npm repo'
+alias ncl='npm config list'
 
 # Nvm
 alias nv='nvm'

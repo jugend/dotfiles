@@ -2,7 +2,6 @@
 # Custom Functions
 ##################
 
-# test express
 tes() {
   [[ $@ ]]; echo $?
 }
@@ -11,12 +10,10 @@ teso() {
   test $@; echo $?
 }
 
-# Json grep
 jsgrep() {
   cat $1 | jgrep -s $2
 }
 
-# Functions
 extract () {
   if [ -f $1 ] ; then
     case $1 in
@@ -78,15 +75,10 @@ fext() {
   ag -G .$1$ $2
 }
 
-if [ -f ~/.aliases.local ]; then
-  . ~/.aliases.local
-fi
-
 dmenvset() {
   eval "$(docker-machine env $1)"
 }
 
-# Babel
 babelwatch() {
   babel --watch $1 --out-dir $2
 }
@@ -103,3 +95,6 @@ browsersyncproxy() {
   fi
 }
 
+if [ -f ~/.aliases.local ]; then
+  . ~/.aliases.local
+fi

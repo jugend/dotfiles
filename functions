@@ -4,6 +4,10 @@
 
 # test express
 tes() {
+  [[ $@ ]]; echo $?
+}
+
+teso() {
   test $@; echo $?
 }
 

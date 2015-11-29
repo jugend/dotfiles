@@ -45,7 +45,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'vim-scripts/greplace.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'austintaylor/vim-indentobject'
-" Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
 
 " Search

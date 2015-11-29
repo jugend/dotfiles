@@ -194,7 +194,8 @@ nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
 nnoremap <leader>] :TagbarToggle<cr>
 nnoremap <leader>G :GitGutterToggle<cr>
-nnoremap <leader>i :IndentGuidesToggle<cr>
+nnoremap <leader>I :IndentGuidesToggle<cr>
+nnoremap <leader>i :IndentLinesToggle<cr>
 nnoremap <leader>W :ToggleWhitespace<cr>
 nnoremap <leader>z :ZoomToggle<cr>
 nnoremap <leader>/ /\v
@@ -480,8 +481,12 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
 " let g:indent_guides_enable_on_vim_startup = 1
 
-" vim-jsbeautify configs
+" indentLine
+let g:indentLine_enabled = 0
+let g:indentLine_char = '︙'
+" let g:indentLine_color_term = 239
 
+" vim-jsbeautify configs
 " map <c-f> :call JsBeautify()<cr>
 " or
 autocmd FileType javascript noremap <buffer>  <leader>F :call JsBeautify()<cr>

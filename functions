@@ -2,6 +2,11 @@
 # Custom Functions
 ##################
 
+# test express
+tes() {
+  test $@; echo $?
+}
+
 # Json grep
 jsgrep() {
   cat $1 | jgrep -s $2
@@ -73,19 +78,24 @@ if [ -f ~/.aliases.local ]; then
   . ~/.aliases.local
 fi
 
-function dmenvset() {
+dmenvset() {
   eval "$(docker-machine env $1)"
 }
 
 # Babel
-function babelwatch() {
+babelwatch() {
   babel --watch $1 --out-dir $2
 }
 
-function browsersyncfiles() {
+browsersyncfiles() {
   browser-sync start --server --files "$1"
 }
 
-function browsersyncproxy() {
-  browser-sync start --proxy "$1" --files "$2"
+browsersyncproxy() {
+  if [[ $2 =~ [0-9]+ ]]; then
+    browser-sync start --proxy "$1:$2" --files "$3"
+  else
+    browser-sync start --proxy "$1" --files "$2"
+  fi
 }
+

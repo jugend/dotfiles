@@ -1,3 +1,16 @@
+# Edison
+snippet rdebug "req.log('debug', ...)" b
+req.log('debug', ${1:Object});
+endsnippet
+
+snippet rinfo "req.log('info', ...)" b
+req.log('info', ${1:Object});
+endsnippet
+
+snippet rerror "req.log('error', ...)" b
+req.log('error', ${1:Object});
+endsnippet
+
 # ES6
 snippet rim "import Object from 'path'" b
 import ${1:Object} from '${2:path}';

@@ -1,6 +1,6 @@
-# ~/.tmuxinator/rails.yml
+# ~/.tmuxinator/edit1.yml
 
-name: rails
+name: edit1
 root: ./
 
 # Optional tmux socket
@@ -22,10 +22,9 @@ root: ./
 # startup_window: logs
 
 windows:
-  - editor:
-      layout: main-vertical
+  - edison:
+      layout: 3f1e,362x96,0,0{280x96,0,0,47,81x96,281,0[81x57,281,0,48,81x38,281,58,49]}
       panes:
         - vim
-        - guard
-  - server: bundle exec rails s
-  - logs: tail -f log/development.log
+        - #empty
+        - #empty

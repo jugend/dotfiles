@@ -145,11 +145,14 @@ let mapleader=","
 " General productivity shortcuts
 inoremap jk <esc>
 inoremap jj <esc>
+inoremap ii <esc>
 inoremap <C-l> <esc>
 inoremap <C-s> <C-o>:w<cr>
 
 vnoremap <C-l> <esc>
 vnoremap <C-s> :w<cr>
+
+nnoremap <Space> i
 
 " Very magic regex
 " vnoremap / /\v

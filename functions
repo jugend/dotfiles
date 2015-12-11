@@ -10,8 +10,8 @@ teso() {
   test $@; echo $?
 }
 
-jsgrep() {
-  cat $1 | jgrep -s $2
+jgrep() {
+  cat $1 | jq $2
 }
 
 extract () {

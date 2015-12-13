@@ -24,7 +24,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 
 " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
 Plugin 'hail2u/vim-css3-syntax'

@@ -5,3 +5,5 @@ build
 dist
 .git
 .tags
+*.min.js
+bundle.js

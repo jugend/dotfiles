@@ -201,6 +201,7 @@ nnoremap <leader>i :IndentLinesToggle<cr>
 nnoremap <leader>W :ToggleWhitespace<cr>
 nnoremap <leader>z :ZoomToggle<cr>
 nnoremap <leader>/ /\v
+nnoremap <leader>M %
 
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
 nnoremap <silent><leader>si :call ToggleAgSkipVcsIgnores()<cr>:NERDTree<cr>:wincmd l<cr>
@@ -443,7 +444,7 @@ autocmd FileType javascript
   \ setl foldlevelstart=99
 
 " mxw/vim-jsx plugin
-" let g:jsx_ext_requirpd = 0 " Allow JSX in normal JS files, causing filetype set to javascript.jsx
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files, causing filetype set to javascript.jsx
 
 " easytags - create .tags in project directory
 " set tags=./tags
@@ -463,7 +464,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 
 " Sparkup to create HTML
-let g:sparkupExecuteMapping = '<c-t>'
+let g:sparkupExecuteMapping = '<C-t>'
 
 " The Silver Searcher
 if executable('ag')

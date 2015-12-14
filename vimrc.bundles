@@ -61,6 +61,7 @@ Plugin 'ragtag.vim'
 Plugin 'surround.vim'
 " Shortcut to expand html tags
 Plugin 'rstacruz/sparkup'
+Plugin 'mattn/emmet-vim'
 
 " Javascript
 Plugin 'jelera/vim-javascript-syntax'

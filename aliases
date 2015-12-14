@@ -403,6 +403,7 @@ alias gpo='git push origin'
 alias gpoforce='git push origin --force'
 alias gpodel='git push origin --delete'
 alias gpu='git push upstream'
+alias gpsu='git push --set-upstream'
 alias gpl='git pull'
 alias gplu='git pull upstream'
 alias gplr='git pull --rebase'
@@ -424,15 +425,17 @@ alias gsashowp='git stash show -p'
 alias guntrack='git update-index --assume-unchanged'
 alias gtrack='git update-index --no-assume-unchanged'
 
-alias gcnpm='gitclonenpm'
-alias gbnpm='gitbrowsenpm'
-alias gdelr='gitdelremotebranch'
-
 ###
 # Github Extension
 ################
 alias gbr='git browse'
 alias gf='git fork'
+alias gcr='git create'
+
+# Custom git functions
+alias gcnpm='gitclonenpm'
+alias gbnpm='gitbrowsenpm'
+alias gdelr='gitdelremotebranch'
 
 ###
 # RVM

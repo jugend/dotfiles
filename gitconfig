@@ -1,10 +1,30 @@
 [core]
   excludesFile = ~/.gitignore
 [alias]
+  a  = add
+  b  = branch
+  c  = commit
+  d  = diff
+  f  = fetch
+  l  = log
+  m  = merge
+  p  = push
+  s  = status
+  r  = remote
+  br = browser
+  cf = config
+  cl = clone
+  cr = create
   co = checkout
-  ci = commit
-  st = status
-  br = branch
+  fr = fork
+  re = remote
+  rs = reset
+  rb = rebase
+  rv = revert
+  pl = pull
+  st = stash
+  ui = update-index
+
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p

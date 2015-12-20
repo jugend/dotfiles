@@ -260,6 +260,7 @@ nnoremap <leader>N :nohlsearch<cr>
 nnoremap <leader>n />>><cr>
 nnoremap <leader>ch :helpc<cr>
 nnoremap <leader>hg :helpg<space>
+nnoremap <leader>hv :vert h<space>
 nnoremap <leader>lf :lfirst<cr>
 nnoremap <leader>ln :lnext<cr>
 nnoremap <leader>lp :lprevious<cr>
@@ -466,6 +467,9 @@ let g:UltiSnipsEditSplit="vertical"
 " Sparkup to create HTML
 let g:sparkupExecuteMapping = '<C-t>'
 
+" vim-emmet
+let g:emmet_html5 = 1
+
 " The Silver Searcher
 if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -476,6 +480,9 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" vim-editorconfig
+let g:EditorConfig_max_line_indicator = "none"
 
 " Custom indent-guides color
 let g:indent_guides_auto_colors = 0

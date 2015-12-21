@@ -232,6 +232,7 @@ nnoremap <leader>ft :set ft=<space>
 nnoremap <leader>fs :set ft=sh<cr>
 nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
+nnoremap <leader>rv :%s/\v
 nnoremap <leader>rw :%s/<C-r><C-w>/
 vnoremap <leader>rw y:%s/<C-r>"/
 nnoremap <leader>ru y:%s/function(/function (/<cr>

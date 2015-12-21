@@ -24,6 +24,7 @@ alias g='git'
 alias b='brew'
 
 alias tf='tail -f -n 500'
+alias ip='ifconfig | grep broadcast'
 alias duh='du -sh'
 alias dfh='df -h'
 alias ecl='echo $?'

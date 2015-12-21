@@ -222,6 +222,7 @@ nnoremap <leader>ba :ba<cr>
 nnoremap <leader>bo :bufdo<space>
 nnoremap <leader>br :bufdo e!<cr>
 nnoremap <leader>bq :bufdo bd<cr>
+nnoremap <leader>bj :call JsxBeautify()<cr>
 nnoremap <leader>ct :Dispatch! ctpro<cr>
 nnoremap <leader>vba :vert ba<cr>
 nnoremap <leader>j :BuffergatorMruCyclePrev<cr>
@@ -469,7 +470,7 @@ let g:UltiSnipsEditSplit="vertical"
 let g:sparkupExecuteMapping = '<C-t>'
 
 " vim-emmet
-let g:emmet_html5 = 1
+let g:emmet_html5 = 0
 
 " The Silver Searcher
 if executable('ag')
@@ -499,13 +500,10 @@ let g:indentLine_char = '︙'
 " let g:indentLine_color_term = 239
 
 " vim-jsbeautify configs
-" map <c-f> :call JsBeautify()<cr>
-" or
 autocmd FileType javascript noremap <buffer>  <leader>F :call JsBeautify()<cr>
-" for html
 autocmd FileType html noremap <buffer> <leader>F :call HtmlBeautify()<cr>
-" for css or scss
 autocmd FileType css noremap <buffer> <leader>F :call CSSBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <leader>F :call JsxBeautify()<cr>
 
 " NerdTree
 let NERDTreeShowHidden=1

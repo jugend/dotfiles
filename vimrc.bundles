@@ -66,8 +66,10 @@ Plugin 'mattn/emmet-vim'
 " Javascript
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin 'maksimr/vim-jsbeautify'
+
+" Beautifier
 Plugin 'beautify-web/js-beautify'
+Plugin 'maksimr/vim-jsbeautify'
 
 " Comment
 " Plugin 'scrooloose/nerdcommenter'

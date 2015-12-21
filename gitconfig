@@ -10,6 +10,7 @@
   m  = merge
   p  = push
   s  = status
+  t  = tag
   r  = remote
   br = browser
   cf = config

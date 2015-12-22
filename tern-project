@@ -1,12 +1,15 @@
 {
   "libs": [
     "browser",
+    "ecma5",
+    "ecma6",
     "jquery",
-    "express",
-    "node-express"
+    "underscore",
+    "chai"
   ],
   "plugins": {
     "node": {},
-    "node-express": {}
+    "node-express": {},
+    "es6_modules": {}
   }
 }

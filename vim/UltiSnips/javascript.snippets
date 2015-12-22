@@ -11,6 +11,36 @@ snippet rerror "req.log('error', ...)" b
 req.log('error', ${1:Object});
 endsnippet
 
+# jQuery
+snippet ajax:get "$.ajax({type: 'POST'...})" b
+$.ajax({
+  url: ${1:url},
+  dataType: '${2:json}',
+  cache: false,
+  success: function(data) {
+    $3
+  }.bind(this),
+  error: function(xhr, status, err) {
+    $4
+  }.bind(this)
+});
+endsnippet
+
+snippet ajax:post "$.ajax({type: 'POST'...})" b
+$.ajax({
+  url: ${1:url},
+  dataType: '${2:json}',
+  type: '${3:POST}',
+  data: ${4:data},
+  success: function(data) {
+    $5
+  }.bind(this),
+  error: function(xhr, status, err) {
+    $6
+  }.bind(this)
+});
+endsnippet
+
 # Express
 snippet express:server "Express: Server" b
 var path = require('path');
@@ -85,12 +115,6 @@ snippet funcc "(function() { ... })()" b
 })();
 endsnippet
 
-snippet fer "function(error, results) { ... }" i
-function(${1:error}, ${2:results}) {
-	$3
-}
-endsnippet
-
 snippet frr "function(req, res) {}" i
 function(req, res) {
 	$1
@@ -103,16 +127,40 @@ function(req, res, next) {
 }
 endsnippet
 
+snippet fer "function(err) { ... }" i
+function(${1:err}) {
+	$2
+
+endsnippet
+
+snippet ferr "function(err, res) { ... }" i
+function(${1:err}, ${2:res}) {
+	$3
+}
+endsnippet
+
 snippet ferrn "function(err, req, res, next) {}" i
 function(err, req, res, next) {
 	$1
 }
 endsnippet
 
-snippet fo "for (var i = 0; i < array.lengh; i++) { ... }"
+snippet fe "function(e) { ... }" b
+function(e) {
+    $1
+}
+endsnippet
+
+snippet for:ar "for (var i = 0; i < array.lengh; i++) { ... }"
 for (var i = 0; i < ${1:length}; i++) {
 	$1
 }
+endsnippet
+
+snippet fbind "function() { ... }.bind(this)" b
+function($1) {
+    $2
+}.bind(this)
 endsnippet
 
 # console.log

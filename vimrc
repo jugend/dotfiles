@@ -441,7 +441,7 @@ let g:syntastic_check_on_wq = 1
 " let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
 " let g:syntastic_javascript_checkers = ['eslint']
 
-autocmd FileType javascript
+autocmd FileType javascript,javascript.jsx
   \ let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint'] |
   \ call JavaScriptFold() |
   \ setl foldlevelstart=99
@@ -500,7 +500,7 @@ let g:indentLine_char = '︙'
 " let g:indentLine_color_term = 239
 
 " vim-jsbeautify configs
-autocmd FileType javascript noremap <buffer>  <leader>F :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <leader>F :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>F :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>F :call CSSBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <leader>F :call JsxBeautify()<cr>

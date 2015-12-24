@@ -1,18 +1,17 @@
-# Edison
 snippet rdebug "req.log('debug', ...)" b
 req.log('debug', ${1:Object});
 endsnippet
 
-snippet rinfo "req.log('info', ...)" b
+snippet rinfo "req.log('info', ...)"
 req.log('info', ${1:Object});
 endsnippet
 
-snippet rerror "req.log('error', ...)" b
+snippet rerror "req.log('error', ...)"
 req.log('error', ${1:Object});
 endsnippet
 
 # jQuery
-snippet ajax:get "$.ajax({type: 'POST'...})" b
+snippet aj:get "$.ajax({type: 'POST'...})"
 $.ajax({
   url: ${1:url},
   dataType: '${2:json}',
@@ -26,7 +25,7 @@ $.ajax({
 });
 endsnippet
 
-snippet ajax:post "$.ajax({type: 'POST'...})" b
+snippet aj:post "$.ajax({type: 'POST'...})"
 $.ajax({
   url: ${1:url},
   dataType: '${2:json}',
@@ -42,7 +41,7 @@ $.ajax({
 endsnippet
 
 # Express
-snippet express:server "Express: Server" b
+snippet ex:server "Express: Server"
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -64,88 +63,122 @@ app.listen(app.get('port'), function() {
 endsnippet
 
 # ES6
-snippet rim "import Object from 'path'" b
+snippet e:im "import Object from 'path'"
 import ${1:Object} from '${2:path}';
 endsnippet
 
-snippet rexd "export default" b
+snippet e:ed "export default"
 export default $1
 endsnippet
 
-snippet rexdc "export default class Class extends Parent" b
+snippet e:edclass "export default class Class extends Parent"
 export default class ${1:ClassName} extends ${2:Parent} {
-	$3
+  $3
 }
 endsnippet
 
-snippet rcon "constructor() {}" b
+snippet e:con "constructor() {}"
 constructor(${1:props}) {
-	super(${2:props});
-	$3
+  super(${2:props});
+  $3
 }
 endsnippet
 
-snippet rfun "function() { }" b
+snippet e:f "function() { }"
 ${1:function}($2) {
-	$3
+  $3
 }
 endsnippet
 
-snippet rren "render() { }" b
+snippet e:ren "render() { }"
 render() {
-	return (
-		${1:<div />}
-	)
+  return (
+    ${1:<div />}
+  )
 }
+endsnippet
+
+snippet () "() =>" i
+($1) => {
+  $2
+}
+endsnippet
+
+# React: ES6
+
+snippet r:icom "import React, {Component}"
+import React, {Component} from 'react';
+
+endsnippet
+
+snippet r:ccom "class ClassName extends Component"
+class ${1:ClassName} extends Component {
+  render() {
+	return (
+	  $2
+	);
+  }
+}
+endsnippet
+
+snippet r:ret "return ( ... )"
+return (
+  $1
+);
+endsnippet
+
+# React: ES5
+snippet re:req "require('react')"
+  var React = require('react');
 endsnippet
 
 # Common Snippets
 
-snippet todo "TODO" b
+snippet todo "TODO"
 // TODO: ${1:Description}
 endsnippet
 
-snippet varc "var ClassName = require('path')" b
+snippet varc "var ClassName = require('path')"
 var ${1:ClassName} = require('${2:path}');
 endsnippet
 
-snippet funcc "(function() { ... })()" b
+snippet funcc "(function() { ... })()"
 (function() {
-	$1
+  $1
 })();
 endsnippet
 
 snippet frr "function(req, res) {}" i
 function(req, res) {
-	$1
+  $1
 }
 endsnippet
 
 snippet frrn "function(req, res, next) {}" i
 function(req, res, next) {
-	$1
+  $1
 }
 endsnippet
 
 snippet fer "function(err) { ... }" i
 function(${1:err}) {
-	$2
+  $2
 
 endsnippet
 
 snippet ferr "function(err, res) { ... }" i
 function(${1:err}, ${2:res}) {
-	$3
+  $3
 }
 endsnippet
 
 snippet ferrn "function(err, req, res, next) {}" i
 function(err, req, res, next) {
-	$1
+  $1
 }
 endsnippet
 
-snippet fe "function(e) { ... }" b
+snippet fe "function(e) { ... }" i
 function(e) {
     $1
 }
@@ -153,91 +186,86 @@ endsnippet
 
 snippet for:ar "for (var i = 0; i < array.lengh; i++) { ... }"
 for (var i = 0; i < ${1:length}; i++) {
-	$1
+  $1
 }
 endsnippet
 
-snippet fbind "function() { ... }.bind(this)" b
+snippet fbind "function() { ... }.bind(this)" i
 function($1) {
     $2
 }.bind(this)
 endsnippet
 
 # console.log
-snippet cl "console.log(object)" b
+snippet cl "console.log(object)"
 console.log(${1:object});
 endsnippet
 
-snippet cli "console.info(object)" b
+snippet cli "console.info(object)"
 console.info(${1:object});
 endsnippet
 
-snippet cle "console.error(object)" b
+snippet cle "console.error(object)"
 console.error(${1:object});
 endsnippet
 
-snippet cldiv "console.info('============')" b
+snippet cldiv "console.info('============')"
 console.log('==================================================');
 endsnippet
 
-snippet clo "console.log('message', object)" b
+snippet clo "console.log('message', object)"
 console.log('${1:message}', ${2:object});
 endsnippet
 
-snippet clm "console.log('message')" b
+snippet clm "console.log('message')"
 console.log('${1:message}');
-endsnippet
-
-# React
-snippet reqr "require('react')" b
-var React = require('react');
 endsnippet
 
 # Node.js Snipppets
 
-snippet modex "module.exports = ClassName" b
+snippet modex "module.exports = ClassName"
 module.exports = ${1:ClassName};
 endsnippet
 
 # Mocha
 snippet describe "Mocha describe"
 describe("`!p snip.rv = fn.split(os.extsep)[0]`", function() {
-	$0
+  $0
 });
 endsnippet
 
 snippet desc "Mocha describe verbose"
 describe("${1:`!p snip.rv = fn.split(os.extsep)[0]`}", function() {
-	$0
+  $0
 });
 endsnippet
 
 snippet it "Mocha it"
 it("${1:It}", function() {
-	$0
+  $0
 });
 endsnippet
 
 snippet bee "Mocha beforeEach"
 beforeEach(function() {
-	$0
+  $0
 });
 endsnippet
 
 snippet afe "Mocha afterEach"
 afterEach(function() {
-	$0
+  $0
 });
 endsnippet
 
 snippet before "Mocha before"
 before(function(done) {
-	$0
+  $0
 });
 endsnippet
 
 snippet after "Mocha after"
 after(function(done) {
-	$0
+  $0
 });
 endsnippet

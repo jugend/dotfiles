@@ -79,7 +79,11 @@ dmenvset() {
   eval "$(docker-machine env $1)"
 }
 
-babelwatch() {
+bbwatch() {
+  babel --presets es2015,react --watch $1 --out-dir $2
+}
+
+bbwatch5() {
   babel --watch $1 --out-dir $2
 }
 

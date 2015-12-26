@@ -190,6 +190,7 @@ noremap <C-l> <C-w>l
 
 nnoremap <leader>l :Align<cr>
 nnoremap <leader>a :Ack<space>
+nnoremap <leader>A :Ack --ignore-dir __tests__<space>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>

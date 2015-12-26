@@ -466,14 +466,21 @@ alias cpng='optipng'
 alias idenv='identify -verbose'
 
 # Babel
-alias b='babel'
-alias bn='babel-node'
-alias bl='babel --presets es2015,react'
-alias bln='babel-node --presets es2015,react'
-alias bwatch='babelwatch'
-alias bwsrc='bwatch src/'
-alias bwsdist='bwatch src/ dist/'
-alias bwsbuild='bwatch src/ build/'
+alias bb='babel'
+alias bbp='babel --presets es2015,react'
+alias bbw='bbwatch'
+alias bbwsrc='bbwatch src/'
+alias bbwdist='bbwatch src/ dist/'
+alias bbwbuild='bbwatch src/ build/'
+
+alias bbn='babel-node'
+alias bbnp='babel-node --presets es2015,react'
+
+# Babel 5
+alias bb5w='bbwatch5' 
+alias bb5wsrc='bbw5 src/'
+alias bb5wdist='bbw5 src/ dist/'
+alias bb5wbuild='bbw5 src/ build/'
 
 # Browsersync
 alias bsync='browser-sync'

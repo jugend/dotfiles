@@ -57,7 +57,12 @@ app.get('/', function(req, res) {
   res.send('hello');
 });
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), 'localhost', function(err) {
+  if (err) {
+	console.log(err);
+	return;
+  }
+
   console.log('Server started: http://localhost:' + app.get('port') + '/');
 });
 endsnippet
@@ -222,6 +227,10 @@ console.log('${1:message}');
 endsnippet
 
 # Node.js Snipppets
+
+snippet r "require('module')" i
+require('$1');
+endsnippet
 
 snippet modex "module.exports = ClassName"
 module.exports = ${1:ClassName};

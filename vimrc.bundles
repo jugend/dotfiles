@@ -34,6 +34,8 @@ Plugin 'hail2u/vim-css3-syntax'
 " Plugin 'tomasr/molokai'
 
 " Live Markdown preview
+" Post install: Create link to instant-markdown.vim in
+" ~/.vim/after/ftplugin/markdown
 Plugin 'suan/vim-instant-markdown'
 
 " A Vim plugin which shows a git diff in the gutter (sign column)

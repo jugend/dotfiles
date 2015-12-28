@@ -508,7 +508,7 @@ autocmd FileType jsx noremap <buffer> <leader>F :call JsxBeautify()<cr>
 
 " NerdTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', '\.log$', '\.git$', '\.sass-cache$']
+let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$']
 
 " to open NERDTree on start
 autocmd VimEnter * NERDTree

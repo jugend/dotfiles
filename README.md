@@ -2,7 +2,7 @@
 
 ## Setup
 
-```bash
+```sh
 git clone https://github.com/jugend/dotfiles.git
 cd dotfiles
 source setup.sh

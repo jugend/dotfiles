@@ -11,7 +11,7 @@ function setup() {
   echo ""
 
   [ -d ~/.vim ] || mkdir .vim
-  for dir in {tmuxinator,vim/UltiSnips,vim/colors,vim/autoload}; do
+  for dir in {tmuxinator,cheat,vim/UltiSnips,vim/colors,vim/autoload}; do
     [ -d ~/.vim ] || mkdir .vim
     if [ -d "$dir" ]; then
       echo "Link ~/.$dir -> $PWD/$dir"

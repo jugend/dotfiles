@@ -571,14 +571,10 @@ command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 " tabular
-nnoremap <leader>a= :Tabularize /=<cr>
 vnoremap <leader>a= :Tabularize /=<cr>
-nnoremap <leader>a: :Tabularize /:<cr>
 vnoremap <leader>a: :Tabularize /:<cr>
-vnoremap <leader>a: :Tabularize /:<cr>
+vnoremap <leader>a- :Tabularize /-<cr>
 vnoremap <leader>as :Tabularize / <cr>
-vnoremap <leader>as :Tabularize / <cr>
-vnoremap <leader>at :Tabularize /\t<cr>
 vnoremap <leader>at :Tabularize /\t<cr>
 
 " vim-node

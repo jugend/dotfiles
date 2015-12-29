@@ -22,7 +22,9 @@ alias j='jobs'
 alias f='fg'
 alias g='git'
 alias b='brew'
+alias gi='gist -c'
 
+alias wh='which'
 alias tf='tail -f -n 500'
 alias ip='ifconfig | grep broadcast'
 alias duh='du -sh'
@@ -439,6 +441,24 @@ alias gcr='git create'
 alias gcnpm='gitclonenpm'
 alias gbnpm='gitbrowsenpm'
 alias gdelr='gitdelremotebranch'
+
+###
+# Gist
+################
+alias gia='gi -a'
+alias gid='gi -d'
+alias gie='gi -e'
+alias gif='gi -f'
+alias gih='gi -h'
+alias gil='gi -l'
+alias gip='gi -p'
+alias gir='gi -r'
+alias git='gi -t'
+alias gio='gi -o'
+alias giu='gi -u'
+
+alias gipa='gist -P'
+alias gira='gist -R'
 
 ###
 # RVM

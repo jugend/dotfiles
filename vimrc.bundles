@@ -118,6 +118,8 @@ Plugin 'tell-k/vim-browsereload-mac'
 Plugin 'tpope/vim-dispatch'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'rizzatti/dash.vim'
+Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
 
 " Run tmux command from vim
 Plugin 'benmills/vimux'

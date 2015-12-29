@@ -31,6 +31,5 @@
   dump = cat-file -p
 [push]
   default = simple
-[user]
-	email = herryanto@gmail.com
-	name = Herryanto Siatono
+[github]
+	user = jugend

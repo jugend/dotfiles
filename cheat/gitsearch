@@ -1,0 +1,48 @@
+# GitHub Advanced Search Cheatsheet
+
+Same option should specify one at a time.
+
+For example you want to find file with extension of .rb and .py.
+Instead of specify them at once: extension:rb, py,
+specify like this: extension:rb extension:py.
+
+Unit of size are all KB. Specify size range with >=, >, < <=.
+
+Date format: YYYY-MM-DD. Date Before / After specified by < and >.
+
+Characters inside [] means OPTIONAL.
+
+# Advanced options
+
+From these owners             user:defunkt
+In these repositories         repo:rails/rails
+Created on the dates          created:>2014-03-20
+Repositories options
+
+With this many stars          stars:100
+With this many forks          forks:100
+Of this size                  size:100
+Pushed to                     pushed:2014-12-33
+Include forks                 forks:true
+Only search forks             forks:only
+
+# Code options
+
+With this extension           extension:py
+Of this file size             size:>=100 size:<=500
+In this path                  path:app/views/
+
+In the state                  state:open
+With this many comments       comments:42
+With the labels               label:bug label:ie
+Opened by the author          author:juanitofatas
+Mentioning the users          mentions:juanitofatas
+Assigned to the users         assignee:juanitofatas
+Updated before the date       updated:2013-03-20
+
+# Users options
+
+With this full name           fullname:juanitofatas
+From this location            location:"San Francisco" location:CA
+With this many followers      followers:999
+With this many repositories   repos:100

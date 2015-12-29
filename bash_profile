@@ -53,6 +53,9 @@ export EDITOR='vim'
 # LS Colors
 export CLICOLOR=1
 
+# Cheat Colors
+export CHEATCOLORS=true
+
 # Git
 export GIT_SSL_NO_VERIFY=true
 

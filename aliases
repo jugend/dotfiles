@@ -43,6 +43,8 @@ alias lgp='ls -al | grep'
 alias pgp='ps -fe | grep'
 alias pgpl='pgrep -l'
 alias pcom='ps -eo ruser,f,comm'
+alias pwdcop='pwd | pbcopy'
+alias pwdpas='cd `pbpaste`'
 
 alias fname='find . -name'
 alias fdir='find . -type d -name'

@@ -329,12 +329,21 @@ nnoremap <leader>gps :Dispatch! git push<cr>
 nnoremap <leader>gpl :Dispatch! git pull<cr>
 
 " Gist
-nnoremap <leader><leader>g :Gist<cr>
 nnoremap <leader><leader>G :Gist<space>
-nnoremap <leader><leader>gi :Gist -p<cr>
+nnoremap <leader><leader>g :Gist<cr>
+nnoremap <leader><leader>gg :Gist!<cr>
+nnoremap <leader><leader>gl :Gist -l<cr>
+nnoremap <leader><leader>gp :Gist -p<cr>
 nnoremap <leader><leader>ga :Gist -a<cr>
 nnoremap <leader><leader>ge :Gist -e<cr>
 nnoremap <leader><leader>gd :Gist -d<cr>
+nnoremap <leader><leader>gm :Gist -m<cr>
+nnoremap <leader><leader>gb :Gist -b<cr>
+
+vnoremap <leader><leader>g :Gist<cr>
+vnoremap <leader><leader>gg :Gist!<cr>
+vnoremap <leader><leader>gp :Gist -a<cr>
+vnoremap <leader><leader>ga :Gist -a<cr>
 
 " Tab mappings
 nnoremap <leader><Space> :tabnext<cr>

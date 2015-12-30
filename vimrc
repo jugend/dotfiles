@@ -632,3 +632,7 @@ function! CssSetting()
 endfunction
 
 autocmd FileType css,scss,sass,stylus,less :call CssSetting()
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif

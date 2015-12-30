@@ -43,8 +43,8 @@ alias lgp='ls -al | grep'
 alias pgp='ps -fe | grep'
 alias pgpl='pgrep -l'
 alias pcom='ps -eo ruser,f,comm'
-alias pwdcop='pwd | pbcopy'
-alias pwdpas='cd `pbpaste`'
+alias pwcopy='pwd | pbcopy'
+alias pwpaste='cd `pbpaste`'
 
 alias fname='find . -name'
 alias fdir='find . -type d -name'
@@ -207,7 +207,12 @@ alias nrlint='npm run lint'
 alias nrcover='npm run cover'
 alias nrep='npm repo'
 alias ncl='npm config list'
-alias nsl='cat package.json | jq .scripts'
+alias npgrep='npgrep'
+alias npver='npgrep version'
+alias nprep='npgrep repository'
+alias npsc='npgrep scripts'
+alias npdev='npgrep dependencies'
+alias npddev='npgrep devDependencies'
 
 # Nvm
 alias nv='nvm'
@@ -248,11 +253,6 @@ alias mate='reattach-to-user-namespace mate'
 
 # jsx
 alias jsx6='jsx --es6module --harmony'
-
-alias jgver='jsgrep package.json version'
-alias jgdep='jsgrep package.json dependencies'
-alias jgddep='jsgrep package.json devDependencies'
-alias jgscripts='jsgrep package.json scripts'
 
 # Grunt
 alias grh='grunt --help'
@@ -390,6 +390,7 @@ alias gcm='git commit -m'
 alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gcom='git checkout master'
+alias gcod='git checkout develop'
 alias gcl='git clone'
 alias gcld='git clone --depth=1'
 alias gconl='git config --list'
@@ -500,7 +501,7 @@ alias bbn='babel-node'
 alias bbnp='babel-node --presets es2015,react'
 
 # Babel 5
-alias b5w='bbwatch5' 
+alias b5w='bbwatch5'
 alias b5wsrc='bbw5 src/'
 alias b5wdist='bbw5 src/ dist/'
 alias b5wbuild='bbw5 src/ build/'

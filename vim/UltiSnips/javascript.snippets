@@ -11,7 +11,7 @@ req.log('error', ${1:Object});
 endsnippet
 
 # jQuery
-snippet aj:get "$.ajax({type: 'POST'...})"
+snippet ajget "$.ajax({type: 'POST'...})"
 $.ajax({
   url: ${1:url},
   dataType: '${2:json}',
@@ -25,7 +25,7 @@ $.ajax({
 });
 endsnippet
 
-snippet aj:post "$.ajax({type: 'POST'...})"
+snippet ajpost "$.ajax({type: 'POST'...})"
 $.ajax({
   url: ${1:url},
   dataType: '${2:json}',
@@ -41,7 +41,7 @@ $.ajax({
 endsnippet
 
 # Express
-snippet ex:server "Express: Server"
+snippet exserver "Express: Server"
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -68,34 +68,34 @@ app.listen(app.get('port'), 'localhost', function(err) {
 endsnippet
 
 # ES6
-snippet e:im "import Object from 'path'"
+snippet eim "import Object from 'path'"
 import ${1:Object} from '${2:path}';
 endsnippet
 
-snippet e:ed "export default"
+snippet eed "export default"
 export default $1
 endsnippet
 
-snippet e:edclass "export default class Class extends Parent"
+snippet eedclass "export default class Class extends Parent"
 export default class ${1:ClassName} extends ${2:Parent} {
   $3
 }
 endsnippet
 
-snippet e:con "constructor() {}"
+snippet econ "constructor() {}"
 constructor(${1:props}) {
   super(${2:props});
   $3
 }
 endsnippet
 
-snippet e:f "function() { }"
+snippet ef "function() { }"
 ${1:function}($2) {
   $3
 }
 endsnippet
 
-snippet e:ren "render() { }"
+snippet eren "render() { }"
 render() {
   return (
     ${1:<div />}
@@ -111,12 +111,12 @@ endsnippet
 
 # React: ES6
 
-snippet r:icom "import React, {Component}"
+snippet rim "import React, {Component}"
 import React, {Component} from 'react';
 
 endsnippet
 
-snippet r:ccom "class ClassName extends Component"
+snippet rclass "class ClassName extends Component"
 class ${1:ClassName} extends Component {
   render() {
 	return (
@@ -126,14 +126,14 @@ class ${1:ClassName} extends Component {
 }
 endsnippet
 
-snippet r:ret "return ( ... )"
+snippet rret "return ( ... )"
 return (
   $1
 );
 endsnippet
 
 # React: ES5
-snippet re:req "require('react')"
+snippet rreq "require('react')"
   var React = require('react');
 endsnippet
 

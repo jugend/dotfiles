@@ -43,6 +43,10 @@ npmrepo() {
   npm info $1 | grep github\.com | head -1 | grep -Eo '://github.com\/.*' | sed "s/\.git//;s/' },//;s/',//;s/#.*$//" | awk '{print "https"$1".git"}'
 }
 
+npgrep() {
+  cat package.json | jq .$1
+}
+
 gitclonenpm() {
   npmrepo $1 | xargs git clone
 }

@@ -333,7 +333,7 @@ nnoremap <leader><leader>G :Gist<space>
 nnoremap <leader><leader>g :Gist<cr>
 nnoremap <leader><leader>gg :Gist!<cr>
 nnoremap <leader><leader>gl :Gist -l<cr>
-nnoremap <leader><leader>gp :Gist -p<cr>
+nnoremap <leader><leader>gp :Gist -P<cr>
 nnoremap <leader><leader>ga :Gist -a<cr>
 nnoremap <leader><leader>ge :Gist -e<cr>
 nnoremap <leader><leader>gd :Gist -d<cr>
@@ -632,6 +632,10 @@ function! CssSetting()
 endfunction
 
 autocmd FileType css,scss,sass,stylus,less :call CssSetting()
+
+" Gist
+let g:gist_post_private = 1
+let g:gist_get_multiplefile = 1
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local

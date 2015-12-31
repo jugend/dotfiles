@@ -116,14 +116,37 @@ import React, {Component} from 'react';
 
 endsnippet
 
+snippet rimd "import ReactDOM"
+import ReactDOM from 'react-dom';
+
+endsnippet
+
+snippet rimi "import {IntlProvider, FormattedNumber, FormattedPlural}" b
+import ${1:IntlProvider}${2:, FormattedNumber}${3:, FormattedPlural }from 'react-intl';
+
+endsnippet
+
 snippet rclass "class ClassName extends Component"
 class ${1:ClassName} extends Component {
+  ${1:constructor(props) {
+	super(props);
+
+  }}
+
   render() {
-	return (
-	  $2
-	);
+    return (
+      $2
+    );
   }
 }
+endsnippet
+
+snippet rcon "constructor(props) { ... }"
+constructor(props) {
+  super(props);
+  $1
+}
+
 endsnippet
 
 snippet rret "return ( ... )"

@@ -15,7 +15,7 @@
     "rules": {
         "strict": 0,
         "quotes": 0,
-        "no-unused-vars": 1,
+        "no-unused-vars": [0, {"ignore": ["React"]}],
         "camelcase": 0,
         "no-underscore-dangle": 0,
         // "semi": [2, 'never']

@@ -51,6 +51,7 @@ syntax enable
 au BufNewFile,BufRead *.jake,*.param set filetype=perl
 au BufNewFile,BufRead *.ros set filetype=html
 au BufNewFile,BufRead *.nools set filetype=javascript
+au BufNewFile,BufRead *.es6 set filetype=javascript.jsx
 
 "" extra auto command
 au BufNewFile *.pl,*.cgi s,^,#!/usr/local/bin/perl -w\r#\r\ruse strict;\r\r,

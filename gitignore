@@ -4,6 +4,7 @@
 *.swp
 *.swo
 *.log
+*.local
 tags
 
 # Directories

@@ -8,6 +8,15 @@ cd dotfiles
 source setup.sh
 source brew.sh
 ```
+
+## Local files
+
+Local files supported:
+- `aliases.local`
+- `bash_profile.local`
+- `tmux.conf.local`
+- `vimrc.local`
+
 ## Inspired by:
-* [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-* [square/maximum-awesome](https://github.com/square/maximum-awesokkkme)
+- [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+- [square/maximum-awesome](https://github.com/square/maximum-awesokkkme)

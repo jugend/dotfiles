@@ -489,6 +489,11 @@ let g:sparkupExecuteMapping = '<C-t>'
 
 " vim-emmet
 let g:emmet_html5 = 0
+let g:user_emmet_settings = {
+  \   'javascript.jsx': {
+  \       'extends': 'jsx'
+  \   }
+  \ }
 
 " The Silver Searcher
 if executable('ag')

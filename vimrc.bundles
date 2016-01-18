@@ -49,6 +49,7 @@ Plugin 'vim-scripts/matchit.zip'
 Plugin 'austintaylor/vim-indentobject'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
+Plugin 'zerowidth/vim-copy-as-rtf'
 
 " Search
 Plugin 'mileszs/ack.vim'

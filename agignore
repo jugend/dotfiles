@@ -6,4 +6,5 @@ dist
 .git
 .tags
 *.min.js
+*.min.css
 bundle.js

@@ -253,6 +253,7 @@ nnoremap <leader>e :e<space>
 nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e<cr>
 nnoremap <leader>ev :e ~/.vimrc<cr>
+nnoremap <leader>evl :e ~/.vimrc.local<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
 nnoremap <leader>ea :e ~/.aliases<cr>
 nnoremap <leader>eal :e ~/.aliases.local<cr>

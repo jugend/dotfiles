@@ -1,3 +1,78 @@
+# Javascript
+snippet = "===" i
+=== $1
+endsnippet
+
+snippet :a "key: [...]" i
+${1:key}: [$2]$3
+endsnippet
+
+snippet :o "key: {...}" i
+${1:key}: \{$2\}$3
+endsnippet
+
+snippet :s "key: ..." i
+${1:key}: "$2"$3
+endsnippet
+
+snippet els "else { ... }" i
+else {
+  $1
+}
+endsnippet
+
+snippet def "default:" b
+default:
+  $1
+endsnippet
+
+snippet switch "switch(var) { ... }" b
+switch($1) {
+  case $2:
+    $3
+    break;
+  case $4:
+    $5
+    break;
+}
+endsnippet
+
+snippet swret "switch(var) { case a: return x;... }" b
+switch($1) {
+  case $2:
+    return $3;
+  case $4:
+    return $5;
+}
+endsnippet
+
+snippet fcall "funcName( ... )" i
+${1:name}($2);
+endsnippet
+
+snippet fcallo "funcName({ ... })" i
+${1:name}({
+  $2
+});
+endsnippet
+
+snippet finv "(function() { ... })()"
+(function() {
+  $1
+})();
+endsnippet
+
+snippet rete "return;" b
+return;
+endsnippet
+
+snippet reto "return { ... }"
+return {
+  $2
+};
+endsnippet
+
+# Kraken
 snippet rdebug "req.log('debug', ...)" b
 req.log('debug', ${1:Object});
 endsnippet
@@ -67,53 +142,116 @@ app.listen(app.get('port'), 'localhost', function(err) {
 });
 endsnippet
 
+snippet pjoin "path.join(__dirname, 'path')" i
+path.join(__dirname, '${1:path}')
+endsnippet
+
 # ES6
-snippet eim "import Object from 'path'"
-import ${1:Object} from '${2:path}';
+snippet im "import object from 'path'"
+import ${1:object} from '${2:path}';
 endsnippet
 
-snippet eed "export default"
-export default $1
+snippet imn "import { object } from 'path'"
+import \{ ${1:object} \} from '${2:path}';
 endsnippet
 
-snippet eedclass "export default class Class extends Parent"
+snippet ims "import * as object from 'path'"
+import * as ${1:object} from '${2:path}';
+endsnippet
+
+snippet ex "export" b
+export $1
+endsnippet
+
+snippet excon "export const" b
+export const $1 = '$2';
+endsnippet
+
+snippet exfun "export function name() { ... }" b
+export function ${1:name}() {
+  $2
+};
+endsnippet
+
+snippet exd "export default"
+export default $1;
+endsnippet
+
+snippet exdfun "export default function funcName() { ... }"
+export default function ${1:name}(${2:arg}) {
+  $3
+};
+endsnippet
+
+snippet exdclas "export default class"
+export default class ${1:ClassName} {
+  $2
+};
+endsnippet
+
+snippet exdcpar "export default class Class extends Parent"
 export default class ${1:ClassName} extends ${2:Parent} {
   $3
-}
+};
 endsnippet
 
-snippet econ "constructor() {}"
+snippet let "let name = value" b
+let ${1:name} = ${2:value};
+endsnippet
+
+snippet lets "let { name } = value" b
+let \{ ${1:name} \} = ${2:value};
+endsnippet
+
+snippet con "const name = value" b
+const ${1:name} = ${2:value};
+endsnippet
+
+snippet cons "const { name } = value" b
+const \{ ${1:name} \} = ${2:value};
+endsnippet
+
+snippet var "var name = value" b
+var ${1:name} = ${2:value};
+endsnippet
+
+snippet stat "static name = value" b
+static ${1:name} = ${2:value};
+endsnippet
+
+snippet const "constructor() {}"
 constructor(${1:props}) {
   super(${2:props});
   $3
 }
 endsnippet
 
-snippet ef "function() { }"
+snippet f "function() { }"
 ${1:function}($2) {
   $3
 }
 endsnippet
 
-snippet eren "render() { }"
-render() {
-  return (
-    ${1:<div />}
-  )
-}
-endsnippet
-
-snippet () "() =>" i
+snippet () "() => { ... }" i
 ($1) => {
   $2
 }
 endsnippet
 
+snippet ()s "() =>" i
+($1) =>
+  $2
+endsnippet
+
+snippet rsp "{' '}" b
+{' '}
+endsnippet
+
 # React: ES6
 
-snippet rim "import React, {Component}"
-import React, {Component} from 'react';
-
+snippet rim "import React, { Component }"
+import React, { Component$1 } from 'react';
+$2
 endsnippet
 
 snippet rimd "import ReactDOM"
@@ -126,18 +264,9 @@ import ${1:IntlProvider}${2:, FormattedNumber}${3:, FormattedPlural }from 'react
 
 endsnippet
 
-snippet rclass "class ClassName extends Component"
+snippet rccom "class ClassName extends Component"
 class ${1:ClassName} extends Component {
-  ${1:constructor(props) {
-	super(props);
-
-  }}
-
-  render() {
-    return (
-      $2
-    );
-  }
+  $2
 }
 endsnippet
 
@@ -149,10 +278,31 @@ constructor(props) {
 
 endsnippet
 
+snippet rcprop "const { ... } = this.props" i
+const { $1 } = this.props;
+endsnippet
+
 snippet rret "return ( ... )"
 return (
   $1
 );
+endsnippet
+
+snippet rren "render() { ... }"
+render() {
+  return (
+    ${1:<div />}
+  )
+}
+endsnippet
+
+snippet rrenv "render() { statement; return( ... ) }"
+render() {
+  $1
+  return (
+    ${2:<div />}
+  )
+}
 endsnippet
 
 # React: ES5
@@ -166,14 +316,8 @@ snippet todo "TODO"
 // TODO: ${1:Description}
 endsnippet
 
-snippet varc "var ClassName = require('path')"
-var ${1:ClassName} = require('${2:path}');
-endsnippet
-
-snippet funcc "(function() { ... })()"
-(function() {
-  $1
-})();
+snippet varr "name lib = require('path')"
+var ${1:lib} = require('${2:path}');
 endsnippet
 
 snippet frr "function(req, res) {}" i
@@ -251,7 +395,7 @@ endsnippet
 
 # Node.js Snipppets
 
-snippet r "require('module')" i
+snippet req "require('module')" i
 require('$1');
 endsnippet
 

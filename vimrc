@@ -136,6 +136,9 @@ inoremap <C-f> <C-o>l
 inoremap <C-b> <C-o>h
 inoremap <C-a> <C-o>0
 
+" Indentation after curly brace
+inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
+
 nnoremap H ^
 nnoremap L $
 

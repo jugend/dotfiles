@@ -47,6 +47,10 @@ npgrep() {
   cat package.json | jq .$1
 }
 
+openl() { 
+  open http://localhost:$1
+}
+
 gitclonenpm() {
   npmrepo $1 | xargs git clone
 }

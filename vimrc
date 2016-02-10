@@ -312,7 +312,7 @@ nnoremap <leader><leader>9 :set foldlevel=99<cr>
 nnoremap <leader><leader><leader> :set foldlevel=99<cr>
 
 " Space to toggle folds
-nnoremap <leader><leader>f zA
+nnoremap <leader><leader>f za
 
 " fugitive git bindings
 nnoremap <leader>g :Git<space>

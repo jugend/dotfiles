@@ -1,8 +1,12 @@
-snippet cdcurrent "@contextDump current" b
+snippet cdobj "@contextDump object" b
+{@contextDump key="${1:object}" to="${2:output}" /}
+endsnippet
+
+snippet cdcur "@contextDump current" b
 {@contextDump key="current" to="${1:output}" /}
 endsnippet
 
-snippet cdfull "@contextDump full" b
+snippet cdful "@contextDump full" b
 {@contextDump key="full" to="${1:output}" /}
 endsnippet
 

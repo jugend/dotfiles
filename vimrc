@@ -136,8 +136,10 @@ inoremap <C-f> <C-o>l
 inoremap <C-b> <C-o>h
 inoremap <C-a> <C-o>0
 
-" Indentation after curly brace
+" Indentation after curly brace & bracket
 inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
+inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
+inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
 
 nnoremap H ^
 nnoremap L $
@@ -243,6 +245,7 @@ nnoremap <leader>rw :%s/<C-r><C-w>/
 vnoremap <leader>rw y:%s/<C-r>"/
 nnoremap <leader>ru y:%s/function(/function (/<cr>
 nnoremap <leader>rm :exe "!rm ~/tmp/%.sw*"<cr><cr>:echo 'swap files removed'<cr>
+nnoremap <leader>re :reg<cr>
 nnoremap <leader>ri gg=G<cr>
 nnoremap <leader>R :redraw!<cr>
 nnoremap <leader>ss /\C
@@ -254,7 +257,7 @@ nnoremap <leader>o :!open %<cr>
 nnoremap <leader>od :!open .<cr>
 nnoremap <leader>e :e<space>
 nnoremap <leader>E :e!<cr>
-nnoremap <leader>er :e<cr>
+nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ev :e ~/.vimrc<cr>
 nnoremap <leader>evl :e ~/.vimrc.local<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
@@ -536,6 +539,7 @@ autocmd FileType jsx noremap <buffer> <leader>F :call JsxBeautify()<cr>
 " NerdTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$']
+let NERDTreeMinimalUI=1
 
 " to open NERDTree on start
 autocmd VimEnter * NERDTree

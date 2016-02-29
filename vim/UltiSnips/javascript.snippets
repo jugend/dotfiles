@@ -232,6 +232,12 @@ ${1:function}($2) {
 }
 endsnippet
 
+snippet fnam "function name() { }"
+function ${1:name}($2) {
+  $3
+}
+endsnippet
+
 snippet () "() => { ... }" i
 ($1) => {
   $2
@@ -306,6 +312,10 @@ render() {
 endsnippet
 
 # React: ES5
+snippet rs "{' '}" b
+{' '}
+endsnippet
+
 snippet rreq "require('react')"
   var React = require('react');
 endsnippet
@@ -391,6 +401,22 @@ endsnippet
 
 snippet clm "console.log('message')"
 console.log('${1:message}');
+endsnippet
+
+snippet cg "console.group('name')" b
+console.group('${1:name}')
+endsnippet
+
+snippet cge "console.groupEnd('name')" b
+console.groupEnd('${1:name}')
+endsnippet
+
+snippet ct "console.time('name')" b
+console.time('${1:name}')
+endsnippet
+
+snippet cte "console.timeEnd('name')" b
+console.timeEnd('${1:name}')
 endsnippet
 
 # Node.js Snipppets

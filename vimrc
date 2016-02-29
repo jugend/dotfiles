@@ -258,6 +258,7 @@ nnoremap <leader>od :!open .<cr>
 nnoremap <leader>e :e<space>
 nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
+nnoremap <leader>ep :e package.json<cr>
 nnoremap <leader>ev :e ~/.vimrc<cr>
 nnoremap <leader>evl :e ~/.vimrc.local<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
@@ -294,6 +295,7 @@ nnoremap <leader>st :SyntasticToggleMode<cr>
 nnoremap <leader>mp :InstantMarkdownPreview<cr>
 nnoremap <leader>mf :MultipleCursorsFind<space>
 
+nnoremap <leader>sjs :set filetype=javascript<cr>
 nnoremap <leader>iw :set invwrap<cr>
 nnoremap <leader>in :set invnumber<cr>
 nnoremap <leader>il :set invlist<cr>
@@ -473,7 +475,7 @@ autocmd FileType javascript,javascript.jsx
   \ setl foldlevelstart=99
 
 " mxw/vim-jsx plugin
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files, causing filetype set to javascript.jsx
+let g:jsx_ext_required = 1 " Allow JSX in normal JS files, causing filetype set to javascript.jsx
 
 " easytags - create .tags in project directory
 " set tags=./tags

@@ -292,7 +292,7 @@ nnoremap <leader>ll :TagbarToggle<cr>
 nnoremap <leader>sc :SyntasticCheck<cr>
 nnoremap <leader>sr :SyntasticReset<cr>
 nnoremap <leader>st :SyntasticToggleMode<cr>
-nnoremap <leader>mp :InstantMarkdownPreview<cr>
+nnoremap <leader>mp :LivedownToggle<cr>
 nnoremap <leader>mf :MultipleCursorsFind<space>
 
 nnoremap <leader>sjs :set filetype=javascript<cr>
@@ -623,9 +623,12 @@ let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 let g:tagbar_previewwin_pos = "bottom"
 
-" Instant markdown
-let g:instant_markdown_autostart = 0
+" Live Markdown
+let g:livedown_autorun = 0
+let g:livedown_open = 1
 
+" the port on which Livedown server will run
+let g:livedown_port = 1337
 " Dust.js
 let g:surround_{char2nr('d')} = "{\r}"
 

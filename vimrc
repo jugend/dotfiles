@@ -259,6 +259,7 @@ nnoremap <leader>e :e<space>
 nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ep :e package.json<cr>
+nnoremap <leader>ei :e index.js<cr>
 nnoremap <leader>ev :e ~/.vimrc<cr>
 nnoremap <leader>evl :e ~/.vimrc.local<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
@@ -587,11 +588,11 @@ command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 " tabular
-vnoremap <leader>a= :Tabularize /=<cr>
-vnoremap <leader>a: :Tabularize /:<cr>
-vnoremap <leader>a- :Tabularize /-<cr>
-vnoremap <leader>as :Tabularize / <cr>
-vnoremap <leader>at :Tabularize /\t<cr>
+vnoremap <leader>t= :Tabularize /=<cr>
+vnoremap <leader>t: :Tabularize /:<cr>
+vnoremap <leader>t- :Tabularize /-<cr>
+vnoremap <leader>ts :Tabularize / <cr>
+vnoremap <leader>tt :Tabularize /\t<cr>
 
 " vim-node
 autocmd User Node

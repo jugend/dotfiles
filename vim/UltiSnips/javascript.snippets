@@ -366,6 +366,12 @@ function(e) {
 }
 endsnippet
 
+snippet fd "function(done) { ... }" i
+function(done) {
+    $1
+}
+endsnippet
+
 snippet for:ar "for (var i = 0; i < array.lengh; i++) { ... }"
 for (var i = 0; i < ${1:length}; i++) {
   $1
@@ -430,44 +436,79 @@ module.exports = ${1:ClassName};
 endsnippet
 
 # Mocha
-snippet describe "Mocha describe"
-describe("`!p snip.rv = fn.split(os.extsep)[0]`", function() {
+snippet describe "Mocha: describe"
+describe('`!p snip.rv = fn.split(os.extsep)[0]`', function() {
   $0
 });
 endsnippet
 
-snippet desc "Mocha describe verbose"
-describe("${1:`!p snip.rv = fn.split(os.extsep)[0]`}", function() {
+snippet desc "Mocha: describe verbose"
+describe('${1:`!p snip.rv = fn.split(os.extsep)[0]`}', function() {
   $0
 });
 endsnippet
 
-snippet it "Mocha it"
-it("${1:It}", function() {
+snippet itf "Mocha: it"
+it('${1:desc}', function() {
   $0
 });
 endsnippet
 
-snippet bee "Mocha beforeEach"
-beforeEach(function() {
+snippet itd "Mocha: it (async)"
+it('${1:desc}', function(done) {
   $0
 });
 endsnippet
 
-snippet afe "Mocha afterEach"
-afterEach(function() {
-  $0
-});
+snippet it "Mocha: it (pending)"
+it('${1:desc}');
 endsnippet
 
-snippet before "Mocha before"
+snippet bef "Mocha: before"
 before(function(done) {
   $0
 });
 endsnippet
 
-snippet after "Mocha after"
+snippet befd "Mocha: before (async)"
+before(function(done) {
+  $0
+});
+endsnippet
+
+snippet aftd "Mocha: after"
+after(function() {
+  $0
+});
+endsnippet
+
+snippet aftd "Mocha: after (async)"
 after(function(done) {
   $0
 });
 endsnippet
+
+snippet befe "Mocha: beforeEach"
+beforeEach(function() {
+  $0
+});
+endsnippet
+
+snippet befe "Mocha: beforeEach (async)"
+beforeEach(function(done) {
+  $0
+});
+endsnippet
+
+snippet afte "Mocha: afterEach"
+afterEach(function() {
+  $0
+});
+endsnippet
+
+snippet afte "Mocha: afterEach (done)"
+afterEach(function(done) {
+  $0
+});
+endsnippet
+

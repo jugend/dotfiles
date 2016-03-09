@@ -229,7 +229,7 @@ nnoremap <leader>ba :ba<cr>
 nnoremap <leader>bo :bufdo<space>
 nnoremap <leader>br :bufdo e!<cr>
 nnoremap <leader>bq :bufdo bd<cr>
-nnoremap <leader>bj :call JsxBeautify()<cr>
+nnoremap <leader>Bj :call JsxBeautify()<cr>
 nnoremap <leader>ct :Dispatch! ctpro<cr>
 nnoremap <leader>vba :vert ba<cr>
 nnoremap <leader>j :BuffergatorMruCyclePrev<cr>

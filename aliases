@@ -154,7 +154,7 @@ alias sid='siege -c 1 -d 5 -r 10'
 alias sid10='siege -c 1 -d 10 -r 10'
 
 # Node
-alias nodr='env NODE_NO_READLINE=1 rlwrap node'
+alias noder='env NODE_NO_READLINE=1 rlwrap node'
 alias nh='node --harmony'
 alias nhg='node --harmony-generators'
 alias ndev='node-dev'
@@ -453,6 +453,7 @@ alias gcr='git create'
 alias gcnpm='gitclonenpm'
 alias gbnpm='gitbrowsenpm'
 alias gdelr='gitdelremotebranch'
+alias gdelt='gitdelremotetag'
 
 ###
 # Gist

@@ -318,7 +318,7 @@ nnoremap <leader><leader>9 :set foldlevel=99<cr>
 nnoremap <leader><leader><leader> :set foldlevel=99<cr>
 
 " Space to toggle folds
-nnoremap <leader><leader>f za
+nnoremap <leader><leader>f zA
 
 " fugitive git bindings
 nnoremap <leader>g :Git<space>
@@ -543,6 +543,8 @@ autocmd FileType jsx noremap <buffer> <leader>F :call JsxBeautify()<cr>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$']
 let NERDTreeMinimalUI=1
+" To allow switching to the top/bottom tmux window
+let g:NERDTreeMapJumpNextSibling = '<Nop>'
 
 " to open NERDTree on start
 autocmd VimEnter * NERDTree

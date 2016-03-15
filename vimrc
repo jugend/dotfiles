@@ -277,6 +277,8 @@ nnoremap <leader>hv :vert h<space>
 nnoremap <leader>lf :lfirst<cr>
 nnoremap <leader>ln :lnext<cr>
 nnoremap <leader>lp :lprevious<cr>
+nnoremap <leader>cd :color default<cr>:set bg=white<cr>
+nnoremap <leader>cs :color solarized<cr>:set bg=dark<cr>
 nnoremap <leader>cf :cfirst<cr>
 nnoremap <leader>cw :<cr>
 nnoremap <leader>cn :cnext<cr>
@@ -534,7 +536,7 @@ let g:indentLine_char = '︙'
 " let g:indentLine_color_term = 239
 
 " vim-jsbeautify configs
-autocmd FileType javascript noremap <buffer> <leader>F :call JsBeautify()<cr>
+autocmd FileType javascript,json noremap <buffer> <leader>F :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>F :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>F :call CSSBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <leader>F :call JsxBeautify()<cr>

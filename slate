@@ -83,7 +83,7 @@ bind k:ctrl;cmd               chain    ${topHalfHeight} | ${topTwoThirdHeight} |
 bind j:ctrl;cmd               chain    ${bottomHalfHeight} | ${bottomTwoThirdHeight} | ${fullHeight}
 bind s:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 bind c:ctrl;cmd               chain    ${centerHalf} | ${centerThreeFifth} | ${centerOneThird} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
-bind f:ctrl;cmd               chain    ${full} | ${centerTwoThird} | ${centerHalf}
+bind e:ctrl;cmd               chain    ${full} | ${centerTwoThird} | ${centerHalf} | ${centerOneThird}
 
 bind h:shift;alt              chain    ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftThreeFifth} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
 bind l:shift;alt              chain    ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightThreeFifth} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}

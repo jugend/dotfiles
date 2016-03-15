@@ -1,0 +1,186 @@
+= Mocha
+
+== Usage
+
+Usage: mocha [debug] [options] [files]
+
+Commands:
+
+  init <path>
+  initialize a client-side mocha setup at <path>
+
+Options:
+
+ -h, --help                              output usage information
+ -V, --version                           output the version number
+ -A, --async-only                        force all tests to take a callback (async) or return a promise
+ -c, --colors                            force enabling of colors
+ -C, --no-colors                         force disabling of colors
+ -G, --growl                             enable growl notification support
+ -O, --reporter-options <k=v,k2=v2,...>  reporter-specific options
+ -R, --reporter <name>                   specify the reporter to use
+ -S, --sort                              sort test files
+ -b, --bail                              bail after first test failure
+ -d, --debug                             enable node's debugger, synonym for node --debug
+ -g, --grep <pattern>                    only run tests matching <pattern>
+ -f, --fgrep <string>                    only run tests containing <string>
+ -gc, --expose-gc                        expose gc extension
+ -i, --invert                            inverts --grep and --fgrep matches
+ -r, --require <name>                    require the given module
+ -s, --slow <ms>                         "slow" test threshold in milliseconds [75]
+ -t, --timeout <ms>                      set test-case timeout in milliseconds [2000]
+ -u, --ui <name>                         specify user-interface (bdd|tdd|exports)
+ -w, --watch                             watch files for changes
+ --check-leaks                           check for global variable leaks
+ --compilers <ext>:<module>,...          use the given module(s) to compile files
+ --debug-brk                             enable node's debugger breaking on the first line
+ --delay                                 wait for async suite definition
+ --es_staging                            enable all staged features
+ --full-trace                            display the full stack trace
+ --globals <names>                       allow the given comma-delimited global [names]
+ --harmony                               enable all harmony features (except typeof)
+ --harmony-collections                   enable harmony collections (sets, maps, and weak maps)
+ --harmony-generators                    enable harmony generators
+ --harmony-proxies                       enable harmony proxies
+ --harmony_arrow_functions               enable "harmony arrow functions" (iojs)
+ --harmony_classes                       enable "harmony classes" (iojs)
+ --harmony_proxies                       enable "harmony proxies" (iojs)
+ --harmony_shipping                      enable all shipped harmony fetaures (iojs)
+ --inline-diffs                          display actual/expected differences inline within each string
+ --interfaces                            display available interfaces
+ --no-deprecation                        silence deprecation warnings
+ --no-exit                               require a clean shutdown of the event loop: mocha will not call process.exit
+ --no-timeouts                           disables timeouts, given implicitly with --debug
+ --opts <path>                           specify opts path
+ --prof                                  log statistical profiling information
+ --recursive                             include sub directories
+ --reporters                             display available reporters
+ --throw-deprecation                     throw an exception anytime a deprecated function is used
+ --trace                                 trace function calls
+ --trace-deprecation                     show stack traces on deprecations
+ --watch-extensions <ext>,...            additional extensions to monitor with --watch
+
+
+== Synchronous Test
+
+var assert = require('assert');
+describe('Array', function() {
+  describe('#indexOf()', function() {
+    it('should return -1 when the value is not present', function() {
+      assert.equal(-1, [1, 2, 3].indexOf(5));
+      assert.equal(-1, [1, 2, 3].indexOf(0));
+    });
+  });
+});
+
+== Asynchronous Test
+
+describe('User', function() {
+  describe('#save()', function() {
+    it('should save without error', function(done) {
+      var user = new User('Luna');
+      user.save(function(err) {
+        if (err) throw err;
+        done();
+      });
+    });
+  });
+});
+
+
+describe('User', function() {
+  describe('#save()', function() {
+    it('should save without error', function(done) {
+      var user = new User('Luna');
+      user.save(done);
+    });
+  });
+});
+
+== Promises
+
+beforeEach(function() {
+  return db.clear()
+    .then(function() {
+      return db.save([tobi, loki, jane]);
+    });
+});
+
+describe('#find()', function() {
+  it('respond with matching records', function() {
+    return db.find({ type: 'User' }).should.eventually.have.length(3);
+  });
+});
+
+== Hooks
+
+describe('hooks', function() {
+
+  before(function() {
+    // runs before all tests in this block
+  });
+
+  after(function() {
+    // runs after all tests in this block
+  });
+
+  beforeEach(function() {
+    // runs before each test in this block
+  });
+
+  afterEach(function() {
+    // runs after each test in this block
+  });
+
+  // test cases
+});
+
+== Pending Tests
+
+describe('Array', function() {
+  describe('#indexOf()', function() {
+    // pending test below
+    it('should return -1 when the value is not present');
+  });
+});
+
+== Exclusive Tests
+
+describe('Array', function() {
+  describe.only('#indexOf()', function() {
+    // ...
+  });
+});
+
+== Inclusive Tests
+
+describe('Array', function() {
+  describe.skip('#indexOf()', function() {
+    // ...
+  });
+});
+
+== Test Duration
+
+describe('something slow', function() {
+  this.slow(10000);
+
+  it('should take long enough for me to go make a sandwich', function() {
+    // ...
+  });
+});
+
+== Timeout
+
+describe('a suite of tests', function() {
+  this.timeout(500);
+
+  it('should take less than 500ms', function(done){
+    setTimeout(done, 300);
+  });
+
+  it('should take less than 500ms as well', function(done){
+    setTimeout(done, 200);
+  });
+})
+

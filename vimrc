@@ -23,7 +23,7 @@ set timeoutlen=400
 set splitbelow
 set splitright
 set foldopen-=search
-" set smartcase
+set noswapfile
 
 set wildmenu
 set wildmode=list:longest:full

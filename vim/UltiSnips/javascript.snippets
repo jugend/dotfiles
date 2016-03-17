@@ -561,3 +561,16 @@ snippet cas "var assert = require('chai').assert;" do
 var assert = require('chai').assert;
 $1
 endsnippet
+
+# web driver
+snippet wdful "nemo.wd.promise.fulfilled().then(function() {})" b
+return nemo.wd.promise.fulfilled().then(function() {
+  $1
+});
+endsnippet
+
+snippet thenc "thenc" i
+.thenCatch(function(err) {
+  $1
+})
+endsnippet

@@ -76,14 +76,30 @@ set laststatus=2
 set title
 
 "" color scheme
+let g:solarized_visibility="high"
+let g:solarized_contrast="high"
+
+" Fix the gray background issue on iTerm
+if !has('gui_running')
+  let g:solarized_termtrans = 1
+endif
+
 if (&t_Co == 256 || has('gui_running'))
   " $TERM_PROGRAM not set in sudo vim
   if (($TERM_PROGRAM == '') || ($TERM_PROGRAM == 'iTerm.app'))
-  colorscheme solarized
+    colorscheme solarized
   else
     colorscheme molokai
   endif
 endif
+
+"" set vertical seperator to a single line
+set fillchars=vert:\│
+" hi VertSplit ctermbg=NONE guibg=NONE ctermfg=235 guifg=#073642
+hi VertSplit ctermbg=NONE guibg=NONE ctermfg=0 guifg=#073642
+
+"" hide blank line characters
+hi NonText ctermfg=235 guifg=#002b36 guibg=#002b36
 
 "" tab / indentation
 set expandtab

@@ -67,6 +67,10 @@ gitdelremotetag() {
   git push origin :refs/tag/$1
 }
 
+ftpgetall() { 
+  wget -r ftp://$1@$2/$3
+}
+
 ctagsproj() {
   if [ -d ./.git/ ] ; then
     ctags -R -f ./.git/.tags

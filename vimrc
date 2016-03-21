@@ -167,10 +167,12 @@ let mapleader=","
 inoremap jk <esc>
 inoremap jj <esc>
 inoremap ii <esc>
+inoremap <C-[> <esc>
 inoremap <C-l> <esc>
 inoremap <C-s> <C-o>:w<cr>
 
 vnoremap <C-l> <esc>
+vnoremap <C-[> <esc>
 vnoremap <C-s> :w<cr>
 
 nnoremap <Space> i
@@ -334,6 +336,9 @@ nnoremap <leader><leader>4 :set foldlevel=4<cr>
 nnoremap <leader><leader>5 :set foldlevel=5<cr>
 nnoremap <leader><leader>9 :set foldlevel=99<cr>
 nnoremap <leader><leader><leader> :set foldlevel=99<cr>
+
+" Find
+nnoremap <leader>fcon :/console.log<cr>
 
 " Space to toggle folds
 nnoremap <leader><leader>f zA

@@ -68,6 +68,7 @@ gitdelremotetag() {
 }
 
 ftpgetall() { 
+  # ftp://username:password@host/dir
   wget -r ftp://$1@$2/$3
 }
 

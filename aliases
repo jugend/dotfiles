@@ -273,9 +273,11 @@ alias sedi='sed -i ""'
 
 # ES6
 alias mocha6='mocha --compilers js:babel/register'
+alias mochaw='mocha -w --recursive'
+alias mochag='mochaw --grep'
 alias mochat='mocha -t 200000'
-alias mochaw='mocha -w'
 alias mochatw='mocha -t 200000 -w'
+alias mochatg='mochatw --grep'
 
 # istanbul
 alias is='istanbul'
@@ -431,6 +433,7 @@ alias gplom='git pull origin master'
 alias gplu='git pull upstream'
 alias gplum='git pull upstream master'
 alias gplr='git pull --rebase'
+alias gplrd='git pull --rebase develop'
 alias grs='git reset'
 alias grshead='git reset HEAD'
 alias grsohead='git reset --hard ORIG_HEAD'

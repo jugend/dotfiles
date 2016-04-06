@@ -261,7 +261,7 @@ nnoremap <leader>r :%s/
 nnoremap <leader>r/ :%s/\v
 nnoremap <leader>rw :%s/<C-r><C-w>/
 vnoremap <leader>rw y:%s/<C-r>"/
-nnoremap <leader>ru y:%s/function(/function (/<cr>
+nnoremap <leader>ru y:%s/function(/function (/I<cr>
 nnoremap <leader>rm :exe "!rm ~/tmp/%.sw*"<cr><cr>:echo 'swap files removed'<cr>
 nnoremap <leader>re :reg<cr>
 nnoremap <leader>ri gg=G<cr>

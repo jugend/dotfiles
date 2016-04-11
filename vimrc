@@ -138,7 +138,7 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
-
+nnoremap ga ^
 
 " Quicker word move
 " nnoremap w W
@@ -291,7 +291,11 @@ nnoremap <leader>N :nohlsearch<cr>
 nnoremap <leader>n />>><cr>
 nnoremap <leader>ch :helpc<cr>
 nnoremap <leader>hg :helpg<space>
-nnoremap <leader>hv :vert h<space>
+nnoremap <leader>hf :help function-list<cr>
+nnoremap <leader>hr :help variables<cr>
+nnoremap <leader>he :help expession-syntax<cr>
+nnoremap <leader>hc :help variables<cr>
+nnoremap <leader>vh :vert h<space>
 nnoremap <leader>lf :lfirst<cr>
 nnoremap <leader>ln :lnext<cr>
 nnoremap <leader>lp :lprevious<cr>
@@ -307,6 +311,8 @@ nnoremap <leader>lc :lclose<cr>
 nnoremap <leader>lo :lopen<cr>
 nnoremap <leader>pc :pclose<cr>
 nnoremap <silent><leader>rv :source ~/.vimrc<cr>:filetype detect<cr>:echo 'vimrc reloaded'<cr>
+nnoremap <leader>ya :%y+<cr>
+nnoremap <leader>yr :reg<cr>
 
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>ll :TagbarToggle<cr>
@@ -345,7 +351,7 @@ nnoremap <leader><leader>f zA
 
 " fugitive git bindings
 nnoremap <leader>g :Git<space>
-nnoremap <leader>ga :Git add %:p<cr><cr>
+" nnoremap <leader>ga :Git add %:p<cr><cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit -v -q<cr>
@@ -557,10 +563,17 @@ let g:indentLine_char = '︙'
 " let g:indentLine_color_term = 239
 
 " vim-jsbeautify configs
-autocmd FileType javascript,json noremap <buffer> <leader>F :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <leader>F :call JsBeautify()<cr>
+autocmd FileType json noremap <buffer> <leader>F :call JsonBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>F :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>F :call CSSBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <leader>F :call JsxBeautify()<cr>
+
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " NerdTree
 let NERDTreeShowHidden=1

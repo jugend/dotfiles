@@ -271,13 +271,12 @@ alias guts='gulp --tasks-simple'
 # sed
 alias sedi='sed -i ""'
 
-# ES6
+# mocha
 alias mocha6='mocha --compilers js:babel/register'
 alias mochaw='mocha -w --recursive'
-alias mochag='mochaw --grep'
 alias mochat='mocha -t 200000'
-alias mochatw='mocha -t 200000 -w'
-alias mochatg='mochatw --grep'
+alias mochaw='mochat -w'
+alias mochag='mochaw --grep'
 
 # istanbul
 alias is='istanbul'
@@ -427,13 +426,13 @@ alias gpodel='git push origin --delete'
 alias gpu='git push upstream'
 alias gpsu='git push --set-upstream'
 alias gpsom='git push --set-upstream origin master'
+alias gpt='git push --tags'
 alias gpl='git pull'
 alias gplo='git pull origin'
 alias gplom='git pull origin master'
 alias gplu='git pull upstream'
 alias gplum='git pull upstream master'
-alias gplr='git pull --rebase'
-alias gplrd='git pull --rebase develop'
+alias gplur='git pull upstream --rebase'
 alias grs='git reset'
 alias grshead='git reset HEAD'
 alias grsohead='git reset --hard ORIG_HEAD'

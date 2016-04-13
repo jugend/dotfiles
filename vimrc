@@ -322,11 +322,11 @@ nnoremap <leader>st :SyntasticToggleMode<cr>
 nnoremap <leader>mp :LivedownToggle<cr>
 nnoremap <leader>mf :MultipleCursorsFind<space>
 
-nnoremap <leader>sjs :set filetype=javascript<cr>
-nnoremap <leader>iw :set invwrap<cr>
-nnoremap <leader>in :set invnumber<cr>
-nnoremap <leader>il :set invlist<cr>
 nnoremap <leader>ic :set invignorecase<cr>
+nnoremap <leader>ie :set invexpandtab<cr>
+nnoremap <leader>il :set invlist<cr>
+nnoremap <leader>in :set invnumber<cr>
+nnoremap <leader>iw :set invwrap<cr>
 nnoremap <leader>fo :set foldcolumn=2<cr>
 nnoremap <leader>fc :set foldcolumn=0<cr>
 nnoremap <leader>t2 :set sw=2 ts=2<cr>
@@ -334,6 +334,7 @@ nnoremap <leader>t4 :set sw=2 ts=2<cr>
 nnoremap <leader>k :set foldlevel=0<cr>
 nnoremap <leader>kk :set foldlevel=1<cr>
 nnoremap <leader>K :set foldlevel=2<cr>
+nnoremap <leader>sjs :set filetype=javascript<cr>
 nnoremap <leader><leader>0 :set foldlevel=0<cr>
 nnoremap <leader><leader>1 :set foldlevel=1<cr>
 nnoremap <leader><leader>2 :set foldlevel=2<cr>

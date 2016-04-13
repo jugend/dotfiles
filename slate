@@ -89,7 +89,7 @@ bind h:shift;alt              chain    ${leftThreeQuarter} | ${leftSevenTenth} |
 bind l:shift;alt              chain    ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightThreeFifth} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
 bind c:shift;alt              chain    ${centerTwoThird} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerThreeFifth} | ${centerHalf} | ${centerOneThird}
 
-bind c:ctrl;shift;alt         chain ${center}
+bind c:ctrl;shift             chain ${center}
 
 # Resize Bindings
 bind l:ctrl;alt               resize +2% +0

@@ -268,6 +268,7 @@ nnoremap <leader>ri gg=G<cr>
 nnoremap <leader>R :redraw!<cr>
 nnoremap <leader>ss /\C
 nnoremap <leader>cr :ChromeReload<cr>
+nnoremap <leader>wa :wa<cr>
 nnoremap <leader>wc :let<space>g:ctrlp_working_path_mode=0<cr>
 nnoremap <leader>wd :let<space>g:ctrlp_working_path_mode='ra'<cr>
 
@@ -310,6 +311,10 @@ nnoremap <leader>co :copen<cr>
 nnoremap <leader>lc :lclose<cr>
 nnoremap <leader>lo :lopen<cr>
 nnoremap <leader>pc :pclose<cr>
+nnoremap <leader>ms :Gsearch<space>
+nnoremap <leader>mw :Gsearch<space><C-R><C-w><cr>
+vnoremap <leader>mw y:Gsearch<space><C-R>"<cr>
+noremap <leader>mr :Greplace<cr>
 nnoremap <silent><leader>rv :source ~/.vimrc<cr>:filetype detect<cr>:echo 'vimrc reloaded'<cr>
 nnoremap <leader>ya :%y+<cr>
 nnoremap <leader>yr :reg<cr>
@@ -417,10 +422,6 @@ nnoremap <leader>rs :TernDefSplit<cr>
 nnoremap <leader>rT :TernDefTab<cr>
 nnoremap <leader>rr :TernRefs<cr>
 nnoremap <leader>rR :TernRename<cr>
-
-" Tab mapping for rails
-nnoremap <leader>ra :A<cr>
-nnoremap <leader>rr :R<cr>
 
 " Selection shortcuts
 nnoremap <leader>vp <S-v>ap
@@ -576,6 +577,9 @@ autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
+let g:editorconfig_Beautifier = getcwd().'/.editorconfig'
+" autocmd FileType javascript call BeautifierApplyConfig()
+
 " NerdTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$']
@@ -657,6 +661,10 @@ function! ToggleAgSkipVcsIgnores()
   endif
 endfunction
 command! -nargs=0 ToggleAgSkipVcsIgnores :call ToggleAgSkipVcsIgnores()
+
+" greplace
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
 
 " Tagbar
 let g:tagbar_autofocus = 1

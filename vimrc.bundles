@@ -70,7 +70,6 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 
 " Beautifier
-Plugin 'beautify-web/js-beautify'
 Plugin 'maksimr/vim-jsbeautify'
 
 " Comment

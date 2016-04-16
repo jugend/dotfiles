@@ -577,8 +577,10 @@ autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
-let g:editorconfig_Beautifier = getcwd().'/.editorconfig'
-" autocmd FileType javascript call BeautifierApplyConfig()
+let editorconfig = getcwd() . '/.editorconfig'
+if filereadable(editorconfig)
+  let g:editorconfig_Beautifier = editorconfig
+endif
 
 " NerdTree
 let NERDTreeShowHidden=1

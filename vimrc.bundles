@@ -97,8 +97,10 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'Raimondi/delimitMate'
+" Plugin 'marijnh/tern_for_vim'
+" For brackets
+Plugin 'jiangmiao/auto-pairs'
+
 " To help to resolve conflict between YouCompleteMe and Ultisnips
 Plugin 'ervandew/supertab'
 

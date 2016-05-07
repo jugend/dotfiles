@@ -379,8 +379,8 @@ function(req, res, next) {
 endsnippet
 
 snippet fer "function(err) { ... }" i
-function(${1:err}) {
-  $2
+function(err) {
+  $1
 
 endsnippet
 
@@ -467,7 +467,7 @@ snippet req "require('module')" i
 require('$1');
 endsnippet
 
-snippet modex "module.exports = ClassName"
+snippet modx "module.exports = ClassName"
 module.exports = ${1:ClassName};
 endsnippet
 

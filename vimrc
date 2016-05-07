@@ -153,9 +153,10 @@ inoremap <C-b> <C-o>h
 inoremap <C-a> <C-o>0
 
 " Indentation after curly brace & bracket
-inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
-inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
-inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
+" Comes with auto-pair plugin
+" inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
+" inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
+" inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
 
 nnoremap H ^
 nnoremap L $
@@ -167,8 +168,9 @@ let mapleader=","
 inoremap jk <esc>
 inoremap jj <esc>
 inoremap ii <esc>
+" inoremap <C-l> <esc>
 inoremap <C-[> <esc>
-inoremap <C-l> <esc>
+inoremap <C-i> <esc>
 inoremap <C-s> <C-o>:w<cr>
 
 vnoremap <C-l> <esc>
@@ -254,8 +256,11 @@ nnoremap <leader>j :BuffergatorMruCyclePrev<cr>
 nnoremap <leader>J :BuffergatorMruCycleNext<cr>
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>sp :set paste<cr>
-nnoremap <leader>ft :set ft=<space>
-nnoremap <leader>fs :set ft=sh<cr>
+nnoremap <leader>ft :set ft=
+nnoremap <leader>fsh :set ft=sh<cr>
+nnoremap <leader>fjs :set ft=javascript<cr>
+nnoremap <leader>fjo :set ft=json<cr>
+nnoremap <leader>fjx :set ft=javascript.jsx<cr>
 nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
 nnoremap <leader>r/ :%s/\v
@@ -322,6 +327,8 @@ nnoremap <leader>yr :reg<cr>
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>ll :TagbarToggle<cr>
 nnoremap <leader>sc :SyntasticCheck<cr>
+nnoremap <leader>sj :SyntasticCheck jscs<cr>
+nnoremap <leader>se :SyntasticCheck eslint<cr>
 nnoremap <leader>sr :SyntasticReset<cr>
 nnoremap <leader>st :SyntasticToggleMode<cr>
 nnoremap <leader>mp :LivedownToggle<cr>
@@ -429,8 +436,8 @@ nnoremap <leader>vP `[v`]
 
 " Common Tasks
 " Open last closed file
-nnoremap <leader>sj :sp #<cr>
-nnoremap <leader>vj :vsp #<cr>
+nnoremap <leader>ol :sp #<cr>
+nnoremap <leader>vol :vsp #<cr>
 
 " Jump to file in a split window
 nnoremap <leader>vg <C-w>vgf #<cr>
@@ -499,7 +506,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 " let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
-" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 autocmd FileType javascript,javascript.jsx
   \ let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint'] |
@@ -507,7 +514,7 @@ autocmd FileType javascript,javascript.jsx
   \ setl foldlevelstart=99
 
 " mxw/vim-jsx plugin
-let g:jsx_ext_required = 1 " Allow JSX in normal JS files, causing filetype set to javascript.jsx
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files, causing filetype set to javascript.jsx
 
 " easytags - create .tags in project directory
 " set tags=./tags

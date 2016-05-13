@@ -154,9 +154,9 @@ inoremap <C-a> <C-o>0
 
 " Indentation after curly brace & bracket
 " Comes with auto-pair plugin
-" inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
-" inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
-" inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
+inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
+inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
+inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
 
 nnoremap H ^
 nnoremap L $
@@ -168,9 +168,8 @@ let mapleader=","
 inoremap jk <esc>
 inoremap jj <esc>
 inoremap ii <esc>
-" inoremap <C-l> <esc>
+inoremap <C-l> <esc>
 inoremap <C-[> <esc>
-inoremap <C-i> <esc>
 inoremap <C-s> <C-o>:w<cr>
 
 vnoremap <C-l> <esc>
@@ -264,9 +263,11 @@ nnoremap <leader>fjx :set ft=javascript.jsx<cr>
 nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
 nnoremap <leader>r/ :%s/\v
+vnoremap <leader>r :s/
 nnoremap <leader>rw :%s/<C-r><C-w>/
 vnoremap <leader>rw y:%s/<C-r>"/
 nnoremap <leader>ru y:%s/function(/function (/I<cr>
+nnoremap <leader>ra y:%s/function\%[ ]()/() =>/I<cr>
 nnoremap <leader>rm :exe "!rm ~/tmp/%.sw*"<cr><cr>:echo 'swap files removed'<cr>
 nnoremap <leader>re :reg<cr>
 nnoremap <leader>ri gg=G<cr>

@@ -172,21 +172,31 @@ app.listen(app.get('port'), 'localhost', function(err) {
 });
 endsnippet
 
-snippet pjoin "path.join(__dirname, 'path')" i
-path.join(__dirname, '${1:path}')
+snippet pjoin "path.join(__dirname, 'lib')" i
+path.join(__dirname, '${1:lib}')
 endsnippet
 
 # ES6
-snippet im "import object from 'path'"
-import ${1:object} from '${2:path}';
+snippet im "import object from 'lib'"
+import ${1:object} from '${2:lib}';
 endsnippet
 
-snippet imn "import { object } from 'path'"
-import \{ ${1:object} \} from '${2:path}';
+snippet ime "import object from 'object'"
+import ${1:object} from '$1';
 endsnippet
 
-snippet ims "import * as object from 'path'"
-import * as ${1:object} from '${2:path}';
+snippet imd "import { object } from 'lib'"
+import \{ ${1:object} \} from '${2:lib}';
+endsnippet
+
+snippet im* "import * as object from 'lib'"
+import * as ${1:object} from '${2:lib}';
+endsnippet
+
+snippet clex "class ClassName extends Parent"
+class ${1:ClassName} extends ${2:Parent} {
+  $3
+}
 endsnippet
 
 snippet ex "export" b
@@ -198,8 +208,8 @@ export const $1 = '$2';
 endsnippet
 
 snippet exfun "export function name() { ... }" b
-export function ${1:name}() {
-  $2
+export function ${1:name}($2) {
+  $3
 };
 endsnippet
 
@@ -237,7 +247,7 @@ snippet con "const name = value" b
 const ${1:name} = ${2:value};
 endsnippet
 
-snippet cons "const { name } = value" b
+snippet cond "const { name } = value" b
 const \{ ${1:name} \} = ${2:value};
 endsnippet
 
@@ -268,13 +278,21 @@ function ${1:name}($2) {
 }
 endsnippet
 
-snippet () "() => { ... }" i
+snippet )= "1 => 2" i
+$1 => $2
+endsnippet
+
+snippet ()= "(1) => 2" i
+($1) => $2
+endsnippet
+
+snippet (){ "(1) => { ... }" i
 ($1) => {
   $2
 }
 endsnippet
 
-snippet ()s "() =>" i
+snippet ()=> "(1) => \n\t 2" i
 ($1) =>
   $2
 endsnippet
@@ -285,8 +303,8 @@ endsnippet
 
 # React: ES6
 
-snippet rim "import React, { Component }"
-import React, { Component$1 } from 'react';
+snippet rim "import React, { Component, PropTypes }"
+import React, { Component, PropTypes$1 } from 'react';
 $2
 endsnippet
 
@@ -300,15 +318,71 @@ import ${1:IntlProvider}${2:, FormattedNumber}${3:, FormattedPlural }from 'react
 
 endsnippet
 
-snippet rccom "class ClassName extends Component"
+snippet rcla "class ClassName extends Component"
 class ${1:ClassName} extends Component {
   $2
 }
 endsnippet
 
-snippet rcon "constructor(props) { ... }"
-constructor(props) {
-  super(props);
+snippet rprop "ClassName.propTypes = {}"
+${1:ClassName}.propTypes = {
+  $2
+}
+endsnippet
+
+# React: PropTypes
+snippet rpo "PropTypes.object"
+PropTypes.object
+endsnippet
+
+snippet rpor "PropTypes.object.isRequired"
+PropTypes.object.isRequired
+endsnippet
+
+snippet rps "PropTypes.string"
+PropTypes.string
+endsnippet
+
+snippet rpsr "PropTypes.string.isRequired"
+PropTypes.string.isRequired
+endsnippet
+
+snippet rpn "PropTypes.number"
+PropTypes.number
+endsnippet
+
+snippet rpnr "PropTypes.number.isRequired"
+PropTypes.number.isRequired
+endsnippet
+
+snippet rpb "PropTypes.bool"
+PropTypes.bool
+endsnippet
+
+snippet rpbr "PropTypes.bool.isRequired"
+PropTypes.bool.isRequired
+endsnippet
+
+snippet rpf "PropTypes.func"
+PropTypes.func
+endsnippet
+
+snippet rpfr "PropTypes.func.isRequired"
+PropTypes.func.isRequired
+endsnippet
+
+snippet rpb "PropTypes.array"
+PropTypes.array
+endsnippet
+
+snippet rpbr "PropTypes.array.isRequired"
+PropTypes.array.isRequired
+endsnippet
+
+# Methods
+snippet rcon "constructor(props, context) { ... }"
+constructor(props, context) {
+  super(props, context);
   $1
 }
 
@@ -352,7 +426,7 @@ endsnippet
 
 # Common Snippets
 
-snippet todo "TODO"
+snippet ctodo "TODO"
 // TODO: ${1:Description}
 endsnippet
 
@@ -472,33 +546,50 @@ module.exports = ${1:ClassName};
 endsnippet
 
 # Mocha
-snippet describe "Mocha: describe"
-describe('`!p snip.rv = fn.split(os.extsep)[0]`', function() {
-  $0
-});
-endsnippet
-
 snippet desc "Mocha: describe verbose"
 describe('${1:`!p snip.rv = fn.split(os.extsep)[0]`}', function() {
   $0
 });
 endsnippet
 
-snippet itf "Mocha: it"
+snippet mdesc "Mocha: describe verbose"
+describe('${1:`!p snip.rv = fn.split(os.extsep)[0]`}', () => {
+  $0
+});
+endsnippet
+
+snippet itp "Mocha: it (pending)"
+it('${1:desc}');
+endsnippet
+
+snippet mitp "Mocha: it (pending)"
+it('${1:desc}');
+endsnippet
+
+snippet it "Mocha: it"
 it('${1:desc}', function() {
   $0
 });
 endsnippet
 
-snippet itd "Mocha: it (async)"
+snippet mit "Mocha: it"
+it('${1:desc}', () => {
+  $0
+});
+endsnippet
+
+snippet ita "Mocha: it (async)"
 it('${1:desc}', function(done) {
   $0
   done();
 });
 endsnippet
 
-snippet it "Mocha: it (pending)"
-it('${1:desc}');
+snippet mita "Mocha: it (async)"
+it('${1:desc}', (done) => {
+  $0
+  done();
+});
 endsnippet
 
 snippet bef "Mocha: before"
@@ -507,44 +598,92 @@ before(function() {
 });
 endsnippet
 
-snippet befd "Mocha: before (async)" i
+snippet mbef "Mocha: before"
+before(() => {
+  $0
+});
+endsnippet
+
+snippet befa "Mocha: before (async)" i
 before(function(done) {
   $0
 });
 endsnippet
 
-snippet aftd "Mocha: after"
+snippet mbefa "Mocha: before (async)" i
+before((done) => {
+  $0
+});
+endsnippet
+
+snippet aft "Mocha: after"
 after(function() {
   $0
 });
 endsnippet
 
-snippet aftd "Mocha: after (async)"
+snippet maft "Mocha: after"
+after(() => {
+  $0
+});
+endsnippet
+
+snippet afta "Mocha: after (async)"
 after(function(done) {
   $0
 });
 endsnippet
 
-snippet befe "Mocha: beforeEach"
+snippet mafta "Mocha: after (async)"
+after((done) => {
+  $0
+});
+endsnippet
+
+snippet bfe "Mocha: beforeEach"
 beforeEach(function() {
   $0
 });
 endsnippet
 
-snippet befe "Mocha: beforeEach (async)"
+snippet mbfe "Mocha: beforeEach"
+beforeEach(() => {
+  $0
+});
+endsnippet
+
+snippet bfea "Mocha: beforeEach (async)"
 beforeEach(function(done) {
   $0
 });
 endsnippet
 
-snippet afte "Mocha: afterEach"
+snippet mbfea "Mocha: beforeEach (async)"
+beforeEach((done) => {
+  $0
+});
+endsnippet
+
+snippet afe "Mocha: afterEach"
 afterEach(function() {
   $0
 });
 endsnippet
 
-snippet afte "Mocha: afterEach (done)"
+snippet mafe "Mocha: afterEach"
+afterEach(() => {
+  $0
+});
+endsnippet
+
+snippet afea "Mocha: afterEach (done)"
 afterEach(function(done) {
+  $0
+});
+endsnippet
+
+snippet mafea "Mocha: afterEach (done)"
+afterEach((done) => {
   $0
 });
 endsnippet
@@ -557,9 +696,23 @@ snippet derr "done(err)" b
 done(err);
 endsnippet
 
+# chai
 snippet cas "var assert = require('chai').assert;" do
 var assert = require('chai').assert;
 $1
+endsnippet
+
+# expect
+snippet exp "expect()" b
+expect($1).${2}($3);
+endsnippet
+
+snippet expe "expect().toEqual()" b
+expect($1).toEqual($2);
+endsnippet
+
+snippet expb "expect().toBe()" b
+expect($1).toBe($2);
 endsnippet
 
 # web driver

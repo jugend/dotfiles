@@ -154,9 +154,9 @@ inoremap <C-a> <C-o>0
 
 " Indentation after curly brace & bracket
 " Comes with auto-pair plugin
-inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
-inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
-inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
+" inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
+" inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
+" inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
 
 nnoremap H ^
 nnoremap L $

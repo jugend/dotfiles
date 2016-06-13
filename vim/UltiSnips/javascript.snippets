@@ -78,6 +78,12 @@ forEach(function(${1:item}) {
 });
 endsnippet
 
+snippet forn "forEach(function name(item) { ... })" i
+forEach(function ${1:name}(${2:item}) {
+  $3
+});
+endsnippet
+
 snippet the "then(function() { ... })" i
 then(function($1) {
   $2
@@ -251,6 +257,10 @@ snippet cond "const { name } = value" b
 const \{ ${1:name} \} = ${2:value};
 endsnippet
 
+snippet conda "const [ name ] = value" b
+const [ ${1:name} ] = ${2:value};
+endsnippet
+
 snippet var "var name = value" b
 var ${1:name} = ${2:value};
 endsnippet
@@ -286,7 +296,7 @@ snippet ()= "(1) => 2" i
 ($1) => $2
 endsnippet
 
-snippet (){ "(1) => { ... }" i
+snippet (){} "(1) => { ... }" i
 ($1) => {
   $2
 }
@@ -295,6 +305,10 @@ endsnippet
 snippet ()=> "(1) => \n\t 2" i
 ($1) =>
   $2
+endsnippet
+
+snippet oass "Object.assign()" i
+Object.assign($1)
 endsnippet
 
 snippet rsp "{' '}" b
@@ -470,7 +484,7 @@ function(err, req, res, next) {
 }
 endsnippet
 
-snippet fe "function(e) { ... }" i
+snippet fne "function(e) { ... }" i
 function(e) {
   $1
 }
@@ -713,6 +727,15 @@ endsnippet
 
 snippet expb "expect().toBe()" b
 expect($1).toBe($2);
+endsnippet
+
+snippet expc "expect().toHaveBeenCalledWith()" b
+expect($1).toHaveBeenCalledWith($2)
+endsnippet
+
+# expect - Spy
+snippet exps "expect.createSpy()" i
+expect.createSpy()
 endsnippet
 
 # web driver

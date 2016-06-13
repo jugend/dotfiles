@@ -151,6 +151,8 @@ inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>l
 inoremap <C-b> <C-o>h
 inoremap <C-a> <C-o>0
+inoremap <C-Space> <esc>o
+nnoremap <C-Space> o
 
 " Indentation after curly brace & bracket
 " Comes with auto-pair plugin
@@ -323,6 +325,7 @@ vnoremap <leader>mw y:Gsearch<space><C-R>"<cr>
 noremap <leader>mr :Greplace<cr>
 nnoremap <silent><leader>rv :source ~/.vimrc<cr>:filetype detect<cr>:echo 'vimrc reloaded'<cr>
 nnoremap <leader>ya :%y+<cr>
+nnoremap <leader>da ggdG
 nnoremap <leader>yr :reg<cr>
 
 nnoremap <leader>. :CtrlPTag<cr>

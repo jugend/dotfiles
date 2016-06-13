@@ -66,7 +66,7 @@ Plugin 'rstacruz/sparkup'
 Plugin 'mattn/emmet-vim'
 
 " Javascript
-Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 
 " Beautifier
@@ -107,7 +107,6 @@ Plugin 'ervandew/supertab'
 " Snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'justinj/vim-react-snippets'
 
 " Next and previous navigation
 " Plugin 'tpope/vim-unimpaired'

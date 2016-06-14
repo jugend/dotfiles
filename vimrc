@@ -513,9 +513,7 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 
 autocmd FileType javascript,javascript.jsx
-  \ let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint'] |
-  \ call JavaScriptFold() |
-  \ setl foldlevelstart=99
+  \ let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']
 
 " mxw/vim-jsx plugin
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files, causing filetype set to javascript.jsx

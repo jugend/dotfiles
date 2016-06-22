@@ -262,6 +262,7 @@ nnoremap <leader>fsh :set ft=sh<cr>
 nnoremap <leader>fjs :set ft=javascript<cr>
 nnoremap <leader>fjo :set ft=json<cr>
 nnoremap <leader>fjx :set ft=javascript.jsx<cr>
+nnoremap <leader>fw :Ack <C-r><C-w><cr>
 nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
 nnoremap <leader>r/ :%s/\v
@@ -420,7 +421,7 @@ nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tol :tabonly<cr>
 nnoremap <leader>tn :tabnext<cr>
 nnoremap <leader>tp :tabprevious<cr>
-nnoremap <leader>tl :tabfirst<cr>
+nnoremap <leader>tf :tabfirst<cr>
 nnoremap <leader>tl :tablast<cr>
 
 " Tern mappings

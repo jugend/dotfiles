@@ -84,6 +84,18 @@ forEach(function ${1:name}(${2:item}) {
 });
 endsnippet
 
+snippet foren "forEach((item) => { ... })" i
+forEach((${1:item}) => {
+  $2
+});
+endsnippet
+
+snippet fornn "forEach(name(item) => { ... })" i
+forEach(${1:name}(${2:item}) => {
+  $3
+});
+endsnippet
+
 snippet the "then(function() { ... })" i
 then(function($1) {
   $2
@@ -342,6 +354,10 @@ snippet rprop "ClassName.propTypes = {}"
 ${1:ClassName}.propTypes = {
   $2
 }
+endsnippet
+
+snippet propc "props.children" i
+props.children
 endsnippet
 
 # React: PropTypes
@@ -606,13 +622,13 @@ it('${1:desc}', (done) => {
 });
 endsnippet
 
-snippet bef "Mocha: before"
+snippet befo "Mocha: before"
 before(function() {
   $0
 });
 endsnippet
 
-snippet mbef "Mocha: before"
+snippet mbefo "Mocha: before"
 before(() => {
   $0
 });
@@ -630,13 +646,13 @@ before((done) => {
 });
 endsnippet
 
-snippet aft "Mocha: after"
-after(function() {
+snippet aftr "Mocha: after"
+after(funckktion() {
   $0
 });
 endsnippet
 
-snippet maft "Mocha: after"
+snippet maftr "Mocha: after"
 after(() => {
   $0
 });
@@ -654,49 +670,49 @@ after((done) => {
 });
 endsnippet
 
-snippet bfe "Mocha: beforeEach"
+snippet befe "Mocha: beforeEach"
 beforeEach(function() {
   $0
 });
 endsnippet
 
-snippet mbfe "Mocha: beforeEach"
+snippet mbefe "Mocha: beforeEach"
 beforeEach(() => {
   $0
 });
 endsnippet
 
-snippet bfea "Mocha: beforeEach (async)"
+snippet befea "Mocha: beforeEach (async)"
 beforeEach(function(done) {
   $0
 });
 endsnippet
 
-snippet mbfea "Mocha: beforeEach (async)"
+snippet mbefea "Mocha: beforeEach (async)"
 beforeEach((done) => {
   $0
 });
 endsnippet
 
-snippet afe "Mocha: afterEach"
+snippet afte "Mocha: afterEach"
 afterEach(function() {
   $0
 });
 endsnippet
 
-snippet mafe "Mocha: afterEach"
+snippet mafte "Mocha: afterEach"
 afterEach(() => {
   $0
 });
 endsnippet
 
-snippet afea "Mocha: afterEach (done)"
+snippet aftea "Mocha: afterEach (done)"
 afterEach(function(done) {
   $0
 });
 endsnippet
 
-snippet mafea "Mocha: afterEach (done)"
+snippet maftea "Mocha: afterEach (done)"
 afterEach((done) => {
   $0
 });

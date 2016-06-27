@@ -76,11 +76,14 @@ set laststatus=2
 set title
 
 "" color scheme
-let g:solarized_visibility="high"
-let g:solarized_contrast="high"
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_italic = 1
 
-" Fix the gray background issue on iTerm
-if !has('gui_running')
+let g:onedark_terminal_italics = 1
+
+" Fix the gray background/intermittent lighter background issue on iTerm
+if (!has('gui_running'))
   let g:solarized_termtrans = 1
 endif
 
@@ -88,18 +91,30 @@ if (&t_Co == 256 || has('gui_running'))
   " $TERM_PROGRAM not set in sudo vim
   if (($TERM_PROGRAM == '') || ($TERM_PROGRAM == 'iTerm.app'))
     colorscheme solarized
+    " colorscheme onedark
   else
     colorscheme molokai
   endif
 endif
 
-"" set vertical seperator to a single line
-set fillchars=vert:\│
-" hi VertSplit ctermbg=NONE guibg=NONE ctermfg=235 guifg=#073642
-hi VertSplit ctermbg=NONE guibg=NONE ctermfg=0 guifg=#073642
+highlight Comment cterm=italic gui=italic
+highlight htmlArg cterm=italic gui=italic
+" highlight jsFunction cterm=italic gui=italic
+" highlight jsFunctionKey cterm=italic gui=italic
+" highlight htmlArg cterm=italic gui=italic
 
-"" hide blank line characters
-hi NonText ctermfg=235 guifg=#002b36 guibg=#002b36
+"" Customize theme
+if (g:colors_name == 'solarized')
+  " set vertical seperator to a single line
+  set fillchars=vert:\│
+  " hide empty lines
+  hi NonText ctermfg=235 guifg=#002834 guibg=#002834
+  " hide vertical split char |
+  hi VertSplit ctermbg=NONE guibg=#073642 ctermfg=0 guifg=#002834
+elseif (g:colors_name == 'onedark')
+  hi NonText ctermfg=235 guifg=#28,c34 guibg=#282c34
+  hi VertSplit ctermbg=NONE guibg=NONE ctermfg=0 guifg=#2c323b
+endif
 
 "" tab / indentation
 set expandtab

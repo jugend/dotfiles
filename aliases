@@ -85,6 +85,7 @@ alias rbash='source ~/.bash_profile'
 alias ralias='source ~/.aliases; source ~/.aliases.local; source ~/.functions'
 
 # tmux
+alias tmux="env TERM=xterm-256color tmux"
 alias tm='tmux'
 alias tmnew='tm new -s'
 alias tmat='tm attach'

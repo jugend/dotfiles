@@ -65,9 +65,8 @@ Plugin 'surround.vim'
 Plugin 'rstacruz/sparkup'
 Plugin 'mattn/emmet-vim'
 
-" Javascript
-" Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
+" Syntax Highlight
+Plugin 'sheerun/vim-polyglot'
 
 " Beautifier
 Plugin 'maksimr/vim-jsbeautify'
@@ -91,9 +90,10 @@ Plugin 'majutsushi/tagbar'
 " Plugin 'xolox/vim-easytags'
 " Plugin 'xolox/vim-misc'
 
-" Status line
+" Airline Theme
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'joshdick/airline-onedark.vim'
 
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'

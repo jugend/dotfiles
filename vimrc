@@ -90,8 +90,8 @@ endif
 if (&t_Co == 256 || has('gui_running'))
   " $TERM_PROGRAM not set in sudo vim
   if (($TERM_PROGRAM == '') || ($TERM_PROGRAM == 'iTerm.app'))
-    colorscheme solarized
-    " colorscheme onedark
+    " colorscheme solarized
+    colorscheme onedark
   else
     colorscheme molokai
   endif
@@ -104,16 +104,17 @@ highlight htmlArg cterm=italic gui=italic
 " highlight htmlArg cterm=italic gui=italic
 
 "" Customize theme
+" set vertical seperator to a single line
+set fillchars=vert:\│
 if (g:colors_name == 'solarized')
-  " set vertical seperator to a single line
-  set fillchars=vert:\│
   " hide empty lines
   hi NonText ctermfg=235 guifg=#002834 guibg=#002834
   " hide vertical split char |
   hi VertSplit ctermbg=NONE guibg=#073642 ctermfg=0 guifg=#002834
 elseif (g:colors_name == 'onedark')
-  hi NonText ctermfg=235 guifg=#28,c34 guibg=#282c34
-  hi VertSplit ctermbg=NONE guibg=NONE ctermfg=0 guifg=#2c323b
+  hi NonText ctermfg=235 guifg=#282c34 guibg=#282c34
+  " hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#3e4452
+  hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#2c323d
 endif
 
 "" tab / indentation

@@ -35,7 +35,7 @@ Plugin 'hail2u/vim-css3-syntax'
 " Plugin 'tomasr/molokai'
 
 " Live Markdown preview
-Plugin 'shime/vim-livedown'
+Plugin 'suan/vim-instant-markdown'
 
 " A Vim plugin which shows a git diff in the gutter (sign column)
 Plugin 'airblade/vim-gitgutter'
@@ -67,6 +67,7 @@ Plugin 'mattn/emmet-vim'
 
 " Syntax Highlight
 Plugin 'sheerun/vim-polyglot'
+Plugin 'othree/javascript-libraries-syntax.vim'
 
 " Beautifier
 Plugin 'maksimr/vim-jsbeautify'
@@ -93,7 +94,7 @@ Plugin 'majutsushi/tagbar'
 " Airline Theme
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'joshdick/airline-onedark.vim'
+" Plugin 'joshdick/airline-onedark.vim'
 
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'

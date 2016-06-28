@@ -21,7 +21,7 @@ set clipboard=unnamed
 set directory-=.
 set timeoutlen=400
 set splitbelow
-set splitright
+" set splitright
 set foldopen-=search
 set noswapfile
 
@@ -97,11 +97,8 @@ if (&t_Co == 256 || has('gui_running'))
   endif
 endif
 
-highlight Comment cterm=italic gui=italic
-highlight htmlArg cterm=italic gui=italic
-" highlight jsFunction cterm=italic gui=italic
-" highlight jsFunctionKey cterm=italic gui=italic
-" highlight htmlArg cterm=italic gui=italic
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
 
 "" Customize theme
 " set vertical seperator to a single line
@@ -115,7 +112,22 @@ elseif (g:colors_name == 'onedark')
   hi NonText ctermfg=235 guifg=#282c34 guibg=#282c34
   " hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#3e4452
   hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#2c323d
+  hi jsModuleKeywords guifg=#e06475
 endif
+
+"" vim-ariline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'monochrome'
+let g:airline_left_alt_sep = '<'
+let g:airline_right_alt_sep = '>'
+" let g:airline_left_sep = '.'
+" let g:airline_right_sep = '.'
+
+"" javascript-library-syntax
+let g:used_javascript_libs='jquery,underscore,backbone,react,flux,requirejs,chai'
+
+"" stop vim from removing idnentation on empty line
+inoremap <silent> <Esc> <C-O>:stopinsert<CR>
 
 "" tab / indentation
 set expandtab
@@ -304,8 +316,8 @@ nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ep :e package.json<cr>
 nnoremap <leader>ei :e index.js<cr>
-nnoremap <leader>ev :e ~/.vimrc<cr>
-nnoremap <leader>evl :e ~/.vimrc.local<cr>
+nnoremap <leader>ev :vsplit<cr>:e ~/.vimrc<cr>
+nnoremap <leader>evl :vsplit<cr>:e ~/.vimrc.local<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
 nnoremap <leader>ea :e ~/.aliases<cr>
 nnoremap <leader>eal :e ~/.aliases.local<cr>
@@ -352,7 +364,6 @@ nnoremap <leader>sj :SyntasticCheck jscs<cr>
 nnoremap <leader>se :SyntasticCheck eslint<cr>
 nnoremap <leader>sr :SyntasticReset<cr>
 nnoremap <leader>st :SyntasticToggleMode<cr>
-nnoremap <leader>mp :LivedownToggle<cr>
 nnoremap <leader>mf :MultipleCursorsFind<space>
 
 nnoremap <leader>ic :set invignorecase<cr>
@@ -699,12 +710,11 @@ let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 let g:tagbar_previewwin_pos = "bottom"
 
-" Live Markdown
-let g:livedown_autorun = 0
-let g:livedown_open = 1
+" Markdown Preview
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_github=1
 
-" the port on which Livedown server will run
-let g:livedown_port = 1337
 " Dust.js
 let g:surround_{char2nr('d')} = "{\r}"
 

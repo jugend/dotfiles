@@ -4,6 +4,8 @@ for file in ~/.{aliases,aliases.local,bash_profile.local,bash_prompt,functions};
 done;
 unset file;
 
+export TERM_PROGRAM=iTerm.app
+
 # Coloured man pages
 export PAGER=most
 

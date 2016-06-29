@@ -110,8 +110,8 @@ if (g:colors_name == 'solarized')
   hi VertSplit ctermbg=NONE guibg=#073642 ctermfg=0 guifg=#002834
 elseif (g:colors_name == 'onedark')
   hi NonText ctermfg=235 guifg=#282c34 guibg=#282c34
-  " hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#3e4452
-  hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#2c323d
+  hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#393e46
+  " hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#2c323d
   hi jsModuleKeywords guifg=#e06475
 endif
 
@@ -120,8 +120,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'monochrome'
 let g:airline_left_alt_sep = '<'
 let g:airline_right_alt_sep = '>'
-" let g:airline_left_sep = '.'
-" let g:airline_right_sep = '.'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 "" javascript-library-syntax
 let g:used_javascript_libs='jquery,underscore,backbone,react,flux,requirejs,chai'
@@ -206,7 +206,7 @@ vnoremap <C-l> <esc>
 vnoremap <C-[> <esc>
 vnoremap <C-s> :w<cr>
 
-nnoremap <Space> i
+" nnoremap <Space> i
 
 " Very magic regex
 " vnoremap / /\v
@@ -243,7 +243,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-nnoremap <leader>l :Align<cr>
+nnoremap <leader>L :Align<cr>
 nnoremap <leader>a :Ack<space>
 nnoremap <leader>A :Ack --ignore-dir __tests__<space>
 nnoremap <leader>b :CtrlPBuffer<cr>
@@ -256,6 +256,7 @@ nnoremap <leader>I :IndentGuidesToggle<cr>
 nnoremap <leader>i :IndentLinesToggle<cr>
 nnoremap <leader>W :ToggleWhitespace<cr>
 nnoremap <leader>z :ZoomToggle<cr>
+nnoremap <leader>l :AirlineToggle<cr>
 nnoremap <leader>/ /\v
 nnoremap <leader>M %
 
@@ -432,7 +433,7 @@ vnoremap <leader><leader>ga :Gist -a<cr>
 
 " Tab mappings
 nnoremap <leader><Space> :tabnext<cr>
-nnoremap <leader><leader><Space> :tabprevious<cr>
+nnoremap <leader><Space><Space> :tabprevious<cr>
 nnoremap <leader>1 :tabn 1<cr>
 nnoremap <leader>2 :tabn 2<cr>
 nnoremap <leader>3 :tabn 3<cr>
@@ -441,17 +442,20 @@ nnoremap <leader>5 :tabn 5<cr>
 nnoremap <leader>6 :tabn 6<cr>
 nnoremap <leader>7 :tabn 7<cr>
 nnoremap <leader>8 :tabn 8<cr>
+nnoremap <leader>9 :tabn 9<cr>
+nnoremap <leader>0 :tablast<cr>
 
 nnoremap <leader>t :tabnew<cr>
-nnoremap <leader>te :tabedit
+nnoremap <leader>te :tabedit<space>
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tol :tabonly<cr>
 nnoremap <leader>tn :tabnext<cr>
 nnoremap <leader>tp :tabprevious<cr>
 nnoremap <leader>tf :tabfirst<cr>
 nnoremap <leader>tl :tablast<cr>
+nnoremap <leader>tt :tabedit %<cr>
 
-" Tern mappings
+" Tern mapping
 nnoremap <leader>rd :TernDoc<cr>
 nnoremap <leader>rb :TernDocBrowse<cr>
 nnoremap <leader>rt :TernType<cr>
@@ -604,7 +608,7 @@ let g:indentLine_char = '︙'
 " vim-jsbeautify configs
 autocmd FileType javascript noremap <buffer> <leader>F :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <leader>F :call JsonBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>F :call HtmlBeautify()<cr>
+autocmd FileType html,xml noremap <buffer> <leader>F :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>F :call CSSBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <leader>F :call JsxBeautify()<cr>
 
@@ -707,7 +711,7 @@ let g:grep_cmd_opts = '--line-numbers --noheading'
 
 " Tagbar
 let g:tagbar_autofocus = 1
-let g:tagbar_autoclose = 1
+" let g:tagbar_autoclose = 1
 let g:tagbar_previewwin_pos = "bottom"
 
 " Markdown Preview

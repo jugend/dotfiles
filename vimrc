@@ -631,8 +631,8 @@ let NERDTreeMinimalUI=1
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
 
 " to open NERDTree on start
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd l
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd l
 
 " CtrlP settings
 " Doesn't work with ag search, use .agitignore

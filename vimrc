@@ -433,7 +433,7 @@ vnoremap <leader><leader>ga :Gist -a<cr>
 
 " Tab mappings
 nnoremap <leader><Space> :tabnext<cr>
-nnoremap <leader><Space><Space> :tabprevious<cr>
+nnoremap <leader><leader><Space> :tabprevious<cr>
 nnoremap <leader>1 :tabn 1<cr>
 nnoremap <leader>2 :tabn 2<cr>
 nnoremap <leader>3 :tabn 3<cr>
@@ -453,7 +453,7 @@ nnoremap <leader>tn :tabnext<cr>
 nnoremap <leader>tp :tabprevious<cr>
 nnoremap <leader>tf :tabfirst<cr>
 nnoremap <leader>tl :tablast<cr>
-nnoremap <leader>tt :tabedit %<cr>
+nnoremap <leader>tm :tabedit %<cr>
 
 " Tern mapping
 nnoremap <leader>rd :TernDoc<cr>
@@ -631,8 +631,8 @@ let NERDTreeMinimalUI=1
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
 
 " to open NERDTree on start
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd l
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd l
 
 " CtrlP settings
 " Doesn't work with ag search, use .agitignore

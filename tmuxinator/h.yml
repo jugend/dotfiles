@@ -1,6 +1,4 @@
-# ~/.tmuxinator/h1.yml
-
-name: h1
+name: h
 root: ./
 
 # Optional tmux socket

@@ -1,5 +1,3 @@
-# ~/.tmuxinator/h1.yml
-
 name: h1
 root: ./
 

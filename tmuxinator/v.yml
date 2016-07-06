@@ -1,6 +1,4 @@
-# ~/.tmuxinator/edit1.yml
-
-name: edit1
+name: v
 root: ./
 
 # Optional tmux socket

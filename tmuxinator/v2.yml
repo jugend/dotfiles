@@ -1,5 +1,3 @@
-# ~/.tmuxinator/v2.yml
-
 name: v2
 root: ./
 

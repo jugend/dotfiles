@@ -123,6 +123,9 @@ let g:airline_right_alt_sep = '>'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
+" Display filename on the last visible section
+let g:airline_section_z = '%t'
+
 "" javascript-library-syntax
 let g:used_javascript_libs='jquery,underscore,backbone,react,flux,requirejs,chai'
 

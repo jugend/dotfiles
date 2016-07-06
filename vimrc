@@ -317,6 +317,7 @@ nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ep :e package.json<cr>
 nnoremap <leader>ei :e index.js<cr>
+nnoremap <leader>ew :e webpack.config.js<cr>
 nnoremap <leader>ev :vsplit<cr>:e ~/.vimrc<cr>
 nnoremap <leader>evl :vsplit<cr>:e ~/.vimrc.local<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>

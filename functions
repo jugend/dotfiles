@@ -39,18 +39,17 @@ cvim() {
   cd $1; vim
 }
 
-nrepo() {
+npmrepo() {
   npm info $1 | grep github\.com | head -1 | grep -Eo '://github.com\/.*' | sed "s/\.git//;s/' },//;s/',//;s/#.*$//" | awk '{print "https"$1".git"}'
 }
 
-clonenrepo() {
-  npmrepo $1 | xargs git clone
+npmrepoclone() {
+   $1 | xargs git clone
 }
 
-opennrepo() {
+npmrepoopen() {
   npmrepo $1 | sed "s/.git$//" | xargs open
 }
-
 
 npgrep() {
   cat package.json | jq .$1

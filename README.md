@@ -19,4 +19,4 @@ Local files supported:
 
 ## Inspired by:
 - [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-- [square/maximum-awesome](https://github.com/square/maximum-awesokkkme)
+- [square/maximum-awesome](https://github.com/square/maximum-awesome)

@@ -6,6 +6,7 @@
 *.log
 *.local
 tags
+.nvmrc
 
 # Directories
 node_modules

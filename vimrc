@@ -276,12 +276,12 @@ nnoremap <leader><leader>x :xa<cr>
 nnoremap <leader>h :h<space>
 nnoremap <leader>H :Dash<space>
 nnoremap <leader><leader>h :Dash<cr>
-nnoremap <leader>bd :bd<cr>
-nnoremap <leader>bd! :bd!<cr>
-nnoremap <leader>ba :ba<cr>
-nnoremap <leader>bo :bufdo<space>
-nnoremap <leader>br :bufdo e!<cr>
-nnoremap <leader>bq :bufdo bd<cr>
+nnoremap <leader><leader>bd :bd<cr>
+nnoremap <leader><leader>bD :bd!<cr>
+nnoremap <leader><leader>ba :ba<cr>
+nnoremap <leader><leader>bo :bufdo<space>
+nnoremap <leader><leader>br :bufdo e!<cr>
+nnoremap <leader><leader>bq :bufdo bd<cr>
 nnoremap <leader>Bj :call JsxBeautify()<cr>
 nnoremap <leader>ct :Dispatch! ctpro<cr>
 nnoremap <leader>vba :vert ba<cr>
@@ -391,13 +391,28 @@ nnoremap <leader><leader>3 :set foldlevel=3<cr>
 nnoremap <leader><leader>4 :set foldlevel=4<cr>
 nnoremap <leader><leader>5 :set foldlevel=5<cr>
 nnoremap <leader><leader>9 :set foldlevel=99<cr>
-nnoremap <leader><leader><leader> :set foldlevel=99<cr>
+nnoremap <leader><leader><leader> zA
+
+" Diff
+nnoremap <leader>dt :windo diffthis<cr>
+nnoremap <leader>do :windo diffoff<cr>
+nnoremap <leader>dg :windo diffget<cr>
+nnoremap <leader>dp :windo diffput<cr>
+nnoremap <leader>du :windo diffupdate<cr>
 
 " Find
 nnoremap <leader>fcon :/console.log<cr>
 
 " Space to toggle folds
-nnoremap <leader><leader>f zA
+nnoremap <leader><leader>f :call ToggleFoldLevel()<cr>
+
+function! ToggleFoldLevel()
+  if &foldlevel
+      setlocal foldlevel=0
+  else
+      setlocal foldlevel=99
+  endif
+endfunction
 
 " fugitive git bindings
 nnoremap <leader>g :Git<space>
@@ -634,9 +649,11 @@ let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
 
-" to open NERDTree on start
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd l
+if !&diff
+  " to open NERDTree on start
+  autocmd VimEnter * NERDTree
+  autocmd VimEnter * wincmd l
+endif
 
 " CtrlP settings
 " Doesn't work with ag search, use .agitignore
@@ -693,6 +710,7 @@ autocmd User Node
 
 " Invert ag --skip-vcs-ignores
 let g:ag_skip_vcs_ignores = 0
+
 let g:NERDTreeIgnore = NERDTreeIgnore
 function! ToggleAgSkipVcsIgnores()
   if g:ag_skip_vcs_ignores == 0
@@ -707,6 +725,7 @@ function! ToggleAgSkipVcsIgnores()
     let g:ag_skip_vcs_ignores = 0
   endif
 endfunction
+
 command! -nargs=0 ToggleAgSkipVcsIgnores :call ToggleAgSkipVcsIgnores()
 
 " greplace

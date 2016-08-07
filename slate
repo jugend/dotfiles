@@ -81,12 +81,12 @@ bind h:ctrl;cmd               chain    ${leftHalf} | ${leftTwoFifth} | ${leftOne
 bind l:ctrl;cmd               chain    ${rightHalf} | ${rightTwoFifth} | ${rightOneThird} | ${rightThreeTenth} | ${rightOneQuarter} | ${rightOneFifth} | ${rightOneSixth} | ${rightOneEighth} | ${rightThreeFifth} | ${rightTwoThird} | ${rightThreeQuarter}
 bind k:ctrl;cmd               chain    ${topHalfHeight} | ${topTwoThirdHeight} | ${fullHeight}
 bind j:ctrl;cmd               chain    ${bottomHalfHeight} | ${bottomTwoThirdHeight} | ${fullHeight}
-bind s:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
+bind v:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 bind c:ctrl;cmd               chain    ${centerHalf} | ${centerOneThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind e:ctrl;cmd               chain    ${full} | ${centerThreeFifth} | ${centerTwoThird} | ${centerHalf} | ${centerOneThird}
 
 bind a:ctrl;cmd               chain    ${leftOneThird} | ${leftHalf} | ${leftTwoFifth} | ${leftOneThird} | ${leftThreeTenth} | ${leftOneQuarter} | ${leftOneFifth} | ${leftOneSixth} | ${leftOneEighth} | ${leftThreeFifth} | ${leftTwoThird} | ${leftThreeQuarter}
-bind f:ctrl;cmd               chain    ${centerOneThird} | ${centerHalf} | ${centerOneThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
+bind s:ctrl;cmd               chain    ${centerOneThird} | ${centerHalf} | ${centerOneThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind g:ctrl;cmd               chain    ${rightOneThird} | ${rightHalf} | ${rightTwoFifth} | ${rightOneThird} | ${rightThreeTenth} | ${rightOneQuarter} | ${rightOneFifth} | ${rightOneSixth} | ${rightOneEighth} | ${rightThreeFifth} | ${rightTwoThird} | ${rightThreeQuarter}
 
 bind h:shift;alt              chain    ${leftThreeFifth} | ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}

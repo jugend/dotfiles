@@ -360,6 +360,7 @@ noremap <leader>mr :Greplace<cr>
 nnoremap <silent><leader>rv :source ~/.vimrc<cr>:filetype detect<cr>:echo 'vimrc reloaded'<cr>
 nnoremap <leader>ya :%y+<cr>
 nnoremap <leader>da ggdG
+nnoremap <leader>va ggVG
 nnoremap <leader>yr :reg<cr>
 
 nnoremap <leader>. :CtrlPTag<cr>
@@ -391,7 +392,8 @@ nnoremap <leader><leader>3 :set foldlevel=3<cr>
 nnoremap <leader><leader>4 :set foldlevel=4<cr>
 nnoremap <leader><leader>5 :set foldlevel=5<cr>
 nnoremap <leader><leader>9 :set foldlevel=99<cr>
-nnoremap <leader><leader><leader> zA
+nnoremap <leader><leader>F :set foldlevel=99<cr>
+nnoremap <leader><leader>f za
 
 " Diff
 nnoremap <leader>dt :windo diffthis<cr>
@@ -404,7 +406,7 @@ nnoremap <leader>du :windo diffupdate<cr>
 nnoremap <leader>fcon :/console.log<cr>
 
 " Space to toggle folds
-nnoremap <leader><leader>f :call ToggleFoldLevel()<cr>
+nnoremap <leader><leader><leader> :call ToggleFoldLevel()<cr>
 
 function! ToggleFoldLevel()
   if &foldlevel

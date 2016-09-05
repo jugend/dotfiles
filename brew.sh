@@ -16,3 +16,4 @@ brew install tmux
 brew install tree
 brew install unrar
 brew install wget
+brew install httpie

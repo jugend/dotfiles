@@ -44,7 +44,7 @@ npmrepo() {
 }
 
 npmrepoclone() {
-   $1 | xargs git clone
+   npmrepo $1 | xargs git clone
 }
 
 npmrepoopen() {

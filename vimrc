@@ -227,7 +227,7 @@ cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
-" cnoremap sw w !sudo tee %
+cnoremap wsud w !sudo tee %
 
 " Remap alt key for it to work in commandline mode
 execute "set <M-b>=\eb"
@@ -253,13 +253,13 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
-nnoremap <leader>] :TagbarToggle<cr>
+nnoremap <leader>l :TagbarToggle<cr>
 nnoremap <leader>G :GitGutterToggle<cr>
 nnoremap <leader>I :IndentGuidesToggle<cr>
 nnoremap <leader>i :IndentLinesToggle<cr>
 nnoremap <leader>W :ToggleWhitespace<cr>
 nnoremap <leader>z :ZoomToggle<cr>
-nnoremap <leader>l :AirlineToggle<cr>
+nnoremap <leader>ar :AirlineToggle<cr>
 nnoremap <leader>/ /\v
 nnoremap <leader>M %
 
@@ -357,6 +357,7 @@ nnoremap <leader>ms :Gsearch<space>
 nnoremap <leader>mw :Gsearch<space><C-R><C-w><cr>
 vnoremap <leader>mw y:Gsearch<space><C-R>"<cr>
 noremap <leader>mr :Greplace<cr>
+map <leader>td <Plug>TaskList
 nnoremap <silent><leader>rv :source ~/.vimrc<cr>:filetype detect<cr>:echo 'vimrc reloaded'<cr>
 nnoremap <leader>ya :%y+<cr>
 nnoremap <leader>da ggdG

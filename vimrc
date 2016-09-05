@@ -393,8 +393,7 @@ nnoremap <leader><leader>3 :set foldlevel=3<cr>
 nnoremap <leader><leader>4 :set foldlevel=4<cr>
 nnoremap <leader><leader>5 :set foldlevel=5<cr>
 nnoremap <leader><leader>9 :set foldlevel=99<cr>
-nnoremap <leader><leader>F :set foldlevel=99<cr>
-nnoremap <leader><leader>f za
+nnoremap <leader><leader>f zA
 
 " Diff
 nnoremap <leader>dt :windo diffthis<cr>

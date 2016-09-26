@@ -24,6 +24,8 @@ set splitbelow
 " set splitright
 set foldopen-=search
 set noswapfile
+" fast scroll
+set lazyredraw
 
 set wildmenu
 set wildmode=list:longest:full

@@ -133,8 +133,8 @@ bind j:ctrl;shift;alt         ${bottomWindow}
 # bind j:cmd;shift              nudge +0   +10%
 
 # Throw Bindings
-bind l:ctrl;alt;cmd           chain sequence throw right > ${center} | sequence throw left > ${center}
-bind h:ctrl;alt;cmd           chain sequence throw left > ${center} | sequence throw right > ${center}
+bind l:ctrl;alt;cmd           chain sequence throw right > ${center}
+bind h:ctrl;alt;cmd           chain sequence throw left > ${center}
 bind k:ctrl;alt;cmd           throw up
 bind j:ctrl;alt;cmd           throw down
 

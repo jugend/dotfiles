@@ -58,6 +58,8 @@ alias centerThreeFourth       move     screenOriginX+((screenSizeX*1/4)/2);scree
 alias centerFourFifth         move     screenOriginX+((screenSizeX*1/5)/2);screenOriginY screenSizeX*4/5;screenSizeY
 alias centerSevenEighth       move     screenOriginX+((screenSizeX*1/8)/2);screenOriginY screenSizeX*7/8;screenSizeY
 
+
+alias centerHover             move     screenOriginX+((screenSizeX-(screenSizeX*0.7))/2);screenOriginY+((screenSizeY-(screenSizeY*0.8))/2) screenSizeX*0.7;screenSizeY*0.8
 alias centerContract          move     screenOriginX+((screenSizeX-(windowSizeX*0.7))/2);screenOriginY+((screenSizeY-(windowSizeY*0.8))/2) windowSizeX*0.7;windowSizeY*0.8
 alias centerExpand            move     screenOriginX+((screenSizeX-(windowSizeX*1.3))/2);screenOriginY+((screenSizeY-(windowSizeY*1.2))/2) windowSizeX*1.3;windowSizeY*1.2
 
@@ -98,14 +100,15 @@ bind c:shift;alt              chain    ${centerTwoThird} | ${centerSevenEighth} 
 
 bind c:ctrl;shift             chain ${center}
 
-bind c:ctrl;shift;alt         chain ${centerContract}
-bind e:ctrl;shift;alt         chain ${centerExpand}
-
 # Resize Bindings
 bind l:ctrl;alt               resize +2% +0
 bind h:ctrl;alt               resize -2% +0
 bind k:ctrl;alt               resize +0   -2%
 bind j:ctrl;alt               resize +0   +2%
+
+bind d:ctrl;alt               ${centerHover}
+bind c:ctrl;alt               ${centerContract}
+bind e:ctrl;alt               ${centerExpand}
 
 # bind l:ctrl;alt;cmd         resize -10% +0 bottom-right
 # bind h:ctrl;alt;cmd         resize +10% +0 bottom-right

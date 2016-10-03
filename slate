@@ -58,6 +58,9 @@ alias centerThreeFourth       move     screenOriginX+((screenSizeX*1/4)/2);scree
 alias centerFourFifth         move     screenOriginX+((screenSizeX*1/5)/2);screenOriginY screenSizeX*4/5;screenSizeY
 alias centerSevenEighth       move     screenOriginX+((screenSizeX*1/8)/2);screenOriginY screenSizeX*7/8;screenSizeY
 
+alias centerContract          move     screenOriginX+((screenSizeX-(windowSizeX*0.7))/2);screenOriginY+((screenSizeY-(windowSizeY*0.8))/2) windowSizeX*0.7;windowSizeY*0.8
+alias centerExpand            move     screenOriginX+((screenSizeX-(windowSizeX*1.3))/2);screenOriginY+((screenSizeY-(windowSizeY*1.2))/2) windowSizeX*1.3;windowSizeY*1.2
+
 alias halfWidth               move     windowTopLeftX;windowTopLeftY windowSizeX/2;windowSizeY
 alias doubleWidth             move     windowTopLeftX;windowTopLeftY windowSizeX*2;windowSizeY
 
@@ -94,6 +97,9 @@ bind l:shift;alt              chain    ${rightThreeFifth} | ${rightThreeQuarter}
 bind c:shift;alt              chain    ${centerTwoThird} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerThreeFifth} | ${centerHalf} | ${centerOneThird}
 
 bind c:ctrl;shift             chain ${center}
+
+bind c:ctrl;shift;alt         chain ${centerContract}
+bind e:ctrl;shift;alt         chain ${centerExpand}
 
 # Resize Bindings
 bind l:ctrl;alt               resize +2% +0

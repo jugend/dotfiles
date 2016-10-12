@@ -227,6 +227,10 @@ alias npsc='npgrep scripts'
 alias npdev='npgrep dependencies'
 alias npddev='npgrep devDependencies'
 
+# Yarn
+alias yi='yarn install'
+alias ya='yarn add'
+
 # Nvm
 alias nv='nvm'
 alias nvu='nvm use'

@@ -101,10 +101,10 @@ bind c:shift;alt              chain    ${centerTwoThird} | ${centerSevenEighth} 
 bind c:ctrl;shift             chain ${center}
 
 # Resize Bindings
-bind l:ctrl;alt               resize +2% +0
-bind h:ctrl;alt               resize -2% +0
-bind k:ctrl;alt               resize +0   -2%
-bind j:ctrl;alt               resize +0   +2%
+bind l:ctrl;alt               chain sequence resize +10% +0 > ${center}
+bind h:ctrl;alt               chain sequence resize -10% +0 > ${center}
+bind k:ctrl;alt               chain sequence resize +0 -10% > ${center}
+bind j:ctrl;alt               chain sequence resize +0 +10% > ${center}
 
 bind d:ctrl;alt               ${centerHover}
 bind c:ctrl;alt               ${centerContract}

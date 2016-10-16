@@ -75,7 +75,7 @@ Plugin 'maksimr/vim-jsbeautify'
 
 " Comment
 " Plugin 'scrooloose/nerdcommenter'
-Plugin 'tComment'
+Plugin 'tomtom/tcomment_vim'
 
 " Mru list
 Plugin 'bufexplorer.zip'

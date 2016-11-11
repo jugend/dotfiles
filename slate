@@ -126,20 +126,20 @@ bind 2:ctrl;alt               ${topRight}
 bind 3:ctrl;alt               ${bottomLeft}
 bind 4:ctrl;alt               ${bottomRight}
 
-bind l:ctrl;shift             nudge +1% +0
-bind h:ctrl;shift             nudge -1% +0
-bind k:ctrl;shift             nudge +0    -1%
-bind j:ctrl;shift             nudge +0    +1%
+bind l:ctrl;shift             nudge +2% +0
+bind h:ctrl;shift             nudge -2% +0
+bind k:ctrl;shift             nudge +0 -2%
+bind j:ctrl;shift             nudge +0 +2%
 
-bind l:ctrl;shift;alt         ${rightWindow}
-bind h:ctrl;shift;alt         ${leftWindow}
-bind k:ctrl;shift;alt         ${topWindow}
-bind j:ctrl;shift;alt         ${bottomWindow}
+bind l:ctrl;shift;alt         nudge +10% +0
+bind h:ctrl;shift;alt         nudge -10% +0
+bind k:ctrl;shift;alt         nudge +0 -10%
+bind j:ctrl;shift;alt         nudge +0 +10%
 
-# bind l:cmd;shift              nudge +10% +0
-# bind h:cmd;shift              nudge -10% +0
-# bind k:cmd;shift              nudge +0   -10%
-# bind j:cmd;shift              nudge +0   +10%
+# bind l:ctrl;shift;alt         ${rightWindow}
+# bind h:ctrl;shift;alt         ${leftWindow}
+# bind k:ctrl;shift;alt         ${topWindow}
+# bind j:ctrl;shift;alt         ${bottomWindow}
 
 # Throw Bindings
 bind l:ctrl;alt;cmd           chain sequence throw right > ${center}

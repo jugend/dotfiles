@@ -2,10 +2,7 @@
   "libs": [
     "browser",
     "ecma5",
-    "ecma6",
-    "jquery",
-    "underscore",
-    "chai"
+    "ecma6"
   ],
   "plugins": {
     "node": {},

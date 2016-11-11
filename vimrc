@@ -29,7 +29,7 @@ set lazyredraw
 
 set wildmenu
 set wildmode=list:longest:full
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.js.map
 
 set tags=.git/.tags,./tags,tags
 
@@ -320,6 +320,7 @@ nnoremap <leader>od :!open .<cr>
 nnoremap <leader>e :e<space>
 nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
+nnoremap <leader>ec :e CHANGELOG.md<cr>
 nnoremap <leader>ep :e package.json<cr>
 nnoremap <leader>ei :e index.js<cr>
 nnoremap <leader>ew :e webpack.config.js<cr>
@@ -479,13 +480,13 @@ nnoremap <leader>tl :tablast<cr>
 nnoremap <leader>tm :tabedit %<cr>
 
 " Tern mapping
-nnoremap <leader>rd :TernDoc<cr>
+nnoremap <leader><leader>rd :TernDoc<cr>
 nnoremap <leader>rb :TernDocBrowse<cr>
 nnoremap <leader>rt :TernType<cr>
-nnoremap <leader>rf :TernDef<cr>
-nnoremap <leader>rp :TernDefPreview<cr>
-nnoremap <leader>rs :TernDefSplit<cr>
-nnoremap <leader>rT :TernDefTab<cr>
+nnoremap <leader>rdd :TernDef<cr>
+nnoremap <leader>rd :TernDefPreview<cr>
+nnoremap <leader>rds :TernDefSplit<cr>
+nnoremap <leader>rdt :TernDefTab<cr>
 nnoremap <leader>rr :TernRefs<cr>
 nnoremap <leader>rR :TernRename<cr>
 
@@ -648,7 +649,7 @@ endif
 
 " NerdTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$']
+let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
 let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
@@ -776,6 +777,10 @@ let g:gist_get_multiplefile = 1
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+" Polyglot
+" Conflict with vim-jsx, new line not indented
+let g:polyglot_disabled = ['jsx']
 
 " Indent after html tag
 function! Expander()

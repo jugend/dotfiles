@@ -8,7 +8,7 @@ alias hh='cd'
 alias bb='cd -'
 alias l='ls -GFlah'
 alias ll='ls -laFo'
-alias c='clear'
+alias c='cd'
 alias v='vim'
 alias vi='vim'
 alias vimd='vim -D'
@@ -190,6 +190,8 @@ alias ninsnb='node-inspector --no-debug-brk'
 alias nvi='node-vim-inspector'
 alias nver='node --version'
 
+# Env variables
+alias DSCORE="DEBUG_SERVICECORE=2"
 alias 3001="PORT=3001"
 alias 3002="PORT=3002"
 alias 8080="PORT=8080"
@@ -228,6 +230,7 @@ alias npdev='npgrep dependencies'
 alias npddev='npgrep devDependencies'
 
 # Yarn
+alias y='yarn'
 alias yi='yarn install'
 alias ya='yarn add'
 
@@ -343,7 +346,7 @@ alias xcclean="rm -frd ~/Library/Developer/Xcode/DerivedData/* && rm -frd ~/Libr
 ##################
 alias dh='cd ~'
 alias ddocs='cd ~/Documents'
-alias dapp='cd ~/Applications'
+alias dapp='cd /Applications'
 alias ddown='cd ~/Downloads'
 alias ddesk='cd ~/Desktop'
 alias dlib='cd ~/Library'
@@ -434,6 +437,8 @@ alias gdhead1='git diff HEAD~1'
 alias gf='git fetch'
 alias gfop='git format-patch -1 | xargs cat'
 alias gfup='git fetch upstream'
+alias gl='git log'
+alias glp='git log -p'
 alias glg='git log --pretty=format:'"'"'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"'"' --abbrev-commit'
 alias glgg='glg --graph'
 alias gld='git log  --decorate'

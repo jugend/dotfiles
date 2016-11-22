@@ -26,6 +26,8 @@ set foldopen-=search
 set noswapfile
 " fast scroll
 set lazyredraw
+" fix background color diff
+set t_ut=
 
 set wildmenu
 set wildmode=list:longest:full
@@ -82,6 +84,7 @@ let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 let g:solarized_italic = 1
 
+let g:onedark_termcolors=16
 let g:onedark_terminal_italics = 1
 
 " Fix the gray background/intermittent lighter background issue on iTerm
@@ -111,9 +114,9 @@ if (g:colors_name == 'solarized')
   " hide vertical split char |
   hi VertSplit ctermbg=NONE guibg=#073642 ctermfg=0 guifg=#002834
 elseif (g:colors_name == 'onedark')
-  hi NonText ctermfg=235 guifg=#282c34 guibg=#282c34
-  hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#393e46
-  " hi VertSplit ctermbg=NONE guibg=#282c34 ctermfg=0 guifg=#2c323d
+  hi NonText ctermfg=235 guifg=#002834 guibg=#002834
+  hi VertSplit ctermbg=NONE guibg=#002834 ctermfg=0 guifg=#393e46
+  " hi VertSplit ctermbg=NONE guibg=#002834 ctermfg=0 guifg=#2c323d
   hi jsModuleKeywords guifg=#e06475
 endif
 

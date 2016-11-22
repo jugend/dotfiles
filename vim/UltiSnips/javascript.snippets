@@ -779,3 +779,9 @@ then(function($1) {
   $2
 });
 endsnippet
+
+snippet thend ".then(function() {})" i
+then(function($1) {
+  $2
+}).then(util.doneSuccess(done), util.doneError(nemo, this, done));
+endsnippet

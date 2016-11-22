@@ -493,6 +493,7 @@ nnoremap <leader>rR :TernRename<cr>
 " Selection shortcuts
 nnoremap <leader>vp <S-v>ap
 nnoremap <leader>vP `[v`]
+nnoremap <leader><leader>vp V]}
 
 " Common Tasks
 " Open last closed file

@@ -17,6 +17,7 @@ alias f='fg'
 alias s='subl'
 alias h='help'
 alias m='man'
+alias n='node'
 alias i='info --vi-keys'
 alias j='jobs'
 alias f='fg'
@@ -230,9 +231,10 @@ alias npdev='npgrep dependencies'
 alias npddev='npgrep devDependencies'
 
 # Yarn
-alias y='yarn'
+alias ya='yarn'
 alias yi='yarn install'
-alias ya='yarn add'
+alias yag='yarn add global'
+alias yad='yarn add'
 
 # Nvm
 alias nv='nvm'
@@ -369,9 +371,10 @@ alias dvultir='cd ~/.vim/bundle/vim-react-snippets/UltiSnips'
 alias dtmux='cd ~/.tmuxinator'
 
 # user local
-alias dulocal='cd /usr/local'
-alias dulcache='cd /usr/local/var/cache'
-alias dullogs='cd /usr/local/var/logs'
+alias dul='cd /usr/local'
+alias dubrew='cd /usr/local/Homebrew'
+alias ducache='cd /usr/local/var/cache'
+alias dulogs='cd /usr/local/var/logs'
 
 ###
 # Ruby/Rails

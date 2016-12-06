@@ -7,6 +7,7 @@
 *.local
 tags
 .nvmrc
+yarn.lock
 
 # Directories
 node_modules

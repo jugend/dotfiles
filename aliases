@@ -372,9 +372,10 @@ alias dtmux='cd ~/.tmuxinator'
 
 # user local
 alias dul='cd /usr/local'
-alias dubrew='cd /usr/local/Homebrew'
 alias ducache='cd /usr/local/var/cache'
 alias dulogs='cd /usr/local/var/logs'
+alias dbrew='cd /usr/local/Homebrew'
+alias dbfor='cd /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula'
 
 ###
 # Ruby/Rails

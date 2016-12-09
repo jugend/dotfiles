@@ -325,6 +325,7 @@ nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ec :e CHANGELOG.md<cr>
 nnoremap <leader>ep :e package.json<cr>
+nnoremap <leader>eg :e Gruntfile.js<cr>
 nnoremap <leader>ei :e index.js<cr>
 nnoremap <leader>ew :e webpack.config.js<cr>
 nnoremap <leader>ev :vsplit<cr>:e ~/.vimrc<cr>

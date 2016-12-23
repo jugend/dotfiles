@@ -115,7 +115,9 @@ if (g:colors_name == 'solarized')
   hi VertSplit ctermbg=NONE guibg=#073642 ctermfg=0 guifg=#002834
 elseif (g:colors_name == 'onedark')
   hi NonText ctermfg=235 guifg=#002834 guibg=#002834
+  hi FoldColumn ctermfg=235 guifg=#002834 guibg=#002834
   hi VertSplit ctermbg=NONE guibg=#002834 ctermfg=0 guifg=#393e46
+  hi LineNr ctermbg=NONE guibg=#002834 ctermfg=0 guifg=#393e46
   " hi VertSplit ctermbg=NONE guibg=#002834 ctermfg=0 guifg=#2c323d
   hi jsModuleKeywords guifg=#e06475
 endif

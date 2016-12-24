@@ -416,6 +416,7 @@ nnoremap <leader>fcon :/console.log<cr>
 
 " Space to toggle folds
 nnoremap <leader><leader><leader> :call ToggleFoldLevel()<cr>
+nnoremap <leader><leader> zO
 
 function! ToggleFoldLevel()
   if &foldlevel

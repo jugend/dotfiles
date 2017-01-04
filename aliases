@@ -195,6 +195,8 @@ alias nver='node --version'
 alias DSCORE="DEBUG_SERVICECORE=2"
 alias 3001="PORT=3001"
 alias 3002="PORT=3002"
+alias 8001="PORT=8001"
+alias 8002="PORT=8002"
 alias 8080="PORT=8080"
 alias 8081="PORT=8081"
 alias 8082="PORT=8082"

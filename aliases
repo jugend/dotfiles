@@ -163,9 +163,9 @@ alias noder='env NODE_NO_READLINE=1 rlwrap node'
 alias nh='node --harmony'
 alias nhg='node --harmony-generators'
 alias ndev='node-dev'
-alias nmon='nodemon --ignore test/ --ignore tasks/ --ignore public/ --ignore .build --ignore build'
-alias nmona='nodemon app.js'
-alias nmoni='nodemon index.js'
+alias nmon='nodemon --ignore test/ --ignore tasks/ --ignore public --ignore .build --ignore build'
+alias nmona='nmon app.js'
+alias nmoni='nmon index.js'
 alias nmonh='nodemon --harmony'
 alias nmonhg='nodemon --harmony-generators'
 alias snode='sudo node'
@@ -362,7 +362,10 @@ alias dtmp='cd /tmp'
 alias dvar='cd /var'
 alias dubin='cd /usr/bin'
 alias dulbin='cd /usr/local/bin'
+
+# Sub-directories
 alias dnmod='cd node_modules'
+alias dex='cd examples'
 
 # vim
 alias dvim='cd ~/.vim/'
@@ -411,6 +414,12 @@ alias agsass='ag --sass'
 alias agsql='ag --sql'
 
 alias pryr='pry -r ./config/environment'
+
+##
+# Read files
+##################
+
+alias rread='mdv README.md'
 
 ###
 # GIT

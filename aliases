@@ -101,6 +101,7 @@ alias tmrs='tm rename-session'
 alias tmrsdir='tm rename-session $(basename $PWD)'
 alias tmrw='tm rename-window $(basename $PWD)'
 alias tmrwdir='tm rename-window $(basename $PWD)'
+alias tmdc='tm detach-client -s 0'
 
 # tmuxinator
 alias me='mux edit'

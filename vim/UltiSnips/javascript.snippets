@@ -129,8 +129,8 @@ snippet rdline "req.log('debug', '>>>>>>>>>>>>>>>>>>>> LINE <<<<<<<<<<<<<<<<<<<<
 req.log('debug', '>>>>>>>>>>>>>>>>>>> ${1} <<<<<<<<<<<<<<<<<<');
 endsnippet
 
-snippet rdstr "req.log('debug', 'CONTEXT: ' + JSON.stringify(object))" b
-req.log('debug', '${1}: ' + JSON.stringify(object));
+snippet rdob "req.log('debug', 'CONTEXT: ' + JSON.stringify(object))" b
+req.log('debug', '${1:Context}: ' + JSON.stringify(${2:object}));
 endsnippet
 
 snippet rinf "req.log('info', ...)"

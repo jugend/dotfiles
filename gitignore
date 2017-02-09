@@ -1,6 +1,7 @@
 # File types
 .DS_Store
 .build
+.tmp
 *.swp
 *.swo
 *.log
@@ -28,3 +29,4 @@ setenvs*
 
 # Octave
 octave-workspace
+.tmp/

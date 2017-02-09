@@ -320,8 +320,6 @@ nnoremap <leader>wa :wa<cr>
 nnoremap <leader>wc :let<space>g:ctrlp_working_path_mode=0<cr>
 nnoremap <leader>wd :let<space>g:ctrlp_working_path_mode='ra'<cr>
 
-nnoremap <leader>o :!open %<cr>
-nnoremap <leader>od :!open .<cr>
 nnoremap <leader>e :e<space>
 nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
@@ -417,6 +415,8 @@ nnoremap <leader>fcon :/console.log<cr>
 " Space to toggle folds
 nnoremap <leader><leader><leader> :call ToggleFoldLevel()<cr>
 nnoremap <leader><leader>o zO
+nnoremap <leader><leader>O :!open %<cr>
+nnoremap <leader><leader>Od :!open .<cr>
 
 function! ToggleFoldLevel()
   if &foldlevel

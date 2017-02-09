@@ -101,7 +101,7 @@ alias tmrs='tm rename-session'
 alias tmrsdir='tm rename-session $(basename $PWD)'
 alias tmrw='tm rename-window $(basename $PWD)'
 alias tmrwdir='tm rename-window $(basename $PWD)'
-alias tmdc='tm detach-client -s 0'
+alias tmdc='tm detach-client -s'
 
 # tmuxinator
 alias me='mux edit'
@@ -309,14 +309,14 @@ alias isc='is cover --report text --report html'
 alias iscmoc='isc _mocha'
 
 # docker
-alias d='docker'
-alias dr='docker run'
-alias dim='docker images'
-alias drdp='docker run -d -P'   # run as daemon and expose port
-alias dps='docker ps'           # show processes
-alias dpweb='docker port web'   # view container's ports
-alias dst='docker stop'
-alias drm='docker rm'
+alias dc='docker'
+alias dcr='docker run'
+alias dcim='docker images'
+alias dcrdp='docker run -d -P'   # run as daemon and expose port
+alias dcps='docker ps'           # show processes
+alias dcpweb='docker port web'   # view container's ports
+alias dcst='docker stop'
+alias dcrm='docker rm'
 
 # docker-machine
 alias dm='docker-machine'
@@ -445,6 +445,7 @@ alias gcodev='git checkout develop'
 alias gcl='git clone'
 alias gcld='git clone --depth=1'
 alias gclup='git clone --origin upstream'
+alias gcln='git clean'
 alias gconl='git config --list'
 alias gd='git diff'
 alias gddev='git diff develop'

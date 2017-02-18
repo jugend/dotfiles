@@ -204,19 +204,19 @@ endsnippet
 
 # ES6
 snippet im "import object from 'lib'"
-import ${1:object} from '${2:lib}';
+import ${1:object} from '${2:lib}'
 endsnippet
 
 snippet ime "import object from 'object'"
-import ${1:object} from '$1';
+import ${1:object} from '$1'
 endsnippet
 
 snippet imd "import { object } from 'lib'"
-import \{ ${1:object} \} from '${2:lib}';
+import \{ ${1:object} \} from '${2:lib}'
 endsnippet
 
 snippet im* "import * as object from 'lib'"
-import * as ${1:object} from '${2:lib}';
+import * as ${1:object} from '${2:lib}'
 endsnippet
 
 snippet clex "class ClassName extends Parent"
@@ -230,68 +230,68 @@ export $1
 endsnippet
 
 snippet excon "export const" b
-export const $1 = '$2';
+export const $1 = '$2'
 endsnippet
 
 snippet exfun "export function name() { ... }" b
 export function ${1:name}($2) {
   $3
-};
+}
 endsnippet
 
 snippet exd "export default"
-export default $1;
+export default $1
 endsnippet
 
 snippet exdfun "export default function funcName() { ... }"
 export default function ${1:name}(${2:arg}) {
   $3
-};
+}
 endsnippet
 
 snippet exdclas "export default class"
 export default class ${1:ClassName} {
   $2
-};
+}
 endsnippet
 
 snippet exdcpar "export default class Class extends Parent"
 export default class ${1:ClassName} extends ${2:Parent} {
   $3
-};
+}
 endsnippet
 
 snippet let "let name = value" b
-let ${1:name} = ${2:value};
+let ${1:name} = ${2:value}
 endsnippet
 
 snippet lets "let { name } = value" b
-let \{ ${1:name} \} = ${2:value};
+let \{ ${1:name} \} = ${2:value}
 endsnippet
 
 snippet con "const name = value" b
-const ${1:name} = ${2:value};
+const ${1:name} = ${2:value}
 endsnippet
 
 snippet cond "const { name } = value" b
-const \{ ${1:name} \} = ${2:value};
+const \{ ${1:name} \} = ${2:value}
 endsnippet
 
 snippet conda "const [ name ] = value" b
-const [ ${1:name} ] = ${2:value};
+const [ ${1:name} ] = ${2:value}
 endsnippet
 
 snippet var "var name = value" b
-var ${1:name} = ${2:value};
+var ${1:name} = ${2:value}
 endsnippet
 
 snippet stat "static name = value" b
-static ${1:name} = ${2:value};
+static ${1:name} = ${2:value}
 endsnippet
 
 snippet const "constructor() {}"
 constructor(${1:props}) {
-  super(${2:props});
+  super(${2:props})
   $3
 }
 endsnippet
@@ -337,24 +337,23 @@ snippet oass "Object.assign()" i
 Object.assign($1)
 endsnippet
 
-snippet rsp "{' '}" b
+# React: ES6
+snippet rsp "{' '}" i
 {' '}
 endsnippet
 
-# React: ES6
-
 snippet rim "import React, { Component, PropTypes }"
-import React, { Component, PropTypes$1 } from 'react';
+import React, { Component, PropTypes$1 } from 'react'
 $2
 endsnippet
 
 snippet rimd "import ReactDOM"
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 
 endsnippet
 
 snippet rimi "import {IntlProvider, FormattedNumber, FormattedPlural}" b
-import ${1:IntlProvider}${2:, FormattedNumber}${3:, FormattedPlural }from 'react-intl';
+import ${1:IntlProvider}${2:, FormattedNumber}${3:, FormattedPlural }from 'react-intl'
 
 endsnippet
 
@@ -375,6 +374,14 @@ props.children
 endsnippet
 
 # React: PropTypes
+snippet rpno "PropTypes.node"
+PropTypes.node
+endsnippet
+
+snippet rpnoi "PropTypes.node"
+PropTypes.node.isRequired
+endsnippet
+
 snippet rpo "PropTypes.object"
 PropTypes.object
 endsnippet

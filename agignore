@@ -8,4 +8,5 @@ dist
 *.min.js
 *.min.css
 *.js.map
+bundle.js
 test/functional/report

@@ -308,7 +308,8 @@ nnoremap <leader>r/ :%s/\v
 vnoremap <leader>r :s/
 nnoremap <leader>rw :%s/<C-r><C-w>/
 vnoremap <leader>rw y:%s/<C-r>"/
-nnoremap <leader>ru y:%s/function(/function (/I<cr>
+nnoremap <leader>rf y:%s/\(function\)(/\1 (/I<cr>
+nnoremap <leader>ru y:%s/\(\w\+\)(\(\w*\)) {/\1 (\2) {/<cr>
 nnoremap <leader>ra y:%s/function\%[ ]()/() =>/I<cr>
 nnoremap <leader>rm :exe "!rm ~/tmp/%.sw*"<cr><cr>:echo 'swap files removed'<cr>
 nnoremap <leader>re :reg<cr>
@@ -642,11 +643,9 @@ autocmd FileType javascript noremap <buffer> <leader>F :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <leader>F :call JsonBeautify()<cr>
 autocmd FileType html,xml noremap <buffer> <leader>F :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>F :call CSSBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <leader>F :call JsxBeautify()<cr>
 
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 

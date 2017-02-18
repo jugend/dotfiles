@@ -25,6 +25,7 @@ alias g='git'
 alias b='brew'
 alias bc='brew cask'
 alias gi='gist -c'
+alias el='eslint'
 
 alias wh='which'
 alias tf='tail -f -n 500'

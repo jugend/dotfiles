@@ -800,3 +800,19 @@ then(function($1) {
   $2
 }).then(util.doneSuccess(done), util.doneError(nemo, this, done));
 endsnippet
+
+## Paypal React
+snippet prcomp "React.createClass({ render() })"
+import React, { PropTypes } from 'react'
+
+const ${1:ComponentName} = React.createClass({
+    render () {
+        return (
+            <div>Intro Page</div>
+        )
+    }
+})
+
+export default {$1}
+endsnippet
+

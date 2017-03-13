@@ -1,6 +1,17 @@
+// npm install -g eslint eslint-config-standard eslint-config-standard-react eslint-plugin-promise eslint-plugin-react eslint-plugin-standard
 {
     "extends": ["standard", "standard-react"],
     "rules": {
-        "jsx-quotes": [2, "prefer-double"]
+        "one-var": "off",
+        "indent": ["error", 4, {
+            "SwitchCase": 1
+        }],
+        "semi": ["error", "always"],
+        "no-console": ["error", {
+            "allow": ["info", "warn", "error"]
+        }],
+        "jsx-quotes": [2, "prefer-double"],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4]
     }
 }

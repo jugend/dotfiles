@@ -88,7 +88,9 @@ visnip() {
   vi $1.snippets
 }
 
-lsofi() {
+# Check which process is listening to what port no
+# $ lport 8008
+lport() {
   lsof -i :$1
 }
 

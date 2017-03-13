@@ -305,12 +305,12 @@ nnoremap <leader>fw :Ack <C-r><C-w><cr>
 nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
 nnoremap <leader>r/ :%s/\v
-vnoremap <leader>r :s/
 nnoremap <leader>rw :%s/<C-r><C-w>/
-vnoremap <leader>rw y:%s/<C-r>"/
-nnoremap <leader>rf y:%s/\(function\)(/\1 (/I<cr>
-nnoremap <leader>ru y:%s/\(\w\+\)(\(\w*\)) {/\1 (\2) {/<cr>
-nnoremap <leader>ra y:%s/function\%[ ]()/() =>/I<cr>
+nnoremap <leader>rf :%s/\(function\)(/\1 (/I<cr>
+nnoremap <leader>ru :%s/\(\w\+\)(\(\w*\)) {/\1 (\2) {/<cr>
+nnoremap <leader>rc :%s/\/\/\(\w\)/\/\/ \1/<cr>
+nnoremap <leader>rif :%s/if(/if (/<cr>:%s/){/) {/<cr>
+nnoremap <leader>ra :%s/function\%[ ]()/() =>/I<cr>
 nnoremap <leader>rm :exe "!rm ~/tmp/%.sw*"<cr><cr>:echo 'swap files removed'<cr>
 nnoremap <leader>re :reg<cr>
 nnoremap <leader>ri gg=G<cr>
@@ -320,6 +320,10 @@ nnoremap <leader>cr :ChromeReload<cr>
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>wc :let<space>g:ctrlp_working_path_mode=0<cr>
 nnoremap <leader>wd :let<space>g:ctrlp_working_path_mode='ra'<cr>
+
+vnoremap <leader>s :s/
+vnoremap <leader>sq :s/"/'/g<cr>
+vnoremap <leader>sw y:%s/<C-r>"/
 
 nnoremap <leader>e :e<space>
 nnoremap <leader>E :e!<cr>

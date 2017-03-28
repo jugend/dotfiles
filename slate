@@ -161,4 +161,4 @@ bind j:alt                    focus down
 bind n:alt                    focus behind
 
 # Window Hints
-bind esc:cmd hint
+# bind esc:cmd hint

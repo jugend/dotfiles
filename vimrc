@@ -306,8 +306,9 @@ nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
 nnoremap <leader>r/ :%s/\v
 nnoremap <leader>rw :%s/<C-r><C-w>/
-nnoremap <leader>rf :%s/\(function\)(/\1 (/I<cr>
-nnoremap <leader>ru :%s/\(\w\+\)(\(\w*\)) {/\1 (\2) {/<cr>
+nnoremap <leader>rfa :%s/\(function\)(/\1 (/I<cr>
+nnoremap <leader>rff :%s/function \(\w\+\)(/function \1 (/<cr>
+nnoremap <leader>rfc :%s/\(\w\+\)(\(\w*\)) {/\1 (\2) {/<cr>
 nnoremap <leader>rc :%s/\/\/\(\w\)/\/\/ \1/<cr>
 nnoremap <leader>rif :%s/if(/if (/<cr>:%s/){/) {/<cr>
 nnoremap <leader>ra :%s/function\%[ ]()/() =>/I<cr>
@@ -393,7 +394,7 @@ nnoremap <leader>iw :set invwrap<cr>
 nnoremap <leader>fo :set foldcolumn=2<cr>
 nnoremap <leader>fc :set foldcolumn=0<cr>
 nnoremap <leader>t2 :set sw=2 ts=2<cr>
-nnoremap <leader>t4 :set sw=2 ts=2<cr>
+nnoremap <leader>t4 :set sw=4 ts=4<cr>
 nnoremap <leader>k :set foldlevel=0<cr>
 nnoremap <leader>kk :set foldlevel=1<cr>
 nnoremap <leader>K :set foldlevel=2<cr>

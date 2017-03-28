@@ -122,6 +122,22 @@ browsersyncproxy() {
   fi
 }
 
+geth() {
+    get $1 | html-beautify
+}
+
+posth() {
+    post $1 | html-beautify
+}
+
+getj() {
+    get $1 | js-beautify
+}
+
+postj() {
+    post $1 | js-beautify
+}
+
 if [ -f ~/.aliases.local ]; then
   . ~/.aliases.local
 fi

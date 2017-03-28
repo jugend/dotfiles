@@ -26,6 +26,7 @@ alias b='brew'
 alias bc='brew cask'
 alias gi='gist -c'
 alias el='eslint'
+alias exp='export'
 
 alias wh='which'
 alias tf='tail -f -n 500'
@@ -43,6 +44,9 @@ alias mvc='mvim .'
 alias k9='kill -9'
 alias pkf='pkill -f'
 alias rmr='rm -rf'
+
+alias get='curl -v -k'
+alias post='curl -v -k -X POST'
 
 alias lgp='ls -al | grep'
 alias pgp='ps -fe | grep'

@@ -15,6 +15,12 @@ shopt -s nocaseglob;
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend;
 
+# Share history in tmux sessions
+shopt -s histreedit;
+shopt -s histverify;
+HISTCONTROL="ignoreboth"
+PROMPT_COMMAND="history -a;history -c;history -r; $PROMPT_COMMAND";
+
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
 

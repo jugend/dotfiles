@@ -199,7 +199,6 @@ alias nvi='node-vim-inspector'
 alias nver='node --version'
 
 # Env variables
-alias DSCORE="DEBUG_SERVICECORE=2"
 alias 3001="PORT=3001"
 alias 3002="PORT=3002"
 alias 8001="PORT=8001"
@@ -242,7 +241,7 @@ alias npddev='npgrep devDependencies'
 # Yarn
 alias ya='yarn'
 alias yi='yarn install'
-alias yag='yarn add global'
+alias yga='yarn global add'
 alias yad='yarn add'
 
 # Nvm
@@ -291,6 +290,7 @@ alias mate='reattach-to-user-namespace mate'
 alias jsx6='jsx --es6module --harmony'
 
 # Grunt
+alias grb='grunt build'
 alias grh='grunt --help'
 alias grve='grunt --verbose'
 alias grd='grunt --debug'

@@ -20,7 +20,7 @@ Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'digitaltoad/vim-pug'
-Plugin 'jvirtanen/vim-octave'
+" Plugin 'jvirtanen/vim-octave'
 
 " HAML, SASS, SCSS support for Vim
 Plugin 'tpope/vim-haml'

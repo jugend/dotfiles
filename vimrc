@@ -581,6 +581,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 " let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
 let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_objc_checkers = ['oclint']
 
 autocmd FileType javascript,javascript.jsx
   \ let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']

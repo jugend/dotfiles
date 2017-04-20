@@ -4,7 +4,7 @@ root = true
 
 [*]
 indent_style = space
-indent_size = 4
+indent_size = 2
 end_with_newline = false
 keep_array_indentation = true
 
@@ -12,26 +12,26 @@ keep_array_indentation = true
 space_after_anon_function = true
 keep_array_indentation = true
 indent_style = space
-indent_size = 4
+indent_size = 2
 e4x = true
 ; Prevent bracket in module import/export to expand
 brace_style = collapse-preserve-inline
 
 [**.json]
 indent_style = space
-indent_size = 4
+indent_size = 2
 
 [**.jsx]
-e4x = true
+e2x = true
 indent_style = space
-indent_size = 4
+indent_size = 2
 
 [**.css]
 indent_style = space
-indent_size = 4
+indent_size = 2
 
 [**.html]
 indent_style = space
-indent_size = 4
+indent_size = 2
 max_char = 78
 brace_style = expand

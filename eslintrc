@@ -1,26 +1,26 @@
-// yarn global add eslint eslint-config-standard eslint-config-standard-react eslint-plugin-promise eslint-plugin-react eslint-plugin-standard eslint-plugin-import eslint-plugin-node eslint-plugin-class-property
+// yarn global add eslint babel-eslint eslint-config-standard eslint-config-standard-react eslint-plugin-promise eslint-plugin-react eslint-plugin-standard eslint-plugin-import eslint-plugin-node
 {
-    "extends": ["standard", "standard-react"],
-    "rules": {
-        "one-var": "off",
-        "indent": ["error", 2, {
-            "SwitchCase": 1
-        }],
-        /* "semi": ["error", "always"], */
-        "space-before-function-paren": ["error", {
-            "anonymous": "always",
-            "named": "ignore",
-            "asyncArrow": "always"
-        }],
-        /* "no-console": ["error", { */
-        /*     "allow": ["info", "warn", "error"] */
-        /* }], */
-        "jsx-quotes": ["error", "prefer-double"],
-        "react/jsx-indent": ["error", 2],
-        "react/jsx-indent-props": ["error", 2],
-        "react/prop-types": "off"
-    },
-    "plugins": [
-        "class-property"
-    ]
+  "extends": ["standard", "standard-react"],
+  // To support flow, class property
+  "parser": "babel-eslint",
+  "rules": {
+    "one-var": "off",
+    "indent": ["error", 2, {
+      "SwitchCase": 1
+      }],
+    // "semi": ["error", "always"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "ignore",
+      "asyncArrow": "always"
+      }],
+    // "no-console": ["error", {
+    //     "allow": ["info", "warn", "error"]
+    // }],
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-no-bind": "off",
+    "react/jsx-indent-props": ["error", 2],
+    "react/prop-types": "off",
+  }
 }

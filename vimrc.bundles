@@ -1,9 +1,10 @@
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/vundle.vim'
 
 " Navigation
 Plugin 'ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'The-NERD-tree'
+Plugin 'scroolose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -77,8 +78,6 @@ Plugin 'maksimr/vim-jsbeautify'
 " Plugin 'scrooloose/nerdcommenter'
 Plugin 'tomtom/tcomment_vim'
 
-" Mru list
-Plugin 'bufexplorer.zip'
 " Cycle mru list
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'syntastic'

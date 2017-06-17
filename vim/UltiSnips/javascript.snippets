@@ -1,8 +1,4 @@
 # Javascript
-snippet = "===" i
-=== $1
-endsnippet
-
 snippet :a "key: [...]" i
 ${1:key}: [$2]$3
 endsnippet
@@ -18,7 +14,7 @@ endsnippet
 snippet els "else { ... }" i
 else {
   $1
-}
+}$0
 endsnippet
 
 snippet def "default:" b
@@ -30,115 +26,121 @@ snippet switch "switch(var) { ... }" b
 switch($1) {
   case $2:
     $3
-    break;
+    break
   case $4:
     $5
-    break;
-}
+    break
+}$0
 endsnippet
 
-snippet swret "switch(var) { case a: return x;... }" b
+snippet swret "switch(var) { case a: return x... }" b
 switch($1) {
   case $2:
-    return $3;
+    return $3
   case $4:
-    return $5;
-}
+    return $5
+}$0
 endsnippet
 
 snippet fcall "funcName( ... )" i
-${1:name}($2);
+${1:name}($2)
 endsnippet
 
 snippet fcallo "funcName({ ... })" i
 ${1:name}({
   $2
-});
+})$0
 endsnippet
 
-snippet finv "(function() { ... })()"
-(function() {
+snippet finv "(function () { ... })()"
+(function () {
   $1
-})();
+})()$0
 endsnippet
 
-snippet rete "return;" b
-return;
+snippet rete "return" b
+return
 endsnippet
 
 snippet reto "return { ... }"
 return {
   $2
-};
+}$0
 endsnippet
 
-snippet fore "forEach(function(item) { ... })" i
-forEach(function(${1:item}) {
+snippet retb "return ( ... )"
+return (
+  $1
+)$0
+endsnippet
+
+snippet fore "forEach(function (item) { ... })" i
+forEach(function (${1:item}) {
   $2
-});
+})$0
 endsnippet
 
 snippet forn "forEach(function name(item) { ... })" i
 forEach(function ${1:name}(${2:item}) {
   $3
-});
+})$0
 endsnippet
 
 snippet foren "forEach((item) => { ... })" i
 forEach((${1:item}) => {
   $2
-});
+})$0
 endsnippet
 
 snippet fornn "forEach(name(item) => { ... })" i
 forEach(${1:name}(${2:item}) => {
   $3
-});
+})$0
 endsnippet
 
-snippet the "then(function() { ... })" i
-then(function($1) {
+snippet the "then(function () { ... })" i
+then(function ($1) {
   $2
-})
+})$0
 endsnippet
 
-snippet thd "then(function() { ... })" i
-then(function($1) {
+snippet thd "then(function () { ... })" i
+then(function ($1) {
   $2
-  done();
-})
+  done()
+})$0
 endsnippet
-snippet cat "catch(function(err) { ... })" i
-catch(function(err) {
+snippet cat "catch(function (err) { ... })" i
+catch(function (err) {
   $1
-})
+})$0
 endsnippet
 
-snippet catd "catch(function(err) { ... })" i
-catch(function(err) {
-  done(err);
-});
+snippet catd "catch(function (err) { ... })" i
+catch(function (err) {
+  done(err)
+})$0
 endsnippet
 
 # Kraken
 snippet rdeb "req.log('debug', ...)" b
-req.log('debug', ${1:Object});
+req.log('debug', ${1:Object})
 endsnippet
 
 snippet rdline "req.log('debug', '>>>>>>>>>>>>>>>>>>>> LINE <<<<<<<<<<<<<<<<<<<<)" b
-req.log('debug', '>>>>>>>>>>>>>>>>>>> ${1} <<<<<<<<<<<<<<<<<<');
+req.log('debug', '>>>>>>>>>>>>>>>>>>> ${1} <<<<<<<<<<<<<<<<<<')
 endsnippet
 
 snippet rdob "req.log('debug', 'CONTEXT: ' + JSON.stringify(object))" b
-req.log('debug', '${1:Context}: ' + JSON.stringify(${2:object}));
+req.log('debug', '${1:Context}: ' + JSON.stringify(${2:object}))
 endsnippet
 
 snippet rinf "req.log('info', ...)"
-req.log('info', ${1:Object});
+req.log('info', ${1:Object})
 endsnippet
 
 snippet rerr "req.log('error', ...)"
-req.log('error', ${1:Object});
+req.log('error', ${1:Object})
 endsnippet
 
 # jQuery
@@ -147,13 +149,13 @@ $.ajax({
   url: ${1:url},
   dataType: '${2:json}',
   cache: false,
-  success: function(data) {
+  success: function (data) {
     $3
   }.bind(this),
-  error: function(xhr, status, err) {
+  error: function (xhr, status, err) {
     $4
   }.bind(this)
-});
+})$0
 endsnippet
 
 snippet ajpost "$.ajax({type: 'POST'...})"
@@ -162,44 +164,61 @@ $.ajax({
   dataType: '${2:json}',
   type: '${3:POST}',
   data: ${4:data},
-  success: function(data) {
+  success: function (data) {
     $5
   }.bind(this),
-  error: function(xhr, status, err) {
+  error: function (xhr, status, err) {
     $6
   }.bind(this)
-});
+})$0
 endsnippet
 
 # Express
 snippet exserver "Express: Server"
-var path = require('path');
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
+var path = require('path')
+var express = require('express')
+var bodyParser = require('body-parser')
+var app = express()
 
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 3000))
 
-app.use('/', express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use('/', express.static(path.join(__dirname, 'public')))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 
-app.get('/', function(req, res) {
-  res.send('hello');
-});
+app.get('/', function (req, res) {
+  res.send('hello')
+})
 
-app.listen(app.get('port'), 'localhost', function(err) {
+app.listen(app.get('port'), 'localhost', function (err) {
   if (err) {
-	console.log(err);
-	return;
+    console.log(err)
+    return
   }
 
-  console.log('Server started: http://localhost:' + app.get('port') + '/');
-});
+  console.log('Server started: http://localhost:' + app.get('port') + '/')
+})$0
 endsnippet
 
 snippet pjoin "path.join(__dirname, 'lib')" i
 path.join(__dirname, '${1:lib}')
+endsnippet
+
+# ES6 Arrow
+snippet af "() => { ... }" i
+($1) => {
+  $2
+}$0
+endsnippet
+
+# Arrow inline
+snippet afi "() => " i
+($1) => $2
+endsnippet
+
+# Arrow short
+snippet afs " => " i
+$1 => $2
 endsnippet
 
 # ES6
@@ -219,10 +238,18 @@ snippet im* "import * as object from 'lib'"
 import * as ${1:object} from '${2:lib}'
 endsnippet
 
+# Class
 snippet clex "class ClassName extends Parent"
 class ${1:ClassName} extends ${2:Parent} {
   $3
+}$0
+endsnippet
+
+snippet fnc "funcName() { ... }" b
+${1:name}($22) {
+  $3
 }
+$0
 endsnippet
 
 snippet ex "export" b
@@ -230,13 +257,13 @@ export $1
 endsnippet
 
 snippet excon "export const" b
-export const $1 = '$2'
+export const $1 = $2
 endsnippet
 
 snippet exfun "export function name() { ... }" b
 export function ${1:name}($2) {
   $3
-}
+}$0
 endsnippet
 
 snippet exd "export default"
@@ -246,19 +273,19 @@ endsnippet
 snippet exdfun "export default function funcName() { ... }"
 export default function ${1:name}(${2:arg}) {
   $3
-}
+}$0
 endsnippet
 
 snippet exdclas "export default class"
 export default class ${1:ClassName} {
   $2
-}
+}$0
 endsnippet
 
 snippet exdcpar "export default class Class extends Parent"
 export default class ${1:ClassName} extends ${2:Parent} {
   $3
-}
+}$0
 endsnippet
 
 snippet let "let name = value" b
@@ -271,6 +298,12 @@ endsnippet
 
 snippet con "const name = value" b
 const ${1:name} = ${2:value}
+endsnippet
+
+snippet cono "const { name } = value" b
+const ${1:name} = \{
+  ${2:key}: ${3:value}
+\}$0
 endsnippet
 
 snippet cond "const { name } = value" b
@@ -293,63 +326,106 @@ snippet const "constructor() {}"
 constructor(${1:props}) {
   super(${2:props})
   $3
-}
+}$0
 endsnippet
 
-snippet fn "function () { }" i
-function() {
-  $1
-}
-endsnippet
-
-snippet fna "function ($1) { }" i
-function() {
-  $2
-}
-endsnippet
-
-snippet fnam "function name() { }" i
+snippet fn "function name() { }" i
 function ${1:name}($2) {
   $3
-}
+}$0
 endsnippet
 
-snippet )= "1 => 2" i
-$1 => $2
+snippet fna "function () { }" i
+function () {
+  $1
+}$0
 endsnippet
 
-snippet ()= "(1) => 2" i
-($1) => $2
-endsnippet
-
-snippet (){} "(1) => { ... }" i
-($1) => {
+snippet fnap "function ($1) { }" i
+function () {
   $2
-}
+}$0
 endsnippet
 
-snippet ()=> "(1) => \n\t 2" i
-($1) =>
-  $2
-endsnippet
 
 snippet oass "Object.assign()" i
 Object.assign($1)
 endsnippet
 
+#JSX
+snippet sty "Description" i
+style={$1}
+endsnippet
+
 # React Templates
+snippet rcom "class ClassName extends Component"
+class ${1:ClassName} extends Component {
+  render() {
+    return $2
+  }
+}
+
+export default $1
+endsnippet
+
 snippet rcoms "const Component = () => { return (...) }" b
-const ${1:ComponentName} = () => {
+const ${1:Component} = () => {
   return (
     $2
   )
 }
+
+export default $1
+endsnippet
+
+snippet rst "Description" b
+this.setState({ $1 })
+endsnippet
+
+snippet rstn "Description" b
+this.setState({
+  $1
+})$0
 endsnippet
 
 # React Native
-snippet rnim "import {...} from 'react-native'"
+snippet rnim "import { View } from 'react-native'"
 import { View$1 } from 'react-native'
 $2
+endsnippet
+
+snippet rnimt "import { Text } from 'react-native'"
+import { Text$1 } from 'react-native'
+$2
+endsnippet
+
+snippet rnimvt "import { View, Text } from 'react-native'"
+import { View, Text$1 } from 'react-native'
+$2
+endsnippet
+
+# React-Redux
+snippet rrimc "import { connect } from 'react-redux'" b
+import { connect } from 'reaact-redux'$0
+endsnippet
+
+snippet rrimp "import { Provider } from 'react-redux'" b
+import { Provider } from 'react-redux'$0
+endsnippet
+
+# Redux
+snippet rdims "import { createStore } from 'redux'" b
+import { createStore } from 'redux'$0
+endsnippet
+
+snippet rdimr "import { combineReducers } from 'redux'" b
+import { combineReducers } from 'redux'$0
+endsnippet
+
+snippet rdmsprop "const mapStateToProps = (state) => {...}" b
+const mapStateToProps = (state) => {
+  $1
+}$0
 endsnippet
 
 # React: ES6
@@ -357,13 +433,13 @@ snippet rsp "{' '}" i
 {' '}
 endsnippet
 
-snippet rim "import React"
-import React, { Component } from 'react'
+snippet rim "import React from 'react'"
+import React from 'react'
 $2
 endsnippet
 
-snippet rimc "import React, { Component }"
-import React, { Component, PropTypes$1 } from 'react'
+snippet rimc "import React, { Component } from 'react'"
+import React, { Component } from 'react'
 $2
 endsnippet
 
@@ -382,16 +458,10 @@ import ${1:IntlProvider}${2:, FormattedNumber}${3:, FormattedPlural }from 'react
 
 endsnippet
 
-snippet rcla "class ClassName extends Component"
-class ${1:ClassName} extends Component {
-  $2
-}
-endsnippet
-
 snippet rprop "ClassName.propTypes = {}"
 ${1:ClassName}.propTypes = {
   $2
-}
+}$0
 endsnippet
 
 snippet propc "props.children" i
@@ -458,20 +528,14 @@ endsnippet
 # Methods
 snippet rcon "constructor(props, context) { ... }"
 constructor(props, context) {
-  super(props, context);
+  super(props, context)
   $1
-}
+}$0
 
 endsnippet
 
 snippet rcprop "const { ... } = this.props" i
-const { $1 } = this.props;
-endsnippet
-
-snippet rret "return ( ... )"
-return (
-  $1
-);
+const { $1 } = this.props
 endsnippet
 
 snippet rren "render() { ... }"
@@ -479,16 +543,59 @@ render() {
   return (
     ${1:<div />}
   )
-}
+}$0
 endsnippet
 
-snippet rrenv "render() { statement; return( ... ) }"
+snippet rrenv "render() { statement return( ... ) }"
 render() {
   $1
   return (
     ${2:<div />}
   )
+}$0
+endsnippet
+
+# React lifecycle methods
+snippet rcdm "Component did mount" b
+componentDidMount() {
+	${1}
 }
+$0
+endsnippet
+
+snippet rcdup "Component did update" b
+componentDidUpdate(prevProps, prevState) {
+	${1}
+}
+$0
+endsnippet
+
+snippet rcwm "Component will mount" b
+componentWillMount() {
+	${1}
+}
+$0
+endsnippet
+
+snippet rcwr "Component will receive props" b
+componentWillReceiveProps(nextProps) {
+	${1}
+}
+$0
+endsnippet
+
+snippet rcwun "Component will unmount" b
+componentWillUnmount() {
+	${1}
+}
+$0
+endsnippet
+
+snippet rcwu "Component will update" b
+componentWillUpdate(nextProps, nextState) {
+	${1}
+}
+$0
 endsnippet
 
 # React: ES5
@@ -497,7 +604,7 @@ snippet rs "{' '}" b
 endsnippet
 
 snippet rreq "require('react')"
-  var React = require('react');
+  var React = require('react')
 endsnippet
 
 # Common Snippets
@@ -507,288 +614,288 @@ snippet ctodo "TODO"
 endsnippet
 
 snippet varr "name lib = require('path')"
-var ${1:lib} = require('${2:path}');
+var ${1:lib} = require('${2:path}')
 endsnippet
 
-snippet frr "function(req, res) {}" i
-function(req, res) {
+snippet frr "function (req, res) {}" i
+function (req, res) {
   $1
-}
+}$0
 endsnippet
 
-snippet fprr "function(resolve, reject) {}" i
-function(resolve, reject) {
+snippet fprr "function (resolve, reject) {}" i
+function (resolve, reject) {
   $1
-}
+}$0
 endsnippet
 
-snippet frrn "function(req, res, next) {}" i
-function(req, res, next) {
+snippet frrn "function (req, res, next) {}" i
+function (req, res, next) {
   $1
-}
+}$0
 endsnippet
 
-snippet fer "function(err) { ... }" i
-function(err) {
+snippet fer "function (err) { ... }" i
+function (err) {
   $1
 
 endsnippet
 
-snippet ferr "function(err, res) { ... }" i
-function(err, ${1:res}) {
+snippet ferr "function (err, res) { ... }" i
+function (err, ${1:res}) {
   $2
-}
+}$0
 endsnippet
 
-snippet ferrn "function(err, req, res, next) {}" i
-function(err, req, res, next) {
+snippet ferrn "function (err, req, res, next) {}" i
+function (err, req, res, next) {
   $1
-}
+}$0
 endsnippet
 
-snippet fne "function(e) { ... }" i
-function(e) {
+snippet fne "function (e) { ... }" i
+function (e) {
   $1
-}
+}$0
 endsnippet
 
-snippet fdone "function(done) { ... }" i
-function(done) {
+snippet fdone "function (done) { ... }" i
+function (done) {
   $1
-}
+}$0
 endsnippet
 
-snippet for:ar "for (var i = 0; i < array.lengh; i++) { ... }"
-for (var i = 0; i < ${1:length}; i++) {
+snippet for:ar "for (var i = 0 i < array.lengh i++) { ... }"
+for (var i = 0 i < ${1:length} i++) {
   $1
-}
+}$0
 endsnippet
 
-snippet fbind "function() { ... }.bind(this)" i
-function($1) {
+snippet fbind "function () { ... }.bind(this)" i
+function ($1) {
   $2
 }.bind(this)
 endsnippet
 
 # console.log
 snippet cl "console.log(object)"
-console.log(${1:object});
+console.log(${1:object})$0
 endsnippet
 
 snippet cli "console.info(object)"
-console.info(${1:object});
+console.info(${1:object})$0
 endsnippet
 
 snippet cle "console.error(object)"
-console.error(${1:object});
+console.error(${1:object})$0
 endsnippet
 
 snippet cldiv "console.info('============')"
-console.log('==================================================');
+console.log('==================================================')$0
 endsnippet
 
 snippet clo "console.log('message', object)"
-console.log('${1:message}', ${2:object});
+console.log('${1:message}', ${2:object})$0
 endsnippet
 
 snippet clm "console.log('message')"
-console.log('${1:message}');
+console.log('${1:message}')$0
 endsnippet
 
 snippet cg "console.group('name')" b
-console.group('${1:name}')
+console.group('${1:name}')$0
 endsnippet
 
 snippet cge "console.groupEnd('name')" b
-console.groupEnd('${1:name}')
+console.groupEnd('${1:name}')$0
 endsnippet
 
 snippet ct "console.time('name')" b
-console.time('${1:name}')
+console.time('${1:name}')$0
 endsnippet
 
 snippet cte "console.timeEnd('name')" b
-console.timeEnd('${1:name}')
+console.timeEnd('${1:name}')$0
 endsnippet
 
 # Node.js Snipppets
 
 snippet req "require('module')" i
-require('$1');
+require('$1')
 endsnippet
 
 snippet modx "module.exports = ClassName"
-module.exports = ${1:ClassName};
+module.exports = ${1:ClassName}
 endsnippet
 
 # Mocha
 snippet desc "Mocha: describe verbose"
-describe('${1:`!p snip.rv = fn.split(os.extsep)[0]`}', function() {
+describe('${1:`!p snip.rv = fn.split(os.extsep)[0]`}', function () {
   $0
-});
+})
 endsnippet
 
 snippet mdesc "Mocha: describe verbose"
 describe('${1:`!p snip.rv = fn.split(os.extsep)[0]`}', () => {
   $0
-});
+})
 endsnippet
 
 snippet itp "Mocha: it (pending)"
-it('${1:desc}');
+it('${1:desc}')
 endsnippet
 
 snippet mitp "Mocha: it (pending)"
-it('${1:desc}');
+it('${1:desc}')
 endsnippet
 
 snippet it "Mocha: it"
-it('${1:desc}', function() {
+it('${1:desc}', function () {
   $0
-});
+})
 endsnippet
 
 snippet mit "Mocha: it"
 it('${1:desc}', () => {
   $0
-});
+})
 endsnippet
 
 snippet ita "Mocha: it (async)"
-it('${1:desc}', function(done) {
+it('${1:desc}', function (done) {
   $0
-  done();
-});
+  done()
+})
 endsnippet
 
 snippet mita "Mocha: it (async)"
 it('${1:desc}', (done) => {
   $0
-  done();
-});
+  done()
+})
 endsnippet
 
 snippet befo "Mocha: before"
-before(function() {
+before(function () {
   $0
-});
+})
 endsnippet
 
 snippet mbefo "Mocha: before"
 before(() => {
   $0
-});
+})
 endsnippet
 
 snippet befa "Mocha: before (async)" i
-before(function(done) {
+before(function (done) {
   $0
-});
+})
 endsnippet
 
 snippet mbefa "Mocha: before (async)" i
 before((done) => {
   $0
-});
+})
 endsnippet
 
 snippet aftr "Mocha: after"
 after(funckktion() {
   $0
-});
+})
 endsnippet
 
 snippet maftr "Mocha: after"
 after(() => {
   $0
-});
+})
 endsnippet
 
 snippet afta "Mocha: after (async)"
-after(function(done) {
+after(function (done) {
   $0
-});
+})
 endsnippet
 
 snippet mafta "Mocha: after (async)"
 after((done) => {
   $0
-});
+})
 endsnippet
 
 snippet befe "Mocha: beforeEach"
-beforeEach(function() {
+beforeEach(function () {
   $0
-});
+})
 endsnippet
 
 snippet mbefe "Mocha: beforeEach"
 beforeEach(() => {
   $0
-});
+})
 endsnippet
 
 snippet befea "Mocha: beforeEach (async)"
-beforeEach(function(done) {
+beforeEach(function (done) {
   $0
-});
+})
 endsnippet
 
 snippet mbefea "Mocha: beforeEach (async)"
 beforeEach((done) => {
   $0
-});
+})
 endsnippet
 
 snippet afte "Mocha: afterEach"
-afterEach(function() {
+afterEach(function () {
   $0
-});
+})
 endsnippet
 
 snippet mafte "Mocha: afterEach"
 afterEach(() => {
   $0
-});
+})
 endsnippet
 
 snippet aftea "Mocha: afterEach (done)"
-afterEach(function(done) {
+afterEach(function (done) {
   $0
-});
+})
 endsnippet
 
 snippet maftea "Mocha: afterEach (done)"
 afterEach((done) => {
   $0
-});
+})
 endsnippet
 
 snippet do "done()" b
-done();
+done()
 endsnippet
 
 snippet derr "done(err)" b
-done(err);
+done(err)
 endsnippet
 
 # chai
-snippet cas "var assert = require('chai').assert;" do
-var assert = require('chai').assert;
+snippet cas "var assert = require('chai').assert" do
+var assert = require('chai').assert
 $1
 endsnippet
 
 # expect
 snippet exp "expect()" b
-expect($1).${2}($3);
+expect($1).${2}($3)
 endsnippet
 
 snippet expe "expect().toEqual()" b
-expect($1).toEqual($2);
+expect($1).toEqual($2)
 endsnippet
 
 snippet expb "expect().toBe()" b
-expect($1).toBe($2);
+expect($1).toBe($2)
 endsnippet
 
 snippet expc "expect().toHaveBeenCalledWith()" b
@@ -801,29 +908,35 @@ expect.createSpy()
 endsnippet
 
 # web driver
-snippet wdful "nemo.wd.promise.fulfilled().then(function() {})" b
-return nemo.wd.promise.fulfilled().then(function() {
+snippet wdful "nemo.wd.promise.fulfilled().then(function () {})" b
+return nemo.wd.promise.fulfilled().then(function () {
   $1
-});
+})$0
 endsnippet
 
 snippet thenc "thenc" i
-.thenCatch(function(err) {
+.thenCatch(function (err) {
   $1
-})
+})$0
 endsnippet
 
 #Promise
-snippet thenf ".then(function() {})" i
-then(function($1) {
+snippet thenf ".then(() => {})" i
+then(($1) => {
   $2
-});
+})$0
 endsnippet
 
-snippet thend ".then(function() {})" i
-then(function($1) {
+snippet thenfn ".then(function () {})" i
+then(function ($1) {
   $2
-}).then(util.doneSuccess(done), util.doneError(nemo, this, done));
+})$0
+endsnippet
+
+snippet thend ".then(function () {})" i
+then(function ($1) {
+  $2
+}).then(util.doneSuccess(done), util.doneError(nemo, this, done))
 endsnippet
 
 ## Paypal React
@@ -841,3 +954,7 @@ const ${1:ComponentName} = React.createClass({
 export default {$1}
 endsnippet
 
+# Tag
+snippet l= "attribute=value" i
+${1:attribute}="${2:value}"$0
+endsnippet

@@ -90,8 +90,12 @@ visnip() {
 
 # Check which process is listening to what port no
 # $ lport 8008
-lport() {
+port() {
   lsof -i :$1
+}
+
+kport() {
+  port $1 | awk 'FNR==2 { print $2 }'| xargs kill -9
 }
 
 fext() {

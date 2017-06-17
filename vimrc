@@ -7,7 +7,7 @@ set nocompatible
 set history=1000
 set undolevels=1500
 set scrolloff=10
-set cmdheight=2
+
 set linebreak
 set textwidth=500
 set mouse=a
@@ -188,14 +188,16 @@ nnoremap ga ^
 inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>l
 inoremap <C-b> <C-o>h
-inoremap <C-a> <C-o>0
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-a> <C-o>ga
 inoremap <C-Space> <esc>o
 nnoremap <C-Space> o
 
 " Indentation after curly brace & bracket
 " Comes with auto-pair plugin
 " inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
-" inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
+inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
 " inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
 
 nnoremap H ^
@@ -255,7 +257,8 @@ noremap <C-l> <C-w>l
 
 nnoremap <leader>L :Align<cr>
 nnoremap <leader>a :Ack<space>
-nnoremap <leader>A :Ack --ignore-dir __tests__<space>
+noremap <leader>A :Ack --ignore-dir __tests__<space>
+vnoremap <leader>aw y:Ack <c-r>"<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
@@ -292,6 +295,8 @@ nnoremap <leader><leader>bq :bufdo bd<cr>
 nnoremap <leader>Bj :call JsxBeautify()<cr>
 nnoremap <leader>ct :Dispatch! ctpro<cr>
 nnoremap <leader>vba :vert ba<cr>
+nnoremap <leader><leader>b :BuffergatorOpen<cr>
+nnoremap <leader>B :BuffergatorClose<cr>
 nnoremap <leader>j :BuffergatorMruCyclePrev<cr>
 nnoremap <leader>J :BuffergatorMruCycleNext<cr>
 nnoremap <leader>wq :wq<cr>
@@ -309,6 +314,8 @@ nnoremap <leader>rw :%s/<C-r><C-w>/
 nnoremap <leader>rfa :%s/\(function\)(/\1 (/I<cr>
 nnoremap <leader>rff :%s/function \(\w\+\)(/function \1 (/<cr>
 nnoremap <leader>rfc :%s/\(\w\+\)(\(\w*\)) {/\1 (\2) {/<cr>
+nnoremap <leader>rfs :%s/;//<cr>
+nnoremap <leader>rfq :%s/"/'/g<cr>
 nnoremap <leader>rc :%s/\/\/\(\w\)/\/\/ \1/<cr>
 nnoremap <leader>rif :%s/if(/if (/<cr>:%s/){/) {/<cr>
 nnoremap <leader>ra :%s/function\%[ ]()/() =>/I<cr>
@@ -331,6 +338,7 @@ nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ec :e CHANGELOG.md<cr>
 nnoremap <leader>ep :e package.json<cr>
+nnoremap <leader>en :e npm-shrinkwrap.json<cr>
 nnoremap <leader>eg :e Gruntfile.js<cr>
 nnoremap <leader>ei :e index.js<cr>
 nnoremap <leader>ew :e webpack.config.js<cr>
@@ -339,6 +347,7 @@ nnoremap <leader>evl :vsplit<cr>:e ~/.vimrc.local<cr>
 nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
 nnoremap <leader>ea :e ~/.aliases<cr>
 nnoremap <leader>eal :e ~/.aliases.local<cr>
+nnoremap <leader>eap :e ~/.aliases.private<cr>
 nnoremap <leader>ef :e ~/.functions<cr>
 nnoremap <leader>el :!eslint %<cr>
 nnoremap <leader>es :e ~/.slate<cr>
@@ -355,17 +364,13 @@ nnoremap <leader>vh :vert h<space>
 nnoremap <leader>lf :lfirst<cr>
 nnoremap <leader>ln :lnext<cr>
 nnoremap <leader>lp :lprevious<cr>
-nnoremap <leader>cd :color default<cr>:set bg=white<cr>
-nnoremap <leader>cs :color solarized<cr>:set bg=dark<cr>
 nnoremap <leader>cf :cfirst<cr>
 nnoremap <leader>cw :<cr>
 nnoremap <leader>cn :cnext<cr>
 nnoremap <leader>cp :cprevious<cr>
-nnoremap <leader>cc :cclose<cr>
 nnoremap <leader>co :copen<cr>
-nnoremap <leader>lc :lclose<cr>
 nnoremap <leader>lo :lopen<cr>
-nnoremap <leader>pc :pclose<cr>
+nnoremap <leader>lc :pclose\|cclose\|lclose\|helpclose\|BuffergatorClose<cr>
 nnoremap <leader>ms :Gsearch<space>
 nnoremap <leader>mw :Gsearch<space><C-R><C-w><cr>
 vnoremap <leader>mw y:Gsearch<space><C-R>"<cr>
@@ -392,13 +397,15 @@ nnoremap <leader>il :set invlist<cr>
 nnoremap <leader>in :set invnumber<cr>
 nnoremap <leader>iw :set invwrap<cr>
 nnoremap <leader>fo :set foldcolumn=2<cr>
-nnoremap <leader>fc :set foldcolumn=0<cr>
+nnoremap <leader>fr :set foldcolumn=0<cr>
+nnoremap <leader>fc :/<<<<<<<<cr>
 nnoremap <leader>t2 :set sw=2 ts=2<cr>
 nnoremap <leader>t4 :set sw=4 ts=4<cr>
 nnoremap <leader>k :set foldlevel=0<cr>
 nnoremap <leader>kk :set foldlevel=1<cr>
 nnoremap <leader>K :set foldlevel=2<cr>
 nnoremap <leader>sjs :set filetype=javascript<cr>
+nnoremap <leader>sjo :set filetype=json<cr>
 nnoremap <leader><leader>0 :set foldlevel=0<cr>
 nnoremap <leader><leader>1 :set foldlevel=1<cr>
 nnoremap <leader><leader>2 :set foldlevel=2<cr>
@@ -545,9 +552,10 @@ endif
 
 "" Plugin Configs
 
-" bufexplorer & buffergator
-let g:bufExplorerShowRelativePath=1
+" Buffergator
 let g:buffergator_suppress_keymaps=1
+let g:buffergator_show_full_directory_path=0
+let g:buffergator_viewport_split_policy='B'
 
 " php
 let php_sql_query=1
@@ -662,7 +670,7 @@ endif
 
 " NerdTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
+let NERDTreeIgnore=['.nyc_output', '.storybook', 'node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
 let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
@@ -806,17 +814,12 @@ function! Expander()
   if first ==# ">"
     if second ==# "<" && third ==# "/"
       return "\<CR>\<C-o>==\<C-o>O"
-
     else
       return "\<CR>"
-
     endif
-
   else
     return "\<CR>"
-
   endif
-
 endfunction
 
 inoremap <expr> <CR> Expander()

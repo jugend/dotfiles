@@ -1,0 +1,8 @@
+# To cut out the third field of text or stdoutput that is delimited by a #:
+cut -d # -f 3
+
+# Extract users' login names and shells from the system passwd(5) file as ``name:shell'' pairs:
+cut -d : -f 1,7 /etc/passwd
+
+# Show the names and login times of the currently logged in users:
+who | cut -c 1-16,26-38

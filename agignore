@@ -4,6 +4,8 @@ DS_store
 build
 dist
 .git
+.storybook
+.nyc_output
 .tags
 *.min.js
 *.min.css

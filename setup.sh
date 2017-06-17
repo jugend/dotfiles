@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function setup() {
-  for file in {aliases,bash_profile,bash_prompt,bashrc,ctags,functions,git_completion,gitconfig,gitignore,inputrc,node-inspectorrc,slate,tmux.conf,rvmrc,vimrc,vimrc.bundles,eslintrc,tern-project,ignore,mostrc,xvimrc}; do
+  for file in {aliases,bash_profile,bash_prompt,bashrc,ctags,functions,git_completion,gitconfig,gitignore,inputrc,node-inspectorrc,slate,tmux.conf,rvmrc,vimrc,vimrc.bundles,eslintrc,tern-project,agignore,mostrc,xvimrc}; do
     if [ -r "$file" ] && [ -f "$file" ]; then
       echo "Link ~/.$file -> $PWD/$file"
       ln -sf $PWD/$file ~/.$file

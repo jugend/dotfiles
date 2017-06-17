@@ -670,10 +670,11 @@ endif
 
 " NerdTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['.nyc_output', '.storybook', 'node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
+let NERDTreeIgnore=['.configcache', '.nyc_output', '.storybook', 'node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
 let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
+let g:NERDTreeRespectWildIgnore = 1
 
 if !&diff
   " to open NERDTree on start

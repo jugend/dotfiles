@@ -274,7 +274,7 @@ nnoremap <leader>/ /\v
 nnoremap <leader>M %
 
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
-nnoremap <silent><leader>si :call ToggleAgSkipVcsIgnores()<cr>:NERDTree<cr>:wincmd l<cr>
+nnoremap <leader>nh :call ToggleAgSkipVcsIgnores()<cr>
 
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
@@ -587,9 +587,20 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
-" let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+
+if executable('node_modules/.bin/tslint')
+  let g:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
+endif
+
+if executable('node_modules/.bin/tsc')
+  let g:syntastic_typescript_tsc_exec = 'node_modules/.bin/tsc'
+endif
+
+" let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
 " let g:syntastic_objc_checkers = ['oclint']
+" let g:syntastic_debug = 3
 
 autocmd FileType javascript,javascript.jsx
   \ let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']
@@ -739,14 +750,21 @@ autocmd User Node
 let g:ag_skip_vcs_ignores = 0
 
 let g:NERDTreeIgnore = NERDTreeIgnore
+
+function! RefereshNerdTree()
+  call NERDTreeFocus() | call g:NERDTree.ForCurrentTab().getRoot().refresh() | call g:NERDTree.ForCurrentTab().render() | wincmd w
+endfunction
+
 function! ToggleAgSkipVcsIgnores()
   if g:ag_skip_vcs_ignores == 0
     let g:ackprg = g:ackprg . " --skip-vcs-ignores"
     let g:ctrlp_user_command = g:ctrlp_user_command . " --skip-vcs-ignores"
     call remove(g:NERDTreeIgnore, 0)
     let g:ag_skip_vcs_ignores = 1
+    let g:NERDTreeRespectWildIgnore = 0
   else
     let g:ackprg = 'ag --vimgrep'
+    let g:NERDTreeRespectWildIgnore = 1
     let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
     call insert(g:NERDTreeIgnore, 'node_modules', 0)
     let g:ag_skip_vcs_ignores = 0

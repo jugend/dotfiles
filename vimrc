@@ -392,7 +392,7 @@ nnoremap <leader>st :SyntasticToggleMode<cr>
 nnoremap <leader>mf :MultipleCursorsFind<space>
 
 nnoremap <leader>ic :set invignorecase<cr>
-nnoremap <leader>ie :set invexpandtab<cr>
+nnoremap <leader>it :set invexpandtab<cr>
 nnoremap <leader>il :set invlist<cr>
 nnoremap <leader>in :set invnumber<cr>
 nnoremap <leader>iw :set invwrap<cr>
@@ -592,6 +592,9 @@ let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 
 if executable('node_modules/.bin/tslint')
   let g:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
+  if !filereadable('tslint.json') && filereadable('node_modules/commonweb-setup/tslint.json')
+    let g:syntastic_typescript_tslint_args = '-c node_modules/commonweb-setup/tslint.json'
+  endif
 endif
 
 if executable('node_modules/.bin/tsc')

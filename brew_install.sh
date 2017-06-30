@@ -17,3 +17,7 @@ brew install tree
 brew install unrar
 brew install wget
 brew install httpie
+brew install reattach-to-user-namespace
+brew install nvm
+brew install vim
+brew cask install java

@@ -24,6 +24,9 @@ function setup() {
     echo "Link ~/.vim/.$file -> $PWD/$file"
     ln -sf $PWD/vim/$file ~/.vim/.$file
   fi;
+
+  # Create tmux-256color terminal to support italic
+  tic -x tmux.terminfo
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

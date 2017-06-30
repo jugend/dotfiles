@@ -33,3 +33,6 @@
   default = simple
 [github]
 	user = jugend
+[user]
+	email = hsiatono@paypal.com
+	name = Herryanto Siatono

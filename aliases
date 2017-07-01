@@ -509,7 +509,6 @@ alias grb3='git rebase -i HEAD~3'
 alias grm='git remote'
 alias grmv='git remote --verbose'
 alias grmr='git remote rename'
-alias grm='git remote rename'
 alias gs='git status'
 alias gsa='git stash -k'
 alias gsaall='git stash'
@@ -607,3 +606,7 @@ alias bsplocal='browsersyncproxy localhost'
 # Brew
 alias bi='brew install'
 alias bci='brew cask install'
+
+# Mac OS X
+alias dread='defaults read -g'
+alias dwrite='defaults write -g'

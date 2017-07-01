@@ -20,4 +20,5 @@ brew install httpie
 brew install reattach-to-user-namespace
 brew install nvm
 brew install vim
+brew install nginx
 brew cask install java

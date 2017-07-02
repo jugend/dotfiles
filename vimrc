@@ -597,8 +597,8 @@ if executable('node_modules/.bin/tslint')
   endif
 endif
 
-if executable('node_modules/.bin/tsc')
-  let g:syntastic_typescript_tsc_exec = 'node_modules/.bin/tsc'
+if executable('./node_modules/.bin/tsc')
+  let g:syntastic_typescript_tsc_exec = './node_modules/.bin/tsc'
 endif
 
 " let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']

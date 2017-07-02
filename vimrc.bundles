@@ -84,6 +84,9 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'mxw/vim-jsx'
 
+# Syntastic Typescript support
+Plugin 'Quramy/tsuquyomi'
+
 " Tags
 " Make use of jsctags to parse, slow to load especially for large files
 Plugin 'majutsushi/tagbar'

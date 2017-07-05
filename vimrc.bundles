@@ -84,7 +84,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'mxw/vim-jsx'
 
-# Syntastic Typescript support
+" Syntastic Typescript support
 Plugin 'Quramy/tsuquyomi'
 
 " Tags

@@ -14,7 +14,6 @@ alias vi='vim'
 alias vimd='vim -D'
 alias o='open .'
 alias f='fg'
-alias s='subl'
 alias h='help'
 alias m='man'
 alias n='node'
@@ -69,7 +68,7 @@ alias t1='tree -L 1'
 alias t2='tree -L 2'
 alias t3='tree -L 3'
 
-alias clocjs='cloc --exclude-dir node_modules'
+alias cport='telnet localhost'
 
 # sudo
 alias sfname='sudo fname'
@@ -353,9 +352,6 @@ alias itimer='sudo timerfires -s -g -p'
 
 # Debug CPU usage
 alias ifsusage='sudo fs_usage'
-
-# Swift
-alias s="swift"
 
 # Xcode
 alias xcclean="rm -frd ~/Library/Developer/Xcode/DerivedData/* && rm -frd ~/Library/Caches/com.apple.dt.Xcode/*"

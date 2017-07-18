@@ -26,9 +26,8 @@ alias bc='brew cask'
 alias gi='gist -c'
 alias el='eslint'
 alias exp='export'
-alias w='watch'
+alias w='which'
 
-alias wh='which'
 alias tf='tail -f -n 500'
 alias tfn='tf npm-debug.log'
 alias ip='ifconfig | grep broadcast'
@@ -39,7 +38,7 @@ alias agi='ag -i'
 alias agl='ag -l'
 alias his='fc -l'
 alias les='less'
-alias mkdirp='mkdir -p'
+alias mkd='mkdir -p'
 alias mvc='mvim .'
 alias k9='kill -9'
 alias pkf='pkill -f'
@@ -194,7 +193,8 @@ alias nodev='node --version'
 alias noded='node --debug'
 alias nodedb='node --debug-brk'
 alias nodedb='node --debug-brk'
-alias ndeb='node-debug'
+alias ndeb='node debug'
+alias ndebl='node debug localhost:5858'
 alias ndnopre='node-debug --preload=false'
 alias ndebb='node-debug --no-debug-brk'
 alias nins='node --inspect'
@@ -206,6 +206,8 @@ alias 3001="PORT=3001"
 alias 3002="PORT=3002"
 alias 8001="PORT=8001"
 alias 8002="PORT=8002"
+alias 8003="PORT=8003"
+alias 8004="PORT=8004"
 alias 8080="PORT=8080"
 alias 8081="PORT=8081"
 alias 8082="PORT=8082"

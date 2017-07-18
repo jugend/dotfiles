@@ -311,6 +311,7 @@ nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
 nnoremap <leader>r/ :%s/\v
 nnoremap <leader>rw :%s/<C-r><C-w>/
+vnoremap <leader>rw :%s/<C-r><C-w>/
 nnoremap <leader>rfa :%s/\(function\)(/\1 (/I<cr>
 nnoremap <leader>rff :%s/function \(\w\+\)(/function \1 (/<cr>
 nnoremap <leader>rfc :%s/\(\w\+\)(\(\w*\)) {/\1 (\2) {/<cr>
@@ -413,7 +414,7 @@ nnoremap <leader><leader>3 :set foldlevel=3<cr>
 nnoremap <leader><leader>4 :set foldlevel=4<cr>
 nnoremap <leader><leader>5 :set foldlevel=5<cr>
 nnoremap <leader><leader>9 :set foldlevel=99<cr>
-nnoremap <leader><leader>f za
+nnoremap <leader><leader>f zA
 
 " Diff
 nnoremap <leader>dt :windo diffthis<cr>

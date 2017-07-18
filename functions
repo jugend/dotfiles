@@ -95,7 +95,7 @@ port() {
 }
 
 kport() {
-  port $1 | awk 'FNR==2 { print $2 }'| xargs kill -9
+  port $1 | awk 'FNR==2 { print $2 }'| xargs kill -9 && port $1
 }
 
 fext() {
@@ -140,6 +140,10 @@ getj() {
 
 postj() {
     post $1 | js-beautify
+}
+
+nmod() {
+    cd node_modules/$1
 }
 
 if [ -f ~/.aliases.local ]; then

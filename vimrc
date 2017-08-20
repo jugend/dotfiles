@@ -270,11 +270,12 @@ nnoremap <leader>i :IndentLinesToggle<cr>
 nnoremap <leader>W :ToggleWhitespace<cr>
 nnoremap <leader>z :ZoomToggle<cr>
 nnoremap <leader>ar :AirlineToggle<cr>
+nnoremap <leader>at :ALEToggle\|SyntasticToggleMode<cr>
 nnoremap <leader>/ /\v
 nnoremap <leader>M %
 
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
-nnoremap <leader>nh :call ToggleAgSkipVcsIgnores()<cr>
+nnoremap <leader>nh,:call ToggleAgSkipVcsIgnores()<cr>
 
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
@@ -305,7 +306,7 @@ nnoremap <leader>ft :set ft=
 nnoremap <leader>fsh :set ft=sh<cr>
 nnoremap <leader>fjs :set ft=javascript<cr>
 nnoremap <leader>fjo :set ft=json<cr>
-nnoremap <leader>fjx :set ft=javascript.jsx<cr>
+nnoremap <leader>fjx :set ft=jsx<cr>
 nnoremap <leader>fw :Ack <C-r><C-w><cr>
 nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
@@ -340,6 +341,7 @@ nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ec :e CHANGELOG.md<cr>
 nnoremap <leader>ep :e package.json<cr>
 nnoremap <leader>en :e npm-shrinkwrap.json<cr>
+nnoremap <leader>ey :e yarn.lock<cr>
 nnoremap <leader>eg :e Gruntfile.js<cr>
 nnoremap <leader>ei :e index.js<cr>
 nnoremap <leader>ew :e webpack.config.js<cr>
@@ -590,6 +592,12 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+
+" Ale
+" To avoid conflict warning with Syntastic on startup
+let g:ale_emit_conflict_warnings = 0
+
+let g:ale_linters = {'javascript': ['eslint']}
 
 if executable('node_modules/.bin/tslint')
   let g:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'

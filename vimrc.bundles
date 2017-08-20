@@ -5,13 +5,14 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scroolose/nerdtree'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'vim-scripts/gitignore'
+" Plugin 'vim-scripts/gitignore'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Validation
 Plugin 'Shutnik/jshint2.vim'
+Plugin 'w0rp/ale'
 
 " HTML5, Node, Ruby, Rails, PHP
 Plugin 'othree/html5.vim'

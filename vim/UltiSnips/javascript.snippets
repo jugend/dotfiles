@@ -314,6 +314,10 @@ snippet conda "const [ name ] = value" b
 const [ ${1:name} ] = ${2:value}
 endsnippet
 
+snippet confs "const name = () => return" b
+const ${1:name} = () => $2
+endsnippet
+
 snippet var "var name = value" b
 var ${1:name} = ${2:value}
 endsnippet
@@ -358,7 +362,44 @@ style={$1}
 endsnippet
 
 # React Templates
+snippet rtcoms "Stateless Component Template"
+import React from 'react'
+import PropTypes from 'prop-types'
+
+const ${1:Component} = (props) => (
+  $2
+)
+
+$1.propTypes = {
+  ${3:name}: PropTypes.${4:string}.isRequired
+}
+
+export default $1
+endsnippet
+
+snippet rtcom "Stateful Component Template"
+import React from 'react'
+
+class ${1:Component} extends Component {
+  render() {
+    return (
+      $2
+    )
+  }
+}
+
+export default $1
+endsnippet
+
 snippet rcom "class ClassName extends Component"
+class ${1:ClassName} extends Component {
+  render() {
+    return $2
+  }
+}
+endsnippet
+
+snippet rcome "class ClassName extends Component"
 class ${1:ClassName} extends Component {
   render() {
     return $2
@@ -369,11 +410,15 @@ export default $1
 endsnippet
 
 snippet rcoms "const Component = () => { return (...) }" b
-const ${1:Component} = () => {
-  return (
-    $2
-  )
-}
+const ${1:Component} = () => (
+  $2
+)
+endsnippet
+
+snippet rcomse "const Component = () => { return (...) }" b
+const ${1:Component} = () => (
+  $2
+)
 
 export default $1
 endsnippet

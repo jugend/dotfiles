@@ -80,3 +80,4 @@ stty -ixon -ixoff
 
 # Alt-h used by slate to switch focus, adding additional shortcut
 bind '"\ex": backward-delete-char'
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn

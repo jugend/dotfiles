@@ -47,11 +47,11 @@ npmrepo() {
   npm info $1 | grep github\.com | head -1 | grep -Eo '://github.com\/.*' | sed "s/\.git//;s/' },//;s/',//;s/#.*$//" | awk '{print "https"$1".git"}'
 }
 
-npmrepoclone() {
+npmclone() {
    npmrepo $1 | xargs git clone
 }
 
-npmrepoopen() {
+npmopen() {
   npmrepo $1 | sed "s/.git$//" | xargs open
 }
 
@@ -144,6 +144,12 @@ postj() {
 
 nmod() {
     cd node_modules/$1
+}
+
+bbuser() {
+    output=$(npm run user $1 2>&1)
+    echo "$output"
+    echo "$output" | grep User: |  awk '{print $2}' | sed 's/,$//' | pbcopy
 }
 
 if [ -f ~/.aliases.local ]; then

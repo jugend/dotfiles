@@ -9,7 +9,8 @@ Plugin 'scroolose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'christoomey/vim-tmux-navigator'
-
+Plugin 'matze/vim-move'
+"
 " Validation
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'w0rp/ale'
@@ -53,6 +54,7 @@ Plugin 'austintaylor/vim-indentobject'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
 Plugin 'zerowidth/vim-copy-as-rtf'
+Plugin 'prettier/vim-prettier'
 
 " Search
 Plugin 'mileszs/ack.vim'

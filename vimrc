@@ -31,7 +31,7 @@ set t_ut=
 
 set wildmenu
 set wildmode=list:longest:full
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.js.map
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.js.map,.tmp
 
 set tags=.git/.tags,./tags,tags
 
@@ -183,6 +183,21 @@ nnoremap ga ^
 " nnoremap W w
 " nnoremap b B
 " nnoremap B b
+
+" Line move
+" nnoremap <A-j> :m .-2<CR>==
+" nnoremap <A-k> :m .+1<CR>==
+" inoremap <A-j> <Esc>:m .+1<CR>==gi
+" inoremap <A-k> <Esc>:m .-2<CR>==gi
+" vnoremap <A-j> :m '>+1<CR>gv=gv
+" vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" nmap <A-j> :m .-2<CR>==
+" nmap <A-k> :m .+1<CR>==
+" imap <A-j> <Esc>:m .+1<CR>==gi
+" imap <A-k> <Esc>:m .-2<CR>==gi
+" vmap <A-j> :m '>+1<CR>gv=gv
+" vmap <A-k> :m '<-2<CR>gv=gv
 
 " Go to the beginning and end of line
 inoremap <C-e> <C-o>$
@@ -854,3 +869,32 @@ function! Expander()
 endfunction
 
 inoremap <expr> <CR> Expander()
+
+" Prettier
+" max line lengh that prettier will wrap on
+let g:prettier#config#print_width = 80
+" use tabs over spaces
+" number of spaces per indentation level
+let g:prettier#config#tab_width = 2
+let g:prettier#config#use_tabs = 'false'
+" print semicolons
+" single quotes over double quotes
+let g:prettier#config#semi = 'false'
+let g:prettier#config#single_quote = 'true'
+" print spaces between brackets
+let g:prettier#config#bracket_spacing = 'true'
+" put > on the last line instead of new line
+let g:prettier#config#jsx_bracket_same_line = 'true'
+" none|es5|all
+let g:prettier#config#trailing_comma = 'none'
+" flow|babylon|typescript|postcss|json|graphql
+let g:prettier#config#parser = 'flow'
+
+" Vim-move
+let g:move_map_keys = 0
+
+nmap j <Plug>MoveLineDown
+vmap j <Plug>MoveBlockDown
+vmap k <Plug>MoveBlockUp
+nmap k <Plug>MoveLineUp
+

@@ -156,9 +156,11 @@ bind p:ctrl;alt;cmd           throw left resize
 # Focus Bindings
 bind l:alt                    focus right
 bind h:alt                    focus left
-bind k:alt                    focus up
-bind j:alt                    focus down
 bind n:alt                    focus behind
+
+# Shortcut used by vim move
+# bind k:alt                    focus up
+# bind j:alt                    focus down
 
 # Window Hints
 # bind esc:cmd hint

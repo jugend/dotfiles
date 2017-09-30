@@ -274,6 +274,7 @@ alias n1='nvm use 0.10'
 alias n4='nvm use 4'
 alias n5='nvm use 5'
 alias n6='nvm use 6'
+alias n62='nvm use 6.11.2'
 alias n7='nvm use 7'
 alias nvun='nvm use node'
 alias nvusy='nvm use system'
@@ -534,6 +535,7 @@ alias gtrac='git update-index --no-assume-unchanged'
 alias gtag='git tag'
 alias gtl='gtag --list'
 alias gtd='gtag --delete'
+alias gcf='gc "fix" && grb2'
 
 ###
 # Github Extension

@@ -184,21 +184,6 @@ nnoremap ga ^
 " nnoremap b B
 " nnoremap B b
 
-" Line move
-" nnoremap <A-j> :m .-2<CR>==
-" nnoremap <A-k> :m .+1<CR>==
-" inoremap <A-j> <Esc>:m .+1<CR>==gi
-" inoremap <A-k> <Esc>:m .-2<CR>==gi
-" vnoremap <A-j> :m '>+1<CR>gv=gv
-" vnoremap <A-k> :m '<-2<CR>gv=gv
-
-" nmap <A-j> :m .-2<CR>==
-" nmap <A-k> :m .+1<CR>==
-" imap <A-j> <Esc>:m .+1<CR>==gi
-" imap <A-k> <Esc>:m .-2<CR>==gi
-" vmap <A-j> :m '>+1<CR>gv=gv
-" vmap <A-k> :m '<-2<CR>gv=gv
-
 " Go to the beginning and end of line
 inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>l

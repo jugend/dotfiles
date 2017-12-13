@@ -275,7 +275,7 @@ nnoremap <leader>/ /\v
 nnoremap <leader>M %
 
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
-nnoremap <leader>nh,:call ToggleAgSkipVcsIgnores()<cr>
+nnoremap <leader>nh :call ToggleAgSkipVcsIgnores()<cr>
 
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
@@ -367,8 +367,10 @@ nnoremap <leader>vh :vert h<space>
 nnoremap <leader>lf :lfirst<cr>
 nnoremap <leader>ln :lnext<cr>
 nnoremap <leader>lp :lprevious<cr>
+nmap <silent><leader>lj <Plug>(ale_next_wrap)
+nmap <silent><leader>lk <Plug>(ale_previous_wrap)
 nnoremap <leader>cf :cfirst<cr>
-nnoremap <leader>cw :<cr>
+noremap <leader>cw :<cr>
 nnoremap <leader>cn :cnext<cr>
 nnoremap <leader>cp :cprevious<cr>
 nnoremap <leader>co :copen<cr>
@@ -386,7 +388,7 @@ nnoremap <leader>va ggVG
 nnoremap <leader>yr :reg<cr>
 
 nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader>ll :TagbarToggle<cr>
+nnoremap <leader>L :TagbarToggle<cr>
 nnoremap <leader>sc :SyntasticCheck<cr>
 nnoremap <leader>sj :SyntasticCheck jscs<cr>
 nnoremap <leader>se :SyntasticCheck eslint<cr>
@@ -447,6 +449,7 @@ nnoremap <leader>g :Git<space>
 " nnoremap <leader>ga :Git add %:p<cr><cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gc :Gcommit -v -q<cr>
 nnoremap <leader>gt :Gcommit -v -q %:p<cr>
 nnoremap <leader>gd :Gdiff<cr>
@@ -460,6 +463,9 @@ nnoremap <leader>gB :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<cr>
 nnoremap <leader>gpl :Dispatch! git pull<cr>
+
+" To open :Glog in quick fix window
+autocmd QuickFixCmdPost *grep* cwindow
 
 " Gist
 nnoremap <leader><leader>G :Gist<space>
@@ -597,7 +603,11 @@ let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 " To avoid conflict warning with Syntastic on startup
 let g:ale_emit_conflict_warnings = 0
 
-let g:ale_linters = {'javascript': ['eslint']}
+" let g:ale_linters = {'javascript': ['eslint', 'prettier']}
+let g:ale_linters = {'javascript': ['eslint', 'prettier']}
+" let g:ale_set_loclist = 0
+" let g:ale_set_quickfix =0
+" let g:ale_open_list = 1
 
 if executable('node_modules/.bin/tslint')
   let g:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
@@ -628,6 +638,9 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files, causing filetype set 
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" let g:ycm_auto_trigger=0
+" let g:ycm_key_invoke_completion = '<C-;>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -874,6 +887,7 @@ let g:prettier#config#jsx_bracket_same_line = 'true'
 let g:prettier#config#trailing_comma = 'none'
 " flow|babylon|typescript|postcss|json|graphql
 let g:prettier#config#parser = 'flow'
+" disable prettier validation, use ale instead
 
 " Vim-move
 let g:move_map_keys = 0
@@ -882,4 +896,3 @@ nmap j <Plug>MoveLineDown
 vmap j <Plug>MoveBlockDown
 vmap k <Plug>MoveBlockUp
 nmap k <Plug>MoveLineUp
-

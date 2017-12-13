@@ -68,7 +68,7 @@ return {
 }$0
 endsnippet
 
-snippet retb "return ( ... )"
+snippet retc "return ( ... )"
 return (
   $1
 )$0
@@ -110,14 +110,23 @@ then(function ($1) {
   done()
 })$0
 endsnippet
-snippet cat "catch(function (err) { ... })" i
-catch(function (err) {
+
+snippet cat "catch((err) => { ... })" i
+catch((err) => {
   $1
 })$0
 endsnippet
 
-snippet catd "catch(function (err) { ... })" i
-catch(function (err) {
+snippet cats "catch(err => statement)" i
+catch(err => $1)$0
+endsnippet
+
+snippet cate "catch(() => statement)" i
+catch(() => $1)$0
+endsnippet
+
+snippet catd "catch((err) => { ... })" i
+catch((err) => {
   done(err)
 })$0
 endsnippet

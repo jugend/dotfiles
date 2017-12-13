@@ -1,0 +1,2 @@
+# Filter matching filename
+ag [search-text] -G [filename-pattern]

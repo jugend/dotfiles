@@ -55,6 +55,10 @@ npmopen() {
   npmrepo $1 | sed "s/.git$//" | xargs open
 }
 
+npmsummary() {
+  npm info $1 version repository.url
+}
+
 npgrep() {
   cat package.json | jq .$1
 }
@@ -150,6 +154,12 @@ bbuser() {
     output=$(npm run user $1 2>&1)
     echo "$output"
     echo "$output" | grep User: |  awk '{print $2}' | sed 's/,$//' | pbcopy
+}
+
+addprettier() {
+    yarn add eslint prettier eslint-plugin-prettier eslint-config-prettier babel-eslint --dev
+    printf '{\n  "parser": "babel-eslint",\n  "plugins": ["prettier"],\n  "rules": {\n    "prettier/prettier": "error"\n  }\n}' > .eslintrc
+    printf '{\n  "semi": false,\n  "singleQuote": true\n}' > .prettierrc
 }
 
 if [ -f ~/.aliases.local ]; then

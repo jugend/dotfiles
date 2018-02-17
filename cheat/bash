@@ -80,6 +80,10 @@
 
   for i in a b c; do $i 'hello'; done
 
+# Range loop
+
+  for i in {1..5}; do echo "$i"; done
+
 # Do something on a bunch of files:
 
   for i in *.rb; do echo "$i"; done

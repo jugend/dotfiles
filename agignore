@@ -10,4 +10,7 @@ dist
 *.min.js
 *.min.css
 *.js.map
+*.png
+*.jpg
+*.gif
 test/functional/report

@@ -2,8 +2,7 @@
 " vimrc
 "
 """"""""""""""""""""""""
-set backspace=eol,start,indent
-set nocompatible
+
 set history=1000
 set undolevels=1500
 set scrolloff=10
@@ -33,7 +32,7 @@ set wildmenu
 set wildmode=list:longest:full
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.js.map,.tmp
 
-set tags=.git/.tags,./tags,tags
+set tags=.git/.tags,/.tags
 
 "" encoding
 set fenc=utf-8
@@ -73,7 +72,8 @@ autocmd BufRead,BufNewFile *.md set spell
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-"" ui
+"" UI
+"""""""""""""""""""""""'
 set background=dark
 set ruler
 set laststatus=2
@@ -122,22 +122,22 @@ elseif (g:colors_name == 'onedark')
   hi jsModuleKeywords guifg=#e06475
 endif
 
-"" vim-ariline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'monochrome'
-let g:airline_left_alt_sep = '<'
-let g:airline_right_alt_sep = '>'
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+"" Vundle
+"""""""""""""""""""""""'
+set nocompatible
+filetype off
 
-" Display filename on the last visible section
-let g:airline_section_z = '%t'
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
-"" javascript-library-syntax
-let g:used_javascript_libs='jquery,underscore,backbone,react,flux,requirejs,chai'
+" install Vundle bundles
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
-"" stop vim from removing idnentation on empty line
-inoremap <silent> <Esc> <C-O>:stopinsert<CR>
+call vundle#end()
+filetype plugin indent on
+
 
 "" tab / indentation
 set expandtab
@@ -154,21 +154,8 @@ set foldnestmax=10
 set foldminlines=1
 set foldcolumn=0
 
-"" Vundle
-
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-" install Vundle bundles
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
-
-call vundle#end()
-filetype plugin indent on
+"" Key Map
+"""""""""""""""""""""""'
 
 " Quicker switch to command line mode
 nnoremap ; :
@@ -197,7 +184,7 @@ nnoremap <C-Space> o
 " Indentation after curly brace & bracket
 " Comes with auto-pair plugin
 " inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
-inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
+" inoremap (<CR> (<CR>)<Esc>O<BS><Tab>
 " inoremap [<CR> [<CR>]<Esc>O<BS><Tab>
 
 nnoremap H ^
@@ -276,6 +263,7 @@ nnoremap <leader>M %
 
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
 nnoremap <leader>nh :call ToggleAgSkipVcsIgnores()<cr>
+nnoremap <leader>nl :call ToggleAgSkipLocales()<cr>
 
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
@@ -340,6 +328,7 @@ nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ec :e CHANGELOG.md<cr>
 nnoremap <leader>ep :e package.json<cr>
+nnoremap <leader>et :e tsconfig.json<cr>
 nnoremap <leader>en :e npm-shrinkwrap.json<cr>
 nnoremap <leader>ey :e yarn.lock<cr>
 nnoremap <leader>eg :e Gruntfile.js<cr>
@@ -409,8 +398,8 @@ nnoremap <leader>t4 :set sw=4 ts=4<cr>
 nnoremap <leader>k :set foldlevel=0<cr>
 nnoremap <leader>kk :set foldlevel=1<cr>
 nnoremap <leader>K :set foldlevel=2<cr>
-nnoremap <leader>sjs :set filetype=javascript<cr>
-nnoremap <leader>sjo :set filetype=json<cr>
+nnoremap <leader>fjs :set filetype=javascript<cr>
+nnoremap <leader>fjo :set filetype=json<cr>
 nnoremap <leader><leader>0 :set foldlevel=0<cr>
 nnoremap <leader><leader>1 :set foldlevel=1<cr>
 nnoremap <leader><leader>2 :set foldlevel=2<cr>
@@ -560,7 +549,23 @@ else
 endif
 
 "" Plugin Configs
+"""""""""""""""""""""""'
+"" vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'monochrome'
+let g:airline_left_alt_sep = '<'
+let g:airline_right_alt_sep = '>'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
+" Display filename on the last visible section
+let g:airline_section_z = '%t'
+
+"" javascript-library-syntax
+let g:used_javascript_libs='jquery,underscore,backbone,react,flux,requirejs,chai'
+
+"" stop vim from removing idnentation on empty line
+inoremap <silent> <Esc> <C-O>:stopinsert<CR>
 " Buffergator
 let g:buffergator_suppress_keymaps=1
 let g:buffergator_show_full_directory_path=0
@@ -591,13 +596,22 @@ let g:better_whitespace_filetypes_blacklist=['dustjs']
 let g:ragtag_global_maps = 1
 
 " syntastic
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['html'] }
+" let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['html'] }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_json_checkers = ['json-lint']
 let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+let g:syntastic_html_tidy_ignore_errors = [
+  \ 'trimming empty <span>',
+  \ 'trimming empty <i>'
+  \ ]
+
+" Note: Doesn't work to investigate
+" let g:syntastic_typescript_tsc_args = "--experimentalDecorators"
+" let g:syntastic_typescript_tsc_fname = ''
 
 " Ale
 " To avoid conflict warning with Syntastic on startup
@@ -626,6 +640,9 @@ endif
 
 autocmd FileType javascript,javascript.jsx
   \ let b:syntastic_checkers = findfile('.jshintrc', '.;') != '' ? ['jshint'] : ['eslint']
+
+" Auto indent with . prefix
+autocmd FileType javascript,javascript.jsx setlocal indentkeys+=0.
 
 " mxw/vim-jsx plugin
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files, causing filetype set to javascript.jsx
@@ -665,11 +682,24 @@ let g:user_emmet_settings = {
 if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+  let g:vim_ctrlp_command_prefix = 'ag %s -l --nocolor --nogroup --hidden -g ""'
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = g:vim_ctrlp_command_prefix . ' --ignore=locales'
+
+  let g:ag_skip_locales = 0
+
+  function! ToggleAgSkipLocales()
+    if g:ag_skip_locales == 0
+      let g:ag_skip_locales = 1
+      let g:ctrlp_user_command = g:vim_ctrlp_command_prefix
+    else
+      let g:ctrlp_user_command = g:vim_ctrlp_command_prefix . ' --ignore=locales'
+      let g:ag_skip_locales = 0
+    endif
+  endfunction
+
+  command! -nargs=0 ToggleAgSkipLocales :call ToggleAgSkipLocales()
 endif
 
 " vim-editorconfig
@@ -706,7 +736,7 @@ endif
 
 " NerdTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['.configcache', '.nyc_output', '.storybook', 'node_modules', '\.vim$', '\~$', 'tags', 'build', 'dist', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
+let NERDTreeIgnore=['.configcache', '.nyc_output', '.storybook', 'node_modules', '\.vim$', '\~$', './tags', './build', 'dist', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
 let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
@@ -719,9 +749,27 @@ if !&diff
 endif
 
 " CtrlP settings
-" Doesn't work with ag search, use .agitignore
-" let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Storegit|hg|svn|optimized|compiled|node_modules)$'
+"
 let g:ctrlp_match_window = 'order:ttb,max:20'
+
+" ag is fast enough that CtrlP doesn't need to cache
+let g:ctrlp_use_caching = 0
+
+" Doesn't work with ag search, use .agitignore
+" let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Storegit|hg|svn|optimized|compiled|node_modules|locales)$'
+"
+" Auto clear cache on write
+" function! SetupCtrlP()
+"   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
+"     augroup CtrlPExtension
+"       autocmd!
+"       autocmd FocusGained  * CtrlPClearCache
+"       autocmd BufWritePost * CtrlPClearCache
+"     augroup END
+"   endif
+" endfunction
+"
+" autocmd VimEnter * :call SetupCtrlP()
 
 " delimitMate, auto indent after braces
 let delimitMate_expand_cr=1
@@ -790,7 +838,7 @@ function! ToggleAgSkipVcsIgnores()
   else
     let g:ackprg = 'ag --vimgrep'
     let g:NERDTreeRespectWildIgnore = 1
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup --hidden -g ""'
     call insert(g:NERDTreeIgnore, 'node_modules', 0)
     let g:ag_skip_vcs_ignores = 0
   endif
@@ -888,11 +936,4 @@ let g:prettier#config#trailing_comma = 'none'
 " flow|babylon|typescript|postcss|json|graphql
 let g:prettier#config#parser = 'flow'
 " disable prettier validation, use ale instead
-
-" Vim-move
-let g:move_map_keys = 0
-
-nmap j <Plug>MoveLineDown
-vmap j <Plug>MoveBlockDown
-vmap k <Plug>MoveBlockUp
-nmap k <Plug>MoveLineUp
+let g:prettier#exec_cmd_async = 1

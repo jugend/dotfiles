@@ -84,8 +84,11 @@ Plugin 'tomtom/tcomment_vim'
 
 " Cycle mru list
 Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'vim-syntastic/syntastic'
+
+" Javascript
+Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'vim-syntastic/syntastic'
 
 " Syntastic Typescript support
 Plugin 'Quramy/tsuquyomi'

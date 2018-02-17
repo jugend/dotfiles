@@ -119,7 +119,8 @@ bbwatch5() {
 }
 
 browsersyncfiles() {
-  browser-sync start --server --files "$1"
+  echo $1
+  browser-sync start --server --files="$1"
 }
 
 browsersyncproxy() {

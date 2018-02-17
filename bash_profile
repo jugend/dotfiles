@@ -49,7 +49,9 @@ if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completio
     __git_complete gd _git_diff
     __git_complete gl _git_log
     __git_complete gs _git_status
-    __git_complete gp __git_push
+    __git_complete gp _git_push
+    __git_complete gpo _git_checkout
+    __git_complete gpup _git_checkout
     __git_complete gco _git_checkout
     __git_complete gcl _git_clone
     __git_complete grs _git_reset

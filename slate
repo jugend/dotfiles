@@ -9,7 +9,7 @@ config windowHintsShowIcons           true
 config windowHintsSpread              true
 config windowHintsIgnoreHiddenWindows false
 
-bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
+bind e:shift;cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
 
 # Aliases
 alias full                    move     screenOriginX;screenOriginY screenSizeX;screenSizeY

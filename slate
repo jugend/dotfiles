@@ -1,4 +1,4 @@
-##
+# -
 # Slate - Vim Mode
 ##################
 
@@ -61,7 +61,7 @@ alias centerFourFifth         move     screenOriginX+((screenSizeX*1/5)/2);scree
 alias centerSevenEighth       move     screenOriginX+((screenSizeX*1/8)/2);screenOriginY screenSizeX*7/8;screenSizeY
 
 
-alias centerHover             move     screenOriginX+((screenSizeX-(screenSizeX*0.7))/2);screenOriginY+((screenSizeY-(screenSizeY*0.8))/2) screenSizeX*0.7;screenSizeY*0.8
+alias centerHover             move     screenOriginX+((screenSizeX-(screenSizeX*0.6))/2);screenOriginY+((screenSizeY-(screenSizeY*0.8))/2) screenSizeX*0.6;screenSizeY*0.8
 alias centerContract          move     screenOriginX+((screenSizeX-(windowSizeX*0.7))/2);screenOriginY+((screenSizeY-(windowSizeY*0.8))/2) windowSizeX*0.7;windowSizeY*0.8
 alias centerExpand            move     screenOriginX+((screenSizeX-(windowSizeX*1.3))/2);screenOriginY+((screenSizeY-(windowSizeY*1.2))/2) windowSizeX*1.3;windowSizeY*1.2
 
@@ -92,21 +92,17 @@ bind v:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 bind c:ctrl;cmd               chain    ${centerHalf} | ${centerOneThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind e:ctrl;cmd               chain    ${full} | ${centerThreeFifth} | ${centerTwoThird} | ${centerHalf} | ${centerOneThird}
 
-bind a:ctrl;cmd               chain    ${leftOneThird} | ${leftHalf} | ${leftTwoFifth} | ${leftOneThird} | ${leftThreeTenth} | ${leftOneQuarter} | ${leftOneFifth} | ${leftOneSixth} | ${leftOneEighth} | ${leftThreeFifth} | ${leftTwoThird} | ${leftThreeQuarter}
-bind s:ctrl;cmd               chain    ${centerOneThird} | ${centerHalf} | ${centerOneThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
-bind g:ctrl;cmd               chain    ${rightOneThird} | ${rightHalf} | ${rightTwoFifth} | ${rightOneThird} | ${rightThreeTenth} | ${rightOneQuarter} | ${rightOneFifth} | ${rightOneSixth} | ${rightOneEighth} | ${rightThreeFifth} | ${rightTwoThird} | ${rightThreeQuarter}
-
 bind h:ctrl;alt              chain    ${leftThreeFifth} | ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
 bind l:ctrl;alt              chain    ${rightThreeFifth} | ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
 bind c:ctrl;alt              chain    ${centerTwoThird} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerThreeFifth} | ${centerHalf} | ${centerOneThird}
 
 bind c:ctrl;shift             chain ${center}
 
-# Resize Bindings
+# Contract and Expand Bindings
 bind l:shift;alt               chain sequence resize +10% +0 > ${center}
 bind h:shift;alt               chain sequence resize -10% +0 > ${center}
-bind k:shift;alt               chain sequence resize +0 -10% > ${center}
-bind j:shift;alt               chain sequence resize +0 +10% > ${center}
+bind j:shift;alt               chain sequence resize +0 -10% > ${center}
+bind k:shift;alt               chain sequence resize +0 +10% > ${center}
 
 bind d:shift;alt               ${centerHover}
 bind c:shift;alt               ${centerContract}
@@ -128,10 +124,16 @@ bind 2:ctrl;alt               ${topRight}
 bind 3:ctrl;alt               ${bottomLeft}
 bind 4:ctrl;alt               ${bottomRight}
 
-bind l:ctrl;shift;cmd         nudge +2% +0
-bind h:ctrl;shift;cmd         nudge -2% +0
-bind k:ctrl;shift;cmd         nudge +0 -2%
-bind j:ctrl;shift;cmd         nudge +0 +2%
+bind o:ctrl;cmd               nudge +2% +0
+bind y:ctrl;cmd               nudge -2% +0
+bind u:ctrl;cmd               nudge +0 -2%
+bind i:ctrl;cmd               nudge +0 +2%
+
+# ctrl;shift;alt shortcuts not working
+# bind l:ctrl;shift;alt         nudge +2% +0
+# bind h:ctrl;shift;alt         nudge -2% +0
+# bind k:ctrl;shift;alt         nudge +0 -2%
+# bind j:ctrl;shift;alt         nudge +0 +2%
 
 # bind l:ctrl;shift;alt         nudge +5% +0
 # bind h:ctrl;shift;alt         nudge -5% +0

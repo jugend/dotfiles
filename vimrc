@@ -264,6 +264,7 @@ nnoremap <leader>M %
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
 nnoremap <leader>nh :call ToggleAgSkipVcsIgnores()<cr>
 nnoremap <leader>nl :call ToggleAgSkipLocales()<cr>
+nnoremap <leader>nt :call ToggleTypeScriptProject()<cr>
 
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
@@ -602,7 +603,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_json_checkers = ['json-lint']
+let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_html_tidy_ignore_errors = [
   \ 'trimming empty <span>',
@@ -654,10 +655,11 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files, causing filetype set 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:SuperTabDefaultCompletionType = '<C-N>'
 
 " let g:ycm_auto_trigger=0
 " let g:ycm_key_invoke_completion = '<C-;>'
+" let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -736,7 +738,8 @@ endif
 
 " NerdTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['.configcache', '.nyc_output', '.storybook', 'node_modules', '\.vim$', '\~$', './tags', './build', 'dist', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
+let NERDTreeIgnore=['.configcache', '.nyc_output', 'node_modules', '\.vim$', '\~$', './tags',
+  \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
 let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
@@ -824,10 +827,6 @@ let g:ag_skip_vcs_ignores = 0
 
 let g:NERDTreeIgnore = NERDTreeIgnore
 
-function! RefereshNerdTree()
-  call NERDTreeFocus() | call g:NERDTree.ForCurrentTab().getRoot().refresh() | call g:NERDTree.ForCurrentTab().render() | wincmd w
-endfunction
-
 function! ToggleAgSkipVcsIgnores()
   if g:ag_skip_vcs_ignores == 0
     let g:ackprg = g:ackprg . " --skip-vcs-ignores"
@@ -845,6 +844,31 @@ function! ToggleAgSkipVcsIgnores()
 endfunction
 
 command! -nargs=0 ToggleAgSkipVcsIgnores :call ToggleAgSkipVcsIgnores()
+
+" Typescript
+let g:is_typescript_project = 0
+
+function! ToggleTypeScriptProject()
+  if g:is_typescript_project == 0
+    call insert(g:NERDTreeIgnore, '\.js$', 0)
+    call insert(g:NERDTreeIgnore, '\.d.ts$', 0)
+    let g:is_typescript_project = 1
+  else
+    call remove(g:NERDTreeIgnore, 0)
+    call remove(g:NERDTreeIgnore, 0)
+    let g:is_typescript_project = 0
+  endif
+  if exists('t:NERDTreeBufName')
+    :NERDTreeFocus
+    call feedkeys("R")
+  endif
+endfunction
+
+command! -nargs=0 ToggleTypeScriptProject :call ToggleTypeScriptProject()
+
+if !empty(glob("./tsconfig.json"))
+   call ToggleTypeScriptProject()
+endif
 
 " greplace
 set grepprg=ag

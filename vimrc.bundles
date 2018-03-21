@@ -55,6 +55,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
 Plugin 'zerowidth/vim-copy-as-rtf'
 Plugin 'prettier/vim-prettier'
+Plugin 'Chiel92/vim-autoformat'
 
 " Search
 Plugin 'mileszs/ack.vim'

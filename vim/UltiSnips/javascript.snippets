@@ -231,18 +231,34 @@ snippet af "() => { ... }" i
 }$0
 endsnippet
 
+snippet afc "() => { ... }" i
+() => {
+  $1
+}$0
+endsnippet
+
 # Arrow inline
-snippet afi "() => " i
+snippet afp "() => " i
 ($1) => $2
 endsnippet
 
-snippet afe "() => {}" i
+snippet afpc "() => " i
+() => $2
+endsnippet
+
+snippet afpe "() => {}" i
 () => {}
 endsnippet
 
 # Arrow short
 snippet afs " => " i
 $1 => $2
+endsnippet
+
+snippet afsc " => {}" i
+$1 => {
+  $2
+}
 endsnippet
 
 # ES6
@@ -740,9 +756,9 @@ function (done) {
 }$0
 endsnippet
 
-snippet for:ar "for (var i = 0 i < array.lengh i++) { ... }"
-for (var i = 0 i < ${1:length} i++) {
-  $1
+snippet forl "for (let i = 0; i < array.length; i++) { ... }"
+for (let i = 0; i < ${1:length}; i++) {
+  $2
 }$0
 endsnippet
 
@@ -816,12 +832,26 @@ setInterval(() => {
 endsnippet
 
 # RxJS Snipppets
-snippet sub "subscribe()" i
-subscribe($1)
+snippet .sub "subscribe()" i
+.subscribe($1)
 endsnippet
 
-snippet rxob "Description" i
+snippet rxob "Rx.Observable." i
 Rx.Observable.
+endsnippet
+
+snippet rxobin "Rx.Observable.interval(int)" i
+Rx.Observable.interval($1)
+endsnippet
+
+snippet rxobra "Rx.Observable.range(start, end)" i
+Rx.Observable.range($1, $2)
+endsnippet
+
+snippet nrxob "new Rx.Observable(observer =>)" i
+new Rx.Observable(observer => {
+  $2
+})
 endsnippet
 
 snippet rxret "return new Rx.Observer(() => {})" i
@@ -830,16 +860,24 @@ return new Rx.Observable(observer => {
 })
 endsnippet
 
-snippet obnext "rx.next()" i
+snippet rxnsub "new Rx.Subject()" i
+new Rx.Subject()
+endsnippet
+
+snippet rxnbsub "new Rx.BehaviorSubject({})" i
+new Rx.BehaviorSubject({ $1 })
+endsnippet
+
+snippet obnex "rx.next()" i
 observer.next($1)
 endsnippet
 
-snippet oberror "rx.error()" i
+snippet oberr "rx.error()" i
 observer.error($1)
 endsnippet
 
-snippet obcomp "rx.complete()" i
-observer.complete($1)
+snippet obcom "rx.complete()" i
+observer.complete()
 endsnippet
 
 # Mocha
@@ -1039,6 +1077,20 @@ snippet nprom "new Promise((resolve, reject) => {})" i
 new Promise((resolve, reject) => {
   $1
 })
+endsnippet
+
+snippet retprom "return new Promise((resolve, reject) => {})" i
+return new Promise((resolve, reject) => {
+  $1
+})
+endsnippet
+
+snippet pres "resolve()" i
+resolve($1)
+endsnippet
+
+snippet prej "reject()" i
+reject($1)
 endsnippet
 
 snippet thenf ".then(() => {})" i

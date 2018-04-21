@@ -136,3 +136,6 @@ Plugin 'mattn/webapi-vim'
 
 " Run tmux command from vim
 Plugin 'benmills/vimux'
+
+" Docker
+Plugin 'ekalinin/Dockerfile.vim'

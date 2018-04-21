@@ -134,8 +134,8 @@ bind 4:ctrl;alt               ${bottomRight}
 
 bind o:ctrl;cmd               nudge +2% +0
 bind y:ctrl;cmd               nudge -2% +0
-bind u:ctrl;cmd               nudge +0 -2%
-bind i:ctrl;cmd               nudge +0 +2%
+bind i:ctrl;cmd               nudge +0 -2%
+bind u:ctrl;cmd               nudge +0 +2%
 
 # ctrl;shift;alt shortcuts not working
 # bind l:ctrl;shift;alt         nudge +2% +0

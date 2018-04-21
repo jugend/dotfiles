@@ -60,7 +60,7 @@ if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completio
     __git_complete gsh _git_show
     __git_complete gpl _git_pull
     __git_complete grm _git_remote
-    __git_complete gtag _git_tag
+   __git_complete gtag _git_tag
 fi;
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
@@ -72,6 +72,11 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal TweetDeck" killall;
+
+# Docker alias auto complete
+complete -F _docker dk
+complete -F _docker_machine dm
+complete -F _docker_compose dc
 
 # Editor
 export EDITOR='vim'

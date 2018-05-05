@@ -343,56 +343,6 @@ alias is='istanbul'
 alias isc='is cover --report text --report html'
 alias iscmoc='isc _mocha'
 
-# docker
-alias d='docker'
-alias dc='d container'
-alias dcins='dc inspect'
-alias dex='d exec -it'
-alias dhe='d help'
-alias dim='d image'
-alias dimls='d image ls'
-alias dimlsa='d image ls -a'
-alias dcls='d ps'
-alias dclsa='d ps -a'
-alias dlog='d logs'
-alias dlogf='d logs -f'
-alias dn='d node'
-alias dnls='d node ls'
-alias dnet='d network'
-alias dnetls='d network ls'
-alias dport='d port'
-alias dpull='d pull'
-alias dr='d run'
-alias drd='d run -d'
-alias drdp='d run -d -P'
-alias drit='d run -it'
-alias drrm='d run --rm'
-alias drm='d rm'
-alias drmf='d rm -f'
-alias ds='d service'
-alias dsls='d service ls'
-alias dst='d stop'
-alias dv='d volume'
-alias dvls='d volume ls'
-
-alias dal='d run -it --rm alpine'
-alias dbus='d run -it --rm busybox'
-
-# docker-compose
-alias dk='docker-compose'
-alias dku='dk up'
-alias dkd='dk down'
-alias dkps='dk ps'
-alias dkt='dk top'
-
-# docker-machine
-alias dm='docker-machine'
-alias dmc='dm create --driver virtualbox'
-alias dmls='dm ls'
-alias dme='dm env'              # display env vars
-alias dmeset='dmenvset'         # export env vars
-alias dmip='dm ip'              # docker machine ip
-
 ##
 # iOS Commands
 ####################

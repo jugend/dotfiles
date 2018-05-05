@@ -24,6 +24,7 @@ alias gic='gist -c'
 alias es='eslint'
 alias ex='export'
 alias w='which'
+alias cl='curl'
 
 alias tf='tail -f -n 500'
 alias tfn='tf npm-debug.log'
@@ -34,6 +35,7 @@ alias dfh='df -h'
 alias ecl='echo $?'
 alias agi='ag -i'
 alias agl='ag -l'
+alias agu='ag -U'
 alias his='fc -l'
 alias les='less'
 alias mkd='mkdir -p'
@@ -287,6 +289,9 @@ alias nvu11='nvm use 0.11'
 alias pyhttpd='python -m SimpleHTTPServer 3000'
 alias pyhttp='python -m SimpleHTTPServer'
 
+alias pipi='pip install'
+alias pipiu='pip install --upgrade'
+
 # Ruby
 alias rhttpd='ruby -run -e httpd . -p 8080'
 
@@ -340,23 +345,45 @@ alias iscmoc='isc _mocha'
 
 # docker
 alias d='docker'
-alias dcon='d container'
+alias dc='d container'
+alias dcins='dc inspect'
 alias dex='d exec -it'
 alias dhe='d help'
-alias dim='d images'
-alias diml='d images'
-alias dins='d inspect'
-alias dl='d ps'
-alias dla='d ps -a'
-alias dn='d network'
+alias dim='d image'
+alias dimls='d image ls'
+alias dimlsa='d image ls -a'
+alias dcls='d ps'
+alias dclsa='d ps -a'
+alias dlog='d logs'
+alias dlogf='d logs -f'
+alias dn='d node'
+alias dnls='d node ls'
+alias dnet='d network'
+alias dnetls='d network ls'
 alias dport='d port'
+alias dpull='d pull'
 alias dr='d run'
 alias drd='d run -d'
 alias drdp='d run -d -P'
 alias drit='d run -it'
 alias drrm='d run --rm'
 alias drm='d rm'
+alias drmf='d rm -f'
+alias ds='d service'
+alias dsls='d service ls'
 alias dst='d stop'
+alias dv='d volume'
+alias dvls='d volume ls'
+
+alias dal='d run -it --rm alpine'
+alias dbus='d run -it --rm busybox'
+
+# docker-compose
+alias dk='docker-compose'
+alias dku='dk up'
+alias dkd='dk down'
+alias dkps='dk ps'
+alias dkt='dk top'
 
 # docker-machine
 alias dm='docker-machine'
@@ -424,7 +451,7 @@ alias dbfor='cd /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula'
 ###
 # Ruby/Rails
 #################
-alias p='pry'
+alias rpry='pry'
 alias sc='./script/console'
 alias tdev='tail -f -n 1000 log/development.log'
 alias tprod='tail -f -n 1000 log/production.log'
@@ -452,7 +479,7 @@ alias agcss='ag --css'
 alias agsass='ag --sass'
 alias agsql='ag --sql'
 
-alias pryr='pry -r ./config/environment'
+alias rpryr='pry -r ./config/environment'
 
 ##
 # Read markdown files

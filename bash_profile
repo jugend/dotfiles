@@ -76,7 +76,11 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Docker alias auto complete
 complete -F _docker d
 complete -F _docker_machine dm
-complete -F _docker_compose dc
+complete -F _docker_compose dk
+
+# Kubernetes
+source <(kubectl completion bash)
+source <(kops completion bash)
 
 # Editor
 export EDITOR='vim'

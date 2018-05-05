@@ -1,0 +1,14 @@
+# Print second column from line 2 onwards
+printf '1 2 3' | awk 'FNR > 1 {print $2}'
+
+# Use custom separator for the split
+printf '1:2:3' | awk -F ":" '{print $1+$2+$3}'
+
+# sum integers from a file or stdin, one integer per line:
+printf '1\n2\n3\n' | awk '{ sum += $1} END {print sum}'
+
+# print a multiplication table
+seq 9 | sed 'H;g' | awk -v RS='' '{for(i=1;i<=NF;i++)printf("%dx%d=%d%s", i, NR, i*NR, i==NR?"\n":"\t")}'
+
+# Specify output separator character
+printf '1 2 3' | awk 'BEGIN {OFS=":"}; {print $1,$2,$3}'

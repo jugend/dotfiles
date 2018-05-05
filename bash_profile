@@ -28,19 +28,20 @@ shopt -s cdspell;
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
 for option in autocd globstar; do
-	shopt -s "$option" 2> /dev/null;
+    shopt -s "$option" 2> /dev/null;
 done;
 
 # Add tab completion for many Bash commands
+LOCAL_BIN='/usr/local/bin'
 if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-	source "$(brew --prefix)/etc/bash_completion";
+    source "$(brew --prefix)/etc/bash_completion";
 elif [ -f /etc/bash_completion ]; then
-	source /etc/bash_completion;
+    source /etc/bash_completion;
 fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-	complete -o default -o nospace -F _git g;
+    complete -o default -o nospace -F _git g;
 
     # Add git completion to aliases
     __git_complete g __git_main
@@ -74,13 +75,14 @@ complete -W "NSGlobalDomain" defaults;
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal TweetDeck" killall;
 
 # Docker alias auto complete
-complete -F _docker d
-complete -F _docker_machine dm
-complete -F _docker_compose dk
-
-# Kubernetes
-source <(kubectl completion bash)
-source <(kops completion bash)
+[ -e "$LOCAL_BIN/docker" ] && complete -F _docker d
+[ -e "$LOCAL_BIN/docker-machine" ] && complete -F _docker_machine dm
+[ -e "$LOCAL_BIN/docker-compose" ] && complete -F _docker_compose dk
+#
+# # Kubernetes
+[ -e "$LOCAL_BIN/kubectl" ] && complete -F __start_kubectl k
+[ -e "$LOCAL_BIN/minikube" ] && complete -F __start_minikube m
+[ -e "$LOCAL_BIN/kops" ] && complete -o nospace -F __start_kops ko # Doesn't work
 
 # Editor
 export EDITOR='vim'
@@ -110,3 +112,4 @@ stty -ixon -ixoff
 # Alt-h used by slate to switch focus, adding additional shortcut
 bind '"\ex": backward-delete-char'
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+

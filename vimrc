@@ -27,11 +27,12 @@ set noswapfile
 set lazyredraw
 " fix background color diff
 set t_ut=
+" use old regex, faster
+set re=1
 
 set wildmenu
 set wildmode=list:longest:full
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.js.map,.tmp
-
 set tags=.git/.tags,/.tags
 
 "" encoding
@@ -409,6 +410,14 @@ nnoremap <leader><leader>4 :set foldlevel=4<cr>
 nnoremap <leader><leader>5 :set foldlevel=5<cr>
 nnoremap <leader><leader>9 :set foldlevel=99<cr>
 nnoremap <leader><leader>f zA
+
+" Move lines
+nnoremap <leader>gj :m .+1<CR>==
+nnoremap <leader>gk :m .-2<CR>==
+inoremap <leader>gj <Esc>:m .+1<CR>==gi
+inoremap <leader>gk <Esc>:m .-2<CR>==gi
+vnoremap <leader>gj :m '>+1<CR>gv=gv
+vnoremap <leader>gk :m '<-2<CR>gv=gv
 
 " Diff
 nnoremap <leader>dt :windo diffthis<cr>

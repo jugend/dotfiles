@@ -970,3 +970,9 @@ let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#parser = 'flow'
 " disable prettier validation, use ale instead
 let g:prettier#exec_cmd_async = 1
+
+" Temporary workaround for python 3.7 deprecated warning:
+" https://github.com/vim/vim/issues/3117#issuecomment-402622616
+if has('python3')
+  silent! python3 1
+endif

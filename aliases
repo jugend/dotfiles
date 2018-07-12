@@ -35,7 +35,8 @@ alias dfh='df -h'
 alias ecl='echo $?'
 alias agi='ag -i'
 alias agl='ag -l'
-alias agu='ag -U'
+alias agu='ag -u' # all, include hidden files
+alias aga='ag -a' # all, exclude hidden files
 alias his='fc -l'
 alias les='less'
 alias mkd='mkdir -p'
@@ -289,6 +290,10 @@ alias nvu10='nvm use 0.10'
 alias nvu11='nvm use 0.11'
 
 # Python
+alias py='python3'
+alias pi='pip3'
+alias p2='python2'
+alias pi2='pip2'
 alias pyhttpd='python -m SimpleHTTPServer 3000'
 alias pyhttp='python -m SimpleHTTPServer'
 

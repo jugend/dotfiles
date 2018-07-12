@@ -121,10 +121,6 @@ bind e:shift;alt               ${expand}
 # bind j:ctrl;alt;cmd         resize +0   -10% bottom-right
 
 # Shift Window Bindings
-
-
-
-
 bind 1:ctrl;shift             ${topLeftNoResize}
 bind 2:ctrl;shift             ${topRightNoResize}
 bind 3:ctrl;shift             ${bottomLeftNoResize}

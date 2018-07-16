@@ -60,6 +60,7 @@ alias centerThreeFourth       move     screenOriginX+((screenSizeX*1/4)/2);scree
 alias centerFourFifth         move     screenOriginX+((screenSizeX*1/5)/2);screenOriginY screenSizeX*4/5;screenSizeY
 alias centerSevenEighth       move     screenOriginX+((screenSizeX*1/8)/2);screenOriginY screenSizeX*7/8;screenSizeY
 
+alias offRightExtraLarge      move     screenOriginX+((screenSizeX*3/5));screenOriginY screenSizeX*2/5;screenSizeY
 alias offRightLarge           move     screenOriginX+((screenSizeX*3/5));screenOriginY screenSizeX*1/3;screenSizeY
 alias offRightMedium          move     screenOriginX+((screenSizeX*3/5));screenOriginY screenSizeX*1/3*0.85;screenSizeY
 alias offRightSmall           move     screenOriginX+((screenSizeX*3/5));screenOriginY screenSizeX*1/3*0.7;screenSizeY
@@ -104,14 +105,14 @@ bind v:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 bind c:ctrl;cmd               chain    ${centerHalf} | ${centerOneThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind e:ctrl;cmd               chain    ${full} | ${centerThreeFifth} | ${centerTwoThird} | ${centerHalf} | ${centerOneThird}
 
-bind h:ctrl;alt              chain    ${leftThreeFifth} | ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
-bind l:ctrl;alt              chain    ${rightThreeFifth} | ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
-bind c:ctrl;alt              chain    ${centerTwoThird} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerThreeFifth} | ${centerHalf} | ${centerOneThird}
+bind h:ctrl;alt              chain     ${leftThreeFifth} | ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
+bind l:ctrl;alt              chain     ${rightThreeFifth} | ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
+bind c:ctrl;alt              chain     ${centerTwoThird} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerThreeFifth} | ${centerHalf} | ${centerOneThird}
 
-bind c:ctrl;shift             chain ${center}
+bind c:ctrl;shift             chain    ${center}
 
-bind p:ctrl;cmd              chain    ${offRightLarge} | ${offRightMedium} | ${offRightSmall} | ${offRightExtraSmall}
-bind q:ctrl;cmd              chain    ${offLeftSmall} | ${offLeftMedium} | ${offLeftLarge} | ${offLeftExtraLarge}
+bind p:ctrl;cmd              chain     ${offRightLarge} | ${offRightExtraLarge} | ${offRightMedium} | ${offRightSmall} | ${offRightExtraSmall}
+bind q:ctrl;cmd              chain     ${offLeftSmall} | ${offLeftMedium} | ${offLeftLarge} | ${offLeftExtraLarge}
 
 
 # Contract and Expand Bindings

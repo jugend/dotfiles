@@ -102,8 +102,8 @@ kport() {
   port $1 | awk 'FNR==2 { print $2 }'| xargs kill -9 && port $1
 }
 
-fext() {
-  ag -G .$1$ $2
+agmatch() {
+  ag $1 -G $2 $3 $4
 }
 
 dmenvset() {
@@ -129,22 +129,6 @@ browsersyncproxy() {
   else
     browser-sync start --proxy "$1" --files "$2"
   fi
-}
-
-geth() {
-    get $1 | html-beautify
-}
-
-posth() {
-    post $1 | html-beautify
-}
-
-getj() {
-    get $1 | js-beautify
-}
-
-postj() {
-    post $1 | js-beautify
 }
 
 nmod() {

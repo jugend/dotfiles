@@ -1,5 +1,5 @@
 # Load the shell dotfiles, and then some:
-for file in ~/.{aliases,aliases.local,aliases.private,bash_profile.local,bash_prompt,functions}; do
+for file in ~/.{aliases,aliases.local,aliases.private,bash_profile.local,bash_profile.host,bash_prompt,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -83,6 +83,9 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -e "$LOCAL_BIN/kubectl" ] && complete -F __start_kubectl k
 [ -e "$LOCAL_BIN/minikube" ] && complete -F __start_minikube m
 [ -e "$LOCAL_BIN/kops" ] && complete -o nospace -F __start_kops ko # Doesn't work
+
+# Python PIP
+eval "$(pip completion --bash)"
 
 # Editor
 export EDITOR='vim'

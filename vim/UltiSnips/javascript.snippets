@@ -224,6 +224,19 @@ snippet pjoin "path.join(__dirname, 'lib')" i
 path.join(__dirname, '${1:lib}')
 endsnippet
 
+# Loop
+snippet for "for (const i = 0; i < items.length; i++) {}"
+for (const ${1:i} = 0; $1 < ${2:items}.length; $1++) "
+  $3
+}$4
+endsnippet
+
+snippet fori "for (const [item] in [items]) {}"
+for (const ${1:item} in ${2:items}) {
+  $3
+}$4
+endsnippet
+
 # ES6 Arrow
 snippet af "() => { ... }" i
 ($1) => {
@@ -901,8 +914,8 @@ snippet mitp "Mocha: it (pending)"
 it('${1:desc}')
 endsnippet
 
-snippet it "Mocha: it"
-it('${1:desc}', function () {
+snippet it "it"
+it('${1:desc}', () => {
   $0
 })
 endsnippet
@@ -1129,4 +1142,15 @@ endsnippet
 # Tag
 snippet l= "attribute=value" i
 ${1:attribute}="${2:value}"$0
+endsnippet
+
+# Flow
+snippet flow "// @flow"
+// @flow
+$1
+endsnippet
+
+# eslint
+snippet esdl "// eslint-disable-next-line"
+// eslint-disable-next-line $1
 endsnippet

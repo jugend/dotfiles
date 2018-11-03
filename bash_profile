@@ -1,3 +1,7 @@
+# To trace script performance
+# set -x
+# PS4='+\t '
+
 # Load the shell dotfiles, and then some:
 for file in ~/.{aliases,aliases.local,aliases.private,bash_profile.local,bash_profile.host,bash_prompt,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";

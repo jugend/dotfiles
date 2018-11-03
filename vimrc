@@ -255,12 +255,13 @@ nnoremap <leader>l :TagbarToggle<cr>
 nnoremap <leader>G :GitGutterToggle<cr>
 nnoremap <leader>I :IndentGuidesToggle<cr>
 nnoremap <leader>i :IndentLinesToggle<cr>
+nnoremap <leader>m :messages<cr>
+nnoremap <leader>M %
 nnoremap <leader>W :ToggleWhitespace<cr>
 nnoremap <leader>z :ZoomToggle<cr>
 nnoremap <leader>ar :AirlineToggle<cr>
 nnoremap <leader>at :ALEToggle\|SyntasticToggleMode<cr>
 nnoremap <leader>/ /\v
-nnoremap <leader>M %
 
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
 nnoremap <leader>nh :call ToggleAgSkipVcsIgnores()<cr>
@@ -357,9 +358,7 @@ nnoremap <leader>hc :help variables<cr>
 nnoremap <leader>vh :vert h<space>
 nnoremap <leader>lf :lfirst<cr>
 nnoremap <leader>ln :lnext<cr>
-nnoremap <leader>lp :lprevious<cr>
-nmap <silent><leader>lj <Plug>(ale_next_wrap)
-nmap <silent><leader>lk <Plug>(ale_previous_wrap)
+nnoremap <leaderder>lp :lprevious<cr>
 nnoremap <leader>cf :cfirst<cr>
 noremap <leader>cw :<cr>
 nnoremap <leader>cn :cnext<cr>
@@ -378,8 +377,12 @@ nnoremap <leader>da ggdG
 nnoremap <leader>va ggVG
 nnoremap <leader>yr :reg<cr>
 
+" ale
+" nmap <leader>ln <Plug>(ale_next_wrap)
+" nmap <leader>lp <Plug>(ale_previous_wrap)
+nmap <leader><leader>l <Plug>(ale_fix)
+
 nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader>L :TagbarToggle<cr>
 nnoremap <leader>sc :SyntasticCheck<cr>
 nnoremap <leader>sj :SyntasticCheck jscs<cr>
 nnoremap <leader>se :SyntasticCheck eslint<cr>
@@ -575,7 +578,8 @@ let g:airline_section_z = '%t'
 let g:used_javascript_libs='jquery,underscore,backbone,react,flux,requirejs,chai'
 
 "" stop vim from removing idnentation on empty line
-inoremap <silent> <Esc> <C-O>:stopinsert<CR>
+" inoremap <silent> <Esc> <C-O>:stopinsert<CR>
+
 " Buffergator
 let g:buffergator_suppress_keymaps=1
 let g:buffergator_show_full_directory_path=0
@@ -628,10 +632,14 @@ let g:syntastic_html_tidy_ignore_errors = [
 let g:ale_emit_conflict_warnings = 0
 
 " let g:ale_linters = {'javascript': ['eslint', 'prettier']}
-let g:ale_linters = {'javascript': ['eslint', 'prettier']}
+let g:ale_linters = {'javascript': ['eslint', 'prettier', 'flow']}
+let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
+
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix =0
-" let g:ale_open_list = 1
+let g:ale_open_list = 1
+" Onlyt tsserver for Typescript code is supported for completion
+let g:ale_completion_enabled = 1
 
 if executable('node_modules/.bin/tslint')
   let g:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
@@ -747,8 +755,10 @@ endif
 
 " NerdTree
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['.configcache', '.nyc_output', 'node_modules', '\.vim$', '\~$', './tags',
-  \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
+let g:NERDTreeIgnoreOn=['.configcache', '.nyc_output', 'node_modules', '\.vim$', '\~$', './tags',
+  \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '.cache', '.gh-pages', '\.js\.map$']
+let g:NERDTreeIgnoreOff=['.configcache', '.nyc_output', '\.vim$', '\~$', './tags',
+  \ '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
 let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
@@ -766,6 +776,9 @@ let g:ctrlp_match_window = 'order:ttb,max:20'
 
 " ag is fast enough that CtrlP doesn't need to cache
 let g:ctrlp_use_caching = 0
+
+" neareset parent with .git
+let g:ctrlp_working_path_mode = 'rw'
 
 " Doesn't work with ag search, use .agitignore
 " let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Storegit|hg|svn|optimized|compiled|node_modules|locales)$'
@@ -831,25 +844,38 @@ autocmd User Node
       \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
       \ endif
 
+" common functions
+function! RefreshNerdTree()
+  echo 'refreshing nerd tree'
+
+  if exists('t:NERDTreeBufName')
+    :NERDTreeFocus
+    call feedkeys("R")
+    call feedkeys("\<C-l>")
+  endif
+endfunction
+
 " Invert ag --skip-vcs-ignores
 let g:ag_skip_vcs_ignores = 0
 
-let g:NERDTreeIgnore = NERDTreeIgnore
+let g:NERDTreeIgnore = g:NERDTreeIgnoreOn
 
 function! ToggleAgSkipVcsIgnores()
   if g:ag_skip_vcs_ignores == 0
-    let g:ackprg = g:ackprg . " --skip-vcs-ignores"
-    let g:ctrlp_user_command = g:ctrlp_user_command . " --skip-vcs-ignores"
-    call remove(g:NERDTreeIgnore, 0)
+    let g:ackprg = g:ackprg . " --all-text"
+    let g:ctrlp_user_command = g:ctrlp_user_command . " --all-text"
     let g:ag_skip_vcs_ignores = 1
     let g:NERDTreeRespectWildIgnore = 0
+    let g:NERDTreeIgnore = g:NERDTreeIgnoreOff
   else
     let g:ackprg = 'ag --vimgrep'
     let g:NERDTreeRespectWildIgnore = 1
     let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup --hidden -g ""'
-    call insert(g:NERDTreeIgnore, 'node_modules', 0)
     let g:ag_skip_vcs_ignores = 0
+    let g:NERDTreeIgnore = g:NERDTreeIgnoreOn
   endif
+
+  call RefreshNerdTree()
 endfunction
 
 command! -nargs=0 ToggleAgSkipVcsIgnores :call ToggleAgSkipVcsIgnores()
@@ -867,10 +893,8 @@ function! ToggleTypeScriptProject()
     call remove(g:NERDTreeIgnore, 0)
     let g:is_typescript_project = 0
   endif
-  if exists('t:NERDTreeBufName')
-    :NERDTreeFocus
-    call feedkeys("R")
-  endif
+
+  call RefreshNerdTree()
 endfunction
 
 command! -nargs=0 ToggleTypeScriptProject :call ToggleTypeScriptProject()
@@ -976,3 +1000,8 @@ let g:prettier#exec_cmd_async = 1
 if has('python3')
   silent! python3 1
 endif
+
+" Flow
+" Disable flow validation error, let Ale handles it
+" Use vim-flow only for omni completion
+let g:flow#showquickfix = 0

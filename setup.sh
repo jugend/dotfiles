@@ -27,6 +27,9 @@ function setup() {
 
   # Create tmux-256color terminal to support italic
   tic -x tmux.terminfo
+
+  # Install jsctags for vim-tagbar
+  npm install -g jsctags
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

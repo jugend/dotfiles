@@ -31,6 +31,7 @@ Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'flowtype/vim-flow'
 
 " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
 Plugin 'hail2u/vim-css3-syntax'
@@ -89,7 +90,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 " Javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
 
 " Syntastic Typescript support
 Plugin 'Quramy/tsuquyomi'
@@ -119,6 +120,7 @@ Plugin 'ervandew/supertab'
 " Snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'joaohkfaria/vim-jest-snippets'
 
 " Next and previous navigation
 " Plugin 'tpope/vim-unimpaired'

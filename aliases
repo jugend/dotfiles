@@ -31,12 +31,14 @@ alias tfn='tf npm-debug.log'
 alias ip='ifconfig | grep broadcast'
 alias cpr='cp -r'
 alias duh='du -sh'
+alias duh1='du -hd 1'
 alias dfh='df -h'
 alias ecl='echo $?'
 alias agi='ag -i'
 alias agl='ag -l'
 alias agu='ag -u' # all, include hidden files
 alias aga='ag -a' # all, exclude hidden files
+alias agg='ag -G' # Filter by pattern
 alias his='fc -l'
 alias les='less'
 alias mkd='mkdir -p'
@@ -218,6 +220,7 @@ alias dndapp='DEBUG=express:* ndapp'
 
 # Npm
 alias ni='npm install --no-shrinkwrap'
+alias nity='npm init -y'
 alias nig='npm install -g'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
@@ -231,14 +234,14 @@ alias nrp='npm repo'
 alias nll='npm list --depth=0'
 alias nlg='npm list -g --depth=0'
 alias ntest='npm test'
-alias nr='npm run'
-alias nrs='npm run start'
-alias nrb='npm run build'
-alias nrlin='npm run lint'
-alias nrcov='npm run cover'
-alias nrt='npm run test'
-alias nrw='npm run watch'
-alias nrp='npm run package'
+alias nr='npm run -s'
+alias nrs='nr start'
+alias nrb='nr build'
+alias nrl='nr lint'
+alias nrc='nr cover'
+alias nrt='nr test'
+alias nrw='nr watch'
+alias nrp='nr package'
 alias nrep='npm repo'
 alias ncl='npm config list'
 alias npgrep='npgrep'
@@ -248,7 +251,7 @@ alias npsc='npgrep scripts'
 alias npdev='npgrep dependencies'
 alias npddev='npgrep devDependencies'
 
-ninfov () { npm info $1 version; }
+nversion () { npm info $1 version; }
 
 # Yarn
 alias y='yarn'
@@ -476,6 +479,7 @@ alias gcld='git clone --depth=1'
 alias gclup='git clone --origin upstream'
 
 alias gcln='git clean'
+alias gfet='git fetch'
 alias gcp='git cherry-pick'
 
 alias gcnl='git config --list'

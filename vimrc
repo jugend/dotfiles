@@ -45,6 +45,12 @@ set incsearch
 set ignorecase
 set hlsearch
 
+"" Perf: Set scroll to a third of the window instead of half
+augroup set_scroll
+      au BufEnter,WinEnter,WinNew,VimResized *,*.*
+        \ let &scroll=winheight(win_getid())/3
+augroup END
+
 "" support resizing in tmux
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
@@ -331,6 +337,8 @@ nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ec :e CHANGELOG.md<cr>
 nnoremap <leader>ep :e package.json<cr>
+nnoremap <leader>epc :e client/package.json<cr>
+nnoremap <leader>eps :e server/package.json<cr>
 nnoremap <leader>et :e tsconfig.json<cr>
 nnoremap <leader>en :e npm-shrinkwrap.json<cr>
 nnoremap <leader>ey :e yarn.lock<cr>

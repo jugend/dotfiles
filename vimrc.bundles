@@ -25,6 +25,7 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'jvirtanen/vim-octave'
+Plugin 'derekwyatt/vim-scala'
 
 " HAML, SASS, SCSS support for Vim
 Plugin 'tpope/vim-haml'
@@ -110,7 +111,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'marijnh/tern_for_vim'
 " For brackets
 Plugin 'jiangmiao/auto-pairs'
 

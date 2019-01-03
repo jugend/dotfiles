@@ -44,7 +44,7 @@ cvim() {
 }
 
 npmrepo() {
-  npm info $1 | grep github\.com | head -1 | grep -Eo '://github.com\/.*' | sed "s/\.git//;s/' },//;s/',//;s/#.*$//" | awk '{print "https"$1".git"}'
+  npm info $1 repository.url
 }
 
 npmclone() {
@@ -59,7 +59,7 @@ npmsummary() {
   npm info $1 version repository.url
 }
 
-npgrep() {
+pagrep() {
   cat package.json | jq .$1
 }
 

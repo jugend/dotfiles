@@ -1,5 +1,7 @@
 brew update
 
+# Custom 24-bit tmux install is no longer required
+brew install tmux
 brew install ack
 brew install bash-completion
 brew install cheat
@@ -19,6 +21,8 @@ brew install wget
 brew install httpie
 brew install reattach-to-user-namespace
 brew install nvm
+brew install pipenv
 brew install vim
 brew install nginx
+brew install cmake
 brew cask install java

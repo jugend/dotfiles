@@ -1,7 +1,19 @@
 # Herryanto's dotfiles
-
 ## Setup
 
+# Will install tmux, nvm, and others
+* Install brew
+* Run ./brew_install.sh
+* nvm install node
+* Run ./npm_install.sh
+* Setup rvm
+
+## Vim Setup
+* Setup Vundle
+* Start vim, run :PluginList, then :PluginInstall
+* Setup YouCompleteMe in ~/.vim/bundle
+
+## Link Dotfiles
 ```sh
 git clone https://github.com/jugend/dotfiles.git
 cd dotfiles

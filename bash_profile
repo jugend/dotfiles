@@ -88,9 +88,6 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -e "$LOCAL_BIN/minikube" ] && complete -F __start_minikube m
 [ -e "$LOCAL_BIN/kops" ] && complete -o nospace -F __start_kops ko # Doesn't work
 
-# Python PIP
-eval "$(pip completion --bash)"
-
 # Editor
 export EDITOR='vim'
 
@@ -119,4 +116,3 @@ stty -ixon -ixoff
 # Alt-h used by slate to switch focus, adding additional shortcut
 bind '"\ex": backward-delete-char'
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-

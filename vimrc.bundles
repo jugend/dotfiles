@@ -2,8 +2,8 @@ Plugin 'VundleVim/vundle.vim'
 
 " Navigation
 Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'scroolose/nerdtree'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'scrooloose/nerdtree'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'vim-scripts/gitignore'
 Plugin 'tpope/vim-fugitive'

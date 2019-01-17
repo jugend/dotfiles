@@ -3,6 +3,7 @@ log
 DS_store
 build
 dist
+coverage
 .git
 .storybook
 .nyc_output

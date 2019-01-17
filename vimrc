@@ -763,7 +763,7 @@ endif
 
 " NerdTree
 let NERDTreeShowHidden=1
-let g:NERDTreeIgnoreOn=['.configcache', '.nyc_output', 'node_modules', '\.vim$', '\~$', './tags',
+let g:NERDTreeIgnoreOn=['.configcache', '.nyc_output', 'node_modules', 'coverage', '\.vim$', '\~$', './tags',
   \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '.cache', '.gh-pages', '\.js\.map$']
 let g:NERDTreeIgnoreOff=['.configcache', '.nyc_output', '\.vim$', '\~$', './tags',
   \ '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']

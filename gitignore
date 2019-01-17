@@ -31,3 +31,4 @@ setenvs*
 # Octave
 octave-workspace
 .tmp/
+ccaggregator/

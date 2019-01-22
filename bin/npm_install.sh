@@ -7,3 +7,6 @@ npm install -g jsctags
 # when changing directory
 npm install -g avn avn-nvm
 avn setup
+
+# Vim instant markdown preview
+npm install -g instant-markdown-d

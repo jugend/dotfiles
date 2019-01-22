@@ -8,7 +8,6 @@
 *.log.*
 *.local
 tags
-.nvmrc
 yarn.lock
 
 # Directories

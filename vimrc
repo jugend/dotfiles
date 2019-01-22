@@ -91,7 +91,6 @@ let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 let g:solarized_italic = 1
 
-let g:onedark_termcolors=16
 let g:onedark_terminal_italics = 1
 
 " Fix the gray background/intermittent lighter background issue on iTerm
@@ -202,6 +201,7 @@ let mapleader=","
 
 " General productivity shortcuts
 inoremap jk <esc>
+inoremap kk <esc>
 inoremap jj <esc>
 inoremap ii <esc>
 inoremap <C-l> <esc>

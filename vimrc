@@ -184,8 +184,8 @@ inoremap <C-b> <C-o>h
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 inoremap <C-a> <C-o>ga
-inoremap <C-Space> <esc>o
-nnoremap <C-Space> o
+" inoremap <C-Space> <esc>o
+" nnoremap <C-Space> o
 
 " Indentation after curly brace & bracket
 " Comes with auto-pair plugin
@@ -625,7 +625,8 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_json_checkers = ['jsonlint']
-let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+" let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+let g:syntastic_typescript_checkers = []
 let g:syntastic_html_tidy_ignore_errors = [
   \ 'trimming empty <span>',
   \ 'trimming empty <i>'
@@ -647,7 +648,8 @@ let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
 " let g:ale_set_quickfix =0
 let g:ale_open_list = 1
 " Onlyt tsserver for Typescript code is supported for completion
-let g:ale_completion_enabled = 1
+" Disable, let YCM handle
+" let g:ale_completion_enabled = 0
 
 if executable('node_modules/.bin/tslint')
   let g:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
@@ -656,9 +658,11 @@ if executable('node_modules/.bin/tslint')
   endif
 endif
 
-if executable('./node_modules/.bin/tsc')
-  let g:syntastic_typescript_tsc_exec = './node_modules/.bin/tsc'
-endif
+
+" Let Ale handle typescript check
+" if executable('./node_modules/.bin/tsc')
+"   let g:syntastic_typescript_tsc_exec = './node_modules/.bin/tsc'
+" endif
 
 " let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
 " let g:syntastic_objc_checkers = ['oclint']
@@ -685,6 +689,9 @@ let g:SuperTabDefaultCompletionType = '<C-N>'
 " let g:ycm_auto_trigger=0
 " let g:ycm_key_invoke_completion = '<C-;>'
 " let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+
+" Let ale handle validation checks, and YCM handles only the autocomplete
+let g:ycm_show_diagnostics_ui = 0
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -907,7 +914,7 @@ endfunction
 
 command! -nargs=0 ToggleTypeScriptProject :call ToggleTypeScriptProject()
 
-if !empty(glob("./tsconfig.json"))
+if !empty(glob("./**/*/tsconfig.json"))
    call ToggleTypeScriptProject()
 endif
 

@@ -91,10 +91,6 @@ Plugin 'jeetsukumaran/vim-buffergator'
 " Javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-" Plugin 'vim-syntastic/syntastic'
-
-" Syntastic Typescript support
-Plugin 'Quramy/tsuquyomi'
 
 " Tags
 " Make use of jsctags to parse, slow to load especially for large files
@@ -111,7 +107,9 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'
+" Tern is very slow
 " Plugin 'marijnh/tern_for_vim'
+
 " For brackets
 Plugin 'jiangmiao/auto-pairs'
 

@@ -33,7 +33,7 @@ set re=1
 set wildmenu
 set wildmode=list:longest:full
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.js.map,.tmp
-set tags=.git/.tags,/.tags
+set tags=.git/.tags,/.tagv
 
 "" encoding
 set fenc=utf-8
@@ -640,6 +640,9 @@ let g:syntastic_html_tidy_ignore_errors = [
 " To avoid conflict warning with Syntastic on startup
 let g:ale_emit_conflict_warnings = 0
 
+" To fix autocomplete issue
+" set completeopt=menu,menuone,preview,noselect,noinsert
+
 " let g:ale_linters = {'javascript': ['eslint', 'prettier']}
 let g:ale_linters = {'javascript': ['eslint', 'prettier', 'flow']}
 let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
@@ -771,9 +774,10 @@ endif
 " NerdTree
 let NERDTreeShowHidden=1
 let g:NERDTreeIgnoreOn=['.configcache', '.nyc_output', 'node_modules', 'coverage', '\.vim$', '\~$', './tags',
-  \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '.cache', '.gh-pages', '\.js\.map$']
-let g:NERDTreeIgnoreOff=['.configcache', '.nyc_output', '\.vim$', '\~$', './tags',
-  \ '\.log$', '\.git$', '\.sass-cache$', '\.js\.map$']
+  \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '.cache', '.gh-pages', '\.js\.map$',
+  \ '\.docz']
+let g:NERDTreeIgnoreOff=['.configcache', '.nyc_output', '\.vim$', '\~$', './tags', '\.log$', '\.git$',
+  \ '\.sass-cache$', '\.js\.map$', '\.docz']
 let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
@@ -861,8 +865,6 @@ autocmd User Node
 
 " common functions
 function! RefreshNerdTree()
-  echo 'refreshing nerd tree'
-
   if exists('t:NERDTreeBufName')
     :NERDTreeFocus
     call feedkeys("R")
@@ -878,7 +880,8 @@ let g:NERDTreeIgnore = g:NERDTreeIgnoreOn
 function! ToggleAgSkipVcsIgnores()
   if g:ag_skip_vcs_ignores == 0
     let g:ackprg = g:ackprg . " --all-text"
-    let g:ctrlp_user_command = g:ctrlp_user_command . " --all-text"
+    " Slow to index node_modules directory
+    " let g:ctrlp_user_command = g:ctrlp_user_command . " --all-text"
     let g:ag_skip_vcs_ignores = 1
     let g:NERDTreeRespectWildIgnore = 0
     let g:NERDTreeIgnore = g:NERDTreeIgnoreOff
@@ -914,7 +917,7 @@ endfunction
 
 command! -nargs=0 ToggleTypeScriptProject :call ToggleTypeScriptProject()
 
-if !empty(glob("./**/*/tsconfig.json"))
+if filereadable("./tsconfig.json") || filereadable("./server/tsconfig.json") || filereadable("./client/tsconfig.json")
    call ToggleTypeScriptProject()
 endif
 
@@ -1009,6 +1012,9 @@ let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#parser = 'flow'
 " disable prettier validation, use ale instead
 let g:prettier#exec_cmd_async = 1
+
+" vim-instant-markdown
+let g:instant_markdown_autostart = 0
 
 " Temporary workaround for python 3.7 deprecated warning:
 " https://github.com/vim/vim/issues/3117#issuecomment-402622616

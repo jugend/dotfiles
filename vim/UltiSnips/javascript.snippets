@@ -419,9 +419,9 @@ snippet rtcoms "Stateless Component Template"
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ${1:Component} = (props) => (
+function ${1:Component}(props) {
   $2
-)
+}
 
 $1.propTypes = {
   ${3:name}: PropTypes.${4:string}.isRequired
@@ -536,6 +536,10 @@ import React from 'react'
 $2
 endsnippet
 
+snippet rimp "import PropTypes from 'prop-types'"
+import PropTypes from 'prop-types'
+endsnippet
+
 snippet rimc "import React, { Component } from 'react'"
 import React, { Component } from 'react'
 $2
@@ -553,7 +557,11 @@ endsnippet
 
 snippet rimi "import {IntlProvider, FormattedNumber, FormattedPlural}" b
 import ${1:IntlProvider}${2:, FormattedNumber}${3:, FormattedPlural }from 'react-intl'
+endsnippet
 
+# Paypal
+snippet pimgcont "import { Message$2 }" b
+import { Message$1 } from 'griffin-content-react'$2
 endsnippet
 
 snippet rprop "ClassName.propTypes = {}"

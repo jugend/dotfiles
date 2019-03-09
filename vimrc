@@ -275,7 +275,7 @@ nnoremap <leader>nl :call ToggleAgSkipLocales()<cr>
 nnoremap <leader>nt :call ToggleTypeScriptProject()<cr>
 
 nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
+nnoremap <leader><leader>w :w\|Prettier<cr>
 nnoremap <leader>q! :qa!<cr>
 nnoremap <leader><leader>q :qa<cr>
 nnoremap <leader><leader>q! :qa!<cr>
@@ -285,7 +285,7 @@ nnoremap <leader>h :h<space>
 nnoremap <leader>H :Dash<space>
 nnoremap <leader><leader>h :Dash<cr>
 nnoremap <leader><leader>bd :bd<cr>
-nnoremap <leader><leader>bD :bd!<cr>
+nnoremap <leader><leader>bq :bq<cr>
 nnoremap <leader><leader>ba :ba<cr>
 nnoremap <leader><leader>bo :bufdo<space>
 nnoremap <leader><leader>br :bufdo e!<cr>
@@ -421,6 +421,7 @@ nnoremap <leader><leader>4 :set foldlevel=4<cr>
 nnoremap <leader><leader>5 :set foldlevel=5<cr>
 nnoremap <leader><leader>9 :set foldlevel=99<cr>
 nnoremap <leader><leader>f zA
+nnoremap <leader><leader>c zc
 
 " Move lines
 nnoremap <leader>gj :m .+1<CR>==
@@ -801,7 +802,7 @@ let g:ctrlp_working_path_mode = 'rw'
 
 " Doesn't work with ag search, use .agitignore
 " let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Storegit|hg|svn|optimized|compiled|node_modules|locales)$'
-"
+
 " Auto clear cache on write
 " function! SetupCtrlP()
 "   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
@@ -879,9 +880,11 @@ let g:NERDTreeIgnore = g:NERDTreeIgnoreOn
 
 function! ToggleAgSkipVcsIgnores()
   if g:ag_skip_vcs_ignores == 0
-    let g:ackprg = g:ackprg . " --all-text"
+    let l:path_to_ignore = ' --ignore node_modules'
+    let g:ackprg = g:ackprg . " --skip-cvs-ignore" . l:path_to_ignore
     " Slow to index node_modules directory
-    " let g:ctrlp_user_command = g:ctrlp_user_command . " --all-text"
+    let g:ctrlp_user_command = g:ctrlp_user_command . " --skip-vcs-ignore" . l:path_to_ignore
+    " echo g:ctrlp_user_command
     let g:ag_skip_vcs_ignores = 1
     let g:NERDTreeRespectWildIgnore = 0
     let g:NERDTreeIgnore = g:NERDTreeIgnoreOff

@@ -39,7 +39,7 @@ extract () {
    fi
 }
 
-cvim() {
+vd() {
   cd $1; vim
 }
 
@@ -132,19 +132,32 @@ browsersyncproxy() {
 }
 
 nmod() {
-    cd node_modules/$1
+  cd node_modules/$1
 }
 
 bbuser() {
-    output=$(npm run user $1 2>&1)
-    echo "$output"
-    echo "$output" | grep User: |  awk '{print $2}' | sed 's/,$//' | pbcopy
+  output=$(npm run user $1 2>&1)
+  echo "$output"
+  echo "$output" | grep User: |  awk '{print $2}' | sed 's/,$//' | pbcopy
 }
 
 addprettier() {
-    yarn add eslint prettier eslint-plugin-prettier eslint-config-prettier babel-eslint --dev
-    printf '{\n  "parser": "babel-eslint",\n  "plugins": ["prettier"],\n  "rules": {\n    "prettier/prettier": "error"\n  }\n}' > .eslintrc
-    printf '{\n  "semi": false,\n  "singleQuote": true\n}' > .prettierrc
+  yarn add eslint prettier eslint-plugin-prettier eslint-config-prettier babel-eslint --dev
+  printf '{\n  "parser": "babel-eslint",\n  "plugins": ["prettier"],\n  "rules": {\n    "prettier/prettier": "error"\n  }\n}' > .eslintrc
+  printf '{\n  "semi": false,\n  "singleQuote": true\n}' > .prettierrc
+}
+
+# find
+fname() {
+  find . -name "$1"
+}
+
+fdir() {
+  find . -type d -name "$1"
+}
+
+ffile() {
+  find . -type f -name "$1"
 }
 
 if [ -f ~/.aliases.local ]; then

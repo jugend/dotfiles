@@ -1,3 +1,5 @@
+
+
 """""""""""""""""""""""'
 " vimrc
 "
@@ -443,15 +445,14 @@ nnoremap <leader>fcon :/console.log<cr>
 
 " Space to toggle folds
 nnoremap <leader><leader><leader> :call ToggleFoldLevel()<cr>
-nnoremap <leader><leader>o zO
-nnoremap <leader><leader>O :!open %<cr>
-nnoremap <leader><leader>Od :!open .<cr>
+nnoremap <expr><leader><leader>o ":exe ':!open %'\n:redraw\<CR>"
+nnoremap <expr><leader><leader>od ":exe ':!open .'\n:redraw\<CR>"
 
 function! ToggleFoldLevel()
   if &foldlevel
-      setlocal foldlevel=0
+    setlocal foldlevel=0
   else
-      setlocal foldlevel=99
+    setlocal foldlevel=99
   endif
 endfunction
 
@@ -510,6 +511,7 @@ nnoremap <leader>9 :tabn 9<cr>
 nnoremap <leader>0 :tablast<cr>
 
 nnoremap <leader>t :tabnew<cr>
+nnoremap <leader><leader>t :tabnew %<cr>
 nnoremap <leader>te :tabedit<space>
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tol :tabonly<cr>
@@ -880,8 +882,8 @@ let g:NERDTreeIgnore = g:NERDTreeIgnoreOn
 
 function! ToggleAgSkipVcsIgnores()
   if g:ag_skip_vcs_ignores == 0
-    let l:path_to_ignore = ' --ignore node_modules'
-    let g:ackprg = g:ackprg . " --skip-cvs-ignore" . l:path_to_ignore
+    let l:path_to_ignore = ' --ignore node_modules --ignore .git'
+    let g:ackprg = g:ackprg . " --skip-vcs-ignore" . l:path_to_ignore
     " Slow to index node_modules directory
     let g:ctrlp_user_command = g:ctrlp_user_command . " --skip-vcs-ignore" . l:path_to_ignore
     " echo g:ctrlp_user_command
@@ -891,7 +893,7 @@ function! ToggleAgSkipVcsIgnores()
   else
     let g:ackprg = 'ag --vimgrep'
     let g:NERDTreeRespectWildIgnore = 1
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup --hidden -g ""'
+    let g:ctrlp_user_command = g:vim_ctrlp_user_command_prefix
     let g:ag_skip_vcs_ignores = 0
     let g:NERDTreeIgnore = g:NERDTreeIgnoreOn
   endif

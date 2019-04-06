@@ -319,23 +319,27 @@ export function ${1:name}($2) {
 }$0
 endsnippet
 
-snippet exd "export default"
+snippet exd "export default" b
 export default $1
 endsnippet
 
-snippet exdfun "export default function funcName() { ... }"
+snippet exdd "export default" b
+export { default as $1 } from './$1'
+endsnippet
+
+snippet exdfun "export default function funcName() { ... }" b
 export default function ${1:name}(${2:arg}) {
   $3
 }$0
 endsnippet
 
-snippet exdclas "export default class"
+snippet exdclas "export default class" b
 export default class ${1:ClassName} {
   $2
 }$0
 endsnippet
 
-snippet exdcpar "export default class Class extends Parent"
+snippet exdcpar "export default class Class extends Parent" b
 export default class ${1:ClassName} extends ${2:Parent} {
   $3
 }$0
@@ -377,13 +381,6 @@ endsnippet
 
 snippet stat "static name = value" b
 static ${1:name} = ${2:value}
-endsnippet
-
-snippet const "constructor() {}"
-constructor(${1:props}) {
-  super(${2:props})
-  $3
-}$0
 endsnippet
 
 snippet fn "function name() { }" i
@@ -445,17 +442,25 @@ export default $1
 endsnippet
 
 snippet rcom "class ClassName extends Component"
+import React from 'react'
+
 class ${1:ClassName} extends React.Component {
   render() {
-    return $2
+    return (
+      $2
+    )
   }
 }
+
+export default $1
 endsnippet
 
 snippet rcome "class ClassName extends Component"
 class ${1:ClassName} extends Reeact.Component {
   render() {
-    return $2
+    return (
+      $2
+    )
   }
 }
 
@@ -488,6 +493,13 @@ this.setState({
 })$0
 endsnippet
 
+# React Components
+snippet rfrag "<>..</>"
+<>
+  $1
+</>
+endsnippet
+
 # React Native
 snippet rnim "import { View } from 'react-native'"
 import { View$1 } from 'react-native'
@@ -504,24 +516,6 @@ import { View, Text$1 } from 'react-native'
 $2
 endsnippet
 
-# React-Redux
-snippet rimredc "import { connect } from 'react-redux'" b
-import { connect } from 'reaact-redux'$0
-endsnippet
-
-snippet rimredp "import { Provider } from 'react-redux'" b
-import { Provider } from 'react-redux'$0
-endsnippet
-
-# Redux
-snippet rimredcs "import { createStore } from 'redux'" b
-import { createStore } from 'redux'$0
-endsnippet
-
-snippet rimredcom "import { combineReducers } from 'redux'" b
-import { combineReducers } from 'redux'$0
-endsnippet
-
 snippet redmstate "const mapStateToProps = (state) => {...}" b
 const mapStateToProps = (state) => {
   $1
@@ -533,6 +527,7 @@ snippet rsp "{' '}" i
 {' '}
 endsnippet
 
+# React imports
 snippet rim "import React from 'react'"
 import React from 'react'
 $2
@@ -554,11 +549,31 @@ endsnippet
 
 snippet rimd "import ReactDOM"
 import ReactDOM from 'react-dom'
-
+$2
 endsnippet
 
 snippet rimi "import {IntlProvider, FormattedNumber, FormattedPlural}" b
 import ${1:IntlProvider}${2:, FormattedNumber}${3:, FormattedPlural }from 'react-intl'
+endsnippet
+
+snippet rimredc "import { connect } from 'react-redux'" b
+import { connect } from 'reaact-redux'$0
+endsnippet
+
+snippet rimredp "import { Provider } from 'react-redux'" b
+import { Provider } from 'react-redux'$0
+endsnippet
+
+snippet rimredcs "import { createStore } from 'redux'" b
+import { createStore } from 'redux'$0
+endsnippet
+
+snippet rimredcom "import { combineReducers } from 'redux'" b
+import { combineReducers } from 'redux'$0
+endsnippet
+
+snippet rimes "import styled from '@emotion/styled'" b
+import styled from '@emotion/styled'$0
 endsnippet
 
 # Paypal
@@ -634,12 +649,25 @@ PropTypes.array.isRequired
 endsnippet
 
 # Methods
-snippet rcon "constructor(props, context) { ... }"
+snippet rcon "constructor() {}"
+constructor() {
+  super()
+  $1
+}$0
+endsnippet
+
+snippet rconp "constructor(props) {}"
+constructor(${1:props}) {
+  super(${2:props})
+  $3
+}$0
+endsnippet
+
+snippet rconpc "constructor(props, context) { ... }"
 constructor(props, context) {
   super(props, context)
   $1
 }$0
-
 endsnippet
 
 snippet rcprop "const { ... } = this.props" i
@@ -1170,9 +1198,13 @@ snippet esdl "// eslint-disable-next-line"
 // eslint-disable-next-line $1
 endsnippet
 
-# PP: React Griffin
+# PP: React Libraries
 snippet rimgm "import { Message } from 'griffin-content-react'" b
 import { Message } from 'griffin-content-react'
+endsnippet
+
+snippet rimpre "import { ... } from 'pp-react'" b
+import { $1 } from 'pp-react'
 endsnippet
 
 # PP: pp-app-ui

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 function setup() {
-  for file in {aliases,bash_profile,bash_prompt,bashrc,ctags,functions,git_completion,gitconfig,gitignore,inputrc,node-inspectorrc,slate,tmux.conf,rvmrc,vimrc,vimrc.bundles,eslintrc,tern-project,ignore,mostrc,xvimrc}; do
+  for file in {aliases,bash_profile,bash_prompt,bashrc,ctags,functions,git_completion,gitconfig,gitignore,inputrc,node-inspectorrc,slate,tmux.conf,rvmrc,vimrc,vimrc.bundles,eslintrc,tern-project,agignore,mostrc,xvimrc}; do
     if [ -r "$file" ] && [ -f "$file" ]; then
       echo "Link ~/.$file -> $PWD/$file"
-      ln -sf $PWD/../$file ~/.$file
+      ln -sf $PWD/$file ~/.$file
     fi;
   done;
 
@@ -15,16 +15,15 @@ function setup() {
     [ -d ~/.vim ] || mkdir .vim
     if [ -d "$dir" ]; then
       echo "Link ~/.$dir -> $PWD/$dir"
-      ln -sfn $PWD/../$dir ~/.$dir
+      ln -sfn $PWD/$dir ~/.$dir
     fi;
   done;
 
   file=editorconfig
   if [ -r "vim/$file" ] && [ -f "vim/$file" ]; then
     echo "Link ~/.vim/.$file -> $PWD/$file"
-    ln -sf $PWD/../vim/$file ~/.vim/.$file
-  fi;
-
+    ln -sf $PWD/vim/$file ~/.vim/.$file
+  fi
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

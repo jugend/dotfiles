@@ -43,9 +43,6 @@ Plugin 'hail2u/vim-css3-syntax'
 " Plugin 'vividchalk.vim'
 " Plugin 'tomasr/molokai'
 
-" Live Markdown preview
-Plugin 'suan/vim-instant-markdown'
-
 " A Vim plugin which shows a git diff in the gutter (sign column)
 Plugin 'airblade/vim-gitgutter'
 

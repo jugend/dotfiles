@@ -59,7 +59,7 @@ npmsummary() {
   npm info $1 version repository.url
 }
 
-pagrep() {
+pjgrep() {
   cat package.json | jq .$1
 }
 

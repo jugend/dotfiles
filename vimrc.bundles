@@ -28,13 +28,16 @@ Plugin 'digitaltoad/vim-pug'
 " Plugin 'jvirtanen/vim-octave'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'jxnblk/vim-mdx-js'
+Plugin 'jparise/vim-graphql'
 
 " HAML, SASS, SCSS support for Vim
 Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
-Plugin 'kchmck/vim-coffee-script'
+" Plugin 'kchmck/vim-coffee-script'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'flowtype/vim-flow'
+Plugin 'leafgarland/typescript-vim'
+" Plugin 'peitalin/vim-jsx-typescript'
 
 " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
 Plugin 'hail2u/vim-css3-syntax'

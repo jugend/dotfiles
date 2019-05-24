@@ -77,7 +77,6 @@ alias valias='vi ~/.aliases'
 alias valiasl='vi ~/.aliases.local'
 alias valiasp='vi ~/.aliases.private'
 alias vbash='vi ~/.bash_profile'
-alias vbashl='vi ~/.bash_profile.local'
 alias vvimrc='vi ~/.vimrc'
 alias vvbundle='vi ~/.vimrc.bundles'
 alias vfunc='vi ~/.functions'
@@ -219,6 +218,7 @@ alias dndapp='DEBUG=express:* ndapp'
 
 # Npm
 alias ni='npm install'
+alias nin='npm info'
 alias nity='npm init -y'
 alias nig='npm install -g'
 alias nis='npm install --save'
@@ -537,7 +537,7 @@ alias grss='git reset --soft'
 alias grsm='git reset --mixed'
 alias grshard='git reset --hard'
 alias grshead='git reset HEAD'
-# Revert to previous commit
+# Revert to revious commit
 alias grshead1='git reset HEAD~'
 alias grsohead='git reset --hard ORIG_HEAD'
 
@@ -546,6 +546,8 @@ alias grbcon='git rebase --continue'
 alias grbi='git rebase -i'
 alias grb2='git rebase -i HEAD~2'
 alias grb3='git rebase -i HEAD~3'
+alias grb4='git rebase -i HEAD~4'
+alias grb5='git rebase -i HEAD~5'
 alias gcfrb2='gc "fix" && grb2'
 
 alias grm='git remote'
@@ -666,9 +668,9 @@ alias dwrite='defaults write -g'
 alias get='curl -v -k'
 alias post='curl -v -k -XPOST'
 alias put='curl -v -k -XPUT'
-alias patch='curl -v -k -XPATCH'
+alias cpatch='curl -v -k -XPATCH'
 alias del='curl -v -k -XDELETE'
 getj () { curl -v -k -H "Content-Type: application/json" $1 $2 | jq; }
 postj () { curl -v -k -XPOST -H "Content-Type: application/json" -d $1 $2 | jq; }
 putj () { curl -v -k -XPUT -H "Content-Type: application/json" -d $1 $2 | jq; }
-patchj () { curl -v -k -XPATCH -H "Content-Type: application/json" -d $1 $2 | jq; }
+cpatchj () { curl -v -k -XPATCH -H "Content-Type: application/json" -d $1 $2 | jq; }

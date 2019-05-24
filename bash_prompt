@@ -22,7 +22,7 @@ node_version() {
   fi
 }
 
-PS1="\[\033[0m\][\h] \[\033[34m\]\W \$(git_branch)\[\033[0m\]\$(node_version)\[\033[0m\] $ "
+PS1="\[\033[0m\][\h] \[\033[34m\]\W \$(git_branch)\[\033[0m\]\$(node_version) $(ruby_version)\[\033[0m\] $ "
 
 if [[ !$TERM_PROGRAM =~ Apple_Terminal ]]; then
  export LSCOLORS=Gxfxcxdxbxegedabagacad

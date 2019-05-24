@@ -142,6 +142,10 @@ catch((err) => {
 })$0
 endsnippet
 
+snippet tne "throw new Error(message)" b
+throw new Error($1)
+endsnippet
+
 # Kraken
 snippet rdeb "req.log('debug', ...)" b
 req.log('debug', ${1:Object})
@@ -537,6 +541,10 @@ snippet rimp "import PropTypes from 'prop-types'"
 import PropTypes from 'prop-types'
 endsnippet
 
+snippet rims "import styled from '@emotion/styled'"
+import styled from '@emotion/styled'
+endsnippet
+
 snippet rimc "import React, { Component } from 'react'"
 import React, { Component } from 'react'
 $2
@@ -657,9 +665,9 @@ constructor() {
 endsnippet
 
 snippet rconp "constructor(props) {}"
-constructor(${1:props}) {
-  super(${2:props})
-  $3
+constructor(props) {
+  super(props)
+  $1
 }$0
 endsnippet
 

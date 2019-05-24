@@ -1,5 +1,3 @@
-
-
 """""""""""""""""""""""'
 " vimrc
 "
@@ -64,11 +62,11 @@ au BufNewFile,BufRead *.jake,*.param set filetype=perl
 au BufNewFile,BufRead *.ros set filetype=html
 au BufNewFile,BufRead *.nools set filetype=javascript
 au BufNewFile,BufRead *.es6 set filetype=javascript.jsx
+au BufNewFile,BufRead *.prisma set filetype=graphql
 
 "" extra auto command
 au BufNewFile *.pl,*.cgi s,^,#!/usr/local/bin/perl -w\r#\r\ruse strict;\r\r,
 au BufNewFile *.sh s,^,#!/bin/sh\r#\r\r,
-au BufNewFile,BufRead *.jake,*.param,*.ros set filetype=html
 au BufNewFile,BufRead *.jake,*.param,*.ros set filetype=html
 
 " fdoc is yaml
@@ -287,6 +285,7 @@ nnoremap <leader>h :h<space>
 nnoremap <leader>H :Dash<space>
 nnoremap <leader><leader>h :Dash<cr>
 nnoremap <leader><leader>bd :bd<cr>
+nnoremap <leader><leader>bD :bd!<cr>
 nnoremap <leader><leader>bq :bq<cr>
 nnoremap <leader><leader>ba :ba<cr>
 nnoremap <leader><leader>bo :bufdo<space>
@@ -339,6 +338,7 @@ nnoremap <leader>E :e!<cr>
 nnoremap <leader>er :e README.md<cr>
 nnoremap <leader>ec :e CHANGELOG.md<cr>
 nnoremap <leader>ep :e package.json<cr>
+nnoremap <leader>epl :e package-lock.json<cr>
 nnoremap <leader>epc :e client/package.json<cr>
 nnoremap <leader>eps :e server/package.json<cr>
 nnoremap <leader>et :e tsconfig.json<cr>
@@ -647,7 +647,11 @@ let g:ale_emit_conflict_warnings = 0
 " set completeopt=menu,menuone,preview,noselect,noinsert
 
 " let g:ale_linters = {'javascript': ['eslint', 'prettier']}
-let g:ale_linters = {'javascript': ['eslint', 'prettier', 'flow']}
+let g:ale_linters = {
+    \ 'javascript': ['eslint', 'prettier', 'flow'],
+    \ 'typescript': ['tslint']
+  \ }
+
 let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
 
 " let g:ale_set_loclist = 0
@@ -655,7 +659,11 @@ let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
 let g:ale_open_list = 1
 " Onlyt tsserver for Typescript code is supported for completion
 " Disable, let YCM handle
-" let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
+
+" Typescript support
+" Default: '' - tslint.json
+let g:ale_typescript_tslint_config_path = 'tsconfig.json'
 
 if executable('node_modules/.bin/tslint')
   let g:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
@@ -1012,7 +1020,7 @@ let g:prettier#config#bracket_spacing = 'true'
 " put > on the last line instead of new line
 let g:prettier#config#jsx_bracket_same_line = 'true'
 " none|es5|all
-let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#trailing_comma = 'all'
 " flow|babylon|typescript|postcss|json|graphql
 let g:prettier#config#parser = 'flow'
 " disable prettier validation, use ale instead

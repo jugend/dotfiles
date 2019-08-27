@@ -37,7 +37,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'flowtype/vim-flow'
 Plugin 'leafgarland/typescript-vim'
-" Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'peitalin/vim-jsx-typescript'
 
 " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
 Plugin 'hail2u/vim-css3-syntax'

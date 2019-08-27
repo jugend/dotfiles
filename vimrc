@@ -62,6 +62,7 @@ au BufNewFile,BufRead *.jake,*.param set filetype=perl
 au BufNewFile,BufRead *.ros set filetype=html
 au BufNewFile,BufRead *.nools set filetype=javascript
 au BufNewFile,BufRead *.es6 set filetype=javascript.jsx
+au BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 au BufNewFile,BufRead *.prisma set filetype=graphql
 
 "" extra auto command
@@ -275,9 +276,10 @@ nnoremap <leader>nl :call ToggleAgSkipLocales()<cr>
 nnoremap <leader>nt :call ToggleTypeScriptProject()<cr>
 
 nnoremap <leader>w :w<cr>
+nnoremap <leader>wr <C-w>x<cr>
 nnoremap <leader><leader>w :w\|Prettier<cr>
 nnoremap <leader>q! :qa!<cr>
-nnoremap <leader><leader>q :qa<cr>
+nnoremap <leader><leader> :qa<cr>
 nnoremap <leader><leader>q! :qa!<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader><leader>x :xa<cr>
@@ -305,6 +307,7 @@ nnoremap <leader>fsh :set ft=sh<cr>
 nnoremap <leader>fjs :set ft=javascript<cr>
 nnoremap <leader>fjo :set ft=json<cr>
 nnoremap <leader>fjx :set ft=jsx<cr>
+nnoremap <leader>ftx :set ft=typescript.tsx<cr>
 nnoremap <leader>fw :Ack <C-r><C-w><cr>
 nnoremap <leader>jl <S-j>dw
 nnoremap <leader>r :%s/
@@ -358,7 +361,7 @@ nnoremap <leader>el :!eslint %<cr>
 nnoremap <leader>es :e ~/.slate<cr>
 nnoremap <leader>eu :UltiSnipsEdit<cr>
 nnoremap <leader>N :nohlsearch<cr>
-nnoremap <leader>n />>><cr>
+" nnoremap <leader>n />>><cr>
 nnoremap <leader>ch :helpc<cr>
 nnoremap <leader>hg :helpg<space>
 nnoremap <leader>hf :help function-list<cr>
@@ -512,14 +515,16 @@ nnoremap <leader>0 :tablast<cr>
 
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader><leader>t :tabnew %<cr>
-nnoremap <leader>te :tabedit<space>
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tol :tabonly<cr>
 nnoremap <leader>tn :tabnext<cr>
 nnoremap <leader>tp :tabprevious<cr>
+nnoremap <leader>n :tabprevious<cr>
 nnoremap <leader>tf :tabfirst<cr>
 nnoremap <leader>tl :tablast<cr>
-nnoremap <leader>tm :tabedit %<cr>
+nnoremap <leader>te :tabedit %<cr>
+" Same with tabedit %
+nnoremap <leader>ts :tab split<cr>
 
 " Tern mapping
 nnoremap <leader><leader>rd :TernDoc<cr>
@@ -649,7 +654,8 @@ let g:ale_emit_conflict_warnings = 0
 " let g:ale_linters = {'javascript': ['eslint', 'prettier']}
 let g:ale_linters = {
     \ 'javascript': ['eslint', 'prettier', 'flow'],
-    \ 'typescript': ['tslint']
+    \ 'typescript': ['tsc', 'tslint'],
+    \ 'typescript.tsx': ['tslint', 'tsc']
   \ }
 
 let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
@@ -663,7 +669,7 @@ let g:ale_completion_enabled = 1
 
 " Typescript support
 " Default: '' - tslint.json
-let g:ale_typescript_tslint_config_path = 'tsconfig.json'
+" let g:ale_typescript_tslint_config_path = 'tsconfig.json'
 
 if executable('node_modules/.bin/tslint')
   let g:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
@@ -674,9 +680,9 @@ endif
 
 
 " Let Ale handle typescript check
-" if executable('./node_modules/.bin/tsc')
-"   let g:syntastic_typescript_tsc_exec = './node_modules/.bin/tsc'
-" endif
+if executable('./node_modules/.bin/tsc')
+  let g:syntastic_typescript_tsc_exec = './node_modules/.bin/tsc'
+endif
 
 " let g:syntastic_ruby_checkers = ['rubocop', 'ruby-lint']
 " let g:syntastic_objc_checkers = ['oclint']
@@ -728,7 +734,10 @@ let g:user_emmet_settings = {
 
 " The Silver Searcher
 if executable('ag')
-  let g:ackprg = 'ag --nogroup --nocolor --column'
+  " Global original state of ackprg
+  let g:vim_ackprg = 'ag --nogroup --nocolor --column'
+  let g:vim_ackprg_ignore_locales = g:vim_ackprg . ' --ignore=locales'
+  let g:ackprg = g:vim_ackprg_ignore_locales
 
   let g:vim_ctrlp_command_prefix = 'ag %s -l --nocolor --nogroup --hidden -g ""'
 
@@ -739,10 +748,12 @@ if executable('ag')
 
   function! ToggleAgSkipLocales()
     if g:ag_skip_locales == 0
+      let g:ctrlp_user_command = substitute(g:ctrlp_user_command, ' --ignore=locales', '', 'g')
+      let g:ackprg = substitute(g:ackprg, ' --ignore=locales', '', 'g')
       let g:ag_skip_locales = 1
-      let g:ctrlp_user_command = g:vim_ctrlp_command_prefix
     else
-      let g:ctrlp_user_command = g:vim_ctrlp_command_prefix . ' --ignore=locales'
+      let g:ctrlp_user_command = g:ctrlp_user_command . ' --ignore=locales'
+      let g:ackprg = g:ackprg . ' --ignore=locales'
       let g:ag_skip_locales = 0
     endif
   endfunction
@@ -861,11 +872,12 @@ command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 " tabular
-vnoremap <leader>t= :Tabularize /=<cr>
-vnoremap <leader>t: :Tabularize /:<cr>
-vnoremap <leader>t- :Tabularize /-<cr>
-vnoremap <leader>ts :Tabularize / <cr>
-vnoremap <leader>tt :Tabularize /\t<cr>
+" Not using this
+" vnoremap <leader>t= :Tabularize /=<cr>
+" vnoremap <leader>t: :Tabularize /:<cr>
+" vnoremap <leader>t- :Tabularize /-<cr>
+" vnoremap <leader>ts :Tabularize / <cr>
+" vnoremap <leader>tt :Tabularize /\t<cr>
 
 " vim-node
 autocmd User Node
@@ -919,10 +931,14 @@ function! ToggleTypeScriptProject()
     call insert(g:NERDTreeIgnore, '\.js$', 0)
     call insert(g:NERDTreeIgnore, '\.d.ts$', 0)
     let g:is_typescript_project = 1
+    let g:ctrlp_user_command = g:vim_ctrlp_command_prefix . ' --ignore=*.js --ignore=*.map --ignore=locales'
+    let g:ackprg = g:vim_ackprg_ignore_locales . ' --ignore=*.js --ignore=*.map'
   else
     call remove(g:NERDTreeIgnore, 0)
     call remove(g:NERDTreeIgnore, 0)
     let g:is_typescript_project = 0
+    let g:ctrlp_user_command = g:vim_ctrlp_command_prefix
+    let g:ackprg = g:vim_ackprg_ignore_locales
   endif
 
   call RefreshNerdTree()
@@ -943,6 +959,26 @@ let g:tagbar_autofocus = 1
 " let g:tagbar_autoclose = 1
 let g:tagbar_previewwin_pos = "bottom"
 
+" Tagbar - Typescript, install tstags
+let g:tagbar_type_typescript = {
+  \ 'ctagsbin' : 'tstags',
+  \ 'ctagsargs' : '-f-',
+  \ 'kinds': [
+    \ 'e:enums:0:1',
+    \ 'f:function:0:1',
+    \ 't:typealias:0:1',
+    \ 'M:Module:0:1',
+    \ 'I:import:0:1',
+    \ 'i:interface:0:1',
+    \ 'C:class:0:1',
+    \ 'm:method:0:1',
+    \ 'p:property:0:1',
+    \ 'v:variable:0:1',
+    \ 'c:const:0:1',
+  \ ],
+  \ 'sort' : 0
+\ }
+
 " Markdown Preview
 let vim_markdown_preview_hotkey='<C-m>'
 let vim_markdown_preview_browser='Google Chrome'
@@ -950,6 +986,9 @@ let vim_markdown_preview_github=1
 
 " Dust.js
 let g:surround_{char2nr('d')} = "{\r}"
+
+" JSX comment, not supported in tsx
+autocmd FileType typescript.tsx let b:surround_47 = "{/* \r */}"
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort

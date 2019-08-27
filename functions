@@ -52,7 +52,7 @@ npmclone() {
 }
 
 npmopen() {
-  npmrepo $1 | sed "s/.git$//" | xargs open
+  npmrepo $1 | sed "s/.git$//" | sed "s/git:/https:/" | xargs open
 }
 
 npmsummary() {
@@ -158,6 +158,20 @@ fdir() {
 
 ffile() {
   find . -type f -name "$1"
+}
+
+b64() {
+  echo "$1" | base64 | pbcopy
+  pbpaste
+}
+
+b64d() {
+  echo "$1" | base64 -D | pbcopy
+  pbpaste
+}
+
+agfrm() {
+  agf $1 | xargs rm
 }
 
 if [ -f ~/.aliases.local ]; then

@@ -331,8 +331,8 @@ snippet exdd "export default" b
 export { default as $1 } from './$1'
 endsnippet
 
-snippet exdfun "export default function funcName() { ... }" b
-export default function ${1:name}(${2:arg}) {
+snippet exdff "export default function funcName() { ... }" b
+export default function ${1:name}(${2}) {
   $3
 }$0
 endsnippet
@@ -416,22 +416,33 @@ style={$1}
 endsnippet
 
 # React Templates
-snippet rtcoms "Stateless Component Template"
+snippet rcom "Stateless Component Template"
 import React from 'react'
-import PropTypes from 'prop-types'
 
-function ${1:Component}(props) {
-  $2
-}
-
-$1.propTypes = {
-  ${3:name}: PropTypes.${4:string}.isRequired
+function ${1}(props) {
+  return <div>$</div>
 }
 
 export default $1
 endsnippet
 
-snippet rtcom "Stateful Component Template"
+snippet rcomp "Stateless Component Template"
+import React from 'react'
+import PropTypes from 'prop-types'
+
+function ${1}(props) {
+  $2
+  return <div>$1</div>
+}
+
+$1.propTypes = {
+  $3
+}
+
+export default $1
+endsnippet
+
+snippet rcoms "Stateful Component Template"
 import React from 'react'
 
 class ${1:Component} extends Component {
@@ -445,7 +456,7 @@ class ${1:Component} extends Component {
 export default $1
 endsnippet
 
-snippet rcom "class ClassName extends Component"
+snippet rclass "class ClassName extends Component"
 import React from 'react'
 
 class ${1:ClassName} extends React.Component {
@@ -471,21 +482,20 @@ class ${1:ClassName} extends Reeact.Component {
 export default $1
 endsnippet
 
-snippet rcoms "function Component() { return {...} }" b
-import React from 'react'
-
-function ${1:Component}() {
-  $2
-}
-endsnippet
-
-snippet rcomse "const Component = () => { return (...) }" b
-const ${1:Component} = () => (
-  $2
-)
-
-export default $1
-endsnippet
+# snippet rcoms "function Component() { return {...} }" b
+# import React from 'react'
+#
+# function ${1:Component}() {
+#   $2
+# }
+# endsnippet
+#
+# snippet rcomse "const Component = () => { return (...) }" b
+# const ${1:Component} = () => (
+#   $2
+# )
+# export default $1
+# endsnippet
 
 snippet rst "Description" b
 this.setState({ $1 })
@@ -534,24 +544,55 @@ endsnippet
 # React imports
 snippet rim "import React from 'react'"
 import React from 'react'
-$2
+endsnippet
+
+snippet rimrh "import React, {...} from 'react'"
+import React, { $1 } from 'react'
+endsnippet
+
+snippet rimh "import {...} from 'react'"
+import { $1 } from 'react'
 endsnippet
 
 snippet rimp "import PropTypes from 'prop-types'"
 import PropTypes from 'prop-types'
 endsnippet
 
-snippet rims "import styled from '@emotion/styled'"
+snippet rimb "import { batch } from 'react-redux'"
+import { batch } from 'react-redux'
+endsnippet
+
+snippet rimud "import { useDispatch } from 'react-redux'"
+import { useDispatch } from 'react-redux'
+endsnippet
+
+snippet rimus "import { useSelector } from 'react-redux'"
+import { useSelector } from 'react-redux'
+endsnippet
+
+snippet rimred "import { useSelector, useDispatch } from 'react-redux'"
+import { useSelector, useDispatch } from 'react-redux'
+endsnippet
+
+snippet rimc "import cx from 'classnames'"
+import cx from 'classnames'
+endsnippet
+
+snippet rima "import PropTypes from 'prop-types'"
+import React from 'react'
+import PropTypes from 'prop-types'
+endsnippet
+
+snippet rimst "import styled from '@emotion/styled'"
 import styled from '@emotion/styled'
 endsnippet
 
-snippet rimc "import React, { Component } from 'react'"
-import React, { Component } from 'react'
-$2
+snippet rimcss "import { css } from '@emotion/core'"
+import { css } from '@emotion/core'
 endsnippet
 
-snippet rimcp "import React, { Component, PropTypes }"
-import React, { Component, PropTypes } from 'react'
+snippet rimcom "import React, { Component } from 'react'"
+import React, { Component } from 'react'
 $2
 endsnippet
 
@@ -580,18 +621,20 @@ snippet rimredcom "import { combineReducers } from 'redux'" b
 import { combineReducers } from 'redux'$0
 endsnippet
 
-snippet rimes "import styled from '@emotion/styled'" b
-import styled from '@emotion/styled'$0
-endsnippet
-
 # Paypal
 snippet pimgcont "import { Message$2 }" b
 import { Message$1 } from 'griffin-content-react'$2
 endsnippet
 
-snippet rprop "ClassName.propTypes = {}"
-${1:ClassName}.propTypes = {
+snippet rcl "class ComponentName extends React.Component { ... }"
+class $1 extends React.Component {
   $2
+}
+endsnippet
+
+snippet rprop "static propTypes = { ... }"
+static propTypes = {
+  $1
 }$0
 endsnippet
 
@@ -685,7 +728,7 @@ endsnippet
 snippet rren "render() { ... }"
 render() {
   return (
-    ${1:<div />}
+    $1
   )
 }$0
 endsnippet
@@ -696,12 +739,9 @@ return (
 )
 endsnippet
 
-snippet rrenv "render() { statement return( ... ) }"
+snippet rrens "render() { return( ... ) }"
 render() {
-  $1
-  return (
-    ${2:<div />}
-  )
+  return $1
 }$0
 endsnippet
 
@@ -840,7 +880,7 @@ snippet cle "console.error(object)"
 console.error(${1:object})$0
 endsnippet
 
-snippet cldiv "console.info('============')"
+snippet cll "console.info('============')"
 console.log('==================================================')$0
 endsnippet
 
@@ -853,7 +893,7 @@ console.log('${1:message}')$0
 endsnippet
 
 snippet cld "console.log('==================== NAME ====================')"
-console.log('==================== $1 ====================', $2)$0
+console.log('==================== $1 ====================')$0
 endsnippet
 
 snippet cg "console.group('name')" b
@@ -1206,20 +1246,46 @@ $1
 endsnippet
 
 # eslint
-snippet esdl "// eslint-disable-next-line"
+snippet esdnl "// eslint-disable-next-line"
 // eslint-disable-next-line $1
 endsnippet
 
 # PP: React Libraries
-snippet rimgm "import { Message } from 'griffin-content-react'" b
-import { Message } from 'griffin-content-react'
+snippet rimm "import { Message } from '@paypalcorp/griffin-react''" b
+import { Message$1 } from '@paypalcorp/griffin-react'
 endsnippet
 
-snippet rimpre "import { ... } from 'pp-react'" b
-import { $1 } from 'pp-react'
+snippet rimpre "import { ... } from '@paypalcorp/pp-react'" b
+import { $1 } from '@paypalcorp/pp-react'
 endsnippet
 
 # PP: pp-app-ui
-snippet rimaum "import { Modal } from 'pp-app-ui'" b
-import { Modal } from 'griffin-content-react'
+snippet rimaum "import { ...  } from '@paypalcorp/pp-app-ui'" b
+import { $1 } from '@paypalCorp/pp-app-ui'
+endsnippet
+
+# Templates
+snippet tcon "CONSTANT: 'CONSTANT'," b
+$1CONSTANT: 'CONSTANT',
+endsnippet
+
+snippet conf "const Fn = () => ()" b
+const $1 = ($2) => (
+  $3
+)
+endsnippet
+
+snippet confe "const Fn = () => ()" b
+const $1 = ($2) => {
+  $3
+}
+endsnippet
+
+# ESLint
+snippet esnin "/* eslint i18n-scan/no-inlinne-content: 0 */" b
+/* eslint i18n-scan/no-inline-content: 0 */
+endsnippet
+
+snippet esncon "/* eslint no-console: 0 */" b
+/* eslint no-console: 0 */
 endsnippet

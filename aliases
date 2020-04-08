@@ -1,4 +1,4 @@
-##
+#lj/es#
 # Commands
 ####################
 alias ..='cd ..'
@@ -37,11 +37,12 @@ alias duh1='du -hd 1'
 alias dfh='df -h'
 alias ecl='echo $?'
 alias agi='ag -i'
-alias agl='ag -l'
+alias aglg='ag -l -g' # Print filenames matching regex pattern
 alias agu='ag -u' # all, include hidden files
 alias aga='ag -a' # all, exclude hidden files
 alias agg='ag -G' # Search matching file pattern
-alias agf='ag -a -g' # Search filename
+alias agfa='ag -a -g' # Search filename
+alias agf='ag -g' # Search filename
 alias agh='ag -h'
 alias his='fc -l'
 alias les='less'
@@ -63,12 +64,12 @@ alias clipfile='pbcopy <'
 alias ctpro='ctagsproj'
 alias epath='echo $PATH'
 
-alias te='tree'
+alias tr='tree'
 alias t1='tree -L 1'
 alias t2='tree -L 2'
 alias t3='tree -L 3'
 
-alias cport='telnet localhost'
+alias thost='telnet localhost'
 
 # sudo
 alias sfname='sudo fname'
@@ -215,16 +216,23 @@ alias 8080="PORT=8080"
 alias 8081="PORT=8081"
 alias 8082="PORT=8082"
 
+alias 83="PORT=8443"
+alias 84="PORT=8444"
+alias 85="PORT=8445"
+
 alias debugnapp='DEBUG=express:* napp'
 alias dndapp='DEBUG=express:* ndapp'
 
 # Npm
+alias nl='npm list'
 alias ni='npm install'
 alias nin='npm info'
 alias nity='npm init -y'
 alias nig='npm install -g'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
+alias nisv='npm install --verbose'
+alias nisdv='nisd --verbose'
 alias nci='npm ci'
 alias nv='npm view'
 alias nsum='npmsummary'
@@ -241,6 +249,7 @@ alias nlgrep='npm list | grep'
 alias nt='npm test'
 alias nc='npm config'
 alias ncl='npm config list'
+alias ncgl='npm config --global list'
 alias npub='npm publish'
 alias npubt='npm publish --tag'
 alias npk='npm pack'
@@ -403,7 +412,7 @@ alias dubin='cd /usr/bin'
 alias dulbin='cd /usr/local/bin'
 
 # Sub-directories
-alias dmod='cd node_modules'
+alias dnod='cd node_modules'
 alias dex='cd examples'
 alias dbu='cd .build'
 
@@ -473,7 +482,7 @@ alias gbd='git branch -d'
 alias gba='git branch -a'
 alias gbsup='git branch --set-upstream'
 alias gbsumas='gbsu master origin/master'
-alias gbsd='git branch --sort=-committerdate'
+alias gbsort='git branch --sort=-committerdate'
 
 alias gc='git commit -v -m'
 alias gcn='git commit -v -n -m'
@@ -497,12 +506,14 @@ alias gfo='git fetch origin'
 alias gfu='git fetch upstream'
 alias gcp='git cherry-pick'
 
-alias gcnl='git config --list'
+alias gconl='git config --list'
 
 alias gd='git diff'
 alias gddev='git diff develop'
 alias gdhead='git diff HEAD'
 alias gdhead1='git diff HEAD~1'
+alias gdhead2='git diff HEAD~2'
+alias gdupd='git diff upstream/develop'
 
 alias gf='git fetch'
 alias gfop='git format-patch -1 | xargs cat'
@@ -510,9 +521,9 @@ alias gfup='git fetch upstream'
 
 alias gl='git log'
 alias glp='git log -p'
-alias glg='git log --pretty=format:'"'"'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"'"' --abbrev-commit'
+alias glgl='git log --pretty=format:'"'"'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"'"' --abbrev-commit'
 alias glgs='git log --pretty=format:%s'
-alias glgg='glg --graph'
+alias glg='glgl --graph'
 alias gld='git log  --decorate'
 
 alias gsh='git show'
@@ -554,11 +565,13 @@ alias grsohead='git reset --hard ORIG_HEAD'
 
 alias grb='git rebase'
 alias grbcon='git rebase --continue'
+alias grba='git rebase --abort'
 alias grbi='git rebase -i'
 alias grb2='git rebase -i HEAD~2'
 alias grb3='git rebase -i HEAD~3'
 alias grb4='git rebase -i HEAD~4'
 alias grb5='git rebase -i HEAD~5'
+alias grb6='git rebase -i HEAD~6'
 alias gcfrb2='gc "fix" && grb2'
 
 alias grm='git remote'
@@ -583,6 +596,9 @@ alias gtag='git tag'
 alias gtl='gtag --list'
 alias gtd='gtag --delete'
 alias gfrb2='gc "fix" && grb2'
+
+alias gsub='git submodule'
+alias gsubup='gsub update --init --recursive'
 
 gdpage() { git subtree push --prefix dist $1 gh-pages; }
 
@@ -673,7 +689,7 @@ alias bi='brew install'
 alias bci='brew cask install'
 
 # Mac OS X
-alias dread='defaults read -g'
+alias dread='defaults read NSGlobalDomain'
 alias dwrite='defaults write -g'
 
 # Curl
@@ -687,5 +703,8 @@ postj () { curl -v -k -XPOST -H "Content-Type: application/json" -d $1 $2 | jq; 
 putj () { curl -v -k -XPUT -H "Content-Type: application/json" -d $1 $2 | jq; }
 cpatchj () { curl -v -k -XPATCH -H "Content-Type: application/json" -d $1 $2 | jq; }
 
-# Dig
-alias digsa='dig +short A'
+# Network commands
+alias diga='dig ANY'
+alias digs='dig +short'
+alias digt='dig +trace'
+alias digsa='digs ANY'

@@ -75,6 +75,14 @@ gitdelremotetag() {
   git push origin :refs/tag/$1
 }
 
+gitsub() {
+  git subtree $1 --prefix $2 $3 master $4
+}
+
+gsapply() {
+  git stash apply stash@{$1}
+}
+
 ftpgetall() {
   # ftp://username:password@host/dir
   wget -r ftp://$1@$2/$3
@@ -157,7 +165,8 @@ fdir() {
 }
 
 ffile() {
-  find . -type f -name "$1"
+  # find . -type f -name "$1"
+  aglg $1
 }
 
 b64() {

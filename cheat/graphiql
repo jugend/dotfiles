@@ -1,0 +1,13 @@
+Shift-Ctrl-P : Prettify Query
+Ctrl-Enter : Run Query
+Ctrl-Space : Auto Complete
+Cmd-/ : comment out line
+Cmd-m : jump to end of current scope/beginning of scope
+Cmd-d : highlight current word
+Cmd-f : regex search
+Cmd-h : search + replace
+Cmd-j : bring next line up to current-line (spacing applied automatically)
+Cmd-k  (twice): deletes rest of line past cursor
+Cmd-l : highlight current line
+Cmd-[ : outdent current line
+Cmd-] : indent current line

@@ -424,6 +424,9 @@ nnoremap <leader><leader>2 :set foldlevel=2<cr>
 nnoremap <leader><leader>3 :set foldlevel=3<cr>
 nnoremap <leader><leader>4 :set foldlevel=4<cr>
 nnoremap <leader><leader>5 :set foldlevel=5<cr>
+nnoremap <leader><leader>6 :set foldlevel=6<cr>
+nnoremap <leader><leader>7 :set foldlevel=7<cr>
+nnoremap <leader><leader>8 :set foldlevel=8<cr>
 nnoremap <leader><leader>9 :set foldlevel=99<cr>
 nnoremap <leader><leader>f zA
 nnoremap <leader><leader>c zc
@@ -658,7 +661,7 @@ let g:ale_linters = {
     \ 'typescript.tsx': ['tslint', 'tsc']
   \ }
 
-let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
+let g:ale_fixers = {'javascript': ['eslint', 'prettier'], 'graphql': ['eslint', 'gqllint']}
 
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix =0
@@ -820,6 +823,11 @@ let g:ctrlp_use_caching = 0
 
 " neareset parent with .git
 let g:ctrlp_working_path_mode = 'rw'
+
+let g:ctrlp_prompt_mappings = {
+  \ 'PrtSelectMove("j")':   ['<c-j>', '<down>'],
+  \ 'PrtSelectMove("k")':   ['<c-k>', '<up>'],
+  \ }
 
 " Doesn't work with ag search, use .agitignore
 " let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Storegit|hg|svn|optimized|compiled|node_modules|locales)$'
@@ -1045,7 +1053,7 @@ inoremap <expr> <CR> Expander()
 
 " Prettier
 " max line lengh that prettier will wrap on
-let g:prettier#config#print_width = 80
+let g:prettier#config#print_width = 100
 " use tabs over spaces
 " number of spaces per indentation level
 let g:prettier#config#tab_width = 2
@@ -1064,6 +1072,8 @@ let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#parser = 'flow'
 " disable prettier validation, use ale instead
 let g:prettier#exec_cmd_async = 1
+" cli-override|file-override|prefer-file
+" let g:prettier#config#config_precedence = 'prefer-file'
 
 " vim-instant-markdown
 let g:instant_markdown_autostart = 0

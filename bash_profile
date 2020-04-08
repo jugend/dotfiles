@@ -116,3 +116,9 @@ stty -ixon -ixoff
 # Alt-h used by slate to switch focus, adding additional shortcut
 bind '"\ex": backward-delete-char'
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# To prevent unable to get local issuer certificate error
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
+# Default 9546 conflict with existing service
+export HEALTH_PORT=9547

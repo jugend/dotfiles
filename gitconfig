@@ -25,6 +25,7 @@
   pl = pull
   st = stash
   ui = update-index
+  ls-subtrees = !"git log | grep git-subtree-dir | tr -d ' ' | cut -d ":" -f2 | sort | uniq"
 
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
@@ -36,3 +37,5 @@
 [user]
 	email = hsiatono@paypal.com
 	name = Herryanto Siatono
+[http]
+	sslVerify = false

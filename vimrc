@@ -799,7 +799,7 @@ endif
 " NerdTree
 let NERDTreeShowHidden=1
 let g:NERDTreeIgnoreOn=['.configcache', '.nyc_output', 'node_modules', 'coverage', '\.vim$', '\~$', './tags',
-  \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '.cache', '.gh-pages', '\.js\.map$',
+  \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '\.cache', '\.gh-pages', '\.js\.map$',
   \ '\.docz']
 let g:NERDTreeIgnoreOff=['.configcache', '.nyc_output', '\.vim$', '\~$', './tags', '\.log$', '\.git$',
   \ '\.sass-cache$', '\.js\.map$', '\.docz']
@@ -1088,3 +1088,7 @@ endif
 " Disable flow validation error, let Ale handles it
 " Use vim-flow only for omni completion
 let g:flow#showquickfix = 0
+
+" Default markdown.mdx does not highlight javascript
+au BufNewFile,BufRead *.mdx set filetype=javascript.mdx
+

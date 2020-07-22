@@ -111,8 +111,9 @@ bind c:ctrl;alt              chain     ${centerTwoThird} | ${centerSevenEighth} 
 
 bind c:ctrl;shift             chain    ${center}
 
-bind p:ctrl;cmd              chain     ${offRightLarge} | ${offRightExtraLarge} | ${offRightMedium} | ${offRightSmall} | ${offRightExtraSmall}
-bind q:ctrl;cmd              chain     ${offLeftSmall} | ${offLeftMedium} | ${offLeftLarge} | ${offLeftExtraLarge}
+# Reduce window size from another direction
+# bind p:ctrl;cmd              chain     ${offRightLarge} | ${offRightExtraLarge} | ${offRightMedium} | ${offRightSmall} | ${offRightExtraSmall}
+# bind q:ctrl;cmd              chain     ${offLeftSmall} | ${offLeftMedium} | ${offLeftLarge} | ${offLeftExtraLarge}
 
 
 # Contract and Expand Bindings

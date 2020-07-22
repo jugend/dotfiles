@@ -146,6 +146,10 @@ snippet tne "throw new Error(message)" b
 throw new Error($1)
 endsnippet
 
+snippet jss "JSON.stringify(variable, null, 2)"
+JSON.stringify($1, null, 2)
+endsnippet
+
 # Kraken
 snippet rdeb "req.log('debug', ...)" b
 req.log('debug', ${1:Object})
@@ -317,7 +321,7 @@ snippet excon "export const" b
 export const $1 = $2
 endsnippet
 
-snippet exfun "export function name() { ... }" b
+snippet exfn "export function name() { ... }" b
 export function ${1:name}($2) {
   $3
 }$0
@@ -419,8 +423,10 @@ endsnippet
 snippet rcom "Stateless Component Template"
 import React from 'react'
 
-function ${1}(props) {
-  return <div>$</div>
+function ${1}() {
+  return (
+	$2
+  )
 }
 
 export default $1
@@ -643,59 +649,59 @@ props.children
 endsnippet
 
 # React: PropTypes
-snippet rpno "PropTypes.node"
+snippet propn "PropTypes.node"
 PropTypes.node
 endsnippet
 
-snippet rpnoi "PropTypes.node"
+snippet propnr "PropTypes.node"
 PropTypes.node.isRequired
 endsnippet
 
-snippet rpo "PropTypes.object"
+snippet propo "PropTypes.object"
 PropTypes.object
 endsnippet
 
-snippet rpor "PropTypes.object.isRequired"
+snippet propor "PropTypes.object.isRequired"
 PropTypes.object.isRequired
 endsnippet
 
-snippet rps "PropTypes.string"
+snippet props "PropTypes.string"
 PropTypes.string
 endsnippet
 
-snippet rpsr "PropTypes.string.isRequired"
+snippet propsr "PropTypes.string.isRequired"
 PropTypes.string.isRequired
 endsnippet
 
-snippet rpn "PropTypes.number"
+snippet propn "PropTypes.number"
 PropTypes.number
 endsnippet
 
-snippet rpnr "PropTypes.number.isRequired"
+snippet propnr "PropTypes.number.isRequired"
 PropTypes.number.isRequired
 endsnippet
 
-snippet rpb "PropTypes.bool"
+snippet propb "PropTypes.bool"
 PropTypes.bool
 endsnippet
 
-snippet rpbr "PropTypes.bool.isRequired"
+snippet propbr "PropTypes.bool.isRequired"
 PropTypes.bool.isRequired
 endsnippet
 
-snippet rpf "PropTypes.func"
+snippet propf "PropTypes.func"
 PropTypes.func
 endsnippet
 
-snippet rpfr "PropTypes.func.isRequired"
+snippet propfr "PropTypes.func.isRequired"
 PropTypes.func.isRequired
 endsnippet
 
-snippet rpb "PropTypes.array"
+snippet propa "PropTypes.array"
 PropTypes.array
 endsnippet
 
-snippet rpbr "PropTypes.array.isRequired"
+snippet propar "PropTypes.array.isRequired"
 PropTypes.array.isRequired
 endsnippet
 
@@ -869,15 +875,15 @@ endsnippet
 
 # console.log
 snippet cl "console.log(object)"
-console.log(${1:object})$0
+console.log(${1})$0
 endsnippet
 
 snippet cli "console.info(object)"
-console.info(${1:object})$0
+console.info(${1})$0
 endsnippet
 
 snippet cle "console.error(object)"
-console.error(${1:object})$0
+console.error(${1})$0
 endsnippet
 
 snippet cll "console.info('============')"

@@ -34,7 +34,7 @@ Plugin 'jparise/vim-graphql'
 Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
 " Plugin 'kchmck/vim-coffee-script'
-Plugin 'plasticboy/vim-markdown'
+" Plugin 'plasticboy/vim-markdown'
 Plugin 'flowtype/vim-flow'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
@@ -48,6 +48,7 @@ Plugin 'hail2u/vim-css3-syntax'
 
 " A Vim plugin which shows a git diff in the gutter (sign column)
 Plugin 'airblade/vim-gitgutter'
+" Plugin 'google/vim-codereview'
 
 " Formatting
 Plugin 'godlygeek/tabular'

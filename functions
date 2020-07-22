@@ -175,7 +175,7 @@ b64() {
 }
 
 b64d() {
-  echo "$1" | base64 -D | pbcopy
+  echo "$1" | base64 -D | jsonpp | pbcopy
   pbpaste
 }
 
@@ -186,3 +186,4 @@ agfrm() {
 if [ -f ~/.aliases.local ]; then
   . ~/.aliases.local
 fi
+

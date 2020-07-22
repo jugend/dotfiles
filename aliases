@@ -330,6 +330,7 @@ alias rhttpd='ruby -run -e httpd . -p 8080'
 
 # Misc
 alias patcha='patch -p 0 <'
+alias patch1='patch -p 1 <'
 
 # Screen cast your terminal
 alias startttycast='ttyreccast outfile.tty' # http://localhost:13377/
@@ -477,14 +478,17 @@ alias ga='git add'
 alias gad='git add .'
 alias gap='git add --patch'
 
-alias gb='git branch'
+alias gbr='git branch'
+alias gbm='git branch -m'
 alias gbd='git branch -d'
 alias gba='git branch -a'
 alias gbsup='git branch --set-upstream'
 alias gbsumas='gbsu master origin/master'
-alias gbsort='git branch --sort=-committerdate'
+alias gb='git branch --sort=-committerdate'
 
 alias gc='git commit -v -m'
+alias gcnv='gc --no-verify'
+alias gctemp='gc "fix(temp): Temp commit" --no-verify'
 alias gcn='git commit -v -n -m'
 alias gcall='git commit -v -a -m'
 alias gcam='git commit --amend'
@@ -548,11 +552,12 @@ alias gpl='git pull'
 alias gplo='git pull origin'
 alias gplodev='git pull origin develop'
 alias gplomas='git pull origin master'
-alias gplup='git pull upstream'
-alias gplupmas='git pull upstream master'
-alias gplrup='git pull --rebase upstream'
-alias gplrupdev='git pull --rebase upstream develop'
-alias gplrupmas='git pull --rebase upstream master'
+alias gplu='git pull upstream'
+alias gplu='git pull upstream'
+alias gplumas='git pull upstream master'
+alias gplru='git pull --rebase upstream'
+alias gplrudev='git pull --rebase upstream develop'
+alias gplrumas='git pull --rebase upstream master'
 
 alias grs='git reset'
 alias grss='git reset --soft'
@@ -568,6 +573,7 @@ alias grbcon='git rebase --continue'
 alias grba='git rebase --abort'
 alias grbi='git rebase -i'
 alias grb2='git rebase -i HEAD~2'
+alias grb2n='grb2 --no-verify'
 alias grb3='git rebase -i HEAD~3'
 alias grb4='git rebase -i HEAD~4'
 alias grb5='git rebase -i HEAD~5'
@@ -590,7 +596,7 @@ alias gsashowp='git stash show -p'
 
 alias glunt='git ls-files -v | grep "^h"'
 alias gaun='git update-index --assume-unchanged'
-alias garun='git update-index --no-assume-unchanged'
+alias ganun='git update-index --no-assume-unchanged'
 
 alias gtag='git tag'
 alias gtl='gtag --list'
@@ -605,7 +611,7 @@ gdpage() { git subtree push --prefix dist $1 gh-pages; }
 ###
 # Github Extension
 ################
-alias gbr='git browse'
+alias gbro='git browse'
 alias gf='git fork'
 alias gcr='git create'
 
@@ -695,6 +701,7 @@ alias dwrite='defaults write -g'
 # Curl
 alias get='curl -v -k'
 alias post='curl -v -k -XPOST'
+alias head='curl -v -k -XHEAD'
 alias put='curl -v -k -XPUT'
 alias cpatch='curl -v -k -XPATCH'
 alias del='curl -v -k -XDELETE'

@@ -27,4 +27,4 @@ brew install nginx
 brew install cmake
 
 brew tap homebrew/cask-versions
-brew cask install java
+brew cask install adoptopenjdk/openjdk

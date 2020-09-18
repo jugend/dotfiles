@@ -3,10 +3,11 @@
 
 # Will install tmux, nvm, and others
 * Install brew
-* Run ./brew_install.sh
+* Run ./bin/brew_install.sh
+* Install nvm
 * nvm install node
-* Run ./npm_install.sh
-* Setup rvm
+* Run ./bin/npm_install.sh
+* Install rvm
 
 ## Vim Setup
 * Setup Vundle

@@ -10,9 +10,11 @@ function setup() {
 
   echo ""
 
-  [ -d ~/.vim ] || mkdir .vim
+  if [ ! -d ~/.vim ]; then
+    mkdir ~/.vim
+  fi
+
   for dir in {tmuxinator,cheat,vim/UltiSnips,vim/colors,vim/autoload}; do
-    [ -d ~/.vim ] || mkdir .vim
     if [ -d "$dir" ]; then
       echo "Link ~/.$dir -> $PWD/$dir"
       ln -sfn $PWD/$dir ~/.$dir

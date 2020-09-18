@@ -26,5 +26,12 @@ brew install vim
 brew install nginx
 brew install cmake
 
+# Install Java
 brew tap homebrew/cask-versions
 brew cask install adoptopenjdk/openjdk
+
+# Install node
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+nvm install node
+nvm install 10

@@ -26,5 +26,5 @@ brew install vim
 brew install nginx
 brew install cmake
 
-brew tap homebrew/homebrew-cask-versions
+brew tap homebrew/cask-versions
 brew cask install java

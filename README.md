@@ -2,7 +2,7 @@
 ## Setup
 
 # Will install tmux, nvm, and others
-* Install brew, nvm, rvm
+* Install brew, rvm
 * Run the following:
 ```
 ./bin/brew_install.sh

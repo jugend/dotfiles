@@ -3,14 +3,7 @@
 
 # Will install tmux, nvm, and others
 * Install brew, rvm
-* Run the following:
-```
-./bin/brew_install.sh
-./bin/npm_install.sh
-./bin/setup_macos.sh
-./bin/link_dotfiles.sh
-nvm install node
-```
+* Run `./bin/setup.sh`
 
 ## Vim Setup
 * Setup Vundle

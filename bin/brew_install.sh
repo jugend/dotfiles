@@ -14,7 +14,6 @@ brew install reattach-to-user-namespace
 brew install macvim --override-system-vi
 brew install most
 brew install the_silver_searcher
-brew install tmux
 brew install tree
 brew install unrar
 brew install wget
@@ -25,6 +24,12 @@ brew install pipenv
 brew install vim
 brew install nginx
 brew install cmake
+
+# Install older version of brew, tmux.conf currenly only works with v2.4
+git clone https://github.com/Homebrew/homebrew-core.git /tmp/homebrew-core
+cd /tmp/homebrew-core
+git checkout 359b240959282dce71254d6b0e5210af9cedf4f6 Formula/tmux.rb
+brew install /tmp/homebrew-core/Formula/tmux.rb
 
 # Install Java
 brew tap homebrew/cask-versions

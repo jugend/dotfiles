@@ -93,7 +93,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
-Plugin 'MaxMEllon/vim-jsx-pretty'
+" Plugin 'MaxMEllon/vim-jsx-pretty'
 
 " Tags
 " Make use of jsctags to parse, slow to load especially for large files

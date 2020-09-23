@@ -39,3 +39,5 @@
 	name = Herryanto Siatono
 [http]
 	sslVerify = false
+[pull]
+	ff = only

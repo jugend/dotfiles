@@ -14,3 +14,7 @@ defaults write -g KeyRepeat -int 1
 # To read
 defaults read NSGlobalDomain KeyRepeat
 defaults read NSGlobalDomain InitialKeyRepeat
+
+# Disable accented character tooltip when press and hold a character
+defaults write -g ApplePressAndHoldEnabled -bool false
+

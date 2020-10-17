@@ -620,7 +620,7 @@ autocmd User Rails silent! Rnavcommand mediator       app/mediators             
 autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
 
 " better-whitespace
-let g:strip_whitespace_on_save = 1
+let g:strip_whitespace_on_save = 0
 let g:better_whitespace_filetypes_blacklist=['dustjs']
 
 " ragtag

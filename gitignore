@@ -12,6 +12,7 @@ yarn.lock
 
 # Directories
 node_modules
+test/functional/reports
 
 # Compiled Python files
 *.pyc
@@ -31,3 +32,4 @@ setenvs*
 octave-workspace
 .tmp/
 ccaggregator/
+.git/

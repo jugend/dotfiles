@@ -101,9 +101,9 @@ bind h:ctrl;cmd               chain    ${leftHalf} | ${leftTwoFifth} | ${leftOne
 bind l:ctrl;cmd               chain    ${rightHalf} | ${rightTwoFifth} | ${rightOneThird} | ${rightThreeTenth} | ${rightOneQuarter} | ${rightOneFifth} | ${rightOneSixth} | ${rightOneEighth} | ${rightThreeFifth} | ${rightTwoThird} | ${rightThreeQuarter}
 bind k:ctrl;cmd               chain    ${topTwoThirdHeight} | ${topHalfHeight} | ${fullHeight}
 bind j:ctrl;cmd               chain    ${bottomTwoThirdHeight} | ${bottomHalfHeight} | ${fullHeight}
-bind v:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 bind c:ctrl;cmd               chain    ${centerHalf} | ${centerOneThird} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind e:ctrl;cmd               chain    ${full} | ${centerThreeFifth} | ${centerTwoThird} | ${centerHalf} | ${centerOneThird}
+# bind v:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 
 bind h:ctrl;alt              chain     ${leftThreeFifth} | ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
 bind l:ctrl;alt              chain     ${rightThreeFifth} | ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}

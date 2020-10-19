@@ -33,7 +33,9 @@ brew install /tmp/homebrew-core/Formula/tmux.rb
 
 # Install Java
 brew tap homebrew/cask-versions
-brew cask install adoptopenjdk/openjdk
+brew tap adoptopenjdk/openjdk
+brew cask install adoptopenjdk
+brew cask install chromedriver
 
 # Install node
 export NVM_DIR=~/.nvm

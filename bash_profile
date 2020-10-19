@@ -122,3 +122,9 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 
 # Default 9546 conflict with existing service
 export HEALTH_PORT=9547
+
+# Suppress shell deprecation warning in Catalina
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+

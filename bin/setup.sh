@@ -1,3 +1,4 @@
+./bin/setup_base.sh
 ./bin/brew_install.sh
 ./bin/npm_install.sh
 ./bin/setup_macos.sh

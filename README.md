@@ -1,8 +1,7 @@
 # Herryanto's dotfiles
 ## Setup
 
-# Will install tmux, nvm, and others
-* Install brew, rvm
+* To setup brew, nvm, rvm, brew packages, npm packages and other settings
 * Run `./bin/setup.sh`
 
 ## Vim Setup

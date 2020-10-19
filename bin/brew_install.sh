@@ -1,7 +1,6 @@
 brew update
 
 # Custom 24-bit tmux install is no longer required
-brew install tmux
 brew install ack
 brew install bash-completion
 brew install cheat
@@ -11,7 +10,6 @@ brew install git
 brew install hub
 brew install jsonpp
 brew install reattach-to-user-namespace
-brew install macvim --override-system-vi
 brew install most
 brew install the_silver_searcher
 brew install tree
@@ -19,16 +17,17 @@ brew install unrar
 brew install wget
 brew install httpie
 brew install reattach-to-user-namespace
-brew install nvm
 brew install pipenv
-brew install vim
 brew install nginx
-brew install cmake
 
-# Install older version of brew, tmux.conf currenly only works with v2.4
+# For YouCompleteMe setup
+brew install macvim --override-system-vi
+brew install python mono go nodejs cmake
+
+# Install tmux 2.9a_1, latest version 3 has issues with the configs
 git clone https://github.com/Homebrew/homebrew-core.git /tmp/homebrew-core
 cd /tmp/homebrew-core
-git checkout 359b240959282dce71254d6b0e5210af9cedf4f6 Formula/tmux.rb
+git checkout c2a5cd21a94f5574458e16198f2c4a1b7a93a0c9 Formula/tmux.rb
 brew install /tmp/homebrew-core/Formula/tmux.rb
 
 # Install Java

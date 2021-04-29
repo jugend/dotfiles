@@ -86,13 +86,16 @@ Plugin 'maksimr/vim-jsbeautify'
 
 " Comment
 " Plugin 'scrooloose/nerdcommenter'
-Plugin 'tomtom/tcomment_vim'
+" Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-commentary'
 
 " Cycle mru list
 Plugin 'jeetsukumaran/vim-buffergator'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
+
+" Error when enabled
 " Plugin 'MaxMEllon/vim-jsx-pretty'
 
 " Tags

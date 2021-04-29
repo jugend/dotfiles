@@ -996,7 +996,7 @@ let vim_markdown_preview_github=1
 let g:surround_{char2nr('d')} = "{\r}"
 
 " JSX comment, not supported in tsx
-autocmd FileType typescript.tsx let b:surround_47 = "{/* \r */}"
+autocmd FileType javascript let b:surround_47 = "{/* \r */}"
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort

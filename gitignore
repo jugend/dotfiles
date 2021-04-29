@@ -12,7 +12,9 @@ yarn.lock
 
 # Directories
 node_modules
+dist
 test/functional/reports
+coverage
 
 # Compiled Python files
 *.pyc

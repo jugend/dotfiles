@@ -21,7 +21,7 @@ brew install pipenv
 brew install nginx
 
 # For YouCompleteMe setup
-brew install macvim --override-system-vi
+brew install macvim
 brew install python mono go nodejs cmake
 
 # Install tmux 2.9a_1, latest version 3 has issues with the configs
@@ -33,12 +33,12 @@ brew install /tmp/homebrew-core/Formula/tmux.rb
 # Install Java
 brew tap homebrew/cask-versions
 brew tap adoptopenjdk/openjdk
-brew cask install adoptopenjdk
-brew cask install chromedriver
+brew install temurin
+brew install chromedriver
 
 # Install node
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-nvm install node
-nvm install 10
-nvm alias default v10
+nvm install node 
+nvm install 12
+nvm alias default v12

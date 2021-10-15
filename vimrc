@@ -99,14 +99,12 @@ if (!has('gui_running'))
   let g:solarized_termtrans = 1
 endif
 
-if (&t_Co == 256 || has('gui_running'))
-  " $TERM_PROGRAM not set in sudo vim
-  if (($TERM_PROGRAM == '') || ($TERM_PROGRAM == 'iTerm.app'))
-    " colorscheme solarized
-    colorscheme onedark
-  else
-    colorscheme molokai
-  endif
+" $TERM_PROGRAM not set in sudo vim
+if (($TERM_PROGRAM == '') || ($TERM_PROGRAM == 'iTerm.app'))
+  " colorscheme solarized
+  colorscheme onedark
+else
+  colorscheme molokai
 endif
 
 highlight Comment cterm=italic

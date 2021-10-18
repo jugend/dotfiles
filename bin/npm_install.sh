@@ -15,3 +15,6 @@ avn setup
 npm install -g instant-markdown-d
 
 npm install -g nodemon
+
+# Used by vim-ale
+npm install -g fixjson

@@ -463,18 +463,18 @@ endfunction
 " fugitive git bindings
 nnoremap <leader>g :Git<space>
 " nnoremap <leader>ga :Git add %:p<cr><cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gl :Glog<cr>
-nnoremap <leader>gc :Gcommit -v -q<cr>
-nnoremap <leader>gt :Gcommit -v -q %:p<cr>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>ge :Gedit<cr>
-nnoremap <leader>gr :Gread<cr>
-nnoremap <leader>gw :Gwrite<cr><cr>
+nnoremap <leader>gb :Git blame<cr>
+nnoremap <leader>gs :Git status<cr>
+nnoremap <leader>gl :Git log<cr>
+nnoremap <leader>gc :Git commit -v -q<cr>
+nnoremap <leader>gt :Git commit -v -q %:p<cr>
+nnoremap <leader>gd :Git diff<cr>
+nnoremap <leader>ge :Git edit<cr>
+nnoremap <leader>gr :Git read<cr>
+nnoremap <leader>gw :Git write<cr><cr>
 nnoremap <leader>gl :silent! Glog<cr>:bot copen<cr>
-nnoremap <leader>gp :Ggrep<Space>
-nnoremap <leader>gm :Gmove<Space>
+nnoremap <leader>gp :Git grep<Space>
+nnoremap <leader>gm :Git move<Space>
 nnoremap <leader>gB :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<cr>

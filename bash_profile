@@ -44,13 +44,13 @@ elif [ -f /etc/bash_completion ]; then
 fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+if type __git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     complete -o default -o nospace -F _git g;
 
     # Add git completion to aliases
     __git_complete g __git_main
     __git_complete gb _git_branch
-    __git_complete gc __git_commit
+    __git_complete gc _git_commit
     __git_complete gd _git_diff
     __git_complete gl _git_log
     __git_complete gs _git_status
@@ -65,7 +65,7 @@ if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completio
     __git_complete gsh _git_show
     __git_complete gpl _git_pull
     __git_complete grm _git_remote
-   __git_complete gtag _git_tag
+    __git_complete gtag _git_tag
 fi;
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards

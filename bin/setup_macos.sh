@@ -18,3 +18,5 @@ defaults read NSGlobalDomain InitialKeyRepeat
 # Disable accented character tooltip when press and hold a character
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+# Support git auto complete
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o /usr/local/etc/bash_completion.d/git-completion.bash

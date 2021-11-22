@@ -17,8 +17,11 @@ brew install unrar
 brew install wget
 brew install httpie
 brew install reattach-to-user-namespace
-brew install pipenv
 brew install nginx
+
+# Python
+brew install pipenv
+brew install pyenv
 
 # For YouCompleteMe setup
 brew install macvim

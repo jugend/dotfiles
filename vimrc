@@ -1026,7 +1026,7 @@ endif
 
 " Polyglot
 " Conflict with vim-jsx, new line not indented
-let g:polyglot_disabled = ['jsx']
+" let g:polyglot_disabled = ['jsx']
 
 " Indent after html tag
 function! Expander()

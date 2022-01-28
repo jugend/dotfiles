@@ -54,6 +54,7 @@ alias k9='kill -9'
 alias pkf='pkill -f'
 alias pk9='pkill -9'
 alias rmr='rm -rf'
+alias bat='bat --style=grid,numbers'
 
 alias lgrep='ls -al | grep'
 alias pgrep='ps aux | grep'
@@ -75,7 +76,7 @@ alias epath='echo $PATH'
 
 alias tr='tree'
 alias t1='tree -L 1'
-alias t2='tree -L 2'
+alias t2='tree -L 2 -I node_modules'
 alias t3='tree -L 3'
 
 alias thost='telnet localhost'

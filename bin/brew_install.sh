@@ -18,6 +18,11 @@ brew install wget
 brew install httpie
 brew install reattach-to-user-namespace
 brew install nginx
+# Upgrade Mac OS bash
+brew install bash
+brew install bash-completion@2
+# piped fuzzy selection
+brew install fzf
 
 # Python
 brew install pipenv

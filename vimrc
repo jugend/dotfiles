@@ -354,6 +354,8 @@ nnoremap <leader>eb :e ~/.vimrc.bundles<cr>
 nnoremap <leader>ea :e ~/.aliases<cr>
 nnoremap <leader>eal :e ~/.aliases.local<cr>
 nnoremap <leader>eap :e ~/.aliases.private<cr>
+nnoremap <leader>ebp :e ~/.bash_profile<cr>
+nnoremap <leader>ebpl :e ~/.bash_profile.local<cr>
 nnoremap <leader>ef :e ~/.functions<cr>
 nnoremap <leader>el :!eslint %<cr>
 nnoremap <leader>es :e ~/.slate<cr>

@@ -246,6 +246,7 @@ alias nig='npm install -g'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 alias nisv='npm install --verbose'
+alias niplo='npm install --package-lock-only'
 alias nisdv='nisd --verbose'
 alias nci='npm ci'
 alias nsum='npmsummary'
@@ -620,7 +621,13 @@ alias gtd='gtag --delete'
 alias gfrb2='gc "fix" && grb2'
 
 alias gsub='git submodule'
-alias gsubup='gsub update --init --recursive'
+
+# git ls-tree {branch-name} to view submodule commit
+# Update submodule to the latest from remote branch
+alias gsubup='gsub update --init --recursive --remote'
+
+# Update and merge submodule commit to the latest
+alias gsubupm='gsub update --init --recursive --remote --merge'
 
 gdpage() { git subtree push --prefix dist $1 gh-pages; }
 

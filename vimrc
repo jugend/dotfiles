@@ -11,6 +11,7 @@ set linebreak
 set textwidth=500
 set mouse=a
 set noerrorbells
+
 set hidden
 set number
 set completeopt=longest,menuone
@@ -630,18 +631,18 @@ let g:ragtag_global_maps = 1
 
 " syntastic
 " let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['html'] }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_json_checkers = ['jsonlint']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 1
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_json_checkers = ['jsonlint']
 " let g:syntastic_typescript_checkers = ['tslint', 'tsc']
-let g:syntastic_typescript_checkers = []
-let g:syntastic_html_tidy_ignore_errors = [
-  \ 'trimming empty <span>',
-  \ 'trimming empty <i>'
-  \ ]
+" let g:syntastic_typescript_checkers = []
+" let g:syntastic_html_tidy_ignore_errors = [
+"   \ 'trimming empty <span>',
+"   \ 'trimming empty <i>'
+"   \ ]
 
 " Note: Doesn't work to investigate
 " let g:syntastic_typescript_tsc_args = "--experimentalDecorators"
@@ -655,10 +656,12 @@ let g:ale_emit_conflict_warnings = 0
 " set completeopt=menu,menuone,preview,noselect,noinsert
 
 " let g:ale_linters = {'javascript': ['eslint', 'prettier']}
+" To linters for add new file types manually, doesn't merge with the default configs
 let g:ale_linters = {
     \ 'javascript': ['eslint', 'prettier', 'flow'],
     \ 'typescript': ['tsc', 'tslint'],
-    \ 'typescript.tsx': ['tslint', 'tsc']
+    \ 'typescript.tsx': ['tslint', 'tsc'],
+    \ 'json': ['jsonlnit']
   \ }
 
 let g:ale_fixers = {'javascript': ['eslint', 'prettier'], 'graphql': ['eslint', 'gqllint']}
@@ -1054,6 +1057,7 @@ inoremap <expr> <CR> Expander()
 " Prettier
 " max line lengh that prettier will wrap on
 let g:prettier#config#print_width = 100
+
 " use tabs over spaces
 " number of spaces per indentation level
 let g:prettier#config#tab_width = 2
@@ -1091,4 +1095,3 @@ let g:flow#showquickfix = 0
 
 " Default markdown.mdx does not highlight javascript
 au BufNewFile,BufRead *.mdx set filetype=javascript.mdx
-

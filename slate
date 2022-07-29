@@ -158,6 +158,7 @@ bind u:ctrl;cmd               nudge +0 +2%
 # bind k:ctrl;shift;alt         nudge +0 -2%
 # bind j:ctrl;shift;alt         nudge +0 +2%
 
+# ctrl;shift;alt shortcuts not working
 # bind l:ctrl;shift;alt         nudge +5% +0
 # bind h:ctrl;shift;alt         nudge -5% +0
 # bind k:ctrl;shift;alt         nudge +0 -5%

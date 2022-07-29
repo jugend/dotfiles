@@ -2,6 +2,10 @@
 # set -x
 # PS4='+\t '
 
+# Auto append homebrew path
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
 # Load the shell dotfiles, and then some:
 for file in ~/.{aliases,aliases.local,aliases.private,bash_profile.local,bash_profile.host,bash_prompt,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
@@ -36,7 +40,7 @@ for option in autocd globstar; do
 done;
 
 # Add tab completion for many Bash commands
-LOCAL_BIN='/usr/local/bin'
+LOCAL_BIN='/opt/homebrew/bin'
 
 # Bash completion v1
 # if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
@@ -46,10 +50,11 @@ LOCAL_BIN='/usr/local/bin'
 # fi;
 
 # Bash completion v2
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # Enable tab completion for `g` by marking it as an alias for `git`
-if type __git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+# if type __git &> /dev/null && [ -f /opt/homebrew/etc/bash_completion.d/git-completion.bash ]; then
+if type __git &> /dev/null && [ -f /opt/homebrew/etc/bash_completion.d/git-completion.bash ]; then
     complete -o default -o nospace -F _git g;
 
     # Add git completion to aliases

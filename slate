@@ -102,7 +102,7 @@ bind h:ctrl;cmd               chain    ${leftHalf} | ${leftTwoFifth} | ${leftOne
 bind l:ctrl;cmd               chain    ${rightHalf} | ${rightTwoFifth} | ${rightOneThird} | ${rightThreeTenth} | ${rightOneQuarter} | ${rightOneFifth} | ${rightOneSixth} | ${rightOneEighth} | ${rightThreeFifth} | ${rightTwoThird} | ${rightThreeQuarter}
 bind k:ctrl;cmd               chain    ${topTwoThirdHeight} | ${topHalfHeight} | ${fullHeight}
 bind j:ctrl;cmd               chain    ${bottomTwoThirdHeight} | ${bottomHalfHeight} | ${fullHeight}
-bind c:ctrl;cmd               chain    ${centerHalf} | ${centerOneThird} | ${centerOneFourth} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
+bind c:ctrl;cmd               chain    ${center} | ${centerHover} | ${centerHalf} | ${centerOneThird} | ${centerOneFourth} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind e:ctrl;cmd               chain    ${full} | ${centerThreeFifth} | ${centerTwoThird} | ${centerHalf} | ${centerOneThird}
 # bind v:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 
@@ -128,8 +128,8 @@ bind k:shift;alt               chain sequence resize +0 +7%
 # bind k:shift;alt               chain sequence resize +0 +7% > ${center}
 
 bind d:shift;alt               ${centerHover}
-bind c:shift;alt               ${contract}
-bind e:shift;alt               ${expand}
+bind c:shift;alt               ${centerContract}
+bind e:shift;alt               ${centerExpand}
 
 # bind l:ctrl;alt;cmd         resize -10% +0 bottom-right
 # bind h:ctrl;alt;cmd         resize +10% +0 bottom-right

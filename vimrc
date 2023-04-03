@@ -661,7 +661,7 @@ let g:ale_linters = {
     \ 'javascript': ['eslint', 'prettier', 'flow'],
     \ 'typescript': ['tsc', 'tslint'],
     \ 'typescript.tsx': ['tslint', 'tsc'],
-    \ 'json': ['jsonlnit']
+    \ 'json': ['jsonlint']
   \ }
 
 let g:ale_fixers = {'javascript': ['eslint', 'prettier'], 'graphql': ['eslint', 'gqllint']}

@@ -14,11 +14,18 @@ config windowHintsIgnoreHiddenWindows false
 # Aliases
 alias full                    move     screenOriginX;screenOriginY screenSizeX;screenSizeY
 alias fullHeight              move     windowTopLeftX;screenOriginY windowSizeX;screenSizeY
+alias fullWidth               move     screenOriginX;windowTopLeftY screenSizeX;windowSizeY
 
 alias topHalfHeight           move     windowTopLeftX;screenOriginY windowSizeX;screenSizeY/2
 alias topTwoThirdHeight       move     windowTopLeftX;screenOriginY windowSizeX;screenSizeY*2/3
 alias bottomHalfHeight        move     windowTopLeftX;screenSizeY/2 windowSizeX;screenSizeY/2
 alias bottomTwoThirdHeight    move     windowTopLeftX;screenSizeY/3 windowSizeX;screenSizeY*2/3
+
+alias centerHalfHeight        move     screenOriginX+((screenSizeX-windowSizeX)/2);screenOriginY+(screenSizeY-(screenSizeY/2))/2 windowSizeX;screenSizeY/2
+alias centerHalfWidth         move     screenOriginX+(screenSizeX-(screenSizeX/2))/2;windowTopLeftY screenSizeX/2;windowSizeY
+
+alias centerTwoThirdHeight    move     screenOriginX+((screenSizeX-windowSizeX)/2);screenOriginY+(screenSizeY-(windowSizeY*2/3))/2 windowSizeX;windowSizeY*2/3
+alias centerTwoThirdWidth     move     screenOriginX+(screenSizeX-(windowSizeX*2/3))/2;windowTopLeftY windowSizeX*2/3;windowSizeY
 
 alias leftThreeQuarter        move     screenOriginX;screenOriginY screenSizeX*3/4;screenSizeY
 alias leftTwoThird            move     screenOriginX;screenOriginY screenSizeX*2/3;screenSizeY
@@ -104,6 +111,12 @@ bind k:ctrl;cmd               chain    ${topTwoThirdHeight} | ${topHalfHeight} |
 bind j:ctrl;cmd               chain    ${bottomTwoThirdHeight} | ${bottomHalfHeight} | ${fullHeight}
 bind c:ctrl;cmd               chain    ${center} | ${centerHover} | ${centerHalf} | ${centerOneThird} | ${centerOneFourth} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind e:ctrl;cmd               chain    ${full} | ${centerThreeFifth} | ${centerTwoThird} | ${centerHalf} | ${centerOneThird}
+
+# Reduce size to center
+
+bind k:ctrl;alt               chain    ${centerTwoThirdHeight} | ${centerHalfHeight} | ${fullHeight}
+bind j:ctrl;alt               chain    ${centerTwoThirdWidth} | ${centerTwoThirdWidth} | ${centerTwoThirdWidth} | ${fullWidth}
+
 # bind v:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 
 bind h:ctrl;alt              chain     ${leftThreeFifth} | ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}

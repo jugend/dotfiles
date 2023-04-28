@@ -587,6 +587,8 @@ alias grshead='git reset HEAD'
 alias grshead1='git reset HEAD~'
 alias grsohead='git reset --hard ORIG_HEAD'
 
+alias gresst='git restore --staged'
+
 alias grb='git rebase'
 alias grbcon='git rebase --continue'
 alias grba='git rebase --abort'

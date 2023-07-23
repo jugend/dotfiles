@@ -113,16 +113,16 @@ bind j:ctrl;cmd               chain    ${bottomTwoThirdHeight} | ${bottomHalfHei
 bind c:ctrl;cmd               chain    ${center} | ${centerHover} | ${centerHalf} | ${centerFourTenth} | ${centerOneThird} | ${centerOneFourth} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind e:ctrl;cmd               chain    ${full} | ${centerThreeFifth} | ${centerTwoThird} | ${centerHalf} | ${centerFourTenth} | ${centerOneThird}
 
-# Reduce size to center
+# Reduce size to center - Not so useful, duplicate of the above
 
-bind k:ctrl;alt               chain    ${centerTwoThirdHeight} | ${centerHalfHeight} | ${fullHeight}
-bind j:ctrl;alt               chain    ${centerTwoThirdWidth} | ${centerTwoThirdWidth} | ${centerTwoThirdWidth} | ${fullWidth}
+# bind k:ctrl;alt               chain    ${centerTwoThirdHeight} | ${centerHalfHeight} | ${fullHeight}
+# bind j:ctrl;alt               chain    ${centerTwoThirdWidth} | ${centerTwoThirdWidth} | ${centerTwoThirdWidth} | ${fullWidth}
 
 # bind v:ctrl;cmd               chain    ${halfWidth} | ${doubleWidth}
 
-bind h:ctrl;alt              chain     ${leftThreeFifth} | ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
-bind l:ctrl;alt              chain     ${rightThreeFifth} | ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
-bind c:ctrl;alt              chain     ${centerTwoThird} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerThreeFifth} | ${centerHalf} | ${centerOneThird}
+# bind h:ctrl;alt              chain     ${leftThreeFifth} | ${leftThreeQuarter} | ${leftSevenTenth} | ${leftTwoThird} | ${leftOneEighth} | ${leftOneSixth} | ${leftOneFifth} | ${leftOneQuarter} | ${leftThreeTenth} | ${leftOneThird} | ${leftTwoFifth} | ${leftHalf}
+# bind l:ctrl;alt              chain     ${rightThreeFifth} | ${rightThreeQuarter} | ${rightSevenTenth} | ${rightTwoThird} | ${rightOneEighth} | ${rightOneSixth} | ${rightOneFifth} | ${rightOneQuarter} | ${rightThreeTenth} | ${rightOneThird} | ${rightTwoFifth} | ${rightHalf}
+# bind c:ctrl;alt              chain     ${centerTwoThird} | ${centerSevenEighth} | ${centerFourFifth} | ${centerThreeFourth} | ${centerThreeFifth} | ${centerHalf} | ${centerOneThird}
 
 bind c:ctrl;shift             chain    ${center}
 
@@ -151,10 +151,10 @@ bind e:shift;alt               ${centerExpand}
 # bind j:ctrl;alt;cmd         resize +0   -10% bottom-right
 
 # Shift Window Bindings
-bind 1:ctrl;shift             ${topLeftNoResize}
-bind 2:ctrl;shift             ${topRightNoResize}
-bind 3:ctrl;shift             ${bottomLeftNoResize}
-bind 4:ctrl;shift             ${bottomRightNoResize}
+# bind 1:ctrl;shift             ${topLeftNoResize}
+# bind 2:ctrl;shift             ${topRightNoResize}
+# bind 3:ctrl;shift             ${bottomLeftNoResize}
+# bind 4:ctrl;shift             ${bottomRightNoResize}
 
 bind 1:ctrl;alt               ${topLeft}
 bind 2:ctrl;alt               ${topRight}

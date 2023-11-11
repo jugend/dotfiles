@@ -112,6 +112,7 @@ bind k:ctrl;cmd               chain    ${topTwoThirdHeight} | ${topHalfHeight} |
 bind j:ctrl;cmd               chain    ${bottomTwoThirdHeight} | ${bottomHalfHeight} | ${fullHeight}
 bind c:ctrl;cmd               chain    ${center} | ${centerHover} | ${centerHalf} | ${centerFourTenth} | ${centerOneThird} | ${centerOneFourth} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind e:ctrl;cmd               chain    ${full} | ${centerThreeFifth} | ${centerTwoThird} | ${centerHalf} | ${centerFourTenth} | ${centerOneThird}
+bind g:ctrl;cmd               chain    ${full} | ${centerHover}
 
 # Reduce size to center - Not so useful, duplicate of the above
 

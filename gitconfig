@@ -41,3 +41,5 @@
 	sslVerify = false
 [pull]
 	ff = only
+[init]
+	defaultBranch = develop

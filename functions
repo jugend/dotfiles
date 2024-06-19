@@ -175,7 +175,7 @@ b64() {
 }
 
 b64d() {
-  echo "$1" | base64 -Dd | jsonpp | pbcopy
+  echo "$1" | base64 -d | jsonpp | pbcopy
   pbpaste
 }
 

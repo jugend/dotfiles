@@ -555,6 +555,7 @@ alias gma='git merge --abort'
 
 alias gp='git push'
 alias gpo='git push origin'
+alias gponv='git push origin --no-verify'
 alias gpomas='git push origin master --tags'
 alias gpupmas='git push upstream master'
 alias gpupdev='git push upstream develop'

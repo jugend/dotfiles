@@ -676,6 +676,10 @@ let g:ale_completion_enabled = 1
 " Typescript support
 " Default: '' - tslint.json
 " let g:ale_typescript_tslint_config_path = 'tsconfig.json'
+"
+
+" To speed up slow linting
+let g:ale_c_clangtidy_checks = ['-*', 'cppcoreguidelines-*']
 
 if executable('node_modules/.bin/tslint')
   let g:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'

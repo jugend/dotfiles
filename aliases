@@ -745,3 +745,66 @@ alias digt='dig +trace'
 alias digsa='digs ANY'
 
 
+# rg command
+# Search case-insensitively unless the pattern contains uppercase letters
+alias rgs="rg --smart-case"
+
+# Search with line numbers
+alias rgn="rg --line-number"
+
+# Search in JavaScript files
+alias rgj="rg --type js"
+
+# Search in Python files
+alias rgpy="rg --type py"
+
+# Search in Markdown files
+alias rgmd="rg --type md"
+
+# Search with 3 lines of context
+alias rgc="rg --context=3"
+
+# Display results grouped by file with headings
+alias rgp="rg --heading --line-number"
+
+# Search using glob patterns
+alias rgg="rg -g"
+
+# Search in current directory, including hidden files but excluding .git
+alias rgd="rg --hidden --glob '!.git/*'"
+
+# Search only within the src/ directory
+alias rgsrc="rg --glob src/"
+
+# List all files in the current directory and subdirectories
+alias rgf="rg --files"
+
+# List files matching a specific glob pattern
+alias rgfp="rg --files -g"
+
+# Perform case-insensitive searches globally
+alias rgi="rg --ignore-case"
+
+# Highlight matches with color and organize results by file heading
+alias rgh="rg --color=always --heading"
+
+# Suppress output; useful for scripts to check if a match exists
+alias rgq="rg --quiet"
+
+# Search for exact string matches
+alias rgx="rg --fixed-strings"
+
+# Search for comments in code files
+alias rgcmt="rg --type-add 'comments:*.js' --search-zip '#'"
+
+# Search only in files tracked by Git
+alias rggt="rg --files | rg"
+
+# Exclude lines matching a specific pattern
+alias rgxcl="rg --invert-match"
+
+# Search smartly in development-related files and hidden files (excluding .git)
+alias rgdev="rg --smart-case --hidden --glob '!.git/*' --type-add 'code:*.{js,ts,py,java}'"
+
+# Groups results by file, adds line numbers, and provides context
+alias rgpview="rg --heading --line-number --context=3"

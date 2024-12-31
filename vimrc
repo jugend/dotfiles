@@ -1,4 +1,3 @@
-"""""""""""""""""""""""'
 " vimrc
 "
 """"""""""""""""""""""""
@@ -255,7 +254,7 @@ noremap <leader>A :Ack --ignore-dir __tests__<space>
 vnoremap <leader>aw y:Ack <c-r>"<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <leader>f :NERDTreeFind<cr>
+nnoremap <leader>F :NERDTreeFind<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
 nnoremap <leader>l :TagbarToggle<cr>
 nnoremap <leader>G :GitGutterToggle<cr>
@@ -742,33 +741,40 @@ let g:user_emmet_settings = {
   \   }
   \ }
 
-" The Silver Searcher
-if executable('ag')
-  " Global original state of ackprg
-  let g:vim_ackprg = 'ag --nogroup --nocolor --column'
-  let g:vim_ackprg_ignore_locales = g:vim_ackprg . ' --ignore=locales'
-  let g:ackprg = g:vim_ackprg_ignore_locales
+" RG ack and ctrlp search configs
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading --smart-case'
+  let g:ctrlp_user_command = 'rg --files --hidden --glob "!node_modules/*" %s'
 
-  let g:vim_ctrlp_command_prefix = 'ag %s -l --nocolor --nogroup --hidden -g ""'
+  " Use fzf preview window
+  " let $FZF_DEFAULT_OPTS = '--color=fg+:#ffffff,bg+:#000000,hl+:#ff5733,fg:#d3d3d3,bg:#282828,hl:#00ff00'
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = g:vim_ctrlp_command_prefix . ' --ignore=locales'
+  " Use Ripgrep for fzf file search
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
 
-  let g:ag_skip_locales = 0
+  " Use bat for syntax-highlighted preview (fallback to cat)
+  let $FZF_PREVIEW_COMMAND = 'bat --style=numbers --color=always --line-range :500 {}'
 
-  function! ToggleAgSkipLocales()
-    if g:ag_skip_locales == 0
-      let g:ctrlp_user_command = substitute(g:ctrlp_user_command, ' --ignore=locales', '', 'g')
-      let g:ackprg = substitute(g:ackprg, ' --ignore=locales', '', 'g')
-      let g:ag_skip_locales = 1
-    else
-      let g:ctrlp_user_command = g:ctrlp_user_command . ' --ignore=locales'
-      let g:ackprg = g:ackprg . ' --ignore=locales'
-      let g:ag_skip_locales = 0
-    endif
+  " Set fzf window layout with preview on the right
+  let g:fzf_layout = { 'down': '~40%' }
+  let g:fzf_preview_hidden = ['right:50%:hidden', 'ctrl-/']
+  let g:fzf_preview_shown = ['right:50%', 'ctrl-/']
+  let g:fzf_preview_window = g:fzf_preview_hidden
+
+
+  " Wrapper function for rg search with preview enabled
+  function! RgFzf()
+    let g:fzf_preview_window = g:fzf_preview_shown
+    execute 'Rg'
+    let g:fzf_preview_window = g:fzf_preview_hidden
   endfunction
 
-  command! -nargs=0 ToggleAgSkipLocales :call ToggleAgSkipLocales()
+  " Key mappings
+  " Search with rg and preview enabled
+  nnoremap <leader>f :call RgFzf()<CR>
+
+  " File search with no preview
+  nnoremap <C-t> :Files<CR>
 endif
 
 " vim-editorconfig
@@ -809,7 +815,7 @@ let g:NERDTreeIgnoreOn=['.configcache', '.nyc_output', 'node_modules', 'coverage
   \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '\.cache', '\.gh-pages', '\.js\.map$',
   \ '\.docz']
 let g:NERDTreeIgnoreOff=['.configcache', '.nyc_output', '\.vim$', '\~$', './tags', '\.log$', '\.git$',
-  \ '\.sass-cache$', '\.js\.map$', '\.docz']
+  \ '\.sass-cache$', '\.docz']
 let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
@@ -921,7 +927,6 @@ function! ToggleAgSkipVcsIgnores()
     let g:ackprg = g:ackprg . " --skip-vcs-ignore" . l:path_to_ignore
     " Slow to index node_modules directory
     let g:ctrlp_user_command = g:ctrlp_user_command . " --skip-vcs-ignore" . l:path_to_ignore
-    " echo g:ctrlp_user_command
     let g:ag_skip_vcs_ignores = 1
     let g:NERDTreeRespectWildIgnore = 0
     let g:NERDTreeIgnore = g:NERDTreeIgnoreOff

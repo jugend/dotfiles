@@ -1,7 +1,7 @@
 Plugin 'VundleVim/vundle.vim'
 
 " Navigation
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -112,7 +112,12 @@ Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'joshdick/onedark.vim'
 
 " Autocomplete
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
+
+" To support fuzzy search
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+
 " Tern is very slow
 " Plugin 'marijnh/tern_for_vim'
 

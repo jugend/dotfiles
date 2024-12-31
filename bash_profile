@@ -137,3 +137,13 @@ export HEALTH_PORT=9547
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
+# Use Ripgrep for fzf file search
+# export FZF_DEFAULT_COMMAND='rg --files --hidden --glob '!.git/*""
+
+ # Use bat for syntax-highlighted preview (fallback to cat)
+# export FZF_PREVIEW_COMMAND='bat --style=numbers --color=always --line-range :500 {}'
+

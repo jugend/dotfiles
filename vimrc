@@ -249,7 +249,7 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 nnoremap <leader>L :Align<cr>
-nnoremap <leader>a :Ack<space>
+nnoremap <leader>a :Rg<space>
 noremap <leader>A :Ack --ignore-dir __tests__<space>
 vnoremap <leader>aw y:Ack <c-r>"<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
@@ -744,23 +744,25 @@ let g:user_emmet_settings = {
 " RG ack and ctrlp search configs
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading --smart-case'
-  let g:ctrlp_user_command = 'rg --files --hidden --glob "!node_modules/*" %s'
-
-  " Use fzf preview window
-  " let $FZF_DEFAULT_OPTS = '--color=fg+:#ffffff,bg+:#000000,hl+:#ff5733,fg:#d3d3d3,bg:#282828,hl:#00ff00'
-
-  " Use Ripgrep for fzf file search
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
-
-  " Use bat for syntax-highlighted preview (fallback to cat)
-  let $FZF_PREVIEW_COMMAND = 'bat --style=numbers --color=always --line-range :500 {}'
+  let g:ctrlp_user_command = 'rg --files --hidden --color="match:fg:yellow,bold,path:fg:blue,line:fg:green"'
 
   " Set fzf window layout with preview on the right
   let g:fzf_layout = { 'down': '~40%' }
-  let g:fzf_preview_hidden = ['right:50%:hidden', 'ctrl-/']
-  let g:fzf_preview_shown = ['right:50%', 'ctrl-/']
+  let g:fzf_preview_hidden = ['down:60%:hidden', 'ctrl-/']
+  let g:fzf_preview_shown = ['down:60%', 'ctrl-/']
   let g:fzf_preview_window = g:fzf_preview_hidden
 
+  " let g:fzf_force_termguicolors = 1
+  " let $FZF_PREVIEW_COMMAND="COLORTERM=truecolor bat --style=numbers --color=always {}"
+
+  " Customize the Rg colors
+  function! RgCustomOptions(query)
+    let colors = '--colors "path:fg:198,120,221" --colors "line:fg:97,175,239" --colors "match:fg:40,44,52" --colors "match:bg:229,192,123"'
+    let command = "rg --column --line-number --no-heading --color=always --smart-case " . colors . " -- "
+    call fzf#vim#grep(command . fzf#shellescape(a:query), fzf#vim#with_preview(), 0)
+  endfunction
+
+  command! -bang -nargs=* Rg call RgCustomOptions(<q-args>)
 
   " Wrapper function for rg search with preview enabled
   function! RgFzf()
@@ -811,10 +813,10 @@ endif
 
 " NerdTree
 let NERDTreeShowHidden=1
-let g:NERDTreeIgnoreOn=['.configcache', '.nyc_output', 'node_modules', 'coverage', '\.vim$', '\~$', './tags',
+let g:NERDTreeIgnoreOn=['.configcache', '.nyc_output', 'node_modules', 'coverage', '\~$', './tags',
   \ 'build$', '\.build$', 'dist$', '\.log$', '\.git$', '\.sass-cache$', '\.cache', '\.gh-pages', '\.js\.map$',
   \ '\.docz']
-let g:NERDTreeIgnoreOff=['.configcache', '.nyc_output', '\.vim$', '\~$', './tags', '\.log$', '\.git$',
+let g:NERDTreeIgnoreOff=['.configcache', '.nyc_output', '\~$', './tags', '\.log$', '\.git$',
   \ '\.sass-cache$', '\.docz']
 let NERDTreeMinimalUI=1
 " To allow switching to the top/bottom tmux window

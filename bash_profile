@@ -1,4 +1,4 @@
-# To trace script performance
+# T otrace script performance
 # set -x
 # PS4='+\t '
 
@@ -138,12 +138,18 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Set up fzf key bindings and fuzzy completion
+# FZH - Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
 
-# Use Ripgrep for fzf file search
-# export FZF_DEFAULT_COMMAND='rg --files --hidden --glob '!.git/*""
+# export FZF_DEFAULT_COMMAND="rg --files --hidden"
+export FZF_CTRL_T_COMMAND="rg --files --hidden --line-number --no-heading --smart-case '${*:-}'"
+export FZF_CTRL_T_OPTS="--preview-window='right:60%' --preview 'bat --style=numbers --color=always {}' --bind 'Ctrl-/:toggle-preview'"
+# export FZF_DEFAULT_OPTS='--color="fg:#ff0000,fg+:#ff0000,bg:#ff0000,hl:#ff0000"'
 
- # Use bat for syntax-highlighted preview (fallback to cat)
-# export FZF_PREVIEW_COMMAND='bat --style=numbers --color=always --line-range :500 {}'
+export BAT_THEME='OneHalfDark'
+# export COLORTERM=truecolor
 
+export FZF_ALT_C_COMMAND="fd --type d"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 20'"
+export FZF_TMUX=1
+export FZF_TMUX_OPTS="-d 40%"

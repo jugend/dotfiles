@@ -714,13 +714,15 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files, causing filetype set 
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-N>'
-
 " let g:ycm_auto_trigger=0
 " let g:ycm_key_invoke_completion = '<C-;>'
 " let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 
 " Let ale handle validation checks, and YCM handles only the autocomplete
 let g:ycm_show_diagnostics_ui = 0
+
+" Update YCM window colour
+highlight Pmenu ctermfg=15 ctermbg=0 guifg=#61afef guibg=#002c38
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"

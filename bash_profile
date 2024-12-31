@@ -142,7 +142,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 eval "$(fzf --bash)"
 
 # export FZF_DEFAULT_COMMAND="rg --files --hidden"
-export FZF_CTRL_T_COMMAND="rg --files --hidden --line-number --no-heading --smart-case '${*:-}'"
+export FZF_CTRL_T_COMMAND="rg --files --hidden"
 export FZF_CTRL_T_OPTS="--preview-window='right:60%' --preview 'bat --style=numbers --color=always {}' --bind 'Ctrl-/:toggle-preview'"
 # export FZF_DEFAULT_OPTS='--color="fg:#ff0000,fg+:#ff0000,bg:#ff0000,hl:#ff0000"'
 

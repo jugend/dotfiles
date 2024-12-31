@@ -254,7 +254,7 @@ noremap <leader>A :Ack --ignore-dir __tests__<space>
 vnoremap <leader>aw y:Ack <c-r>"<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <leader>F :NERDTreeFind<cr>
+nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
 nnoremap <leader>l :TagbarToggle<cr>
 nnoremap <leader>G :GitGutterToggle<cr>
@@ -750,7 +750,8 @@ if executable('rg')
   let g:fzf_layout = { 'down': '~40%' }
   let g:fzf_preview_hidden = ['down:60%:hidden', 'ctrl-/']
   let g:fzf_preview_shown = ['down:60%', 'ctrl-/']
-  let g:fzf_preview_window = g:fzf_preview_hidden
+  " let g:fzf_preview_window = g:fzf_preview_hidden
+  let g:fzf_preview_window = g:fzf_preview_shown
 
   " let g:fzf_force_termguicolors = 1
   " let $FZF_PREVIEW_COMMAND="COLORTERM=truecolor bat --style=numbers --color=always {}"
@@ -771,12 +772,18 @@ if executable('rg')
     let g:fzf_preview_window = g:fzf_preview_hidden
   endfunction
 
+  function! FilesFzf()
+    let g:fzf_preview_window = g:fzf_preview_hidden
+    execute 'Files'
+    let g:fzf_preview_window = g:fzf_preview_shown
+  endfunction
+
   " Key mappings
   " Search with rg and preview enabled
-  nnoremap <leader>f :call RgFzf()<CR>
+  nnoremap <C-f> :execute 'Rg'<CR>
 
   " File search with no preview
-  nnoremap <C-t> :Files<CR>
+  nnoremap <C-t> :call FilesFzf()<CR>
 endif
 
 " vim-editorconfig

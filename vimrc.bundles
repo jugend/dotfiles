@@ -1,7 +1,7 @@
 Plugin 'VundleVim/vundle.vim'
 
 " Navigation
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'

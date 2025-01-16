@@ -153,3 +153,4 @@ export FZF_ALT_C_COMMAND="fd --type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 20'"
 export FZF_TMUX=1
 export FZF_TMUX_OPTS="-d 40%"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"

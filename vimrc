@@ -709,6 +709,9 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files, causing filetype set 
 " easytags - create .tags in project directory
 " set tags=./tags
 " let g:easytags_dynamic_files = 2
+"
+" YCM Init
+" let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']

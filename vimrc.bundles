@@ -151,3 +151,6 @@ Plugin 'benmills/vimux'
 
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
+
+" Copilot
+Plugin 'github/copilot.vim'

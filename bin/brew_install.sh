@@ -23,14 +23,24 @@ brew install bash
 brew install bash-completion@2
 # piped fuzzy selection
 brew install fzf
+brew install rg
 
 # Python
 brew install pipenv
 brew install pyenv
 
 # For YouCompleteMe setup
+brew install cmake python go nodejs
 brew install macvim
-brew install python mono go nodejs cmake
+brew install llvm
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --all
+
+# If there's a clang errorr
+# https://github.com/ycm-core/YouCompleteMe
+
+# If there's c++117 error
+# https://github-wiki-see.page/m/ycm-core/YouCompleteMe/wiki/FAQ#i-get-unknown-compiler---c17-filesystem-library-missing-on-macos
 
 # Install tmux 2.9a_1, latest version 3 has issues with the configs
 git clone https://github.com/Homebrew/homebrew-core.git /tmp/homebrew-core
@@ -48,5 +58,5 @@ brew install chromedriver
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 nvm install node 
-nvm install 12
-nvm alias default v12
+# nvm install 12
+# nvm alias default v12

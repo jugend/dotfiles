@@ -141,10 +141,16 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # FZH - Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
 
-# export FZF_DEFAULT_COMMAND="rg --files --hidden"
-export FZF_CTRL_T_COMMAND="rg --files --hidden -L"
-export FZF_CTRL_T_OPTS="--preview-window='right:60%' --preview 'bat --style=numbers --color=always {}' --bind 'Ctrl-/:toggle-preview'"
+# Default command for FZF file search
+# Glob options to ignore certain pattern
+# --glob '!.git'
+# export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --color=always --smart-case --colors "path:fg:198,120,221" --colors "line:fg:97,175,239" --colors "match:fg:40,44,52" --colors "match:bg:229,192,123"'
+
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
 # export FZF_DEFAULT_OPTS='--color="fg:#ff0000,fg+:#ff0000,bg:#ff0000,hl:#ff0000"'
+
+export FZF_CTRL_T_COMMAND="rg --files --hidden --follow"
+export FZF_CTRL_T_OPTS="--preview-window='right:60%' --preview 'bat --style=numbers --color=always {}' --bind 'Ctrl-/:toggle-preview'"
 
 export BAT_THEME='OneHalfDark'
 # export COLORTERM=truecolor
@@ -153,4 +159,6 @@ export FZF_ALT_C_COMMAND="fd --type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 20'"
 export FZF_TMUX=1
 export FZF_TMUX_OPTS="-d 40%"
+
+# From brew install llvm for Clang compiler to commpile YouCompleteMe
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"

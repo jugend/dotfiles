@@ -250,7 +250,7 @@ noremap <C-l> <C-w>l
 
 nnoremap <leader>L :Align<cr>
 nnoremap <leader>a :Rg<space>
-noremap <leader>A :Ack --ignore-dir __tests__<space>
+noremap <leader>A :Ack<space>
 vnoremap <leader>aw y:Ack <c-r>"<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
@@ -749,7 +749,7 @@ let g:user_emmet_settings = {
 " RG ack and ctrlp search configs
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading --smart-case'
-  let g:ctrlp_user_command = 'rg --files --hidden --color="match:fg:yellow,bold,path:fg:blue,line:fg:green"'
+  " let g:ctrlp_user_command = 'rg --files --hidden --colors="match:fg:yellow,bold,path:fg:blue,line:fg:green"'
 
   " Set fzf window layout with preview on the right
   let g:fzf_layout = { 'down': '~40%' }
@@ -758,13 +758,17 @@ if executable('rg')
   " let g:fzf_preview_window = g:fzf_preview_hidden
   let g:fzf_preview_window = g:fzf_preview_shown
 
-  " let g:fzf_force_termguicolors = 1
+  " Override environment variables, FZF_DEFFAULT_COMMAND used by :Files if avvailable
+  " let $FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
+  " let $FZF_DEFAULT_OPTS='--color="fg:#ff0000,fg+:#ff0000,bg:#ff0000,hl:#ff0000"'
+  "
   " let $FZF_PREVIEW_COMMAND="COLORTERM=truecolor bat --style=numbers --color=always {}"
 
   " Customize the Rg colors
   function! RgCustomOptions(query)
     let colors = '--colors "path:fg:198,120,221" --colors "line:fg:97,175,239" --colors "match:fg:40,44,52" --colors "match:bg:229,192,123"'
     let command = "rg --column --line-number --no-heading --color=always --smart-case " . colors . " -- "
+    echo command
     call fzf#vim#grep(command . fzf#shellescape(a:query), fzf#vim#with_preview(), 0)
   endfunction
 
@@ -789,6 +793,9 @@ if executable('rg')
 
   " File search with no preview
   nnoremap <C-t> :call FilesFzf()<CR>
+  nnoremap <C-p> :call FilesFzf()<CR>
+  " nnoremap <C-t> :execute 'FilesFzf'<CR>
+  " nnoremap <C-p> :execute 'FilesFzf'<CR>
 endif
 
 " vim-editorconfig
@@ -935,19 +942,21 @@ let g:ag_skip_vcs_ignores = 0
 
 let g:NERDTreeIgnore = g:NERDTreeIgnoreOn
 
+let g:vim_ctrlp_user_prefix = 'rg --files --hidden --color="match:fg:yellow,bold,path:fg:blue,line:fg:green"'
+
 function! ToggleAgSkipVcsIgnores()
-  if g:ag_skip_vcs_ignores == 0
+  if g:av_skip_vcs_ignores == 0
     let l:path_to_ignore = ' --ignore node_modules --ignore .git'
     let g:ackprg = g:ackprg . " --skip-vcs-ignore" . l:path_to_ignore
     " Slow to index node_modules directory
-    let g:ctrlp_user_command = g:ctrlp_user_command . " --skip-vcs-ignore" . l:path_to_ignore
+    " let g:ctrlp_user_command = g:ctrlp_user_command . " --skip-vcs-ignore" . l:path_to_ignore
     let g:ag_skip_vcs_ignores = 1
     let g:NERDTreeRespectWildIgnore = 0
     let g:NERDTreeIgnore = g:NERDTreeIgnoreOff
   else
     let g:ackprg = 'ag --vimgrep'
     let g:NERDTreeRespectWildIgnore = 1
-    let g:ctrlp_user_command = g:vim_ctrlp_user_command_prefix
+    " let g:ctrlp_user_command g:vim_ctrlp_userprefix
     let g:ag_skip_vcs_ignores = 0
     let g:NERDTreeIgnore = g:NERDTreeIgnoreOn
   endif
@@ -959,19 +968,21 @@ command! -nargs=0 ToggleAgSkipVcsIgnores :call ToggleAgSkipVcsIgnores()
 
 " Typescript
 let g:is_typescript_project = 0
+" let g:vim_ctrlp_command_prefix = 'rg --files --hidden --color="match:fg:yellow,bold,path:fg:blue,line:fg:green"'
+let g:vim_ackprg_ignore_locales = ''
 
 function! ToggleTypeScriptProject()
   if g:is_typescript_project == 0
     call insert(g:NERDTreeIgnore, '\.js$', 0)
     call insert(g:NERDTreeIgnore, '\.d.ts$', 0)
     let g:is_typescript_project = 1
-    let g:ctrlp_user_command = g:vim_ctrlp_command_prefix . ' --ignore=*.js --ignore=*.map --ignore=locales'
+    " let g:ctrlp_user_command = g:vim_ctrlp_command_prefix . ' --ignore=*.js --ignore=*.map --ignore=locales'
     let g:ackprg = g:vim_ackprg_ignore_locales . ' --ignore=*.js --ignore=*.map'
   else
     call remove(g:NERDTreeIgnore, 0)
     call remove(g:NERDTreeIgnore, 0)
     let g:is_typescript_project = 0
-    let g:ctrlp_user_command = g:vim_ctrlp_command_prefix
+    " let g:ctrlp_user_command = g:vim_ctrlp_command_prefix
     let g:ackprg = g:vim_ackprg_ignore_locales
   endif
 

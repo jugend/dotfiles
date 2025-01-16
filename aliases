@@ -241,6 +241,7 @@ alias dndapp='DEBUG=express:* ndapp'
 # Npm
 alias nl='npm list'
 alias ni='npm install'
+alias nci='npm ci'
 alias npi='npm info'
 alias npv='npm view'
 alias nity='npm init -y'

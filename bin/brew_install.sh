@@ -22,8 +22,12 @@ brew install nginx
 brew install bash
 brew install bash-completion@2
 # piped fuzzy selection
-brew install fzf
 brew install rg
+brew install fzf
+
+# Find and preview files/directories
+brew install fd
+brew install bat
 
 # Python
 brew install pipenv

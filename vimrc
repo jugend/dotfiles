@@ -252,7 +252,7 @@ nnoremap <leader>L :Align<cr>
 nnoremap <leader>a :Rg<space>
 noremap <leader>A :Ack<space>
 vnoremap <leader>aw y:Ack <c-r>"<cr>
-nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
@@ -267,6 +267,12 @@ nnoremap <leader>z :ZoomToggle<cr>
 nnoremap <leader>ar :AirlineToggle<cr>
 nnoremap <leader>at :ALEToggle\|SyntasticToggleMode<cr>
 nnoremap <leader>/ /\v
+
+nnoremap <leader>cl :Copilot<cr>
+nnoremap <leader>ce :Copilot enable<cr>
+nnoremap <leader>cd :Copilot disable<cr>
+nnoremap <leader>cs :Copilot status<cr>
+nnoremap <leader>ca :Copilot panel<cr>
 
 nnoremap <leader>ss :call whitespace#strip_trailing()<cr>
 nnoremap <leader>nh :call ToggleAgSkipVcsIgnores()<cr>
@@ -470,7 +476,7 @@ nnoremap <leader>gs :Git status<cr>
 nnoremap <leader>gl :Git log<cr>
 nnoremap <leader>gc :Git commit -v -q<cr>
 nnoremap <leader>gt :Git commit -v -q %:p<cr>
-nnoremap <leader>gd :Git diff<cr>
+nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ge :Git edit<cr>
 nnoremap <leader>gr :Git read<cr>
 nnoremap <leader>gw :Git write<cr><cr>
@@ -751,12 +757,12 @@ if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading --smart-case'
   " let g:ctrlp_user_command = 'rg --files --hidden --colors="match:fg:yellow,bold,path:fg:blue,line:fg:green"'
 
-  " Set fzf window layout with preview on the right
+  " Set fzf window layout with preview on the righ
   let g:fzf_layout = { 'down': '~40%' }
-  let g:fzf_preview_hidden = ['down:60%:hidden', 'ctrl-/']
-  let g:fzf_preview_shown = ['down:60%', 'ctrl-/']
-  " let g:fzf_preview_window = g:fzf_preview_hidden
-  let g:fzf_preview_window = g:fzf_preview_shown
+  let g:fzf_preview_hidden = ['down:40%:hidden', 'ctrl-/']
+  let g:fzf_preview_shown = ['down:40%', 'ctrl-/']
+  let g:fzf_preview_window = g:fzf_preview_hidden
+  " let g:fzf_preview_window = g:fzf_preview_shown
 
   " Override environment variables, FZF_DEFFAULT_COMMAND used by :Files if avvailable
   " let $FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
@@ -775,27 +781,27 @@ if executable('rg')
   command! -bang -nargs=* Rg call RgCustomOptions(<q-args>)
 
   " Wrapper function for rg search with preview enabled
-  function! RgFzf()
+  function! Rgp(query)
     let g:fzf_preview_window = g:fzf_preview_shown
-    execute 'Rg'
+    execute 'Rg ' . a:query
     let g:fzf_preview_window = g:fzf_preview_hidden
   endfunction
 
   function! FilesFzf()
-    let g:fzf_preview_window = g:fzf_preview_hidden
+    " let g:fzf_preview_window = g:fzf_preview_hidden
     execute 'Files'
-    let g:fzf_preview_window = g:fzf_preview_shown
+    " let g:fzf_preview_window = g:fzf_preview_shown
   endfunction
 
   " Key mappings
-  " Search with rg and preview enabled
-  nnoremap <C-f> :execute 'Rg'<CR>
-
   " File search with no preview
   nnoremap <C-t> :call FilesFzf()<CR>
   nnoremap <C-p> :call FilesFzf()<CR>
-  " nnoremap <C-t> :execute 'FilesFzf'<CR>
-  " nnoremap <C-p> :execute 'FilesFzf'<CR>
+
+  " Open Rg automatically
+  nnoremap <C-f> :call Rgp('')<CR>
+  " Auto search keyword under the cursor with rg
+  nnoremap <C-t> :call Rgp(expand("<cword>"))<CR>
 endif
 
 " vim-editorconfig
@@ -847,37 +853,6 @@ if !&diff
   autocmd VimEnter * NERDTree
   autocmd VimEnter * wincmd l
 endif
-
-" CtrlP settings
-"
-let g:ctrlp_match_window = 'order:ttb,max:20'
-
-" ag is fast enough that CtrlP doesn't need to cache
-let g:ctrlp_use_caching = 0
-
-" neareset parent with .git
-let g:ctrlp_working_path_mode = 'rw'
-
-let g:ctrlp_prompt_mappings = {
-  \ 'PrtSelectMove("j")':   ['<c-j>', '<down>'],
-  \ 'PrtSelectMove("k")':   ['<c-k>', '<up>'],
-  \ }
-
-" Doesn't work with ag search, use .agitignore
-" let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Storegit|hg|svn|optimized|compiled|node_modules|locales)$'
-
-" Auto clear cache on write
-" function! SetupCtrlP()
-"   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
-"     augroup CtrlPExtension
-"       autocmd!
-"       autocmd FocusGained  * CtrlPClearCache
-"       autocmd BufWritePost * CtrlPClearCache
-"     augroup END
-"   endif
-" endfunction
-"
-" autocmd VimEnter * :call SetupCtrlP()
 
 " delimitMate, auto indent after braces
 let delimitMate_expand_cr=1

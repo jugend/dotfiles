@@ -1,7 +1,6 @@
 Plugin 'VundleVim/vundle.vim'
 
 " Navigation
-" Plugin 'kien/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -152,5 +151,5 @@ Plugin 'benmills/vimux'
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
 
-" Copilot
+" Github copilot
 Plugin 'github/copilot.vim'

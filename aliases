@@ -6,7 +6,7 @@ alias ...='cd ../..'
 alias h='cd'
 alias b='cd -'
 alias f='fzf'
-alias fc='fuck'
+alias fu='fuck'
 alias l='ls -GFlah'
 alias ll='ls -laFo'
 alias e='exa -l'
@@ -17,6 +17,7 @@ alias vim='mvim -v'
 alias v='vim'
 alias vi='vim'
 alias vimd='vim -D'
+alias c='code'
 alias o='open .'
 alias hh='help'
 alias m='man'
@@ -812,3 +813,25 @@ alias rgdev="rg --smart-case --hidden --glob '!.git/*' --type-add 'code:*.{js,ts
 
 # Groups results by file, adds line numbers, and provides context
 alias rgpview="rg --heading --line-number --context=3"
+
+
+# Ollama command
+alias ol='ollama'
+alias or='ollama run'
+alias orv='ollama run --verbose'
+alias os='ollama serve'
+alias osh='ollama show'
+alias ost='ollama stop'
+alias ols='ollama list'
+alias opl='ollama pull'
+alias opu='ollama push'
+alias ops='ollama ps'
+alias ocp='ollama cp'
+alias orm='ollama remove'
+alias oh='ollama help'
+
+alias ordc='orv deepseek-coder:33b'
+alias ordr='orv deepseek-r1'
+alias ordr1='orv deepseek-r1:1.5b'
+alias ordr8='orv deepseek-r1:8b'
+alias orl='orv llama3.2'

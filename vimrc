@@ -758,9 +758,9 @@ if executable('rg')
   " let g:ctrlp_user_command = 'rg --files --hidden --colors="match:fg:yellow,bold,path:fg:blue,line:fg:green"'
 
   " Set fzf window layout with preview on the righ
-  let g:fzf_layout = { 'down': '~40%' }
-  let g:fzf_preview_hidden = ['down:40%:hidden', 'ctrl-/']
-  let g:fzf_preview_shown = ['down:40%', 'ctrl-/']
+  let g:fzf_layout = { 'down': '~60%' }
+  let g:fzf_preview_hidden = ['right:60%:hidden', 'ctrl-/']
+  let g:fzf_preview_shown = ['right:60%', 'ctrl-/']
   let g:fzf_preview_window = g:fzf_preview_hidden
   " let g:fzf_preview_window = g:fzf_preview_shown
 

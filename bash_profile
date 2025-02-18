@@ -162,3 +162,5 @@ export FZF_TMUX_OPTS="-d 40%"
 
 # From brew install llvm for Clang compiler to commpile YouCompleteMe
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+. "$HOME/.local/bin/env"

@@ -164,3 +164,6 @@ export FZF_TMUX_OPTS="-d 40%"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 . "$HOME/.local/bin/env"
+
+# Configuration for node to trust the PayPal Proxy Certificates
+export NODE_EXTRA_CA_CERTS='/usr/local/etc/openssl/certs/paypal_proxy_cacerts.pem'

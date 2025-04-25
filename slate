@@ -100,10 +100,10 @@ alias topRightNoResize        move     screenSizeX-windowSizeX;screenOriginY win
 alias bottomLeftNoResize      move     screenOriginX;screenSizeY-windowSizeY windowSizeX;windowSizeY
 alias bottomRightNoResize     move     screenSizeX-windowSizeX;screenSizeY-windowSizeY windowSizeX;windowSizeY
 
-alias topLeft                 corner   top-left resize:screenSizeX/2;screenSizeY/2
-alias topRight                corner   top-right resize:screenSizeX/2;screenSizeY/2
-alias bottomLeft              corner   bottom-left resize:screenSizeX/2;screenSizeY/2
-alias bottomRight             corner   bottom-right resize:screenSizeX/2;screenSizeY/2
+alias topLeft                 corner   top-left  # resize:screenSizeX/2;screenSizeY/2
+alias topRight                corner   top-right # resize:screenSizeX/2;screenSizeY/2
+alias bottomLeft              corner   bottom-left # resize:screenSizeX/2;screenSizeY/2
+alias bottomRight             corner   bottom-right # resize:screenSizeX/2;screenSizeY/2
 
 # Fixed size bindings
 bind h:ctrl;cmd               chain    ${leftHalf} | ${leftTwoFifth} | ${leftOneThird} | ${leftThreeTenth} | ${leftOneQuarter} | ${leftOneFifth} | ${leftOneSixth} | ${leftOneEighth} | ${leftThreeFifth} | ${leftTwoThird} | ${leftThreeQuarter}

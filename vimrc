@@ -250,13 +250,15 @@ noremap <C-l> <C-w>l
 
 nnoremap <leader>L :Align<cr>
 nnoremap <leader>a :Rg<space>
+nnoremap <leader>ad :Rgd<space>
 noremap <leader>A :Ack<space>
 vnoremap <leader>aw y:Ack <c-r>"<cr>
+nnoremap <leader>l :ALEFix<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
-nnoremap <leader>l :TagbarToggle<cr>
+nnoremap <leader>L :TagbarToggle<cr>
 nnoremap <leader>G :GitGutterToggle<cr>
 nnoremap <leader>I :IndentGuidesToggle<cr>
 nnoremap <leader>i :IndentLinesToggle<cr>
@@ -330,6 +332,7 @@ nnoremap <leader>rm :exe "!rm ~/tmp/%.sw*"<cr><cr>:echo 'swap files removed'<cr>
 nnoremap <leader>re :reg<cr>
 nnoremap <leader>ri gg=G<cr>
 nnoremap <leader>R :redraw!<cr>
+nnoremap <leader>rd :Rgd<space>
 nnoremap <leader>ss /\C
 nnoremap <leader>cr :ChromeReload<cr>
 nnoremap <leader>wa :wa<cr>
@@ -536,15 +539,15 @@ nnoremap <leader>te :tabedit %<cr>
 nnoremap <leader>ts :tab split<cr>
 
 " Tern mapping
-nnoremap <leader><leader>rd :TernDoc<cr>
-nnoremap <leader>rb :TernDocBrowse<cr>
-nnoremap <leader>rt :TernType<cr>
-nnoremap <leader>rdd :TernDef<cr>
-nnoremap <leader>rd :TernDefPreview<cr>
-nnoremap <leader>rds :TernDefSplit<cr>
-nnoremap <leader>rdt :TernDefTab<cr>
-nnoremap <leader>rr :TernRefs<cr>
-nnoremap <leader>rR :TernRename<cr>
+" nnoremap <leader><leader>rd :TernDoc<cr>
+" nnoremap <leader>rb :TernDocBrowse<cr>
+" nnoremap <leader>rt :TernType<cr>
+" nnoremap <leader>rdd :TernDef<cr>
+" nnoremap <leader>rd :TernDefPreview<cr>
+" nnoremap <leader>rds :TernDefSplit<cr>
+" nnoremap <leader>rdt :TernDefTab<cr>
+" nnoremap <leader>rr :TernRefs<cr>
+" nnoremap <leader>rR :TernRename<cr>
 
 " Selection shortcuts
 nnoremap <leader>vp <S-v>ap
@@ -669,7 +672,16 @@ let g:ale_linters = {
     \ 'json': ['jsonlint']
   \ }
 
-let g:ale_fixers = {'javascript': ['eslint', 'prettier'], 'graphql': ['eslint', 'gqllint']}
+" let g:ale_fixers = {'javascript': ['eslint', 'prettier'], 'graphql': ['eslint', 'gqllint']}
+
+let g:ale_fixers = {
+  \ 'javascript': ['eslint'],
+  \ 'typescript': ['eslint'],
+  \ 'json': ['eslint'],
+  \ }
+
+" let g:ale_javascript_eslint_executable = 'eslint'
+let g:ale_javascript_eslint_use_global = 0  " Force using local ESLint
 
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix =0
@@ -770,15 +782,28 @@ if executable('rg')
   "
   " let $FZF_PREVIEW_COMMAND="COLORTERM=truecolor bat --style=numbers --color=always {}"
 
+  " One dark colour theme
+  let g:rg_colors = '--colors "path:fg:198,120,221" --colors "line:fg:97,175,239" --colors "match:fg:40,44,52" --colors "match:bg:229,192,123"'
+
   " Customize the Rg colors
   function! RgCustomOptions(query)
-    let colors = '--colors "path:fg:198,120,221" --colors "line:fg:97,175,239" --colors "match:fg:40,44,52" --colors "match:bg:229,192,123"'
-    let command = "rg --column --line-number --no-heading --color=always --smart-case " . colors . " -- "
+    let command = "rg --column --line-number --no-heading --color=always --smart-case " . g:rg_colors . " -- "
     echo command
     call fzf#vim#grep(command . fzf#shellescape(a:query), fzf#vim#with_preview(), 0)
   endfunction
 
+  " Rg command override
   command! -bang -nargs=* Rg call RgCustomOptions(<q-args>)
+
+  " Function to perform an Rg search in a specified directory
+  function! RgInDir(query, dir)
+    let l:command = 'rg --column --line-number --no-heading --color=always --smart-case ' . g:rg_colors . " -- "
+    let l:args = a:query
+    call fzf#vim#grep(l:command . shellescape(l:args), 1, {'dir': a:dir}, 0)
+  endfunction
+
+  " Command to prompt for a search term and directory
+  command! -nargs=+ -complete=dir Rgd call RgInDir(<f-args>)
 
   " Wrapper function for rg search with preview enabled
   function! Rgp(query)
@@ -1104,3 +1129,6 @@ let g:flow#showquickfix = 0
 
 " Default markdown.mdx does not highlight javascript
 au BufNewFile,BufRead *.mdx set filetype=javascript.mdx
+
+" Auto-trim trailing spaces
+autocmd BufWritePre * :%s/\s\+$//e

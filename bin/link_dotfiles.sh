@@ -10,11 +10,11 @@ function setup() {
 
   echo ""
 
-  if [ ! -d ~/.vim ]; then
-    mkdir ~/.vim
-  fi
+  # vim and neovim
+  mkdir -p ~/.vim
+  mkdir -p ~/.config/nvim
 
-  for dir in {tmuxinator,cheat,vim/UltiSnips,vim/colors,vim/autoload}; do
+  for dir in {tmuxinator,cheat,vim/UltiSnips,vim/colors,vim/autoload,config/nvim/init.vim}; do
     if [ -d "$dir" ]; then
       echo "Link ~/.$dir -> $PWD/$dir"
       ln -sfn $PWD/$dir ~/.$dir
@@ -26,6 +26,7 @@ function setup() {
     echo "Link ~/.vim/.$file -> $PWD/$file"
     ln -sf $PWD/vim/$file ~/.vim/.$file
   fi
+
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

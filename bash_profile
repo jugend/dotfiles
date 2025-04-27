@@ -146,14 +146,14 @@ eval "$(fzf --bash)"
 # --glob '!.git'
 # export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --color=always --smart-case --colors "path:fg:198,120,221" --colors "line:fg:97,175,239" --colors "match:fg:40,44,52" --colors "match:bg:229,192,123"'
 
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
+# export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
+export FZF_DEFAULT_COMMAND="fd"
 # export FZF_DEFAULT_OPTS='--color="fg:#ff0000,fg+:#ff0000,bg:#ff0000,hl:#ff0000"'
 
 export FZF_CTRL_T_COMMAND="rg --files --hidden --follow"
 export FZF_CTRL_T_OPTS="--preview-window='right:60%' --preview 'bat --style=numbers --color=always {}' --bind 'Ctrl-/:toggle-preview'"
 
 export BAT_THEME='OneHalfDark'
-# export COLORTERM=truecolor
 
 export FZF_ALT_C_COMMAND="fd --type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 20'"

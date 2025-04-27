@@ -18,16 +18,24 @@ brew install wget
 brew install httpie
 brew install reattach-to-user-namespace
 brew install nginx
+
+# Neovim
+# gettext blocked by corporate network, 403 response
+brew install gettext --build-from-source
+brew install neovim --HEAD
+brew install --cask font-fira-code font-fira-code-nerd-font font-fira-mono
+
 # Upgrade Mac OS bash
 brew install bash
 brew install bash-completion@2
-# piped fuzzy selection
-brew install rg
-brew install fzf
 
 # Find and preview files/directories
-brew install fd
-brew install bat
+brew install rg # Parallel find content in files
+brew install fd # Parallel find directory/file names
+brew install bat # Replacement for cat, colours, formatting, line number
+
+# Fuzzy search text, rg or fd result can be piped to fuzzysearch
+brew install fzf
 
 # Python
 brew install pipenv
@@ -61,6 +69,6 @@ brew install chromedriver
 # Install node
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-nvm install node 
+nvm install node
 # nvm install 12
 # nvm alias default v12

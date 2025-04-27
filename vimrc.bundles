@@ -153,4 +153,4 @@ Plugin 'mattn/webapi-vim'
 " Plugin 'ekalinin/Dockerfile.vim'
 
 " Github copilot
-" Plugin 'github/copilot.vim'
+Plugin 'github/copilot.vim'

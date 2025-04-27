@@ -2,6 +2,7 @@
 "
 """"""""""""""""""""""""
 
+set termguicolors
 set history=1000
 set undolevels=1500
 set scrolloff=10
@@ -285,7 +286,7 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>wr <C-w>x<cr>
 nnoremap <leader><leader>w :w\|Prettier<cr>
 nnoremap <leader>q! :qa!<cr>
-nnoremap <leader><leader> :qa<cr>
+nnoremap <leader><leader>q :qa<cr>
 nnoremap <leader><leader>q! :qa!<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader><leader>x :xa<cr>

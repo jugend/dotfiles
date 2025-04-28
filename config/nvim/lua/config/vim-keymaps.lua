@@ -88,7 +88,7 @@ vim.keymap.set('n', '<leader>rc', ReloadConfig, { desc = 'Reload init.lua config
 vim.keymap.set('n', '<leader>rb', ReloadConfig, { desc = 'Reload init.lua config', noremap = true })
 vim.keymap.set('n', '<leader>rl', ReloadConfig, { desc = 'Reload lazy.vim plugins', noremap = true })
 
--- Run commands
+-- Run command Line
 vim.keymap.set('n', '<leader>l<space>', ':lua<space>', { desc = 'Run :lua', noremap = true })
 vim.keymap.set('n', '<leader>lp', EditInCommand('print("")', 2), { desc = 'Run :lua print(...)', noremap = true })
 vim.keymap.set('n', '<leader>lv', EditInCommand('print(vim.o.)', 1), { desc = 'Run :lua print(...)', noremap = true })
@@ -138,11 +138,18 @@ vim.keymap.set('n', '<C-t>', require('telescope.builtin').grep_string, { desc = 
 -- end, { noremap = true, , desc = 'Search in files (Ack style)' })
 
 -- Open command line prompt
--- vim.keymap.set('n', '<leader>a', ':Telescope live_grep default_text=', { noremap=true })
+vim.keymap.set('n', '<leader>a', ':Telescope live_grep default_text=', { noremap=true })
 --
 -- Edit files
--- Add entry to edit config nvim init.lua file
 vim.keymap.set('n', '<leader>ei', '<cmd>e ~/.config/nvim/init.lua<cr>', { desc = 'Edit init.lua' })
+vim.keymap.set('n', '<leader>evo', '<cmd>e ~/.config/nvim/config/lua/config/vim-options.lua<cr>', { desc = 'Edit vim-options.lua' })
+vim.keymap.set('n', '<leader>evk', '<cmd>e ~/.config/nvim/config/lua/config/vim-keymaps.lua<cr>', { desc = 'Edit vim-keymaps.lua' })
+vim.keymap.set('n', '<leader>eto', '<cmd>e ~/.config/nvim/config/lua/plugins/theme-onedark.lua<cr>', { desc = 'Edit theme-onedark.lua' })
+vim.keymap.set('n', '<leader>ecf', '<cmd>e ~/.config/nvim/config/lua/plugins/conform.lua<cr>', { desc = 'Edit conform.lua' })
+vim.keymap.set('n', '<leader>et', '<cmd>e ~/.config/nvim/config/lua/plugins/telescope.lua<cr>', { desc = 'Edit telescope.lua' })
+vim.keymap.set('n', '<leader>eco', '<cmd>e ~/.config/nvim/config/lua/plugins/copilot.lua<cr>', { desc = 'Edit copilot.lua' })
+vim.keymap.set('n', '<leader>ecc', '<cmd>e ~/.config/nvim/config/lua/plugins/copilot-chat.lua<cr>', { desc = 'Edit copilot-chat.lua' })
+vim.keymap.set('n', '<leader>eb', '<cmd>e ~/.config/nvim/config/lua/plugins/blink.cmp.lua<cr>', { desc = 'Edit blink.cmp.lua' })
 
 -- Copilot
 vim.keymap.set('n', '<leader>ea', '<cmd>e ~/.aliases<cr>', { desc = 'Edit ~/.aliases' })

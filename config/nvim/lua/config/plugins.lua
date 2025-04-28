@@ -72,7 +72,7 @@ require('lazy').setup({
   require 'plugins.copilot',
   require 'plugins.copilot-chat',
   -- Validation
-  require 'plugins.lint',
+  require 'plugins.nvim-lint',
   -- Utils
   require 'plugins.nvim-surround',
   require 'plugins.indent_line',

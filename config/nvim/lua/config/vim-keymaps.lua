@@ -1,11 +1,36 @@
 -- [[ Custom Functions ]]
 --
-function ReloadConfig()
-  dofile(vim.env.MYVIMRC) -- Reload the config
-  vim.notify('Config reloaded!', vim.log.levels.INFO)
+local uv = vim.loop
+
+local function reload_files(directory)
+  local handle = uv.fs_scandir(directory)
+  if not handle then
+    vim.nofiy('reload_files: Failed to open directory - ' .. directory)
+    return
+  end
+
+  while true do
+    local name, type = uv.fs_scandir_next(handle)
+    if not name then
+      break
+    end
+    if type == 'file' then
+      vim.notify('reload_files: ' .. name)
+      dofile(directory .. '/' .. name)
+    end
+  end
 end
 
-function EditInCommand(command, back_nos)
+local function reload_configs()
+  dofile(vim.env.MYVIMRC) -- Reload the config
+
+  local config_dir = vim.fn.stdpath 'config' .. '/lua/config'
+  reload_files(config_dir) -- Reload the config
+
+  vim.notify('reload_configs: Config reloaded!', vim.log.levels.INFO)
+end
+
+local function edit_in_command(command, back_nos)
   return function()
     local cmd_line = string.format(':lua %s', command)
     vim.api.nvim_feedkeys(cmd_line, 'n', true)
@@ -65,15 +90,13 @@ vim.keymap.set('v', ':', ';', { noremap = true })
 vim.keymap.set('i', 'jj', '<Esc>', { noremap = true })
 vim.keymap.set('i', 'kk', '<Esc>', { noremap = true })
 vim.keymap.set('i', 'hh', '<Esc>', { noremap = true })
-vim.keymap.set('i', 'll', '<Esc>', { noremap = true })
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
-vim.keymap.set('i', '<C-[>', '<Esc>', { noremap = true })
 vim.keymap.set('i', '<C-l>', '<Esc>', { noremap = true })
 vim.keymap.set('v', '<C-l>', '<Esc>', { noremap = true })
 
 -- Save files
-vim.keymap.set('i', '<C-s>', '<cmd>w<CR>', { noremap = true })
-vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { noremap = true })
+-- vim.keymap.set('i', '<C-s>', '<cmd>w<CR>', { noremap = true })
+-- vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { noremap = true })
 
 -- Find Files
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { noremap = true })
@@ -82,19 +105,21 @@ vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { noremap 
 --   require('telescope.builtin').grep_string { search = word }
 -- end)
 vim.keymap.set('n', '<C-t>', require('telescope.builtin').grep_string, { noremap = true, desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>a', ':Telescope grep_string search=', { noremap = true, desc = 'Search in files (Ack style)' })
+vim.keymap.set('n', '<leader>tg', ':Telescope grep_string search=', { noremap = true, desc = 'Live Grep' })
+vim.keymap.set('n', '<leader>tl', ':Telescope grep_string search=', { noremap = true, desc = 'Live Grep' })
+vim.keymap.set('n', '<leader>td', ':Telescope live_grep search_dirs=', { noremap = true, desc = 'Live Grep' })
 
 -- Map it to a key (e.g., <leader>r to reload)
 vim.keymap.set('n', '<leader>E', '<cmd>e<CR>', { desc = 'Reload current file', noremap = true })
-vim.keymap.set('n', '<leader>rc', ReloadConfig, { desc = 'Reload init.lua config', noremap = true })
-vim.keymap.set('n', '<leader>rb', ReloadConfig, { desc = 'Reload init.lua config', noremap = true })
+vim.keymap.set('n', '<leader>rc', reload_configs, { desc = 'Reload init.lua config', noremap = true })
+vim.keymap.set('n', '<leader>rb', reload_configs, { desc = 'Reload init.lua config', noremap = true })
 vim.keymap.set('n', '<leader>rl', '<cmd>Lazy sync<CR>', { desc = 'Reload lazy.vim plugins', noremap = true })
 
 -- Run command Line
 vim.keymap.set('n', '<leader>l<space>', '<cmd>lua<space>', { desc = 'Run :lua', noremap = true })
-vim.keymap.set('n', '<leader>lp', EditInCommand('print("")', 2), { desc = 'Run :lua print(...)', noremap = true })
-vim.keymap.set('n', '<leader>lv', EditInCommand('print(vim.o.)', 1), { desc = 'Run :lua print(...)', noremap = true })
-vim.keymap.set('n', '<leader>lc', EditInCommand('vim.cmd("")', 2), { desc = 'Run :lua vim.cmd(...)', noremap = true })
+vim.keymap.set('n', '<leader>lp', edit_in_command('print("")', 2), { desc = 'Run :lua print(...)', noremap = true })
+vim.keymap.set('n', '<leader>lv', edit_in_command('print(vim.o.)', 1), { desc = 'Run :lua print(...)', noremap = true })
+vim.keymap.set('n', '<leader>lc', edit_in_command('vim.cmd("")', 2), { desc = 'Run :lua vim.cmd(...)', noremap = true })
 vim.keymap.set('n', '<leader>h<space>', '<cmd>help<space>', { desc = 'Run :lua print(...)', noremap = true })
 vim.keymap.set('n', '<leader>hl', '<cmd>help<space>lua-guide<CR>', { desc = 'Run :lua print(...)', noremap = true })
 vim.keymap.set('n', '<leader>ht', '<cmd>help<space>Tutor<CR>', { desc = 'Run :lua print(...)', noremap = true })
@@ -148,6 +173,11 @@ vim.keymap.set('n', '<leader>eco', '<cmd>e ~/.config/nvim/lua/plugins/copilot.lu
 vim.keymap.set('n', '<leader>ecc', '<cmd>e ~/.config/nvim/lua/plugins/copilot-chat.lua<CR>', { desc = 'Edit copilot-chat.lua' })
 vim.keymap.set('n', '<leader>eb', '<cmd>e ~/.config/nvim/lua/plugins/blink.cmp.lua<CR>', { desc = 'Edit blink.cmp.lua' })
 
+-- Project files
+vim.keymap.set('n', '<leader>epr', '<cmd>e ./package.json<CR>', { desc = 'Edit package.json' })
+vim.keymap.set('n', '<leader>epc', '<cmd>e ./server/package.json<CR>', { desc = 'Edit client/package.json' })
+vim.keymap.set('n', '<leader>eps', '<cmd>e ./client/package.json<CR>', { desc = 'Edit server/package.json' })
+
 -- Copilot
 vim.keymap.set('n', '<leader>ea', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
 vim.keymap.set('n', '<leader>ea', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
@@ -175,24 +205,27 @@ vim.keymap.set('n', '<leader>j', '<cmd>bprevious<CR>', { desc = 'Go to previous 
 vim.keymap.set('n', '<leader>J', '<cmd>bnext<CR>', { desc = 'Go to next buffer' })
 
 -- Copilot-- Add buffer navigattartinsertartinserton shortcut
-vim.keymap.set('i', '<C-space>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
-vim.keymap.set('n', '<C-space>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
-vim.keymap.set('v', '<C-space>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
-vim.keymap.set('i', '<C-/>', '<Plug>(copilot-suggest)', { noremap = true })
-vim.keymap.set('i', '<C-\\>', '<Plug>(copilot-accept)', { noremap = true })
-vim.keymap.set('i', '<C-]>', '<Plug>(copilot-next)', { noremap = true })
-vim.keymap.set('i', '<C-]>', '<Plug>(copilot-prev)', { noremap = true })
-vim.keymap.set('i', '<C->>', '<Plug>(copilot-dismiss)', { noremap = true })
-vim.keymap.set('v', '<leader>ce', '<cmd>CopilotChatExplain<CR>', { noremap = true })
+vim.keymap.set('v', '<C-i>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
+vim.keymap.set('i', '<C-i>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
+-- vim.keymjp.set('i', '<C-s>', '<Plug>(copilot-suggest)', { noremap = true })
+-- vim.keymap.set('i', '<C-\\>', '<Plug>(copilot-accept)', { noremap = true })
+-- vim.keymap.set('i', '<C-]>', '<Plug>(copilot-next)', { noremap = true })
+-- vim.keymap.set('i', '<C-[', '<Plug>(copilot-prev)', { noremap = true })
+-- vim.keymap.set('i', '<C-x>', '<Plug>(copilot-dismiss)', { noremap = true })
+
+vim.keymap.set('n', '<C-i>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
 vim.keymap.set('n', '<C-w>c', '<cmd>CopilotChatPrompts<CR>', { noremap = true })
-vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = 'Copilot reset', noremap = true })
+vim.keymap.set('n', '<leader>ct', '<cmd>Copilot toggle<CR>', { desc = 'Copilot toggle', noremap = true })
+
+vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
 
 -- Command Line shortcut
 -- C-c map, does not quit the window, it'll change to insert mode
-vim.keymap.set('n', '<C-l>', '<C-q>', { noremap = true })
+-- vim.keymap.set('n', '<C-l>', 'i', { noremap = true })
 
 vim.keymap.set('c', 'jk', '<C-c>', { noremap = true })
-vim.keymap.set('c', '<C-l>', '<C-c>', { noremap = true })
+vim.keymap.set('c', '<C-l>', 'C-c>', { noremap = true })
 vim.keymap.set('c', '<C-a>', '<Home>', { noremap = true })
 vim.keymap.set('c', '<C-e>', '<End>', { noremap = true })
 vim.keymap.set('c', '<C-p>', '<Up>', { noremap = true })
@@ -206,8 +239,8 @@ vim.keymap.set('c', '<M-f>', '<S-Right>', { noremap = true })
 vim.keymap.set('i', '<C-l>', '<C-c>', { noremap = true })
 vim.keymap.set('i', '<C-a>', '<Home>', { noremap = true })
 vim.keymap.set('i', '<C-e>', '<End>', { noremap = true })
-vim.keymap.set('i', '<C-p>', '<Up>', { noremap = true })
-vim.keymap.set('i', '<C-n>', '<Down>', { noremap = true })
+-- vim.keymap.set('i', '<C-p>', '<Up>', { noremap = true })
+-- vim.keymap.set('i', '<C-n>', '<Down>', { noremap = true })
 vim.keymap.set('i', '<C-b>', '<Left>', { noremap = true })
 vim.keymap.set('i', '<C-f>', '<Right>', { noremap = true })
 vim.keymap.set('i', '<C-d>', '<Del>', { noremap = true })

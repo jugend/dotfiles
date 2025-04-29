@@ -1,12 +1,5 @@
 -- [[ VIM Options ]]
 
--- Switch node version to the latest version, min node 20 and above for Copilot support
-vim.api.nvim_create_autocmd('VimEnter', {
-  callback = function()
-    vim.fn.jobstart({ 'bash', '-c', 'source ~/.nvm/nvm.sh && nvm use default' }, { detach = true })
-  end,
-})
-
 -- Hide intro message screen
 vim.opt.shortmess:append 'I'
 

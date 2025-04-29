@@ -48,12 +48,18 @@ return { -- Fuzzy Finder (files, lsp, etc)
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
-      --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
+      defaults = {
+        -- Limit the number of results displayed to improve responsiveness
+        layout_config = {
+          preview_cutoff = 120,
+          width = 0.75,
+        },
+        results_title = false,
+        sorting_strategy = 'ascending',
+        --   mappings = {
+        --     i = { ['<C-z>'] = 'to_fuzzy_refine' },
+        --   },
+      },
       -- pickers = {}
       extensions = {
         ['ui-select'] = {
@@ -65,6 +71,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    -- Cache frequently accessed files
+    pcall(require('telescope').load_extension, 'frecency')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'

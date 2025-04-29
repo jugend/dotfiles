@@ -1,5 +1,5 @@
 -- Nvim Tree - File Explorer
---
+-- Shortcut keys g? => Show help
 return {
   'nvim-tree/nvim-tree.lua',
   dependencies = {

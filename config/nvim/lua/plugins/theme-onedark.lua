@@ -42,6 +42,20 @@ return {
         line = '#2d474e',
       }, -- Override default colors
       highlights = {
+        NvimTreeNormal = { bg = '$bg0' },
+        NvimTreeNormalFloat = { bg = '$bg0' },
+        NvimTreeVertSplit = { bg = '$bg0' },
+        NvimTreeEndOfBuffer = { bg = '$bg0' },
+        -- NvimTreeRootFolder = { fg = c.orange, fmt = "bold" },
+        -- NvimTreeGitDirty = colors.Yellow,
+        -- NvimTreeGitNew = colors.Green,
+        -- NvimTreeGitDeleted = colors.Red,
+        -- NvimTreeSpecialFile = { fg = c.yellow, fmt = "underline" },
+        -- NvimTreeIndentMarker = colors.Fg,
+        -- NvimTreeImageFile = { fg = c.dark_purple },
+        -- NvimTreeSymlink = colors.Purple,
+        -- NvimTreeFolderName = colors.Blue,
+
         NeoTreeNormal = { bg = '$bg0' },
         NeoTreeNormalNC = { bg = '$bg0' },
         NeoTreeVertSplit = { bg = '$bg0' },

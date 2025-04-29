@@ -65,7 +65,8 @@ require('lazy').setup({
   require 'plugins.todo-comments',
   require 'plugins.mini',
   -- Navigation
-  require 'plugins.neo-tree',
+  require 'plugins.nvim-tree',
+  -- require 'plugins.neo-tree',
   -- Formatting
   require 'plugins.nvim-treesitter',
   -- Co-pilot

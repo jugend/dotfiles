@@ -80,7 +80,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- vim.keymap.set('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
 -- vim.keymap.set('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- Reverse semicolon and colon chars
 vim.keymap.set('n', ';', ':', { noremap = true })
 vim.keymap.set('n', ':', ';', { noremap = true })
@@ -181,14 +180,19 @@ vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { des
 
 -- Edit files
 vim.keymap.set('n', '<leader>ei', '<cmd>e ~/.config/nvim/init.lua<CR>', { desc = 'Edit init.lua' })
-vim.keymap.set('n', '<leader>evo', '<cmd>e ~/.config/nvim/lua/config/vim-options.lua<CR>', { desc = 'Edit vim-options.lua' })
-vim.keymap.set('n', '<leader>evk', '<cmd>e ~/.config/nvim/lua/config/vim-keymaps.lua<CR>', { desc = 'Edit vim-keymaps.lua' })
+vim.keymap.set('n', '<leader>ep', '<cmd>e ~/.config/nvim/config/plugins.lua<CR>', { desc = 'Edit plugins.lua' })
+vim.keymap.set('n', '<leader>eo', '<cmd>e ~/.config/nvim/lua/config/vim-options.lua<CR>', { desc = 'Edit vim-options.lua' })
+vim.keymap.set('n', '<leader>ek', '<cmd>e ~/.config/nvim/lua/config/vim-keymaps.lua<CR>', { desc = 'Edit vim-keymaps.lua' })
+vim.keymap.set('n', '<leader>es', '<cmd>e ~/.config/nvim/lua/config/vim-scripts.lua<CR>', { desc = 'Edit vim-scripts.lua' })
+vim.keymap.set('n', '<leader>ef', '<cmd>e ~/.config/nvim/lua/config/functions.lua<CR>', { desc = 'Edit functions.lua' })
 vim.keymap.set('n', '<leader>eto', '<cmd>e ~/.config/nvim/lua/plugins/theme-onedark.lua<CR>', { desc = 'Edit theme-onedark.lua' })
 vim.keymap.set('n', '<leader>ecf', '<cmd>e ~/.config/nvim/lua/plugins/conform.lua<CR>', { desc = 'Edit conform.lua' })
 vim.keymap.set('n', '<leader>et', '<cmd>e ~/.config/nvim/lua/plugins/telescope.lua<CR>', { desc = 'Edit telescope.lua' })
+vim.keymap.set('n', '<leader>ef', '<cmd>e ~/.config/nvim/lua/plugins/fzf-lua.lua<CR>', { desc = 'Edit telescope.lua' })
 vim.keymap.set('n', '<leader>eco', '<cmd>e ~/.config/nvim/lua/plugins/copilot.lua<CR>', { desc = 'Edit copilot.lua' })
 vim.keymap.set('n', '<leader>ecc', '<cmd>e ~/.config/nvim/lua/plugins/copilot-chat.lua<CR>', { desc = 'Edit copilot-chat.lua' })
 vim.keymap.set('n', '<leader>eb', '<cmd>e ~/.config/nvim/lua/plugins/blink.cmp.lua<CR>', { desc = 'Edit blink.cmp.lua' })
+vim.keymap.set('n', '<leader>en', '<cmd>e ~/.config/nvim/lua/plugins/nvim-lspconfig.lua<CR>', { desc = 'Edit nvim-lspconfig.lua' })
 
 -- Project files
 vim.keymap.set('n', '<leader>epr', '<cmd>e ./package.json<CR>', { desc = 'Edit package.json' })

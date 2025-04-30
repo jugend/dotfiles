@@ -32,8 +32,8 @@ local function r(module)
   return loaded_module
 end
 
-r 'config.plugins'
 r 'config.functions'
 r 'config.vim-scripts'
 r 'config.vim-options'
 r 'config.vim-keymaps'
+r 'config.plugins'

@@ -15,7 +15,7 @@ local function reload_files(directory)
       break
     end
     if type == 'file' then
-      vim.notify('reload_files: ' .. name)
+      vim.notify('reload_files: ' .. directory .. name)
       dofile(directory .. '/' .. name)
     end
   end

@@ -44,7 +44,8 @@ end
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 --
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', '<vmd>nohlsearch<CR>')
+vim.keymap.set('n', '<leader>N', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -99,12 +100,12 @@ vim.keymap.set('v', '<C-l>', '<Esc>', { noremap = true })
 -- vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { noremap = true })
 
 -- Find Files
-vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { noremap = true })
+-- vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { noremap = true })
 -- vim.keymap.set('n', '<C-t>', function()
 --   local word = vim.fn.expand '<cword>' -- Get the word under the cursor
 --   require('telescope.builtin').grep_string { search = word }
 -- end)
-vim.keymap.set('n', '<C-t>', require('telescope.builtin').grep_string, { noremap = true, desc = '[S]earch current [W]ord' })
+-- vim.keymap.set('n', '<C-t>', require('telescope.builtin').grep_string, { noremap = true, desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>tg', ':Telescope grep_string search=', { noremap = true, desc = 'Live Grep' })
 vim.keymap.set('n', '<leader>tl', ':Telescope grep_string search=', { noremap = true, desc = 'Live Grep' })
 vim.keymap.set('n', '<leader>td', ':Telescope live_grep search_dirs=', { noremap = true, desc = 'Live Grep' })
@@ -148,10 +149,26 @@ vim.keymap.set('n', '<leader><leader>!', '<cmd>qa<CR>', { desc = 'Quite file wit
 
 -- Write files
 vim.keymap.set('n', '<leader>ws', '<cmd>w<CR>', { desc = 'Save file ', noremap = true })
-vim.keymap.set('n', '<leader>wx', '<cmd>x<CR>', { desc = 'Save and exit file', noremap = true })
-
 -- nvim-tree
-vim.keymap.set('n', '<leader>f', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Reveal file in Neotree', noremap = true })
+vim.keymap.set('n', '<leader><leader>f', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Reveal file in Neotree', noremap = true })
+
+-- Fzf Lua
+vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<CR>', { desc = 'Fzf files', noremap = true })
+vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword<CR>', { desc = 'Fzf word under the cursor', noremap = true })
+vim.keymap.set('n', '<leader>fc', '<cmd>FzfLua<CR>', { desc = 'Fzf command options', noremap = true })
+vim.keymap.set('n', '<leader>a', '<jmd>FzfLua grep<CR>', { desc = 'Fzf grep text', noremap = true })
+vim.keymap.set('n', '<leader>fi', ':FzfLua grep cwd=', { desc = 'Fzf in directory', noremap = true })
+vim.keymap.set('n', '<leader>fn', '<cmd>FzfLua files cwd=./config/nvim<CR>', { desc = 'Fzf nvim configs', noremap = true })
+vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<CR>', { desc = 'Fzf files', noremap = true })
+vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<CR>', { desc = 'Fzf buffers', noremap = true })
+vim.keymap.set('n', '<leader>fb', '<cmd>FzfLua buffers<CR>', { desc = 'Fzf buffers', noremap = true })
+vim.keymap.set('n', '<leader>fl', '<cmd>FzfLua live_grep_native<CR>', { desc = 'Fzf live grep', noremap = true })
+vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua grep_cword<CR>', { desc = 'Fzf word under the cursor', noremap = true })
+vim.keymap.set('n', '<leader>fr', '<cmd>FzfLua live_grep_resume<CR>', { desc = 'Fzf resume', noremap = true })
+vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua helptags<CR>', { desc = 'Fzf nvim help', noremap = true })
+vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua keymaps<CR>', { desc = 'Fzf shortcuts', noremap = true })
+vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document<CR>', { desc = 'Fzf diagnostic in file', noremap = true })
+vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { desc = 'Fzf diagnostic in workspace', noremap = true })
 
 -- neo-tree
 -- vim.keymap.set('n', '<leader>f', '<cmd>Neotree reveal<CR>', { desc = 'Reveal file in Neotree', noremap = true })
@@ -204,25 +221,38 @@ vim.keymap.set('n', '<leader>cp', '<cmd>cprevious<CR>', { desc = ':cprevious - P
 vim.keymap.set('n', '<leader>j', '<cmd>bprevious<CR>', { desc = 'Go to previous buffer' })
 vim.keymap.set('n', '<leader>J', '<cmd>bnext<CR>', { desc = 'Go to next buffer' })
 
--- Copilot-- Add buffer navigattartinsertartinserton shortcut
-vim.keymap.set('v', '<C-i>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
-vim.keymap.set('i', '<C-i>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
--- vim.keymjp.set('i', '<C-s>', '<Plug>(copilot-suggest)', { noremap = true })
--- vim.keymap.set('i', '<C-\\>', '<Plug>(copilot-accept)', { noremap = true })
--- vim.keymap.set('i', '<C-]>', '<Plug>(copilot-next)', { noremap = true })
--- vim.keymap.set('i', '<C-[', '<Plug>(copilot-prev)', { noremap = true })
--- vim.keymap.set('i', '<C-x>', '<Plug>(copilot-dismiss)', { noremap = true })
+-- Copilot Chat
 
-vim.keymap.set('n', '<C-i>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
-vim.keymap.set('n', '<C-w>c', '<cmd>CopilotChatPrompts<CR>', { noremap = true })
-vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = 'Copilot reset', noremap = true })
+vim.keymap.set('n', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
+vim.keymap.set('n', '<leader>cp', '<cmd>CopilotChatPrompts<kCR>', { noremap = true })
 vim.keymap.set('n', '<leader>ct', '<cmd>Copilot toggle<CR>', { desc = 'Copilot toggle', noremap = true })
-
+vim.keymap.set('n', '<leader>cs', '<cmd>Copilot status<CR>', { desc = 'Copilot status', noremap = true })
+vim.keymap.set('n', '<leader>cp', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel', noremap = true })
+vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = 'Copilot reset', noremap = true })
 vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
 
+-- Copilot
+-- vim.keymap.set('i', '<C-space>', '<Plug>(copilot-accept)', { noremap = true })
+-- vim.keymap.set('i', '<C-]>', '<Plug>(copilot-next)', { noremap = true })
+-- vim.keymap.set('i', '<C-[>', '<Plug>(copilot-prev)', { noremap = true })
+-- vim.keymap.set('i', '<C-x>', '<Plug>(copilot-dismiss)', { noremap = true })
+-- vim.keymap.set('i', '<C-s>', '<Plug>(copilot-suggest)', { noremap = true })
+
+-- vim.keymap.set('n', '<C-s>', '<Plug>(copilot-suggest)', { noremap = true })
+-- vim.keymap.set('i', '<C-\\>', '<Plug>(copilot-accept)', { noremap = true })
+-- vim.keymap.set('v', '<C-]>', '<Plug>(copilot-next)', { noremap = true })
+-- vim.keymap.set('i', '<C-[', '<Plug>(copilot-prev)', { noremap = true })
+-- vim.keymap.set('i', '<C-x>', '<Plug>(copilot-dismiss)', { noremap = true })
+-- vim.keymap.set('n', '<C-s>', '<Plug>(copilot-suggest)', { noremap = true })
+-- vim.keymap.set('i', '<C-\\>', '<Plug>(copilot-accept)', { noremap = true })
+-- vim.keymap.set('v', '<C-]>', '<Plug>(copilot-next)', { noremap = true })
+-- vim.keymap.set('i', '<C-[', '<Plug>(copilot-prev)', { noremap = true })
+-- vim.keymap.set('i', '<C-x>', '<Plug>(copilot-dismiss)', { noremap = true })
 -- Command Line shortcut
 -- C-c map, does not quit the window, it'll change to insert mode
 -- vim.keymap.set('n', '<C-l>', 'i', { noremap = true })
+--
+-- viim test test
 
 vim.keymap.set('c', 'jk', '<C-c>', { noremap = true })
 vim.keymap.set('c', '<C-l>', 'C-c>', { noremap = true })

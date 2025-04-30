@@ -20,34 +20,32 @@ return {
       --     ratio = 0.4,
       --   },
       -- },
-      -- suggestion = {
-      --   enabled = true,
-      --   auto_trigger = true,
-      --   hide_during_completion = true,
-      --   debounce = 75,
-      --   trigger_on_accept = true,
-      --   keymap = {
-      --     accept = '<C-space>',
-      --     accept_word = false,
-      --     accept_line = false,
-      --     next = '<C-]>',
-      --     prev = '<C-[>',
-      --     dismiss = '<C-x>',
-      --   },
-      -- },
-      filetypes = {
-        lua = true,
-        javascript = true,
-        --   yaml = false,
-        --   markdown = false,
-        --   help = false,
-        --   gitcommit = false,
-        --   gitrebase = false,
-        --   hgcommit = false,
-        --   svn = false,
-        --   cvs = false,
-        --   ['.'] = false,
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        hide_during_completion = true,
+        debounce = 75,
+        trigger_on_accept = true,
+        keymap = {
+          accept = '<C-l>',
+          accept_word = false,
+          accept_line = false,
+          next = '<C-]>',
+          prev = '<C-[>',
+          dismiss = '<C-x>',
+        },
       },
+      -- filetypes = {
+      --   yaml = false,
+      --   markdown = false,
+      --   help = false,
+      --   gitcommit = false,
+      --   gitrebase = false,
+      --   hgcommit = false,
+      --   svn = false,
+      --   cvs = false,
+      --   ['.'] = false,
+      -- },
       -- auth_provider_url = nil, -- URL to authentication provider, if not "https://github.com/"
       -- logger = {
       --   file = vim.fn.stdpath 'log' .. '/copilot-lua.log',
@@ -68,12 +66,12 @@ return {
       --     logger.debug "not attaching, buffer is not 'buflisted'"
       --     return false
       --   end
-      --
+
       --   if vim.bo.buftype ~= '' then
       --     logger.debug("not attaching, buffer 'buftype' is " .. vim.bo.buftype)
       --     return false
       --   end
-      --
+
       --   return true
       -- end,
       -- server = {

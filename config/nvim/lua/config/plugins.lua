@@ -80,7 +80,7 @@ require('lazy').setup({
   require 'plugins.nvim-lint',
   -- Utils
   -- require 'plugins.nvim-surround',
-  require 'plugins.indent_line',
+  -- require 'plugins.indent_line',
   require 'plugins.autopairs',
   require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
 

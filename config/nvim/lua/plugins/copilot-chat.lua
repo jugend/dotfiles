@@ -125,14 +125,14 @@ return {
       --   complete = {
       --     insert = '<Tab>',
       --   },
-        close = {
-          normal = 'q',
-          insert = '<C-g>',
-        },
-      --   reset = {
-      --     normal = '<C-l>',
-      --     insert = '<C-l>',
-      --   },
+      close = {
+        normal = 'q',
+        insert = '<C-g>',
+      },
+      reset = {
+        normal = '<C-r>',
+        insert = '<C-r>',
+      },
       --   submit_prompt = {
       --     normal = '<CR>',
       --     insert = '<C-s>',

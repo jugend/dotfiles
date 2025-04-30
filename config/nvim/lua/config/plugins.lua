@@ -88,7 +88,8 @@ require('lazy').setup({
   -- require 'plugins.zoom-toggle', -- adds gitsigns recommend keymaps
 
   -- Dev
-  require 'plugins.debug',
+  -- Will override ,b, C-i and probably a few other keymaps
+  -- require 'plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

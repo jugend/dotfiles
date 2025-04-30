@@ -4,7 +4,7 @@
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 --
-local f = require('config.functions')
+local f = require 'config.functions'
 
 -- Reverse semicolon and colon chars
 vim.keymap.set('n', ';', ':', { noremap = true })
@@ -96,7 +96,6 @@ vim.keymap.set('n', '<leader>g', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Re
 
 -- Edit files
 vim.keymap.set('n', '<leader>ei', '<cmd>e ~/.config/nvim/init.lua<CR>', { desc = 'Edit init.lua' })
-vim.keymap.set('n', '<leader>ep', '<cmd>e ~/.config/nvim/config/plugins.lua<CR>', { desc = 'Edit plugins.lua' })
 vim.keymap.set('n', '<leader>eo', '<cmd>e ~/.config/nvim/lua/config/vim-options.lua<CR>', { desc = 'Edit vim-options.lua' })
 vim.keymap.set('n', '<leader>ek', '<cmd>e ~/.config/nvim/lua/config/vim-keymaps.lua<CR>', { desc = 'Edit vim-keymaps.lua' })
 vim.keymap.set('n', '<leader>es', '<cmd>e ~/.config/nvim/lua/config/vim-scripts.lua<CR>', { desc = 'Edit vim-scripts.lua' })
@@ -111,12 +110,13 @@ vim.keymap.set('n', '<leader>eb', '<cmd>e ~/.config/nvim/lua/plugins/blink.cmp.l
 vim.keymap.set('n', '<leader>en', '<cmd>e ~/.config/nvim/lua/plugins/nvim-lspconfig.lua<CR>', { desc = 'Edit nvim-lspconfig.lua' })
 
 -- Project files
-vim.keymap.set('n', '<leader>epr', '<cmd>e ./package.json<CR>', { desc = 'Edit package.json' })
-vim.keymap.set('n', '<leader>epc', '<cmd>e ./server/package.json<CR>', { desc = 'Edit client/package.json' })
-vim.keymap.set('n', '<leader>eps', '<cmd>e ./client/package.json<CR>', { desc = 'Edit server/package.json' })
+vim.keymap.set('n', '<leader>epl', '<cmd>e ~/.config/nvim/lua/config/plugins.lua<CR>', { desc = 'Edit plugins.lua' })
+vim.keymap.set('n', '<leader>eph', '<cmd>e i/package.json<CR>', { desc = 'Edit package.json' })
+vim.keymap.set('n', '<leader>epc', '<cmd>e i/server/package.json<CR>', { desc = 'Edit client/package.json' })
+vim.keymap.set('n', '<leader>eps', '<cmd>e i/client/package.json<CR>', { desc = 'Edit server/package.json' })
 
 -- Edit files
-vim.keymap.set('n', '<leader>ea', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
+vim.keymap.sejt('n', '<leader>ea', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
 vim.keymap.set('n', '<leader>eal', '<cmd>e ~/.aliases.local<CR>', { desc = 'Edit ~/.aliases.local' })
 vim.keymap.set('n', '<leader>eap', '<cmd>e ~/.aliases.private<CR>', { desc = 'Edit ~/.aliases.private' })
 vim.keymap.set('n', '<leader>eb', '<cmd>e ~/.bashrc<CR>', { desc = 'Edit ~/.bashrc' })
@@ -178,7 +178,6 @@ vim.keymap.set('n', '<leader>td', ':Telescope live_grep search_dirs=', { noremap
 -- vim.keymap.set('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true, noremap = true })
 -- vim.keymap.set('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true, noremap = true })
 
-
 -- Copilot
 vim.keymap.set('n', '<leader>ct', '<cmd>Copilot toggle<CR>', { desc = 'Copilot toggle', noremap = true })
 vim.keymap.set('n', '<leader>cg', '<cmd>Copilot suggestion<CR>', { desc = 'Copilot suggestion', noremap = true })
@@ -190,3 +189,6 @@ vim.keymap.set('n', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
 vim.keymap.set('n', '<leader>cp', '<cmd>CopilotChatPrompts<kCR>', { noremap = true })
 vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = 'Copilot reset', noremap = true })
 vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
+
+-- Conform
+vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = 'Conform Info', noremap = true })

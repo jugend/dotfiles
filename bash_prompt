@@ -1,8 +1,6 @@
 git_branch() {
   # With bracket
-  # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
-  # Without backet
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
 }
 
 dir() {
@@ -31,8 +29,9 @@ node_version() {
 
 # With host name
 #PS1="\[\033[0m\][\h] \[\033[34m\]\W \$(git_branch)\[\033[0m\]\$(node_version) $(ruby_version)\[\033[0m\] $ "
+
 # Without host name
-PS1="\[\033[34m\][\$(dir)] (\$(git_branch)) \[\033[0m\]\$(node_version) \[\033[0m\]$ "
+PS1="\[\033[0m\][\$(dir)] \[\033[34m\]\$(git_branch)\[\033[0m\]\$(node_version) $(ruby_version)\[\033[0m\] $ "
 
 if [[ !$TERM_PROGRAM =~ Apple_Terminal ]]; then
  export LSCOLORS=Gxfxcxdxbxegedabagacad

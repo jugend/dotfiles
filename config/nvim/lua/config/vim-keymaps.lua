@@ -150,7 +150,7 @@ vim.keymap.set('n', '<leader><leader>!', '<cmd>qa<CR>', { desc = 'Quite file wit
 -- Write files
 vim.keymap.set('n', '<leader>ws', '<cmd>w<CR>', { desc = 'Save file ', noremap = true })
 -- nvim-tree
-vim.keymap.set('n', '<leader><leader>f', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Reveal file in Neotree', noremap = true })
+vim.keymap.set('n', '<leader>g', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Reveal file in Neotree', noremap = true })
 
 -- Fzf Lua
 vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<CR>', { desc = 'Fzf files', noremap = true })

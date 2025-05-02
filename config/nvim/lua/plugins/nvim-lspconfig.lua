@@ -150,6 +150,12 @@ return {
       end,
     })
 
+    -- Herry: Eslint - null-ls.vim
+    -- vim.api.nvim_create_autocmd('BufWritePre', {
+    --   buffer = bufnr,
+    --   command = 'EslintFixAll',
+    -- })
+
     -- Diagnostic Config
     -- See :help vim.diagnostic.Opts
     vim.diagnostic.config {
@@ -257,17 +263,6 @@ return {
           require('lspconfig')[server_name].setup(server)
         end,
       },
-
-      -- eslint config
-      vim.lsp.config('eslint', {
-        ---@diagnostic disable-next-line: unused-local
-        on_attach = function(_client, bufnr)
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            command = 'EslintFixAll',
-          })
-        end,
-      }),
     }
   end,
 }

@@ -116,7 +116,7 @@ vim.keymap.set('n', '<leader>epc', '<cmd>e i/server/package.json<CR>', { desc = 
 vim.keymap.set('n', '<leader>eps', '<cmd>e i/client/package.json<CR>', { desc = 'Edit server/package.json' })
 
 -- Edit files
-vim.keymap.sejt('n', '<leader>ea', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
+vim.keymap.set('n', '<leader>ea', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
 vim.keymap.set('n', '<leader>eal', '<cmd>e ~/.aliases.local<CR>', { desc = 'Edit ~/.aliases.local' })
 vim.keymap.set('n', '<leader>eap', '<cmd>e ~/.aliases.private<CR>', { desc = 'Edit ~/.aliases.private' })
 vim.keymap.set('n', '<leader>eb', '<cmd>e ~/.bashrc<CR>', { desc = 'Edit ~/.bashrc' })
@@ -145,9 +145,12 @@ vim.keymap.set('n', '<leader>J', '<cmd>bnext<CR>', { desc = 'Go to next buffer' 
 -- Fzf Lua
 vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<CR>', { desc = 'Fzf files', noremap = true })
 vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword<CR>', { desc = 'Fzf word under the cursor', noremap = true })
+vim.keymap.set('n', '<C-u>', '<cmd>FzfLua live_grep_native<CR>', { desc = 'Fzf live grep', noremap = true })
+vim.keymap.set('i', '<C-u>', '<cmd>FzfLua live_grep_native<CR>', { desc = 'bzf live grep', noremap = true })
 vim.keymap.set('n', '<leader>a', '<cmd>FzfLua grep<CR>', { desc = 'Fzf grep text', noremap = true })
 vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<CR>', { desc = 'Fzf buffers', noremap = true })
-vim.keymap.set('n', '<leader>fc', '<cmd>FzfLua<CR>', { desc = 'Fzf command options', noremap = true })
+vim.keymap.set('n', '<leader>fo', '<cmd>FzfLua<CR>', { desc = 'Fzf options', noremap = true })
+vim.keymap.set('n', '<leader>fc', '<cmd>FzfLua commands<CR>', { desc = 'Fzf nvim commands', noremap = true })
 vim.keymap.set('n', '<leader>fi', ':FzfLua grep cwd=', { desc = 'Fzf in directory', noremap = true })
 vim.keymap.set('n', '<leader>fn', '<cmd>FzfLua files cwd=~/.config/nvim<CR>', { desc = 'Fzf nvim configs', noremap = true })
 vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<CR>', { desc = 'Fzf files', noremap = true })

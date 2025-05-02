@@ -195,7 +195,9 @@ return {
           return diagnostic_message[diagnostic.severity]
         end,
       },
-      underline = { severity = severity_config },
+      underline = {
+        severity = severity_config,
+      },
     }
 
     -- Update loclist on save

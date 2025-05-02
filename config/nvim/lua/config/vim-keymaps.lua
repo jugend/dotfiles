@@ -29,7 +29,7 @@ vim.keymap.set('n', '<leader>N', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>w', 'viw')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>ld', f.toggle_diagnostic_loclist, { desc = 'Open diagnostic quickfix list' })
+vim.keymap.set('n', '<leader>td', f.toggle_diagnostic_loclist, { desc = '[T]oggle [d]iagnostic location list', noremap = true })
 
 -- Command mode
 vim.keymap.set('c', 'jk', '<C-c>', { noremap = true })
@@ -145,7 +145,7 @@ vim.keymap.set('n', '<leader>J', '<cmd>bnext<CR>', { desc = 'Go to next buffer' 
 
 -- [[ PLugins Keymaps ]]
 
--- Fzf Lua
+-- [ Fzf Lua ]
 vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<CR>', { desc = 'Fzf files', noremap = true })
 vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword<CR>', { desc = 'Fzf word under the cursor', noremap = true })
 vim.keymap.set('n', '<C-u>', '<cmd>FzfLua live_grep_native<CR>', { desc = 'Fzf live grep', noremap = true })
@@ -167,31 +167,26 @@ vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document<CR>', { desc
 vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { desc = 'Fzf diagnostic in workspace', noremap = true })
 vim.keymap.set('n', '<leader>ft', '<cmd>TodoFzfLua<CR>', { desc = 'Fzf TODO, NOTE', noremap = true })
 
--- Telescope
-vim.keymap.set('n', '<leader>tg', ':Telescope grep_string search=', { noremap = true, desc = 'Live Grep' })
-vim.keymap.set('n', '<leader>tl', ':Telescope grep_string search=', { noremap = true, desc = 'Live Grep' })
-vim.keymap.set('n', '<leader>td', ':Telescope live_grep search_dirs=', { noremap = true, desc = 'Live Grep' })
--- vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { noremap = true })
--- vim.keymap.set('n', '<C-t>', function()
---   local word = vim.fn.expand '<cword>' -- Get the word under the cursor
---   require('telescope.builtin').grep_string { search = word }
--- end)
+-- [ Telescope ]
+-- vim.keymap.set('n', '<leader>tg', ':Telescope grep_string search=', { noremap = true, desc = 'Telescope Grep String' })
+-- vim.keymap.set('n', '<leader>td', ':Telescope live_grep search_dirs=', { noremap = true, desc = 'Telescope Live Grep' })
+-- vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { noremap = true, 'Open telescope' })
 -- vim.keymap.set('n', '<C-t>', require('telescope.builtin').grep_string, { noremap = true, desc = '[S]earch current [W]ord' })
 
--- neo-tree
+-- [ neo-tree ]
 -- vim.keymap.set('n', '<leader>f', '<cmd>Neotree reveal<CR>', { desc = 'Reveal file in Neotree', noremap = true })
 -- vim.keymap.set('n', '<leader>F', '<cmd>Neotree toggle<CR>', { desc = 'Toggle file in Neotree', noremap = true })
 -- vim.keymap.set('i', '<Tab>', 'pumvisible() ? "<C-n>" : "<Tab>"', { expr = true, noremap = true })
 -- vim.keymap.set('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true, noremap = true })
 -- vim.keymap.set('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true, noremap = true })
 
--- Copilot
-vim.keymap.set('n', '<leader>ct', '<cmd>Copilot toggle<CR>', { desc = 'Copilot toggle', noremap = true })
+-- [ Copilot ]
+vim.keymap.set('n', '<leader>tc', '<cmd>Copilot toggle<CR>', { desc = 'Copilot toggle', noremap = true })
 vim.keymap.set('n', '<leader>cg', '<cmd>Copilot suggestion<CR>', { desc = 'Copilot suggestion', noremap = true })
 vim.keymap.set('n', '<leader>cs', '<cmd>Copilot status<CR>', { desc = 'Copilot status', noremap = true })
 vim.keymap.set('n', '<leader>cp', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel', noremap = true })
 
--- Copilot Chat
+-- [ Copilot Chat ]
 vim.keymap.set('n', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
 vim.keymap.set('v', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
 vim.keymap.set('n', '<leader>cp', '<cmd>CopilotChatPrompts<kCR>', { noremap = true })
@@ -201,7 +196,7 @@ vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
 -- Conform Plugin
 vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = 'Conform Info', noremap = true })
 
--- -- Specter Plugin
+-- [ Specter Plugin ]
 -- vim.keymap.set('n', '<leader>R', '<cmd>lua require("spectre").toggle()<CR>', { desc = 'Toggle Spectre' })
 -- vim.keymap.set('n', '<leader>rr', require('spectre').open, { desc = 'Open Spectre (Search and Replace)' })
 -- vim.keymap.set('n', '<leader>rw', function()
@@ -209,15 +204,42 @@ vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = 'Conform Info
 -- end, { desc = 'Search current word' })
 -- vim.keymap.set('v', '<leader>rw', require('spectre').open_visual, { desc = 'Search selection' })
 
--- Lazygit Plugin
+-- [ Lazygit Plugin ]
 vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit [g]', noremap = true })
 
--- nvim-tree
+-- [ nvim-tree ]
 vim.keymap.set('n', '<leader>gg', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Reveal file in Neotree [g]', noremap = true })
 
--- Gitsigns
-vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'Gitsigns[g] blame[b]', noremap = true })
-vim.keymap.set('n', '<leader>gc', '<cmd>Gitsigns<CR>', { desc = 'Gitsigns[g] commands[c]', noremap = true })
+-- [ Gitsigns ]
+-- visual mode
+local gitsigns = require 'gitsigns'
+vim.keymap.set('v', '<leader>hs', function()
+  gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
+end, { desc = 'git [s]tage hunk' })
+vim.keymap.set('v', '<leader>hr', function()
+  gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
+end, { desc = 'git [r]eset hunk' })
 
--- Mason
-vim.keymap.set('n', '<leader>m', '<cmd>Mason<CR>', { desc = ':Mason', noremap = true })
+-- normal mode
+vim.keymap.set('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
+vim.keymap.set('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
+vim.keymap.set('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
+vim.keymap.set('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'git [u]ndo stage hunk' })
+vim.keymap.set('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
+vim.keymap.set('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
+vim.keymap.set('n', '<leader>hb', gitsigns.blame_line, { desc = 'git [b]lame line' })
+vim.keymap.set('n', '<leader>hd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
+vim.keymap.set('n', '<leader>hD', function()
+  gitsigns.diffthis '@'
+end, { desc = 'git [D]iff against last commit' })
+
+-- Toggle inline
+vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Toggle[t] Gitsigns show [b]lame line' })
+vim.keymap.set('n', '<leader>tp', gitsigns.preview_hunk_inline, { desc = 'Toggle[t] Gitsigns preview hunk inline' })
+
+-- Git comands
+vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'git[g] blame[b]', noremap = true })
+vim.keymap.set('n', '<leader>gc', '<cmd>Gitsigns<CR>', { desc = 'git[g] commands[c]', noremap = true })
+
+-- [ Mason ]
+vim.keymap.set('n', '<leader>tm', '<cmd>Mason<CR>', { desc = 'Toggle[t] :Mason[s]', noremap = true })

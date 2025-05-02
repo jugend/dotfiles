@@ -181,7 +181,7 @@ vim.keymap.set('n', '<leader>ft', '<cmd>TodoFzfLua<CR>', { desc = 'Fzf TODO, NOT
 -- vim.keymap.set('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true, noremap = true })
 
 -- [ Copilot ]
-vim.keymap.set('n', '<leader>tc', '<cmd>Copilot toggle<CR>', { desc = 'Copilot toggle', noremap = true })
+vim.keymap.set('n', '<leader>tc', '<cmd>Copilot toggle<CR>', { desc = '[T]oggle [c]opilot', noremap = true })
 vim.keymap.set('n', '<leader>cg', '<cmd>Copilot suggestion<CR>', { desc = 'Copilot suggestion', noremap = true })
 vim.keymap.set('n', '<leader>cs', '<cmd>Copilot status<CR>', { desc = 'Copilot status', noremap = true })
 vim.keymap.set('n', '<leader>cp', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel', noremap = true })
@@ -195,14 +195,6 @@ vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
 
 -- Conform Plugin
 vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = 'Conform Info', noremap = true })
-
--- [ Specter Plugin ]
--- vim.keymap.set('n', '<leader>R', '<cmd>lua require("spectre").toggle()<CR>', { desc = 'Toggle Spectre' })
--- vim.keymap.set('n', '<leader>rr', require('spectre').open, { desc = 'Open Spectre (Search and Replace)' })
--- vim.keymap.set('n', '<leader>rw', function()
---   require('spectre').open_visual { select_word = true }
--- end, { desc = 'Search current word' })
--- vim.keymap.set('v', '<leader>rw', require('spectre').open_visual, { desc = 'Search selection' })
 
 -- [ Lazygit Plugin ]
 vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit [g]', noremap = true })
@@ -234,12 +226,25 @@ vim.keymap.set('n', '<leader>hD', function()
 end, { desc = 'git [D]iff against last commit' })
 
 -- Toggle inline
-vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Toggle[t] Gitsigns show [b]lame line' })
-vim.keymap.set('n', '<leader>tp', gitsigns.preview_hunk_inline, { desc = 'Toggle[t] Gitsigns preview hunk inline' })
+vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
+vim.keymap.set('n', '<leader>tp', gitsigns.preview_hunk_inline, { desc = '[T]oggle git [p]review hunk inline' })
 
 -- Git comands
 vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'git[g] blame[b]', noremap = true })
 vim.keymap.set('n', '<leader>gc', '<cmd>Gitsigns<CR>', { desc = 'git[g] commands[c]', noremap = true })
 
 -- [ Mason ]
-vim.keymap.set('n', '<leader>tm', '<cmd>Mason<CR>', { desc = 'Toggle[t] :Mason[s]', noremap = true })
+vim.keymap.set('n', '<leader>tm', '<cmd>Mason<CR>', { desc = '[T]oggle [m]ason', noremap = true })
+
+-- [ Specter ]
+-- Normal mode
+local spectre = require 'spectre'
+vim.keymap.set('n', '<leader>tr', '<cmd>lua require("spectre").toggle()<CR>', { desc = '[T]oggle search and [r]eplace' })
+vim.keymap.set('n', '<leader>rr', spectre.open, { desc = 'Open Spectre (Search and Replace)' })
+vim.keymap.set('n', '<leader>rw', ':%s/<C-r><C-w>/', { desc = 'Open Spectre (Search and Replace)' })
+vim.keymap.set('n', '<leader>rs', function()
+  require('spectre').osen_visual { select_word = true }
+end, { desc = 'Search current word' })
+
+-- Visual mode
+vim.keymap.set('v', '<leader>rs', spectre.open_visual, { desc = 'Search selection' })

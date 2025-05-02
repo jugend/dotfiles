@@ -206,7 +206,8 @@ vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = 'Conform Info
 vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit [g]', noremap = true })
 
 -- [ nvim-tree ]
-vim.keymap.set('n', '<leader>gg', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Reveal file in Neotree [g]', noremap = true })
+vim.keymap.set('n', '<leader>tf', '<cmd>NvimTreeFindFileToggle<CR>', { desc = '[T]oggle [f]ile navigation', noremap = true })
+vim.keymap.set('n', '<leader><leader>f', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Toggle file navigation', noremap = true })
 
 -- [ Gitsigns ]
 -- visual mode

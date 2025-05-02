@@ -6,7 +6,10 @@ return {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     -- Mason must be loaded before its dependents so we need to set it up here.
     -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-    { 'williamboman/mason.nvim', opts = {} },
+    {
+      'williamboman/mason.nvim',
+      opts = {},
+    },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -150,27 +153,36 @@ return {
       end,
     })
 
-    -- Herry: Eslint - null-ls.vim
-    -- vim.api.nvim_create_autocmd('BufWritePre', {
-    --   buffer = bufnr,
-    --   command = 'EslintFixAll',
-    -- })
-
     -- Diagnostic Config
     -- See :help vim.diagnostic.Opts
+    local signs_text = vim.g.have_nerd_font
+        and {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '󰅚 ',
+            [vim.diagnostic.severity.WARN] = '󰀪 ',
+            [vim.diagnostic.severity.INFO] = '󰋽 ',
+            [vim.diagnostic.severity.HINT] = '󰌶 ',
+          },
+        }
+      or {}
+
+    local severity_config = require('config.functions').SEVERITY_CONFIG
     vim.diagnostic.config {
       severity_sort = true,
-      float = { border = 'rounded', source = 'if_many' },
-      underline = { severity = vim.diagnostic.severity.ERROR },
-      signs = vim.g.have_nerd_font and {
-        text = {
-          [vim.diagnostic.severity.ERROR] = '󰅚 ',
-          [vim.diagnostic.severity.WARN] = '󰀪 ',
-          [vim.diagnostic.severity.INFO] = '󰋽 ',
-          [vim.diagnostic.severity.HINT] = '󰌶 ',
-        },
-      } or {},
+      float = {
+        severity = severity_config,
+        border = 'rounded',
+        source = 'if_many',
+      },
+      signs = {
+        severity = severity_config,
+        text = signs_text,
+      },
+      loclist = {
+        severity = severity_config,
+      },
       virtual_text = {
+        severity = severity_config,
         source = 'if_many',
         spacing = 2,
         format = function(diagnostic)
@@ -183,7 +195,18 @@ return {
           return diagnostic_message[diagnostic.severity]
         end,
       },
+      underline = { severity = severity_config },
     }
+
+    -- Update loclist on save
+    local is_loclist_open = require('config.functions').is_loclist_open
+    vim.api.nvim_create_autocmd('BufWritePost', {
+      callback = function()
+        if is_loclist_open() then
+          vim.diagnostic.setloclist { severity = severity_config }
+        end
+      end,
+    })
 
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -246,6 +269,8 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
+      'eslint-lsp',
+      'typescript-language-server',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -264,5 +289,39 @@ return {
         end,
       },
     }
+
+    -- [[ Open in Loclist]]
+    -- Function to toggle the location list based on diagnostics
+    -- local function toggle_loclist()
+    --   -- local diagnostics = vim.diagnostic.get(0) -- Get diagnostics for the current buffer
+    --   -- if #diagnostics > 0 then
+    --   --   vim.diagnostic.setloclist { open = true } -- Open location list if there are diagnostics
+    --   -- else
+    --   --   vim.fn.setloclist(0, {})
+    --   --   -- vim.diagnostic.setloclist { open = false } -- Set to `true` if you want to open the location list automatically
+    --   --   -- vim.cmd 'lclose'
+    --   -- end
+    --
+    --   local diagnostics = vim.diagnostic.get(0) -- Get diagnostics for the current buffer
+    --   local has_errors = false
+    --
+    --   for _, diagnostic in ipairs(diagnostics) do
+    --     if diagnostic.severity == vim.diagnostic.severity.ERROR then
+    --       has_errors = true
+    --       break
+    --     end
+    --   end
+    --
+    --   if has_errors then
+    --     vim.cmd 'lopen' -- Open the location list
+    --   else
+    --     vim.cmd 'lclose' -- Close the location list
+    --   end
+    -- end
+    --
+    -- Autocommand to trigger the toggle function on diagnostic changes
+    -- vim.api.nvim_create_autocmd({ 'DiagnosticChanged' }, {
+    --   callback = toggle_loclist,
+    -- })
   end,
 }

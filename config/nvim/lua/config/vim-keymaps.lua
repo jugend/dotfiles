@@ -24,8 +24,12 @@ vim.keymap.set('v', '<C-l>', '<Esc>', { noremap = true })
 vim.keymap.set('n', '<Esc>', '<vmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>N', '<cmd>nohlsearch<CR>')
 
+-- Other common keymaps
+-- Select word
+vim.keymap.set('n', '<leader>w', 'viw')
+
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>ld', f.toggle_diagnostic_loclist, { desc = 'Open diagnostic quickfix list' })
 
 -- Command mode
 vim.keymap.set('c', 'jk', '<C-c>', { noremap = true })
@@ -62,7 +66,7 @@ vim.keymap.set('n', '<leader>rl', '<cmd>Lazy sync<CR>', { desc = 'Reload lazy.vi
 vim.keymap.set('n', '<leader>l<space>', '<cmd>lua<space>', { desc = 'Run :lua', noremap = true })
 vim.keymap.set('n', '<leader>lp', f.edit_in_command('print("")', 2), { desc = 'Run :lua print(...)', noremap = true })
 vim.keymap.set('n', '<leader>lv', f.edit_in_command('print(vim.o.)', 1), { desc = 'Run :lua print(...)', noremap = true })
-vim.keymap.set('n', '<leader>lc', f.edit_in_command('vim.cmd("")', 2), { desc = 'Run :lua vim.cmd(...)', noremap = true })
+vim.keymap.set('n', '<leader>lq', f.edit_in_command('vim.cmd("")', 2), { desc = 'Run :lua vim.cmd(...)', noremap = true })
 vim.keymap.set('n', '<leader>h<space>', '<cmd>help<space>', { desc = 'Run :lua print(...)', noremap = true })
 vim.keymap.set('n', '<leader>hl', '<cmd>help<space>lua-guide<CR>', { desc = 'Run :lua print(...)', noremap = true })
 vim.keymap.set('n', '<leader>ht', '<cmd>help<space>Tutor<CR>', { desc = 'Run :lua print(...)', noremap = true })
@@ -79,9 +83,9 @@ vim.keymap.set('n', '<leader><leader>c', '<cmd>lua vim.opt.foldlevel=99<CR>', { 
 
 -- Quick Control Shortcuts
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save file ', noremap = true })
-vim.keymap.set('n', '<leader>x', '<cmd>x<CR>', { desc = 'Save and quite file ', noremap = true })
-vim.keymap.set('n', '<leader>e', '<cmd>.lua<CR>', { desc = 'Execute current line ', noremap = true })
-vim.keymap.set('v', '<leader>e', '<cmd>lua<CR>', { desc = 'Execute current selection', noremap = true })
+vim.keymap.set('n', '<leader><leader>x', '<cmd>x<CR>', { desc = 'Save and quite file ', noremap = true })
+vim.keymap.set('n', '<leader><leader>e', '<cmd>.lua<CR>', { desc = 'Execute current line ', noremap = true })
+vim.keymap.set('v', '<leader><leader>e', '<cmd>lua<CR>', { desc = 'Execute current selection', noremap = true })
 
 vim.keymap.set('n', '<leader><space>', '<cmd>tabnext<CR>', { desc = 'Tab Next', noremap = true })
 vim.keymap.set('n', '<leader><leader><space>', '<cmd>tabprevious<CR>', { desc = 'Tab Previous', noremap = true })
@@ -90,9 +94,6 @@ vim.keymap.set('n', '<leader><leader>!', '<cmd>qa<CR>', { desc = 'Quite file wit
 
 -- Write files
 vim.keymap.set('n', '<leader>ws', '<cmd>w<CR>', { desc = 'Save file ', noremap = true })
-
--- nvim-tree
-vim.keymap.set('n', '<leader>g', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Reveal file in Neotree', noremap = true })
 
 -- Edit files
 vim.keymap.set('n', '<leader>ei', '<cmd>e ~/.config/nvim/init.lua<CR>', { desc = 'Edit init.lua' })
@@ -108,12 +109,12 @@ vim.keymap.set('n', '<leader>eco', '<cmd>e ~/.config/nvim/lua/plugins/copilot.lu
 vim.keymap.set('n', '<leader>ecc', '<cmd>e ~/.config/nvim/lua/plugins/copilot-chat.lua<CR>', { desc = 'Edit copilot-chat.lua' })
 vim.keymap.set('n', '<leader>eb', '<cmd>e ~/.config/nvim/lua/plugins/blink.cmp.lua<CR>', { desc = 'Edit blink.cmp.lua' })
 vim.keymap.set('n', '<leader>en', '<cmd>e ~/.config/nvim/lua/plugins/nvim-lspconfig.lua<CR>', { desc = 'Edit nvim-lspconfig.lua' })
+vim.keymap.set('n', '<leader>epl', '<cmd>e ~/.config/nvim/lua/config/plugins.lua<CR>', { desc = 'Edit plugins.lua' })
 
 -- Project files
-vim.keymap.set('n', '<leader>epl', '<cmd>e ~/.config/nvim/lua/config/plugins.lua<CR>', { desc = 'Edit plugins.lua' })
-vim.keymap.set('n', '<leader>eph', '<cmd>e i/package.json<CR>', { desc = 'Edit package.json' })
-vim.keymap.set('n', '<leader>epc', '<cmd>e i/server/package.json<CR>', { desc = 'Edit client/package.json' })
-vim.keymap.set('n', '<leader>eps', '<cmd>e i/client/package.json<CR>', { desc = 'Edit server/package.json' })
+vim.keymap.set('n', '<leader>ep', '<cmd>e ./package.json<CR>', { desc = 'Edit package.json' })
+vim.keymap.set('n', '<leader>epc', '<cmd>e ./server/package.json<CR>', { desc = 'Edit client/package.json' })
+vim.keymap.set('n', '<leader>eps', '<cmd>e ./client/package.json<CR>', { desc = 'Edit server/package.json' })
 
 -- Edit files
 vim.keymap.set('n', '<leader>ea', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
@@ -128,13 +129,15 @@ vim.keymap.set('n', '<leader>eal', '<cmd>e ~/.aliases.local<CR>', { desc = 'Edit
 
 -- Location Navigation
 vim.keymap.set('n', '<leader>lo', '<cmd>lopen<CR>', { desc = ':lopen - Open Location Window' })
--- vim.keymap.set('n', '<leader>ln', '<cmd>lnext<CR>', { desc = ':lnext - Location Next' })
--- vim.keymap.set('n', '<leader>lp', '<cmd>lprevious<CR>', { desc = ':lprevious - Location Previous' })
+vim.keymap.set('n', '<leader>ln', '<cmd>lnext<CR>', { desc = ':lnext - Location Next' })
+vim.keymap.set('n', '<leader>lp', '<cmd>lprevious<CR>', { desc = ':lprevious - Location Previous' })
+vim.keymap.set('n', '<leader>lc', '<cmd>lclose<CR>', { desc = ':lclose - Location Close' })
 
 -- Quick fix navigation
-vim.keymap.set('n', '<leader>co', '<cmd>copen<CR>', { desc = ':open - Open Quickfix Window' })
+vim.keymap.set('n', '<leader>co', '<cmd>copen<CR>', { desc = ':copen - Open Quickfix Window' })
 vim.keymap.set('n', '<leader>cn', '<cmd>cnext<CR>', { desc = ':cnext - Next Error' })
 vim.keymap.set('n', '<leader>cp', '<cmd>cprevious<CR>', { desc = ':cprevious - Previous Error' })
+vim.keymap.set('n', '<leader>cc', '<cmd>close<CR>', { desc = ':cclose - Quickfix Close' })
 
 -- Buffer navigation
 vim.keymap.set('n', '<leader>j', '<cmd>bprevious<CR>', { desc = 'Go to previous buffer' })
@@ -162,6 +165,7 @@ vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua helptags<CR>', { desc = 'Fzf nvim
 vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua keymaps<CR>', { desc = 'Fzf shortcuts', noremap = true })
 vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document<CR>', { desc = 'Fzf diagnostic in file', noremap = true })
 vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { desc = 'Fzf diagnostic in workspace', noremap = true })
+vim.keymap.set('n', '<leader>ft', '<cmd>TodoFzfLua<CR>', { desc = 'Fzf TODO, NOTE', noremap = true })
 
 -- Telescope
 vim.keymap.set('n', '<leader>tg', ':Telescope grep_string search=', { noremap = true, desc = 'Live Grep' })
@@ -194,5 +198,26 @@ vim.keymap.set('n', '<leader>cp', '<cmd>CopilotChatPrompts<kCR>', { noremap = tr
 vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = 'Copilot reset', noremap = true })
 vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
 
--- Conform
+-- Conform Plugin
 vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = 'Conform Info', noremap = true })
+
+-- -- Specter Plugin
+-- vim.keymap.set('n', '<leader>R', '<cmd>lua require("spectre").toggle()<CR>', { desc = 'Toggle Spectre' })
+-- vim.keymap.set('n', '<leader>rr', require('spectre').open, { desc = 'Open Spectre (Search and Replace)' })
+-- vim.keymap.set('n', '<leader>rw', function()
+--   require('spectre').open_visual { select_word = true }
+-- end, { desc = 'Search current word' })
+-- vim.keymap.set('v', '<leader>rw', require('spectre').open_visual, { desc = 'Search selection' })
+
+-- Lazygit Plugin
+vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit [g]', noremap = true })
+
+-- nvim-tree
+vim.keymap.set('n', '<leader>gg', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Reveal file in Neotree [g]', noremap = true })
+
+-- Gitsigns
+vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'Gitsigns[g] blame[b]', noremap = true })
+vim.keymap.set('n', '<leader>gc', '<cmd>Gitsigns<CR>', { desc = 'Gitsigns[g] commands[c]', noremap = true })
+
+-- Mason
+vim.keymap.set('n', '<leader>m', '<cmd>Mason<CR>', { desc = ':Mason', noremap = true })

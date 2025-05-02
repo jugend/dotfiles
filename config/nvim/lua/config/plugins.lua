@@ -77,12 +77,16 @@ require('lazy').setup({
   require 'plugins.copilot-chat',
   require 'plugins.blink-cmp-copilot',
   -- Validation
-  require 'plugins.nvim-lint',
+  -- require 'plugins.nvim-lint',
+  --
   -- Utils
   -- require 'plugins.nvim-surround',
   -- require 'plugins.indent_line',
   require 'plugins.autopairs',
   require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'plugins.nvim-specter',
+  require 'plugins.lazygit-nvim',
+  -- require 'plugins.trouble-nvim',
 
   -- TODO: to take look laster on, has errors
   -- require 'plugins.zoom-toggle', -- adds gitsigns recommend keymaps

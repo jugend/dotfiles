@@ -54,7 +54,7 @@ require('lazy').setup({
   -- Theme
   require 'plugins.theme-onedark',
   -- Search
-  require 'plugins.telescope',
+  -- require 'plugins.telescope',
   require 'plugins.fzf-lua',
   require 'plugins.which-key',
   -- LSP Plugins
@@ -87,6 +87,8 @@ require('lazy').setup({
   require 'plugins.nvim-specter',
   require 'plugins.lazygit-nvim',
   -- require 'plugins.trouble-nvim',
+  -- Debugger
+  require 'plugins.nvim-dap',
 
   -- TODO: to take look laster on, has errors
   -- require 'plugins.zoom-toggle', -- adds gitsigns recommend keymaps

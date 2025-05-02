@@ -56,6 +56,11 @@ vim.keymap.set('i', '<M-f>', '<S-Right>', { noremap = true })
 -- vim.keymap.set('i', '<C-p>', '<Up>', { noremap = true })
 -- vim.keymap.set('i', '<C-n>', '<Down>', { noremap = true })
 
+-- Terminal mode
+-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
+-- or just use <C-\><C-n> to exit terminal mode
+-- vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
 -- Map it to a key (e.g., <leader>r to reload)
 vim.keymap.set('n', '<leader>E', '<cmd>e<CR>', { desc = 'Reload current file', noremap = true })
 vim.keymap.set('n', '<leader>rc', f.reload_configs, { desc = 'Reload init.lua config', noremap = true })
@@ -139,9 +144,10 @@ vim.keymap.set('n', '<leader>cn', '<cmd>cnext<CR>', { desc = ':cnext - Next Erro
 vim.keymap.set('n', '<leader>cp', '<cmd>cprevious<CR>', { desc = ':cprevious - Previous Error' })
 vim.keymap.set('n', '<leader>cc', '<cmd>close<CR>', { desc = ':cclose - Quickfix Close' })
 
--- Buffer navigation
-vim.keymap.set('n', '<leader>j', '<cmd>bprevious<CR>', { desc = 'Go to previous buffer' })
-vim.keymap.set('n', '<leader>J', '<cmd>bnext<CR>', { desc = 'Go to next buffer' })
+-- Buffer
+vim.keymap.set('n', '<leader>j', '<cmd>bprevious<CR>', { desc = 'Previous Buffer' })
+vim.keymap.set('n', '<leader>J', '<cmd>bnext<CR>', { desc = 'Next Buffer' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [d]elte' })
 
 -- [[ PLugins Keymaps ]]
 
@@ -243,7 +249,7 @@ vim.keymap.set('n', '<leader>tr', '<cmd>lua require("spectre").toggle()<CR>', { 
 vim.keymap.set('n', '<leader>rr', spectre.open, { desc = 'Open Spectre (Search and Replace)' })
 vim.keymap.set('n', '<leader>rw', ':%s/<C-r><C-w>/', { desc = 'Open Spectre (Search and Replace)' })
 vim.keymap.set('n', '<leader>rs', function()
-  require('spectre').osen_visual { select_word = true }
+  require('spectre').open_visual { select_word = true }
 end, { desc = 'Search current word' })
 
 -- Visual mode

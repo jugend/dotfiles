@@ -154,8 +154,7 @@ vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [d]elte
 -- [ Fzf Lua ]
 vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<CR>', { desc = 'Fzf files', noremap = true })
 vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword<CR>', { desc = 'Fzf word under the cursor', noremap = true })
-vim.keymap.set('n', '<C-u>', '<cmd>FzfLua live_grep_native<CR>', { desc = 'Fzf live grep', noremap = true })
-vim.keymap.set('i', '<C-u>', '<cmd>FzfLua live_grep_native<CR>', { desc = 'bzf live grep', noremap = true })
+vim.keymap.set('n', '<leader>fg', '<cmd>FzfLua live_grep_native<CR>', { desc = 'Fzf live grep', noremap = true })
 vim.keymap.set('n', '<leader>a', '<cmd>FzfLua grep<CR>', { desc = 'Fzf grep text', noremap = true })
 vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<CR>', { desc = 'Fzf buffers', noremap = true })
 vim.keymap.set('n', '<leader>fo', '<cmd>FzfLua<CR>', { desc = 'Fzf options', noremap = true })

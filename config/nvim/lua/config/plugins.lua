@@ -2,6 +2,7 @@
 --
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 --
+-- Setup Lazy.vim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -54,6 +55,7 @@ require('lazy').setup({
   -- Theme
   require 'plugins.theme-onedark',
   -- Search
+  -- Replaced with fzf-lua
   -- require 'plugins.telescope',
   require 'plugins.fzf-lua',
   require 'plugins.which-key',

@@ -7,4 +7,8 @@ return {
   -- or if using mini.icons/mini.nvim
   -- dependencies = { "echasnovski/mini.icons" },
   opts = {},
+  config = function()
+    -- Use fzf-lua for list ui select
+    require('fzf-lua').register_ui_select()
+  end,
 }

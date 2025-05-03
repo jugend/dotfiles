@@ -42,8 +42,25 @@ vim.schedule(function()
 end)
 
 -- Common Settings
+vim.opt.linebreak = true
+vim.opt.textwidth = 500
+vim.opt.errorbells = false
+
+-- Performance settings
+-- Multiple key shortcuts delay, while watiing for second key
+vim.opt.timeoutlen = 300
+-- Avoid redraw on each line update
+vim.opt.lazyredraw = true
+-- Disable swap file for performance, esp on large file
+vim.opt.swapfile = false
+
+-- Tabs
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
+
+-- Auto load updated file
 vim.opt.autoread = true
 
 -- nvim-tree

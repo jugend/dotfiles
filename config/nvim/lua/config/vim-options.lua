@@ -48,7 +48,7 @@ vim.opt.errorbells = false
 
 -- Performance settings
 -- Multiple key shortcuts delay, while watiing for second key
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 400
 -- Avoid redraw on each line update
 vim.opt.lazyredraw = true
 -- Disable swap file for performance, esp on large file

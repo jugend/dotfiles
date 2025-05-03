@@ -223,10 +223,33 @@ return {
 
     -- Update loclist on save
     local is_loclist_open = require('config.functions').is_loclist_open
+
     vim.api.nvim_create_autocmd('BufWritePost', {
       callback = function()
-        if is_loclist_open() then
+        if not is_loclist_open() then
           vim.diagnostic.setloclist { severity = severity_config }
+        end
+      end,
+    })
+
+    local function has_diagnostic_error()
+      local diagnostics = vim.diagnostic.get(0) -- Get diagnostics for the current buffer
+      for _, diagnostic in ipairs(diagnostics) do
+        vim.notify('diagnostic.messagge' .. diagnostic.message)
+        if diagnostic.severity == vim.diagnostic.severity.ERROR then
+          return true
+        end
+      end
+      return false
+    end
+
+    vim.api.nvim_create_autocmd('DiagnosticChanged', {
+      callback = function()
+        vim.notify 'diagnosticchanged'
+        -- Auto open loclist on errors
+        if not is_loclist_open() and has_diagnostic_error() then
+          vim.diagnostic.setloclist { severity = severity_config }
+          vim.cmd 'wincmd p'
         end
       end,
     })

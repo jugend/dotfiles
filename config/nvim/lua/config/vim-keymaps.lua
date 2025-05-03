@@ -88,14 +88,15 @@ vim.keymap.set('n', '<leader><leader>c', '<cmd>lua vim.opt.foldlevel=99<CR>', { 
 
 -- Quick Control Shortcuts
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save file ', noremap = true })
-vim.keymap.set('n', '<leader><leader>x', '<cmd>x<CR>', { desc = 'Save and quite file ', noremap = true })
+vim.keymap.set('n', '<leader><leader>x', '<cmd>x<CR>', { desc = 'Save and e[x]it file ', noremap = true })
 vim.keymap.set('n', '<leader><leader>e', '<cmd>.lua<CR>', { desc = 'Execute current line ', noremap = true })
 vim.keymap.set('v', '<leader><leader>e', '<cmd>lua<CR>', { desc = 'Execute current selection', noremap = true })
 
+vim.keymap.set('n', '<leader>tn', '<cmd>tabnew<CR>', { desc = '[T]ab [N]ew', noremap = true })
 vim.keymap.set('n', '<leader><space>', '<cmd>tabnext<CR>', { desc = 'Tab Next', noremap = true })
 vim.keymap.set('n', '<leader><leader><space>', '<cmd>tabprevious<CR>', { desc = 'Tab Previous', noremap = true })
-vim.keymap.set('n', '<leader><leader>q', '<cmd>q<CR>', { desc = 'Quite file without save', noremap = true })
-vim.keymap.set('n', '<leader><leader>!', '<cmd>qa<CR>', { desc = 'Quite file without save', noremap = true })
+vim.keymap.set('n', '<leader><leader>q', '<cmd>q<CR>', { desc = '[Q]uite file without save', noremap = true })
+vim.keymap.set('n', '<leader><leader>!', '<cmd>qa<CR>', { desc = 'Quite all without save[!]', noremap = true })
 
 -- Write files
 vim.keymap.set('n', '<leader>ws', '<cmd>w<CR>', { desc = 'Save file ', noremap = true })
@@ -152,25 +153,24 @@ vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [d]elte
 -- [[ PLugins Keymaps ]]
 
 -- [ Fzf Lua ]
-vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<CR>', { desc = 'Fzf files', noremap = true })
-vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword<CR>', { desc = 'Fzf word under the cursor', noremap = true })
-vim.keymap.set('n', '<leader>fg', '<cmd>FzfLua live_grep_native<CR>', { desc = 'Fzf live grep', noremap = true })
-vim.keymap.set('n', '<leader>a', '<cmd>FzfLua grep<CR>', { desc = 'Fzf grep text', noremap = true })
-vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<CR>', { desc = 'Fzf buffers', noremap = true })
-vim.keymap.set('n', '<leader>fo', '<cmd>FzfLua<CR>', { desc = 'Fzf options', noremap = true })
-vim.keymap.set('n', '<leader>fc', '<cmd>FzfLua commands<CR>', { desc = 'Fzf nvim commands', noremap = true })
-vim.keymap.set('n', '<leader>fi', ':FzfLua grep cwd=', { desc = 'Fzf in directory', noremap = true })
-vim.keymap.set('n', '<leader>fn', '<cmd>FzfLua files cwd=~/.config/nvim<CR>', { desc = 'Fzf nvim configs', noremap = true })
-vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<CR>', { desc = 'Fzf files', noremap = true })
-vim.keymap.set('n', '<leader>fb', '<cmd>FzfLua buffers<CR>', { desc = 'Fzf buffers', noremap = true })
-vim.keymap.set('n', '<leader>fl', '<cmd>FzfLua live_grep_native<CR>', { desc = 'Fzf live grep', noremap = true })
-vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua grep_cword<CR>', { desc = 'Fzf word under the cursor', noremap = true })
-vim.keymap.set('n', '<leader>fr', '<cmd>FzfLua live_grep_resume<CR>', { desc = 'Fzf resume', noremap = true })
-vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua helptags<CR>', { desc = 'Fzf nvim help', noremap = true })
-vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua keymaps<CR>', { desc = 'Fzf shortcuts', noremap = true })
-vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document<CR>', { desc = 'Fzf diagnostic in file', noremap = true })
-vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { desc = 'Fzf diagnostic in workspace', noremap = true })
-vim.keymap.set('n', '<leader>ft', '<cmd>TodoFzfLua<CR>', { desc = 'Fzf TODO, NOTE', noremap = true })
+vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<CR>', { desc = '[F]zf files', noremap = true })
+vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword<CR>', { desc = '[F]zf word under the cursor', noremap = true })
+vim.keymap.set('n', '<leader>a', '<cmd>FzfLua grep<CR>', { desc = '[F]zf [g]rep text', noremap = true })
+vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<CR>', { desc = '[F]zf [b]uffers', noremap = true })
+vim.keymap.set('n', '<leader>fg', '<cmd>FzfLua live_grep_native<CR>', { desc = '[F]zf live [g]rep', noremap = true })
+vim.keymap.set('n', '<leader>fo', '<cmd>FzfLua<CR>', { desc = '[F]zf [o]ptions', noremap = true })
+vim.keymap.set('n', '<leader>fc', '<cmd>FzfLua commands<CR>', { desc = '[F]zf nvim [c]ommands', noremap = true })
+vim.keymap.set('n', '<leader>fi', ':FzfLua grep cwd=', { desc = '[F]zf [i]n directory', noremap = true })
+vim.keymap.set('n', '<leader>fn', '<cmd>FzfLua files cwd=~/.config/nvim<CR>', { desc = '[F]zf [n]vim config files', noremap = true })
+vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<CR>', { desc = '[F]zf [f]iles', noremap = true })
+vim.keymap.set('n', '<leader>fb', '<cmd>FzfLua buffers<CR>', { desc = '[F]zf [b]uffers', noremap = true })
+vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua grep_cword<CR>', { desc = '[F]zf [w]ord under the cursor', noremap = true })
+vim.keymap.set('n', '<leader>fr', '<cmd>FzfLua live_grep_resume<CR>', { desc = '[F]zf [r]esume', noremap = true })
+vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua helptags<CR>', { desc = '[F]zf nvim [h]elp', noremap = true })
+vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua keymaps<CR>', { desc = '[F]zf [s]hortcuts', noremap = true })
+vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document<CR>', { desc = '[F]zf [d]iagnostic in file', noremap = true })
+vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { desc = '[F]zf diagnostic in [w]orkspace', noremap = true })
+vim.keymap.set('n', '<leader>ft', '<cmd>TodoFzfLua<CR>', { desc = '[F]zf [T]ODOs, NOTEs', noremap = true })
 
 -- [ Telescope ]
 -- vim.keymap.set('n', '<leader>tg', ':Telescope grep_string search=', { noremap = true, desc = 'Telescope Grep String' })

@@ -70,13 +70,15 @@ return {
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
-      '<F7>',
+      -- '<F7>',
+      '<leader><leader>d',
       function()
         require('dapui').toggle()
       end,
       desc = 'Debug: See last session result.',
     },
   },
+
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
@@ -123,7 +125,9 @@ return {
       },
       mappings = {
         edit = 'e',
-        expand = { '<CR>', '<2-LeftMouse>' },
+        edit = 'c',
+        -- expand = { '<CR>', '<2-LeftMouse>' },
+        expand = { 'e', '<2-LeftMouse>' },
         open = 'o',
         remove = 'd',
         repl = 'r',
@@ -150,7 +154,7 @@ return {
             },
           },
           position = 'left',
-          size = 40,
+          size = 0.4,
         },
         {
           elements = {
@@ -164,7 +168,7 @@ return {
             },
           },
           position = 'bottom',
-          size = 10,
+          size = 0.3,
         },
       },
       floating = {

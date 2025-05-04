@@ -70,6 +70,8 @@ return {
         -- NeoTreeGitUntracked = { fg = c.red, fmt = 'italic' },
         -- NeoTreeIndentMarker = colors.Grey,
         -- NeoTreeSymbolicLinkTarget = colors.Purple,
+
+        -- DapUIBorder = { fg = '$line', },
       }, -- Override highlight groups
       --
       -- -- Plugins Config --

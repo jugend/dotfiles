@@ -53,7 +53,7 @@ end
 function M.has_diagnostic_error()
   local diagnostics = vim.diagnostic.get(0) -- Get diagnostics for the current buffer
   for _, diagnostic in ipairs(diagnostics) do
-    if diagnostic.severity == vim.diagnostic.severity.ERROR then
+    if diagnostic.severity == vim.diagnostic.severity.ERROR or diagnostic.severity == vim.diagnostic.severity.WARN then
       return true
     end
   end

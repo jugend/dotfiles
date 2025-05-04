@@ -234,7 +234,6 @@ return {
 
     vim.api.nvim_create_autocmd('DiagnosticChanged', {
       callback = function()
-        vim.notify 'diagnosticchanged'
         -- Auto open loclist on errors
         if not f.is_loclist_open() and f.has_diagnostic_error() then
           vim.diagnostic.setloclist { severity = severity_config }

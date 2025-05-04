@@ -124,7 +124,7 @@ return {
         },
       },
       mappings = {
-        edit = 'e',
+        -- edit = 'e',
         edit = 'c',
         -- expand = { '<CR>', '<2-LeftMouse>' },
         expand = { 'e', '<2-LeftMouse>' },
@@ -197,9 +197,21 @@ return {
     --   vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
     -- end
 
-    dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-    dap.listeners.before.event_exited['dapui_config'] = dapui.close
+    local dap, dapui = require 'dap', require 'dapui'
+    dap.listeners.before.attach.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.launch.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.event_terminated.dapui_config = function()
+      dapui.close()
+    end
+    dap.listeners.before.event_exited.dapui_config = function()
+      dapui.close()
+    end
+
+    vim.keymap.set('v', '<C-w>e', '<Cmd>lua require("dapui").eval()<CR>', { desc = 'Debug: Eval selected text.' })
 
     -- [ Go ]
     -- Install golang specific config

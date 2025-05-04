@@ -88,8 +88,9 @@ require('lazy').setup({
   require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'plugins.nvim-specter',
   require 'plugins.lazygit-nvim',
-  require 'plugins.lualine',
-  -- require 'plugins.trouble-nvim',
+
+  -- Make pointy arrow
+  -- require 'plugins.lualine',
   --
   -- TODO: to take look last on, has errors
   -- require 'plugins.zoom-toggle', -- adds gitsigns recommend keymaps

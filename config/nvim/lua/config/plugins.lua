@@ -88,6 +88,7 @@ require('lazy').setup({
   require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'plugins.nvim-specter',
   require 'plugins.lazygit-nvim',
+  require 'plugins.lualine',
   -- require 'plugins.trouble-nvim',
   --
   -- TODO: to take look last on, has errors

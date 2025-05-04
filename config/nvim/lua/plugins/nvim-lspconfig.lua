@@ -202,6 +202,9 @@ return {
       loclist = {
         severity = severity_config,
       },
+      underline = {
+        severity = severity_config,
+      },
       virtual_text = {
         severity = severity_config,
         source = 'if_many',
@@ -215,9 +218,6 @@ return {
           }
           return diagnostic_message[diagnostic.severity]
         end,
-      },
-      underline = {
-        severity = severity_config,
       },
     }
 
@@ -241,6 +241,9 @@ return {
         end
       end,
     })
+
+    -- Override loclist current cursor line
+    vim.api.nvim_set_hl(0, 'QuickFixLine', { underline = false, bg = '#2e3130' })
 
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.

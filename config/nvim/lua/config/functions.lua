@@ -50,6 +50,17 @@ function M.is_loclist_open()
   return false
 end
 
+function M.has_diagnostic_error()
+  local diagnostics = vim.diagnostic.get(0) -- Get diagnostics for the current buffer
+  for _, diagnostic in ipairs(diagnostics) do
+    vim.notify('diagnostic.messagge' .. diagnostic.message)
+    if diagnostic.severity == vim.diagnostic.severity.ERROR then
+      return true
+    end
+  end
+  return false
+end
+
 function M.toggle_diagnostic_loclist()
   if M.is_loclist_open() then
     vim.cmd ':lclose'

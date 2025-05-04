@@ -195,9 +195,10 @@ vim.keymap.set('n', '<leader>cp', '<cmd>Copilot panel<CR>', { desc = 'Copilot pa
 -- [ Copilot Chat ]
 vim.keymap.set('n', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
 vim.keymap.set('v', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
-vim.keymap.set('n', '<leader>cp', '<cmd>CopilotChatPrompts<kCR>', { noremap = true })
-vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = 'Copilot reset', noremap = true })
 vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>cp', '<cmd>CopilotChatPrompts<kCR>', { desc = '[C]opilot [p]rompts', noremap = true })
+vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = '[C]opilot [r]eset', noremap = true })
+vim.keymap.set('n', '<leader>cm', '<cmd>CopilotChatModels<CR>', { desc = '[C]opilot [m]odels', noremap = true })
 
 -- Conform Plugin
 vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = 'Conform Info', noremap = true })

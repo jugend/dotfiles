@@ -303,9 +303,18 @@ return {
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
+      -- LSP
       'stylua', -- Used to format Lua code
-      'eslint-lsp',
       'typescript-language-server',
+
+      -- Linting
+      'eslint-lsp',
+      -- NOTE: latest version of eslint_d causing invalid JSON error
+      { 'eslint_d', version = '13.1.2' },
+      -- Formatting
+      'prettierd',
+
+      -- Debugging
       'js-debug-adapter',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }

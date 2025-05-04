@@ -6,7 +6,7 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   -- or if using mini.icons/mini.nvim
   -- dependencies = { "echasnovski/mini.icons" },
-  opts = {},
+  -- opts = {},
   config = function()
     -- Use fzf-lua for list ui select
     require('fzf-lua').register_ui_select()

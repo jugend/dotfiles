@@ -89,15 +89,13 @@ require('lazy').setup({
   require 'plugins.nvim-specter',
   require 'plugins.lazygit-nvim',
   -- require 'plugins.trouble-nvim',
-  -- Debugger
-  require 'plugins.nvim-dap',
-
-  -- TODO: to take look laster on, has errors
+  --
+  -- TODO: to take look last on, has errors
   -- require 'plugins.zoom-toggle', -- adds gitsigns recommend keymaps
 
-  -- Dev
+  -- Debugging
   -- Will override ,b, C-i and probably a few other keymaps
-  -- require 'plugins.debug',
+  require 'plugins.nvim-dap',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

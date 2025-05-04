@@ -240,8 +240,14 @@ return {
       end,
     })
 
-    -- Override loclist current cursor line
+    -- Override loclist current cursor line higlight
     vim.api.nvim_set_hl(0, 'QuickFixLine', { underline = false, bg = '#2e3130' })
+
+    -- Override underline character, current underline character is a bit too thick
+    -- NOTE: Doesn't work, changes not relfected
+    -- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { underdotted = true, sp = '#00ff00' })
+    -- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { underdotted = true, sp = '#00ff00' })
+    -- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { underdotted = true, sp = '#00ff00' })
 
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.

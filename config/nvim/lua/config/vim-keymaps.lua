@@ -92,7 +92,7 @@ vim.keymap.set('n', '<leader><leader>x', '<cmd>x<CR>', { desc = 'Save and e[x]it
 vim.keymap.set('n', '<leader><leader>e', '<cmd>.lua<CR>', { desc = 'Execute current line ', noremap = true })
 vim.keymap.set('v', '<leader><leader>e', '<cmd>lua<CR>', { desc = 'Execute current selection', noremap = true })
 
-vim.keymap.set('n', '<leader>tn', '<cmd>tabnew<CR>', { desc = '[T]ab [N]ew', noremap = true })
+vim.keymap.set('n', '<leader><leader>tn', '<cmd>tabnew<CR>', { desc = '[T]ab [N]ew', noremap = true })
 vim.keymap.set('n', '<leader><space>', '<cmd>tabnext<CR>', { desc = 'Tab Next', noremap = true })
 vim.keymap.set('n', '<leader><leader><space>', '<cmd>tabprevious<CR>', { desc = 'Tab Previous', noremap = true })
 vim.keymap.set('n', '<leader><leader>q', '<cmd>q<CR>', { desc = '[Q]uite file without save', noremap = true })

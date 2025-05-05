@@ -54,50 +54,62 @@ require('lazy').setup({
   require 'plugins.vim-tmux-navigator',
   -- Theme
   require 'plugins.theme-onedark',
+
   -- Search
-  -- Replaced with fzf-lua
-  -- require 'plugins.telescope',
   require 'plugins.fzf-lua',
   require 'plugins.which-key',
-  -- LSP Plugins
+  -- require 'plugins.telescope',
+
+  -- LSP/Linting/Formatting
+  require 'plugins.nvim-lspconfig',
+  -- Not required, handled by maason:eslint-lsp package
+  -- require 'plugins.nvim-lint',
+
   -- Auto-complete
   require 'plugins.lazydev',
-  require 'plugins.nvim-lspconfig',
   require 'plugins.blink-cmp',
+
   -- Validation
   require 'plugins.conform',
+
   -- Notes
   require 'plugins.todo-comments',
   require 'plugins.mini',
+
   -- Navigation
   require 'plugins.nvim-tree',
   -- require 'plugins.neo-tree',
+
   -- Formatting
   require 'plugins.nvim-treesitter',
+
   -- Co-pilot
   require 'plugins.copilot',
   require 'plugins.copilot-chat',
   require 'plugins.blink-cmp-copilot',
-  -- Validation
-  -- require 'plugins.nvim-lint',
-  --
+
   -- Utils
   require 'plugins.nvim-surround',
-  -- require 'plugins.indent_line',
   require 'plugins.autopairs',
-  require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'plugins.gitsigns',
   require 'plugins.nvim-specter',
   require 'plugins.lazygit-nvim',
 
-  -- Make pointy arrow
+  -- Custom Plugins
+  {
+    name = 'zoom-toggle',
+    dir = vim.fn.stdpath 'config' .. '/lua/plugins',
+    config = function()
+      require('plugins.zoom-toggle').setup()
+    end,
+  },
+
+  -- Other plugins
   -- require 'plugins.lualine',
-  --
-  -- TODO: to take look last on, has errors
-  -- require 'plugins.zoom-toggle', -- adds gitsigns recommend keymaps
+  -- require 'plugins.indent_line',
 
   -- Debugging
-  -- Will override ,b, C-i and probably a few other keymaps
-  require 'plugins.nvim-dap',
+  -- require 'plugins.nvim-dap',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

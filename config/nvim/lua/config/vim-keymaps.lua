@@ -258,3 +258,6 @@ end, { desc = 'Search current word' })
 
 -- Visual mode
 vim.keymap.set('v', '<leader>rs', spectre.open_visual, { desc = 'Search selection' })
+
+-- [ ZoomToggle ]
+vim.keymap.set('n', '<leader>z', '<cmd>ZoomToggle<CR>', { desc = 'Toggle Zoom Window' })

@@ -118,6 +118,7 @@ return {
 
         -- Fuzzy find all the symbols in your current workspace.
         --  Similar to document symbols, except searches over your entire project.
+        --
         map('gW', require('fzf-lua').lsp_live_workspace_symbols, 'Open Live Workspace Symbols')
 
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)

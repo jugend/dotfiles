@@ -25,5 +25,3 @@ source ~/.bash_profile;
 # $ fuck
 # git commit -m "fix typo"
 # eval "$(thefuck --alias)"
-
-. "$HOME/.local/bin/env"

@@ -10,7 +10,7 @@ return {
       -- your nvim-tree config goes here
       -- for example:
       view = {
-        width = 30,
+        width = 40,
         side = 'left',
       },
       renderer = {

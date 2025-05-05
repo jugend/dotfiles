@@ -1,10 +1,9 @@
-# T otrace script performance
+# To trace script performance
 # set -x
 # PS4='+\t '
 
 # Auto append homebrew path
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
 
 # Load the shell dotfiles, and then some:
 for file in ~/.{aliases,aliases.local,aliases.private,bash_profile.local,bash_profile.host,bash_prompt,functions}; do
@@ -163,6 +162,7 @@ export FZF_TMUX_OPTS="-d 40%"
 # From brew install llvm for Clang compiler to commpile YouCompleteMe
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
+# Add ./local/bin to $PATH
 . "$HOME/.local/bin/env"
 
 # Configuration for node to trust the PayPal Proxy Certificates

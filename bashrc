@@ -11,21 +11,19 @@ source ~/.bash_profile;
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 # [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
 
+# #######
+# thefuck
+# #######
+#
+# The `thefuck` command is a tool that automatically corrects errors in previous terminal commands. It works by analyzing the last command you ran, identifying potential mistakes, and suggesting or executing a corrected version of the command.
+#
+# For example:
+# ```bash
+# $ git comit -m "fix typo"
+# git: 'comit' is not a git command. See 'git --help'.
+#
+# $ fuck
+# git commit -m "fix typo"
 # eval "$(thefuck --alias)"
-
-function fuck () {
-    TF_PYTHONIOENCODING=$PYTHONIOENCODING;
-    export TF_SHELL=bash;
-    export TF_ALIAS=fuck;
-    export TF_SHELL_ALIASES=$(alias);
-    export TF_HISTORY=$(fc -ln -10);
-    export PYTHONIOENCODING=utf-8;
-    TF_CMD=$(
-        thefuck THEFUCK_ARGUMENT_PLACEHOLDER "$@"
-    ) && eval "$TF_CMD";
-    unset TF_HISTORY;
-    export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
-    history -s $TF_CMD;
-}
 
 . "$HOME/.local/bin/env"

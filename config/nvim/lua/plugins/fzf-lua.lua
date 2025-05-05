@@ -13,12 +13,15 @@ return {
         builtin = {
           -- neovim `:tmap` mappings for the fzf win
           true, -- uncomment to inherit all the below in your custom config
-          ['<M-Esc>'] = 'hide', -- hide fzf-lua, `:FzfLua resume` to continue
+          -- ['<M-Esc>'] = 'hide', -- hide fzf-lua, `:FzfLua resume` to continue
           -- ['<F1>'] = 'toggle-help',
-          -- ['<F2>'] = 'toggle-fullscreen',
+          ['<C-h>'] = 'toggle-help',
+          -- ['<C-2>'] = 'toggle-fullscreen',
+          ['<C-o>'] = 'toggle-fullscreen',
           -- Only valid with the 'builtin' previewer
-          -- ['<F3>'] = 'toggle-preview-wrap',
+          ['<C-w>'] = 'toggle-preview-wrap',
           -- ['<F4>'] = 'toggle-preview',
+          ['<C-p>'] = 'toggle-preview',
           -- Rotate preview clockwise/counter-clockwise
           -- ['<F5>'] = 'toggle-preview-ccw',
           -- ['<F6>'] = 'toggle-preview-cw',

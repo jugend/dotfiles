@@ -231,7 +231,6 @@ vim.keymap.set('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'git [u]ndo stag
 vim.keymap.set('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
 vim.keymap.set('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
 vim.keymap.set('n', '<leader>hb', gitsigns.blame_line, { desc = 'git [b]lame line' })
-vim.keymap.set('n', '<leader>hd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
 vim.keymap.set('n', '<leader>hD', function()
   gitsigns.diffthis '@'
 end, { desc = 'git [D]iff against last commit' })
@@ -241,8 +240,9 @@ vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '
 vim.keymap.set('n', '<leader>tp', gitsigns.preview_hunk_inline, { desc = '[T]oggle git [p]review hunk inline' })
 
 -- Git comands
-vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'git[g] blame[b]', noremap = true })
 vim.keymap.set('n', '<leader>gc', '<cmd>Gitsigns<CR>', { desc = 'git[g] commands[c]', noremap = true })
+vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'git[g] blame[b]', noremap = true })
+vim.keymap.set('n', '<leader>gd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
 
 -- [ Mason ]
 vim.keymap.set('n', '<leader>tm', '<cmd>Mason<CR>', { desc = '[T]oggle [m]ason', noremap = true })

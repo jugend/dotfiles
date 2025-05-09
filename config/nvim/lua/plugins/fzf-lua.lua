@@ -9,6 +9,10 @@ return {
   -- opts = {},
   config = function()
     require('fzf-lua').setup {
+      files = {
+        -- Shortens paths by replacing intermediate folders with single letters
+        path_shorten = 5,
+      },
       keymap = {
         builtin = {
           -- neovim `:tmap` mappings for the fzf win
@@ -31,9 +35,9 @@ return {
           -- ['<F9>'] = 'preview-ts-ctx-inc',
           -- ['<S-Left>'] = 'preview-reset',
           -- ['<S-down>'] = 'preview-page-down',
-          ['<M-j>'] = 'preview-page-down',
+          ['<C-d>'] = 'preview-page-down',
           -- ['<S-up>'] = 'preview-page-up',
-          ['<M-k>'] = 'preview-page-up',
+          ['<C-u>'] = 'preview-page-up',
           -- ['<S-up>'] = 'preview-page-up',
           -- ['<M-S-down>'] = 'preview-down',
           -- ['<M-S-up>'] = 'preview-up',

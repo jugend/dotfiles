@@ -63,7 +63,6 @@ vim.keymap.set('i', '<M-f>', '<S-Right>', { noremap = true })
 
 -- Map it to a key (e.g., <leader>r to reload)
 vim.keymap.set('n', '<leader>E', '<cmd>e<CR>', { desc = 'Reload current file', noremap = true })
-vim.keymap.set('n', '<leader>rc', f.reload_configs, { desc = 'Reload init.lua config', noremap = true })
 vim.keymap.set('n', '<leader>rb', f.reload_configs, { desc = 'Reload init.lua config', noremap = true })
 vim.keymap.set('n', '<leader>rl', '<cmd>Lazy sync<CR>', { desc = 'Reload lazy.vim plugins', noremap = true })
 
@@ -79,7 +78,7 @@ vim.keymap.set('n', '<leader>ht', '<cmd>help<space>Tutor<CR>', { desc = 'Run :lu
 vim.keymap.set('n', '<leader>iw', '<cmd>lua vim.cmd("set invwrap")<CR>', { desc = 'Inverse text wrap', noremap = true })
 
 -- Fold Levels
-vim.keymap.set('n', '<leader><leader>a', '<cmd>lua vim.opt.foldlevel=0<CR>', { desc = 'Set vim foldlevel=1', noremap = true })
+vim.keymap.set('n', '<leader><leader>a', '<cmd>lua vim.opt.foldlevel=0<CR>', { desc = 'Set vim foldlevel=0', noremap = true })
 vim.keymap.set('n', '<leader><leader>1', '<cmd>lua vim.opt.foldlevel=1<CR>', { desc = 'Set vim foldlevel=1', noremap = true })
 vim.keymap.set('n', '<leader><leader>2', '<cmd>lua vim.opt.foldlevel=2<CR>', { desc = 'Set vim foldlevel=2', noremap = true })
 vim.keymap.set('n', '<leader><leader>3', '<cmd>lua vim.opt.foldlevel=3<CR>', { desc = 'Set vim foldlevel=3', noremap = true })
@@ -159,6 +158,7 @@ vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword<CR>', { desc = '[F]zf word 
 vim.keymap.set('v', '<C-t>', '<cmd>FzfLua grep_visual<CR>', { desc = '[F]zf selected word', noremap = true })
 vim.keymap.set('n', '<leader>a', '<cmd>FzfLua grep<CR>', { desc = '[F]zf [g]rep text', noremap = true })
 vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<CR>', { desc = '[F]zf [b]uffers', noremap = true })
+vim.keymap.set('n', '<leader><leaader>t', '<cmd>TodoFzfLua<CR>', { desc = '[F]zf [T]ODOs, NOTEs', noremap = true })
 vim.keymap.set('n', '<leader>F', '<cmd>FzfLua<CR>', { desc = '[F]zf list available o[p]tions', noremap = true })
 vim.keymap.set('n', '<leader>fl', '<cmd>FzfLua live_grep_native<CR>', { desc = '[F]zf [l]ive grep', noremap = true })
 vim.keymap.set('n', '<leader>fo', '<cmd>FzfLua oldfiles<CR>', { desc = '[F]zf [o]ld files', noremap = true })
@@ -174,7 +174,10 @@ vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua helptags<CR>', { desc = '[F]zf nv
 vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua keymaps<CR>', { desc = '[F]zf [s]hortcuts', noremap = true })
 vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document<CR>', { desc = '[F]zf [d]iagnostic in file', noremap = true })
 vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { desc = '[F]zf diagnostic in [w]orkspace', noremap = true })
-vim.keymap.set('n', '<leader>ft', '<cmd>TodoFzfLua<CR>', { desc = '[F]zf [T]ODOs, NOTEs', noremap = true })
+
+-- [ Conform - Formatter ]
+-- vim.keymap.set('n', '<leader>fp', '<cmd>lua require('conform').format({ formatters = { 'prettier'}})<CR>', { desc = '[C]onform [f]ormat', noremap = true })
+-- vim.keymap.set('n', '<leader>ft', '<cmd>lua require('conform').format({ formatters = { 'eslint'}})<CR>', { desc = '[C]onform [f]ormat', noremap = true })
 
 -- [ Telescope ]
 -- vim.keymap.set('n', '<leader>tg', ':Telescope grep_string search=', { noremap = true, desc = 'Telescope Grep String' })
@@ -190,10 +193,12 @@ vim.keymap.set('n', '<leader>ft', '<cmd>TodoFzfLua<CR>', { desc = '[F]zf [T]ODOs
 -- vim.keymap.set('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true, noremap = true })
 
 -- [ Copilot ]
-vim.keymap.set('n', '<leader>tc', '<cmd>Copilot toggle<CR>', { desc = '[T]oggle [c]opilot', noremap = true })
-vim.keymap.set('n', '<leader>cg', '<cmd>Copilot suggestion<CR>', { desc = 'Copilot suggestion', noremap = true })
-vim.keymap.set('n', '<leader>cs', '<cmd>Copilot status<CR>', { desc = 'Copilot status', noremap = true })
-vim.keymap.set('n', '<leader>cp', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel', noremap = true })
+vim.keymap.set('n', '<leader>ct', '<cmd>Copilot toggle<CR>', { desc = '[T]oggle [c]opilot', noremap = true })
+vim.keymap.set('n', '<leader>cs', '<cmd>Copilot suggestion<CR>', { desc = 'Copilot suggestion', noremap = true })
+vim.keymap.set('v', '<leader>cs', '<cmd>Copilot suggestion<CR>', { desc = 'Copilot suggestion', noremap = true })
+vim.keymap.set('n', '<leader>cu', '<cmd>Copilot status<CR>', { desc = 'Copilot status', noremap = true })
+vim.keymap.set('n', '<M-p>', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel', noremap = true })
+vim.keymap.set('i', '<M-p>', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel', noremap = true })
 
 -- [ Copilot Chat ]
 vim.keymap.set('n', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })

@@ -25,7 +25,7 @@ return {
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
         -- local disable_filetypes = { c = true, cpp = true, javascript = true, javascriptreact = true, json = true }
-        local disable_filetypes = { c = true, cpp = true }
+        local disable_filetypes = { c = true, cpp = true, json = true }
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
         else

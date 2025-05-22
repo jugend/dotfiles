@@ -11,7 +11,8 @@ return {
     require('fzf-lua').setup {
       files = {
         -- Shortens paths by replacing intermediate folders with single letters
-        path_shorten = 5,
+        -- path_shorten = 8,
+        formatter = 'path.filename_first',
       },
       keymap = {
         builtin = {
@@ -37,7 +38,7 @@ return {
           -- ['<S-down>'] = 'preview-page-down',
           ['<C-d>'] = 'preview-page-down',
           -- ['<S-up>'] = 'preview-page-up',
-          ['<C-u>'] = 'preview-page-up',
+          ['<C-e>'] = 'preview-page-up',
           -- ['<S-up>'] = 'preview-page-up',
           -- ['<M-S-down>'] = 'preview-down',
           -- ['<M-S-up>'] = 'preview-up',

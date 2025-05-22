@@ -28,8 +28,30 @@ vim.keymap.set('n', '<leader>N', '<cmd>nohlsearch<CR>')
 -- Select word
 vim.keymap.set('n', '<leader>w', 'viw')
 
+-- Window
+vim.keymap.set('n', '<C-w>>', '10<C-w>><CR>')
+vim.keymap.set('n', '<C-w>>>', '20<C-w>><CR>')
+vim.keymap.set('n', '<C-w><', '10<C-w><<CR>')
+vim.keymap.set('n', '<C-w><<', '20<C-w><<CR>')
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>td', f.toggle_diagnostic_loclist, { desc = '[T]oggle [d]iagnostic location list', noremap = true })
+
+local diagnostics_active = true
+vim.keymap.set('n', '<leader>tD', function()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.cmd 'syntax on'
+    vim.diagnostic.enable(true)
+    f.toggle_diagnostic_loclist()
+    print ':: Diagnostic enabled'
+  else
+    vim.cmd 'syntax off'
+    vim.diagnostic.enable(false)
+    f.toggle_diagnostic_loclist()
+    print ':: Diagnostic disabled'
+  end
+end, { desc = 'Toggle diagnostic' })
 
 -- Command mode
 vim.keymap.set('c', 'jk', '<C-c>', { noremap = true })
@@ -118,9 +140,10 @@ vim.keymap.set('n', '<leader>en', '<cmd>e ~/.config/nvim/lua/plugins/nvim-lspcon
 vim.keymap.set('n', '<leader>epl', '<cmd>e ~/.config/nvim/lua/config/plugins.lua<CR>', { desc = 'Edit plugins.lua' })
 
 -- Project files
+vim.keymap.set('n', '<leader>er', '<cmd>e ./README.md<CR>', { desc = 'Edit README.md' })
 vim.keymap.set('n', '<leader>ep', '<cmd>e ./package.json<CR>', { desc = 'Edit package.json' })
-vim.keymap.set('n', '<leader>epc', '<cmd>e ./server/package.json<CR>', { desc = 'Edit client/package.json' })
-vim.keymap.set('n', '<leader>eps', '<cmd>e ./client/package.json<CR>', { desc = 'Edit server/package.json' })
+vim.keymap.set('n', '<leader>eps', '<cmd>e ./server/package.json<CR>', { desc = 'Edit client/package.json' })
+vim.keymap.set('n', '<leader>epc', '<cmd>e ./client/package.json<CR>', { desc = 'Edit server/package.json' })
 
 -- Edit files
 vim.keymap.set('n', '<leader>ea', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
@@ -174,10 +197,11 @@ vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua helptags<CR>', { desc = '[F]zf nv
 vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua keymaps<CR>', { desc = '[F]zf [s]hortcuts', noremap = true })
 vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document<CR>', { desc = '[F]zf [d]iagnostic in file', noremap = true })
 vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { desc = '[F]zf diagnostic in [w]orkspace', noremap = true })
+vim.keymap.set('n', '<leader>/', '<cmd>FzfLua grep_curbuf<CR>', { desc = '[F]zf current [/]file', noremap = true })
 
 -- [ Conform - Formatter ]
--- vim.keymap.set('n', '<leader>fp', '<cmd>lua require('conform').format({ formatters = { 'prettier'}})<CR>', { desc = '[C]onform [f]ormat', noremap = true })
--- vim.keymap.set('n', '<leader>ft', '<cmd>lua require('conform').format({ formatters = { 'eslint'}})<CR>', { desc = '[C]onform [f]ormat', noremap = true })
+vim.keymap.set('n', '<leader>pp', '<cmd>lua require("conform").format({ formatters = { "prettierd" }})<CR>', { desc = '[C]onform [f]ormat', noremap = true })
+vim.keymap.set('n', '<leader>pe', '<cmd>lua require("conform").format({ formatters = { "eslint_d" }})<CR>', { desc = '[C]onform [f]ormat', noremap = true })
 
 -- [ Telescope ]
 -- vim.keymap.set('n', '<leader>tg', ':Telescope grep_string search=', { noremap = true, desc = 'Telescope Grep String' })
@@ -204,7 +228,7 @@ vim.keymap.set('i', '<M-p>', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel',
 vim.keymap.set('n', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
 vim.keymap.set('v', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
 vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
-vim.keymap.set('n', '<leader>cp', '<cmd>CopilotChatPrompts<kCR>', { desc = '[C]opilot [p]rompts', noremap = true })
+vim.keymap.set('n', '<leader>cP', '<cmd>CopilotChatPrompts<CR>', { desc = '[C]opilot [p]rompts', noremap = true })
 vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = '[C]opilot [r]eset', noremap = true })
 vim.keymap.set('n', '<leader>cm', '<cmd>CopilotChatModels<CR>', { desc = '[C]opilot [m]odels', noremap = true })
 

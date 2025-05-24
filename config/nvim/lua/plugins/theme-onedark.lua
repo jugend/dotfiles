@@ -1,4 +1,6 @@
 -- Theme - One Dark
+-- https://raw.githubusercontent.com/joshdick/onedark.vim/main/img/color_reference.png
+-- List all the colors used in the theme in neo.nvim one dark plugin
 return {
   'navarasu/onedark.nvim',
   priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -83,5 +85,9 @@ return {
     }
 
     vim.cmd.colorscheme 'onedark'
+
+    -- Copilot color scheeme
+    -- Green
+    vim.cmd 'highlight CopilotSuggestion guifg=#98C379 ctermfg=8'
   end,
 }

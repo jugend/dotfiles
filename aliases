@@ -9,6 +9,7 @@ alias f='fzf'
 alias fu='fuck'
 alias l='ls -GFlah'
 alias ll='ls -laFo'
+alias lss="ls -lh | awk '{print \$5, \$9}'" # Print size and filename
 alias e='exa -l'
 alias ea='exa -a'
 alias ela='exa -la'

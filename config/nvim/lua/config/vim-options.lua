@@ -46,6 +46,9 @@ vim.opt.linebreak = true
 vim.opt.textwidth = 500
 vim.opt.errorbells = false
 
+-- Disable mouse so that modal window, such as fzf-lua input cursor cannot lost focus
+vim.opt.mouse = ''
+
 -- Performance settings
 -- Multiple key shortcuts delay, while watiing for second key
 vim.opt.timeoutlen = 400

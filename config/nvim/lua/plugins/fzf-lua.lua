@@ -17,7 +17,7 @@ return {
       keymap = {
         builtin = {
           -- neovim `:tmap` mappings for the fzf win
-          true, -- uncomment to inherit all the below in your custom config
+          -- uncomment to inherit all the below in your custom config
           -- ['<M-Esc>'] = 'hide', -- hide fzf-lua, `:FzfLua resume` to continue
           -- ['<F1>'] = 'toggle-help',
           ['<C-h>'] = 'toggle-help',

@@ -520,7 +520,7 @@ alias gbm='git branch -m'
 alias gbd='git branch -d'
 alias gba='git branch -a'
 alias gbsup='git branch --set-upstream-to'
-alias gbv='git branch --vv'
+alias gbv='git branch -vv'
 alias gbsumas='gbsu master origin/master'
 alias gb='git branch --sort=-committerdate'
 
@@ -572,6 +572,7 @@ alias glgl='git log --pretty=format:'"'"'%Cred%h%Creset -%C(yellow)%d%Creset %s 
 alias glgs='git log --pretty=format:%s'
 alias glg='glgl --graph'
 alias gld='git log  --decorate'
+alias glo='git log --oneline --decorate --all'
 
 alias gsh='git show'
 alias gshh='git show HEAD'

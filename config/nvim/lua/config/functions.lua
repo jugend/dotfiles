@@ -70,4 +70,46 @@ function M.toggle_diagnostic_loclist()
   end
 end
 
+function M.disable_for_large_files(bufnr)
+  local stats = vim.loop.fs_stat(vim.api.nvim_buf_get_name(bufnr))
+  if stats and stats.size > 1024 * 1024 then -- >1MB
+    vim.b[bufnr].large_file = true
+
+    vim.cmd 'syntax off'
+    vim.opt_local.swapfile = false
+    vim.opt_local.undofile = false
+    -- vim.opt_local.foldmethod = 'manual'
+    vim.opt_local.signcolumn = 'no'
+    -- vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+
+    -- Treesitter
+    vim.cmd 'TSBufDisable highlight'
+
+    -- LSP + Diagnostics, or 0
+    vim.diagnostic.enable(false, { bufnr = bufnr })
+    for _, client in pairs(vim.lsp.get_clients { bufnr = bufnr }) do
+      client.stop(bufnr)
+    end
+
+    -- Copilot
+    vim.cmd 'Copilot disable'
+    --
+    -- -- CMP, causing error, unable to load file
+    -- local cmp = require 'cmp'
+    -- if cmp then
+    --   cmp.setup.buffer { enabled = false }
+    -- end
+
+    -- Gitsigns
+    pcall(require('gitsigns').detach, bufnr)
+
+    -- Conform formatting
+    vim.b[bufnr].conform_disable = true
+
+    -- Autopairs (optional)
+    vim.b[bufnr].autopairs_disabled = true
+  end
+end
+
 return M

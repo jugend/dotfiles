@@ -34,6 +34,11 @@ vim.keymap.set('n', '<C-w>>>', '20<C-w>><CR>')
 vim.keymap.set('n', '<C-w><', '10<C-w><<CR>')
 vim.keymap.set('n', '<C-w><<', '20<C-w><<CR>')
 
+-- Common
+vim.keymap.set('n', '<leader>m', '<cmd>messages<CR>')
+-- Change to project root
+vim.keymap.set('n', '<leader>cR', '<cmd>:cd `git rev-parse --show-toplevel`<CR>', { desc = '[C]hange to project [R]oot' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>td', f.toggle_diagnostic_loclist, { desc = '[T]oggle [d]iagnostic location list', noremap = true })
 
@@ -146,7 +151,7 @@ vim.keymap.set('n', '<leader>eps', '<cmd>e ./server/package.json<CR>', { desc = 
 vim.keymap.set('n', '<leader>epc', '<cmd>e ./client/package.json<CR>', { desc = 'Edit server/package.json' })
 
 -- Edit files
-vim.keymap.set('n', '<leader>ea', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
+vim.keymap.set('n', '<leader>eah', '<cmd>e ~/.aliases<CR>', { desc = 'Edit ~/.aliases' })
 vim.keymap.set('n', '<leader>eal', '<cmd>e ~/.aliases.local<CR>', { desc = 'Edit ~/.aliases.local' })
 vim.keymap.set('n', '<leader>eap', '<cmd>e ~/.aliases.private<CR>', { desc = 'Edit ~/.aliases.private' })
 vim.keymap.set('n', '<leader>eb', '<cmd>e ~/.bashrc<CR>', { desc = 'Edit ~/.bashrc' })
@@ -163,10 +168,10 @@ vim.keymap.set('n', '<leader>lp', '<cmd>lprevious<CR>', { desc = ':lprevious - L
 vim.keymap.set('n', '<leader>lc', '<cmd>lclose<CR>', { desc = ':lclose - Location Close' })
 
 -- Quick fix navigation
-vim.keymap.set('n', '<leader>co', '<cmd>copen<CR>', { desc = ':copen - Open Quickfix Window' })
-vim.keymap.set('n', '<leader>cn', '<cmd>cnext<CR>', { desc = ':cnext - Next Error' })
-vim.keymap.set('n', '<leader>cp', '<cmd>cprevious<CR>', { desc = ':cprevious - Previous Error' })
-vim.keymap.set('n', '<leader>cc', '<cmd>close<CR>', { desc = ':cclose - Quickfix Close' })
+vim.keymap.set('n', '<leader>co', '<cmd>copen<CR>', { desc = ':[c][o]pen - Open Quickfix Window' })
+vim.keymap.set('n', '<leader>cn', '<cmd>cnext<CR>', { desc = ':[c][n]ext - Next Error' })
+vim.keymap.set('n', '<leader>cp', '<cmd>cprevious<CR>', { desc = ':[c][p]revious - Previous Error' })
+vim.keymap.set('n', '<leader>cc', '<cmd>close<CR>', { desc = ':[c][c]lose - Quickfix Close' })
 
 -- Buffer
 vim.keymap.set('n', '<leader>j', '<cmd>bprevious<CR>', { desc = 'Previous Buffer' })
@@ -218,9 +223,8 @@ vim.keymap.set('n', '<leader>pe', '<cmd>lua require("conform").format({ formatte
 
 -- [ Copilot ]
 vim.keymap.set('n', '<leader>ct', '<cmd>Copilot toggle<CR>', { desc = '[T]oggle [c]opilot', noremap = true })
-vim.keymap.set('n', '<leader>cs', '<cmd>Copilot suggestion<CR>', { desc = 'Copilot suggestion', noremap = true })
-vim.keymap.set('v', '<leader>cs', '<cmd>Copilot suggestion<CR>', { desc = 'Copilot suggestion', noremap = true })
-vim.keymap.set('n', '<leader>cu', '<cmd>Copilot status<CR>', { desc = 'Copilot status', noremap = true })
+vim.keymap.set('n', '<leader>cs', '<cmd>Copilot suggestion<CR>', { desc = '[C]opilot [s]uggestion', noremap = true })
+vim.keymap.set('n', '<leader>cu', '<cmd>Copilot status<CR>', { desc = '[C]opilot stat[u]s', noremap = true })
 vim.keymap.set('n', '<M-p>', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel', noremap = true })
 vim.keymap.set('i', '<M-p>', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel', noremap = true })
 
@@ -233,7 +237,7 @@ vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = '[C]opil
 vim.keymap.set('n', '<leader>cm', '<cmd>CopilotChatModels<CR>', { desc = '[C]opilot [m]odels', noremap = true })
 
 -- Conform Plugin
-vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = 'Conform Info', noremap = true })
+vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = '[C]onform [i]nfo', noremap = true })
 
 -- [ Lazygit Plugin ]
 vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<CR>', { desc = 'Open Lazygit [g]', noremap = true })

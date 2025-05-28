@@ -71,6 +71,8 @@ alias lgrep='ls -al | grep'
 alias pgrep='ps aux | grep'
 alias pgrepl='pgrep -l'
 alias grepv='grep -v' # Ignore matching word
+alias grepcss='egrep \.css$' # Ignore matching word
+alias grepjs='egrep \.js$' # Ignore matching word
 alias gver='cat package.json | grep version'
 alias cpgrep='cat package.json | grep'
 
@@ -571,9 +573,10 @@ alias gl='git log'
 alias glp='git log -p'
 alias glgl='git log --pretty=format:'"'"'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"'"' --abbrev-commit'
 alias glgs='git log --pretty=format:%s'
-alias glg='glgl --graph'
+alias gll='git log --oneline --decorate --all'
+alias glg='glo --graph'
+# alias glg='glgl --graph'
 alias gld='git log  --decorate'
-alias glo='git log --oneline --decorate --all'
 
 alias gsh='git show'
 alias gshh='git show HEAD'

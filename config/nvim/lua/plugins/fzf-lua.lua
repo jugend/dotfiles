@@ -1,5 +1,5 @@
--- fzf-lua
---
+_G.fzf_buffer_history = _G.fzf_buffer_history or {}
+
 return {
   'ibhagwan/fzf-lua',
   -- optional for icon support
@@ -42,6 +42,22 @@ return {
           -- ['<S-up>'] = 'preview-page-up',
           -- ['<M-S-down>'] = 'preview-down',
           -- ['<M-S-up>'] = 'preview-up',
+        },
+      },
+      buffers = {
+        actions = {
+          -- Add buffer to history on select
+          ['default'] = function(selected, opts)
+            local bufnr = tonumber(selected[1]:match '^%s*(%d+)')
+            if bufnr and vim.api.nvim_buf_is_valid(bufnr) then
+              -- Save current buffer before switching
+              local current = vim.api.nvim_get_current_buf()
+              if current ~= bufnr then
+                table.insert(_G.fzf_buffer_history, current)
+              end
+              vim.api.nvim_set_current_buf(bufnr)
+            end
+          end,
         },
       },
     }

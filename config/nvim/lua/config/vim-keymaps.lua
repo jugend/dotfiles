@@ -176,7 +176,9 @@ vim.keymap.set('n', '<leader>cc', '<cmd>close<CR>', { desc = ':[c][c]lose - Quic
 -- Buffer
 vim.keymap.set('n', '<leader>j', '<cmd>bprevious<CR>', { desc = 'Previous Buffer' })
 vim.keymap.set('n', '<leader>J', '<cmd>bnext<CR>', { desc = 'Next Buffer' })
+vim.keymap.set('n', '<leader><leader>j', '<C-^><CR>', { desc = 'Last Opened Buffer' })
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [d]elte' })
+vim.keymap.set('n', '<leader>bl', '<cmd>ls<CR>', { desc = '[B]uffer [l]ist' })
 
 -- [[ PLugins Keymaps ]]
 
@@ -257,25 +259,23 @@ vim.keymap.set('v', '<leader>hr', function()
 end, { desc = 'git [r]eset hunk' })
 
 -- normal mode
-vim.keymap.set('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
-vim.keymap.set('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
-vim.keymap.set('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
-vim.keymap.set('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'git [u]ndo stage hunk' })
-vim.keymap.set('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
-vim.keymap.set('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
-vim.keymap.set('n', '<leader>hb', gitsigns.blame_line, { desc = 'git [b]lame line' })
-vim.keymap.set('n', '<leader>hD', function()
+vim.keymap.set('n', '<leader>gs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
+vim.keymap.set('n', '<leader>gr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
+vim.keymap.set('n', '<leader>gS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
+vim.keymap.set('n', '<leader>gu', gitsigns.stage_hunk, { desc = 'git [u]ndo stage hunk' })
+vim.keymap.set('n', '<leader>gR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
+vim.keymap.set('n', '<leader>gp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
+vim.keymap.set('n', '<leader>gb', gitsigns.blame_line, { desc = 'git [b]lame line' })
+vim.keymap.set('n', '<leader>gD', function()
   gitsigns.diffthis '@'
 end, { desc = 'git [D]iff against last commit' })
+vim.keymap.set('n', '<leader>gc', '<cmd>Gitsigns<CR>', { desc = 'git[g] commands[c]', noremap = true })
+vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'git[g] blame[b]', noremap = true })
+vim.keymap.set('n', '<leader>gd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
 
 -- Toggle inline
 vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
 vim.keymap.set('n', '<leader>tp', gitsigns.preview_hunk_inline, { desc = '[T]oggle git [p]review hunk inline' })
-
--- Git comands
-vim.keymap.set('n', '<leader>gc', '<cmd>Gitsigns<CR>', { desc = 'git[g] commands[c]', noremap = true })
-vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'git[g] blame[b]', noremap = true })
-vim.keymap.set('n', '<leader>gd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
 
 -- [ Mason ]
 vim.keymap.set('n', '<leader>tm', '<cmd>Mason<CR>', { desc = '[T]oggle [m]ason', noremap = true })
@@ -295,3 +295,68 @@ vim.keymap.set('v', '<leader>rs', spectre.open_visual, { desc = 'Search selectio
 
 -- [ ZoomToggle ]
 vim.keymap.set('n', '<leader>z', '<cmd>ZoomToggle<CR>', { desc = 'Toggle Zoom Window' })
+
+-- Set buffer previous shortcut
+vim.keymap.set('n', '<leader><leader>p', function()
+  local last = table.remove(_G.fzf_buffer_history)
+  if last and vim.api.nvim_buf_is_valid(last) then
+    vim.api.nvim_set_current_buf(last)
+  else
+    vim.notify('No previous FZF buffer', vim.log.levels.INFO)
+  end
+end, { desc = 'Go to previous FZF-selected buffer' })
+
+-- [ Harpoon ]
+local harpoon = require 'harpoon'
+local ui = require 'harpoon.ui'
+local mark = require 'harpoon.mark'
+
+-- Add current file to Harpoon marks
+vim.keymap.set('n', '<leader>ha', function()
+  mark.add_file()
+end, { desc = 'Add file to Harpoon' })
+
+-- Navigate to the first marked file
+vim.keymap.set('n', '<leader>h1', function()
+  ui.nav_file(1)
+end, { desc = 'Go to file 1' })
+
+-- Navigate to the second marked file
+vim.keymap.set('n', '<leader>h2', function()
+  ui.nav_file(2)
+end, { desc = 'Go to file 2' })
+
+-- Navigate to the third marked file
+vim.keymap.set('n', '<leader>h3', function()
+  ui.nav_file(3)
+end, { desc = 'Go to file 3' })
+
+-- Navigate to the fourth marked file
+vim.keymap.set('n', '<leader>h4', function()
+  ui.nav_file(4)
+end, { desc = 'Go to file 4' })
+
+-- Navigate to the fifth marked file
+vim.keymap.set('n', '<leader>h5', function()
+  ui.nav_file(5)
+end, { desc = 'Go to file 5' })
+
+-- Toggle the Harpoon quick menu (UI to select marked files)
+vim.keymap.set('n', '<leader>hh', function()
+  ui.toggle_quick_menu()
+end, { desc = 'Open Harpoon quick menu' })
+
+-- Move to the next marked file in the list
+vim.keymap.set('n', '<leader>hn', function()
+  ui.nav_next()
+end, { desc = 'Next Harpoon file' })
+
+-- Move to the previous marked file in the list
+vim.keymap.set('n', '<leader>hp', function()
+  ui.nav_prev()
+end, { desc = 'Previous Harpoon file' })
+
+-- Remove the current file from Harpoon marks
+vim.keymap.set('n', '<leader>hr', function()
+  mark.rm_file()
+end, { desc = 'Remove file from Harpoon' })

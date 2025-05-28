@@ -167,3 +167,6 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # Configuration for node to trust the PayPal Proxy Certificates
 export NODE_EXTRA_CA_CERTS='/usr/local/etc/openssl/certs/paypal_proxy_cacerts.pem'
+
+# Set Git pager options, to ensure git diff window to follow the size of tmux window
+export GIT_PAGER='less -+F -X'

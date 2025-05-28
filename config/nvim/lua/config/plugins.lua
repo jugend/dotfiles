@@ -56,6 +56,7 @@ require('lazy').setup({
   require 'plugins.theme-onedark',
 
   -- Search
+  require 'plugins.harpoon',
   require 'plugins.fzf-lua',
   require 'plugins.which-key',
   -- require 'plugins.telescope',

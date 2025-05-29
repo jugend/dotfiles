@@ -72,7 +72,7 @@ end
 
 function M.disable_for_large_files(bufnr)
   local stats = vim.loop.fs_stat(vim.api.nvim_buf_get_name(bufnr))
-  if stats and stats.size > 1024 * 1024 then -- >1MB
+  if stats and stats.size > 1024 * 1024 then -- >10MB
     vim.b[bufnr].large_file = true
 
     vim.cmd 'syntax off'

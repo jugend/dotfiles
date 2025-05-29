@@ -573,7 +573,7 @@ alias gl='git log'
 alias glp='git log -p'
 alias glgl='git log --pretty=format:'"'"'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"'"' --abbrev-commit'
 alias glgs='git log --pretty=format:%s'
-alias gll='git log --oneline --decorate --all'
+alias glo='git log --oneline --decorate --all'
 alias glg='glo --graph'
 # alias glg='glgl --graph'
 alias gld='git log  --decorate'
@@ -674,7 +674,7 @@ gdpage() { git subtree push --prefix dist $1 gh-pages; }
 # Github Extension
 ################
 alias gbro='git browse'
-alias gfo='git fork'
+alias gfor='git fork'
 alias gcr='git create'
 
 # Custom git functions

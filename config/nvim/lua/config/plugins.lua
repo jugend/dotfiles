@@ -95,6 +95,7 @@ require('lazy').setup({
   require 'plugins.gitsigns',
   require 'plugins.nvim-specter',
   require 'plugins.lazygit-nvim',
+  require 'plugins.markdown-preview',
 
   -- Custom Plugins
   {

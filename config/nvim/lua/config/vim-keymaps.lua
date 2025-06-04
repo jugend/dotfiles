@@ -232,7 +232,7 @@ vim.keymap.set('i', '<M-p>', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel',
 
 -- [ Copilot Chat ]
 vim.keymap.set('n', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
-vim.keymap.set('v', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
+vim.keymap.set('v', '<C-G>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
 vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>cP', '<cmd>CopilotChatPrompts<CR>', { desc = '[C]opilot [p]rompts', noremap = true })
 vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = '[C]opilot [r]eset', noremap = true })
@@ -277,8 +277,9 @@ vim.keymap.set('n', '<leader>gd', gitsigns.diffthis, { desc = 'git [d]iff agains
 vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
 vim.keymap.set('n', '<leader>tp', gitsigns.preview_hunk_inline, { desc = '[T]oggle git [p]review hunk inline' })
 
--- [ Mason ]
-vim.keymap.set('n', '<leader>tm', '<cmd>Mason<CR>', { desc = '[T]oggle [m]ason', noremap = true })
+-- [ Toggles ]
+vim.keymap.set('n', '<leader>tm', '<cmd>:MarkdownPreviewToggle<CR>', { desc = '[T]oggle [m]arkdown preview', noremap = true })
+vim.keymap.set('n', '<leader>tM', '<cmd>Mason<CR>', { desc = '[T]oggle [M]ason', noremap = true })
 
 -- [ Specter ]
 -- Normal mode

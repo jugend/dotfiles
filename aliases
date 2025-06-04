@@ -454,6 +454,9 @@ alias dbu='cd .build'
 # neovim
 alias dcon='cd ~/.config/'
 alias dcnv='cd ~/.config/nvim'
+alias dlnv='cd ~/.local/share/nvim'
+alias dlnvl='cd ~/.local/share/nvim/lazy'
+alias dlnvm='cd ~/.local/share/nvim/mason'
 
 # vim
 alias dvim='cd ~/.vim/'

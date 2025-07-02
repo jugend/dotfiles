@@ -170,3 +170,7 @@ export NODE_EXTRA_CA_CERTS='/usr/local/etc/openssl/certs/paypal_proxy_cacerts.pe
 
 # Set Git pager options, to ensure git diff window to follow the size of tmux window
 export GIT_PAGER='less -+F -X'
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/hsiatono/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

@@ -25,3 +25,7 @@ source ~/.bash_profile;
 # $ fuck
 # git commit -m "fix typo"
 # eval "$(thefuck --alias)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/hsiatono/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

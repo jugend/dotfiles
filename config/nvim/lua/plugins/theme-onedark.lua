@@ -1,6 +1,23 @@
 -- Theme - One Dark
 -- https://raw.githubusercontent.com/joshdick/onedark.vim/main/img/color_reference.png
 -- List all the colors used in the theme in neo.nvim one dark plugin
+--
+-- Color scheme colors
+--
+-- bg	#282c34	Background
+-- fg	#abb2bf	Foreground / Default text
+-- red	#e06c75	Errors, deletions
+-- green	#98c379	Strings, additions
+-- yellow	#e5c07b	Constants, annotations
+-- blue	#61afef	Keywords, functions, declarations
+-- purple	#c678dd	Types, classes, special identifiers
+-- cyan	#56b6c2	Macros, preprocessor directives
+-- orange	#d19a66	Warnings, highlights
+-- grey	#5c6370	Comments, less important text
+-- comment	#5c6370	Comments (same as grey)
+-- cursorline	#2c323c	Cursor line background
+-- visual	#3e4451	Visual selection background
+-- menu	#21252b	Popup menu background
 return {
   'navarasu/onedark.nvim',
   priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -86,8 +103,7 @@ return {
 
     vim.cmd.colorscheme 'onedark'
 
-    -- Copilot color scheeme
-    -- Green
-    vim.cmd 'highlight CopilotSuggestion guifg=#98C379 ctermfg=8'
+    -- Yellow
+    vim.cmd 'highlight CopilotSuggestion guifg=#e5c07b ctermfg=8'
   end,
 }

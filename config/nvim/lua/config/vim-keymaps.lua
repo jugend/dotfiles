@@ -207,8 +207,8 @@ vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { des
 vim.keymap.set('n', '<leader>/', '<cmd>FzfLua grep_curbuf<CR>', { desc = '[F]zf current [/]file', noremap = true })
 
 -- [ Conform - Formatter ]
-vim.keymap.set('n', '<leader>pp', '<cmd>lua require("conform").format({ formatters = { "prettierd" }})<CR>', { desc = '[C]onform [f]ormat', noremap = true })
-vim.keymap.set('n', '<leader>pe', '<cmd>lua require("conform").format({ formatters = { "eslint_d" }})<CR>', { desc = '[C]onform [f]ormat', noremap = true })
+vim.keymap.set('n', '<leader>pp', '<cmd>lua require("conform").format({ formatters = { "prettierd" }})<CR>', { desc = '[p]Format [p]rettierd', noremap = true })
+vim.keymap.set('n', '<leader>pe', '<cmd>lua require("conform").format({ formatters = { "eslint_d" }})<CR>', { desc = '[p]Format [e]slint_d', noremap = true })
 
 -- [ Telescope ]
 -- vim.keymap.set('n', '<leader>tg', ':Telescope grep_string search=', { noremap = true, desc = 'Telescope Grep String' })

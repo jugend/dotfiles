@@ -84,10 +84,11 @@ require('lazy').setup({
   -- Formatting
   require 'plugins.nvim-treesitter',
 
-  -- Co-pilot
+  -- Co-pilot, Gen AI
   require 'plugins.copilot',
   require 'plugins.copilot-chat',
   require 'plugins.blink-cmp-copilot',
+  require 'plugins.claude-code',
 
   -- Utils
   require 'plugins.nvim-surround',

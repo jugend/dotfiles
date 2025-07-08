@@ -44,7 +44,7 @@ return {
         -- NOTE: Need to install eslint_d@13, latest version eslint@14 causing invalid JSON error
         javascript = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
         javascriptreact = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
-        -- typescript = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
         -- json = { 'prettierd', 'prettier', stop_after_first = true },
       },
     }

@@ -276,6 +276,7 @@ return {
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`ts_ls`) will work just fine
+      -- Shortcut for typescript-language-server, to override LSP server capabilities
       -- ts_ls = {},
       --
 

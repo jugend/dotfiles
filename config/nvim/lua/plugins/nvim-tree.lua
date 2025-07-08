@@ -9,6 +9,12 @@ return {
     require('nvim-tree').setup {
       -- your nvim-tree config goes here
       -- for example:
+      filters = {
+        -- Not working, all files are hidden
+        -- git_clean = true,
+        dotfiles = true,
+        custom = { 'node_modules' },
+      },
       view = {
         width = 45,
         side = 'left',

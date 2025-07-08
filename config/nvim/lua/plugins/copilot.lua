@@ -27,6 +27,7 @@ return {
         debounce = 75,
         trigger_on_accept = true,
         keymap = {
+          reset = '<C-r>',
           -- accept = '<C-l>',
           accept = '<C-y>',
           -- accept_word = false,

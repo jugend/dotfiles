@@ -119,11 +119,12 @@ vim.keymap.set('n', '<leader><leader>x', '<cmd>x<CR>', { desc = 'Save and e[x]it
 vim.keymap.set('n', '<leader><leader>e', '<cmd>.lua<CR>', { desc = 'Execute current line ', noremap = true })
 vim.keymap.set('v', '<leader><leader>e', '<cmd>lua<CR>', { desc = 'Execute current selection', noremap = true })
 
-vim.keymap.set('n', '<leader><leader>tn', '<cmd>tabnew<CR>', { desc = '[T]ab [N]ew', noremap = true })
+vim.keymap.set('n', '<leader><leader>tn', '<cmd>tabnew<CR>', { desc = '[T]ab [n]ew', noremap = true })
+vim.keymap.set('n', '<leader><leader>ts', '<cmd>tab split<CR>', { desc = '[T]ab [s]plit', noremap = true })
 vim.keymap.set('n', '<leader><space>', '<cmd>tabnext<CR>', { desc = 'Tab Next', noremap = true })
 vim.keymap.set('n', '<leader><leader><space>', '<cmd>tabprevious<CR>', { desc = 'Tab Previous', noremap = true })
 vim.keymap.set('n', '<leader><leader>q', '<cmd>q<CR>', { desc = '[Q]uite file without save', noremap = true })
-vim.keymap.set('n', '<leader><leader>!', '<cmd>qa<CR>', { desc = 'Quite all without save[!]', noremap = true })
+vim.keymap.set('n', '<leader><leader>!', '<cmd>qa!<CR>', { desc = 'Quite all without save[!]', noremap = true })
 
 -- Write files
 vim.keymap.set('n', '<leader>ws', '<cmd>w<CR>', { desc = 'Save file ', noremap = true })
@@ -176,7 +177,7 @@ vim.keymap.set('n', '<leader>cc', '<cmd>close<CR>', { desc = ':[c][c]lose - Quic
 -- Buffer
 vim.keymap.set('n', '<leader>j', '<cmd>bprevious<CR>', { desc = 'Previous Buffer' })
 vim.keymap.set('n', '<leader>J', '<cmd>bnext<CR>', { desc = 'Next Buffer' })
-vim.keymap.set('n', '<leader><leader>j', '<C-^><CR>', { desc = 'Last Opened Buffer' })
+vim.keymap.set('n', 'gb', '<C-^><CR>', { desc = '[G]o to last opened [b]uffer' })
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [d]elte' })
 vim.keymap.set('n', '<leader>bl', '<cmd>ls<CR>', { desc = '[B]uffer [l]ist' })
 
@@ -187,8 +188,7 @@ vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<CR>', { desc = '[F]zf files', no
 vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword<CR>', { desc = '[F]zf word under the cursor', noremap = true })
 vim.keymap.set('v', '<C-t>', '<cmd>FzfLua grep_visual<CR>', { desc = '[F]zf selected word', noremap = true })
 vim.keymap.set('n', '<leader>a', '<cmd>FzfLua grep<CR>', { desc = '[F]zf [g]rep text', noremap = true })
-vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers<CR>', { desc = '[F]zf [b]uffers', noremap = true })
-vim.keymap.set('n', '<leader><leader>t', '<cmd>TodoFzfLua<CR>', { desc = '[F]zf [T]ODOs, NOTEs', noremap = true })
+vim.keymap.set('n', '<leader><leader>T', '<cmd>TodoFzfLua<CR>', { desc = '[F]zf [T]ODOs, NOTEs', noremap = true })
 vim.keymap.set('n', '<leader>F', '<cmd>FzfLua<CR>', { desc = '[F]zf list available o[p]tions', noremap = true })
 vim.keymap.set('n', '<leader>fl', '<cmd>FzfLua live_grep_native<CR>', { desc = '[F]zf [l]ive grep', noremap = true })
 vim.keymap.set('n', '<leader>fo', '<cmd>FzfLua oldfiles<CR>', { desc = '[F]zf [o]ld files', noremap = true })
@@ -196,15 +196,18 @@ vim.keymap.set('n', '<leader>fc', '<cmd>FzfLua commands<CR>', { desc = '[F]zf nv
 vim.keymap.set('n', '<leader>fi', ':FzfLua grep cwd=', { desc = '[F]zf [i]n directory', noremap = true })
 vim.keymap.set('n', '<leader>fn', '<cmd>FzfLua files cwd=~/.config/nvim<CR>', { desc = '[F]zf [n]vim config files', noremap = true })
 vim.keymap.set('n', '<leader>ff', '<cmd>FzfLua files<CR>', { desc = '[F]zf [f]iles', noremap = true })
-vim.keymap.set('n', '<leader>fb', '<cmd>FzfLua buffers<CR>', { desc = '[F]zf [b]uffers', noremap = true })
 vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua grep_cword<CR>', { desc = '[F]zf [w]ord under the cursor', noremap = true })
 vim.keymap.set('n', '<leader>fr', '<cmd>FzfLua live_grep_resume<CR>', { desc = '[F]zf [r]esume for live grep', noremap = true })
 vim.keymap.set('n', '<leader>fR', '<cmd>FzfLua resume<CR>', { desc = '[F]zf [R]esume', noremap = true })
 vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua helptags<CR>', { desc = '[F]zf nvim [h]elp', noremap = true })
 vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua keymaps<CR>', { desc = '[F]zf [s]hortcuts', noremap = true })
+vim.keymap.set('n', '<leader>ft', '<cmd>FzfLua treesitter<CR>', { desc = '[F]zf [t]reesitter document symbols', noremap = true })
+vim.keymap.set('n', '<leader>fS', '<cmd>FzfLua lsp_live_workspace_symbols<CR>', { desc = '[F]zf live document [S]ymbols', noremap = true })
 vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document<CR>', { desc = '[F]zf [d]iagnostic in file', noremap = true })
 vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { desc = '[F]zf diagnostic in [w]orkspace', noremap = true })
 vim.keymap.set('n', '<leader>/', '<cmd>FzfLua grep_curbuf<CR>', { desc = '[F]zf current [/]file', noremap = true })
+vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers sort_mru=true<CR>', { desc = '[F]zf [b]uffers', noremap = true })
+vim.keymap.set('n', '<leader>fb', '<cmd>FzfLua buffers sort_mru=true<CR>', { desc = '[F]zf [b]uffers', noremap = true })
 
 -- [ Conform - Formatter ]
 vim.keymap.set('n', '<leader>pp', '<cmd>lua require("conform").format({ formatters = { "prettierd" }})<CR>', { desc = '[p]Format [p]rettierd', noremap = true })

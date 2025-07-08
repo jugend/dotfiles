@@ -13,7 +13,8 @@ return {
     -- system_prompt = 'COPILOT_INSTRUCTIONS', -- System prompt to use (can be specified manually in prompt via /).
     --
     -- model = 'gpt-4.1', -- Default model to use, see ':CopilotChatModels' for available models (can be specified manually in prompt via $).
-    model = 'claude-opus-4',
+    -- model = 'claude-opus-4',
+    model = 'claude-sonnet-4',
     -- agent = 'copilot', -- Default agent to use, see ':CopilotChatAgents' for available agents (can be specified manually in prompt via @).
     -- context = nil, -- Default context or array of contexts to use (can be specified manually in prompt via #).
     -- sticky = nil, -- Default sticky prompt or array of sticky prompts to use at start of every new chat.
@@ -122,62 +123,62 @@ return {
     --
     -- -- default mappings
     -- -- see config/mappings.lua for implementation
-    -- mappings = {
-    --   complete = {
-    --     insert = '<Tab>',
-    --   },
-    -- close = {
-    --   normal = 'q',
-    --   insert = '<C-c>',
-    -- },
-    --   reset = {
-    --     normal = '<C-l>',
-    --     insert = '<C-l>',
-    --   },
-    reset = {
-      normal = '<C-r>',
-      insert = '<C-r>',
+    mappings = {
+      --   complete = {
+      --     insert = '<Tab>',
+      --   },
+      -- close = {
+      --   normal = 'q',
+      --   insert = '<C-c>',
+      -- },
+      --   reset = {
+      --     normal = '<C-l>',
+      --     insert = '<C-l>',
+      --   },
+      reset = {
+        normal = '<C-r>',
+        insert = '<C-r>',
+      },
+      --   submit_prompt = {
+      --     normal = '<CR>',
+      --     insert = '<C-s>',
+      --   },
+      --   toggle_sticky = {
+      --     normal = 'grr',
+      --   },
+      --   clear_stickies = {
+      --     normal = 'grx',
+      --   },
+      --   accept_diff = {
+      --     normal = '<C-y>',
+      --     insert = '<C-y>',
+      --   },
+      --   jump_to_diff = {
+      --     normal = 'gj',
+      --   },
+      --   quickfix_answers = {
+      --     normal = 'gqa',
+      --   },
+      --   quickfix_diffs = {
+      --     normal = 'gqd',
+      --   },
+      --   yank_diff = {
+      --     normal = 'gy',
+      --     register = '"', -- Default register to use for yanking
+      --   },
+      --   show_diff = {
+      --     normal = 'gd',
+      --     full_diff = false, -- Show full diff instead of unified diff when showing diff window
+      --   },
+      --   show_info = {
+      --     normal = 'gi',
+      --   },
+      --   show_context = {
+      --     normal = 'gc',
+      --   },
+      --   show_help = {
+      --     normal = 'gh',
+      --   },
     },
-    --   submit_prompt = {
-    --     normal = '<CR>',
-    --     insert = '<C-s>',
-    --   },
-    --   toggle_sticky = {
-    --     normal = 'grr',
-    --   },
-    --   clear_stickies = {
-    --     normal = 'grx',
-    --   },
-    --   accept_diff = {
-    --     normal = '<C-y>',
-    --     insert = '<C-y>',
-    --   },
-    --   jump_to_diff = {
-    --     normal = 'gj',
-    --   },
-    --   quickfix_answers = {
-    --     normal = 'gqa',
-    --   },
-    --   quickfix_diffs = {
-    --     normal = 'gqd',
-    --   },
-    --   yank_diff = {
-    --     normal = 'gy',
-    --     register = '"', -- Default register to use for yanking
-    --   },
-    --   show_diff = {
-    --     normal = 'gd',
-    --     full_diff = false, -- Show full diff instead of unified diff when showing diff window
-    --   },
-    --   show_info = {
-    --     normal = 'gi',
-    --   },
-    --   show_context = {
-    --     normal = 'gc',
-    --   },
-    --   show_help = {
-    --     normal = 'gh',
-    --   },
-    -- },
   },
 }

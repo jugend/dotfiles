@@ -697,7 +697,7 @@ alias gih='gi -h'
 alias gil='gi -l'
 alias gip='gi -p'
 alias gir='gi -r'
-alias git='gi -t'
+# alias git='gi -t'
 alias gio='gi -o'
 alias giu='gi -u'
 

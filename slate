@@ -81,6 +81,7 @@ alias offLeftLarge            move     screenOriginX+(screenSizeX*3/5)-50-(scree
 alias offLeftExtraLarge       move     screenOriginX+(screenSizeX*3/5)-50-((screenSizeX*3/5)-50);screenOriginY (screenSizeX*3/5)-50;screenSizeY
 
 alias centerHover             move     screenOriginX+((screenSizeX-(screenSizeX*0.6))/2);screenOriginY+((screenSizeY-(screenSizeY*0.9))/2) screenSizeX*0.6;screenSizeY*0.9
+alias smallCenterHover        move     screenOriginX+((screenSizeX-(screenSizeX*0.4))/2);screenOriginY+((screenSizeY-(screenSizeY*0.9))/2) screenSizeX*0.4;screenSizeY*0.9
 alias centerContract          move     screenOriginX+((screenSizeX-(windowSizeX*0.7))/2);screenOriginY+((screenSizeY-(windowSizeY*0.9))/2) windowSizeX*0.7;windowSizeY*0.9
 alias centerExpand            move     screenOriginX+((screenSizeX-(windowSizeX*1.25))/2);screenOriginY+((screenSizeY-(windowSizeY*1.1))/2) windowSizeX*1.25;windowSizeY*1.1
 
@@ -112,7 +113,7 @@ bind k:ctrl;cmd               chain    ${topTwoThirdHeight} | ${topHalfHeight} |
 bind j:ctrl;cmd               chain    ${bottomTwoThirdHeight} | ${bottomHalfHeight} | ${fullHeight}
 bind c:ctrl;cmd               chain    ${center} | ${centerHover} | ${centerHalf} | ${centerFourTenth} | ${centerOneThird} | ${centerOneFourth} | ${centerThreeFifth} | ${centerTwoFifth} | ${centerThreeFourth} | ${centerFourFifth} | ${centerSevenEighth} | ${full}
 bind e:ctrl;cmd               chain    ${full} | ${centerThreeFifth} | ${centerTwoThird} | ${centerHalf} | ${centerFourTenth} | ${centerOneThird}
-bind g:ctrl;cmd               chain    ${full} | ${centerHover}
+bind g:ctrl;cmd               chain    ${full} | ${centerHover} | ${smallCenterHover}
 
 # Reduce size to center - Not so useful, duplicate of the above
 

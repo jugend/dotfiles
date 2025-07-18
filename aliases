@@ -20,7 +20,13 @@ alias nnvim='node_switch && nvim'
 alias n='nnvim'
 alias vi='vim'
 alias vimd='vim -D'
-alias c='code'
+alias c='NODE_TLS_REJECT_UNAUTHORIZED=0 claude'
+alias clp='c -p'
+alias clc='c --continue'
+alias clr='c --resume'
+alias cl='c --debug'
+alias clv='c --verbose'
+alias vc='code'
 alias o='open .'
 alias hh='help'
 alias m='man'
@@ -39,6 +45,7 @@ alias cl='curl'
 alias fdd='fd --type d'
 alias fddu='fd --type d -u' # include ignored directories
 alias nnowarn='NODE_NO_WARNINGS=1'
+alias nrud='NODE_TLS_REJECT_UNAUTHORIZED=0'
 
 alias tf='tail -f -n 500'
 alias tfn='tf npm-debug.log'
@@ -112,6 +119,7 @@ alias vvulti='dvulti && visnip'
 alias vvsnip='dvsnip && visnip'
 alias vesrc='n ~/.eslintrc'
 alias vslate='n ~/.slate'
+alias vcdesk='n ~/Library/Application Support/Claude/desktop_config.json'
 alias vhosts='sudo -E n /etc/hosts'
 
 # reload scripts
@@ -705,6 +713,17 @@ alias gipa='gist -P'
 alias gira='gist -R'
 
 ###
+# Claude
+################
+alias ccm='claude mcp'
+alias ccml='ccm list'
+alias ccma='ccm add'
+alias ccmaj='ccm add-json'
+alias ccmg='ccm get'
+alias ccmr='ccm remove'
+alias ccmh='ccm help'
+
+###
 # RVM
 ################
 alias rvi='rvm info'
@@ -870,3 +889,4 @@ alias ordr='orv deepseek-r1'
 alias ordr1='orv deepseek-r1:1.5b'
 alias ordr8='orv deepseek-r1:8b'
 alias orl='orv llama3.2'
+

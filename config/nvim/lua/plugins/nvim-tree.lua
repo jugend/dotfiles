@@ -12,7 +12,7 @@ return {
       filters = {
         -- Not working, all files are hidden
         -- git_clean = true,
-        dotfiles = true,
+        -- dotfiles = true,
         custom = { 'node_modules' },
       },
       view = {
@@ -31,7 +31,11 @@ return {
       },
       actions = {
         open_file = {
-          quit_on_open = false,
+          -- quit_on_open = false,
+          -- To prevent prompt to pick window, when there are split windows
+          window_picker = {
+            enable = false,
+          },
         },
       },
     }

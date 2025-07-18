@@ -102,7 +102,7 @@ visnip() {
 
 # Check which process is listening to what port no
 # $ lport 8008
-cport() {
+port() {
   lsof -i :$1
 }
 

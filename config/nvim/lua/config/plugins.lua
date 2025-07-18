@@ -88,7 +88,16 @@ require('lazy').setup({
   require 'plugins.copilot',
   require 'plugins.copilot-chat',
   require 'plugins.blink-cmp-copilot',
-  require 'plugins.claude-code',
+
+  -- Claude Code
+  require 'plugins.avante-nvim',
+
+  -- Too simple, just simple chat, and send to tmux, not working well
+  -- require 'plugins.claude-codebridge',
+  -- Too simple just shortcuts
+  -- require 'plugins.claude-code',
+  -- Broken for newer claudecode
+  -- require 'plugins.claudecode-nvim',
 
   -- Utils
   require 'plugins.nvim-surround',

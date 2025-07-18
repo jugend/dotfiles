@@ -7,6 +7,7 @@ return {
   dependencies = {
     -- Snippet Engine
     {
+      'Kaiser-Yang/blink-cmp-avante',
       'L3MON4D3/LuaSnip',
       version = '2.*',
       build = (function()
@@ -91,8 +92,15 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = { 'avante', 'lsp', 'path', 'snippets', 'lazydev' },
       providers = {
+        avante = {
+          module = 'blink-cmp-avante',
+          name = 'Avante',
+          opts = {
+            -- options for blink-cmp-avante
+          },
+        },
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
       },
     },

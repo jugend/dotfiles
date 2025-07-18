@@ -112,4 +112,55 @@ function M.disable_for_large_files(bufnr)
   end
 end
 
+-- Claude Code
+function M.CopyFileName(skip_copy)
+  -- Get the current file name and the current line numbers
+  local full_filename = vim.fn.expand '%:p' -- Full file path
+  local project_root = vim.fn.getcwd() -- Get the project root directory
+
+  -- Remove the project root part from the full file path
+  local formatted_filename = '@' .. full_filename:sub(#project_root + 2) -- Remove the root path
+
+  if not skip_copy then
+    vim.fn.setreg('+', formatted_filename)
+    print '------'
+    print('Copied: ' .. formatted_filename)
+  end
+
+  return formatted_filename
+end
+
+function M.CopyFileNameAndLineNumber()
+  -- Reload file to make sure the line number reading is accurate
+  -- after selection is cancelled
+  vim.cmd 'edit!'
+
+  local relative_filename = M.CopyFileName(true)
+  local start_line = vim.fn.line "'<" -- Start line of the visual selection
+  local end_line = vim.fn.line "'>" -- End line of the visual selection
+
+  -- Format the output in the Claude Code style
+  local formatted = string.format('%s:%d-%d', relative_filename, start_line, end_line)
+
+  -- Copy to system clipboard
+  vim.fn.setreg('+', formatted)
+
+  -- Optional: Show a message that it's copied
+  print('Copied: ' .. formatted)
+end
+
+function M.CopyFileNameAndCurrentLineNumber()
+  local relative_filename = M.CopyFileName(true)
+  local current_line = vim.fn.line '.' -- Start line of the visual selection
+
+  -- Format the output in the Claude Code style
+  local formatted = string.format('%s:%d', relative_filename, current_line)
+
+  -- Copy to system clipboard
+  vim.fn.setreg('+', formatted)
+
+  -- Optional: Show a message that it's copied
+  print('Copied: ' .. formatted)
+end
+
 return M

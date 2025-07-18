@@ -120,14 +120,18 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;33'
 
 # Disable control flow shortcuts (C-s and C-q), so they can be used in vim
-stty -ixon -ixoff
+# Which also includes C-h, if not C-h will not work
+# To prevent Error: stty: stdin isn't a terminal error in Claude code
+# Run on interactive mode only
+if [[ -t 0 ]]; then
+    stty -ixon -ixoff
+    bind '"\ex": backward-delete-char'
+fi
 
-# Alt-h used by slate to switch focus, adding additional shortcut
-bind '"\ex": backward-delete-char'
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 # To prevent unable to get local issuer certificate error
-export NODE_TLS_REJECT_UNAUTHORIZED=0
+export NODE_TLS_REJECT_UNAUTHORIZED=1
 
 # Default 9546 conflict with existing service
 export HEALTH_PORT=9547
@@ -167,6 +171,7 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # Configuration for node to trust the PayPal Proxy Certificates
 export NODE_EXTRA_CA_CERTS='/usr/local/etc/openssl/certs/paypal_proxy_cacerts.pem'
+export NPM_CONFIG_CAFILE='/usr/local/etc/openssl/certs/paypal_proxy_cacerts.pem'
 
 # Set Git pager options, to ensure git diff window to follow the size of tmux window
 export GIT_PAGER='less -+F -X'

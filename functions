@@ -107,7 +107,7 @@ port() {
 }
 
 kport() {
-  cport $1 | awk 'FNR==2 { print $2 }'| xargs kill -9 && cport $1
+  port $1 | awk 'FNR==2 { print $2 }'| xargs kill -9 && port $1
 }
 
 agmatch() {
@@ -208,6 +208,11 @@ node_switch() {
     nvm use stable
     echo 'Upgrade node to stable version'
   fi
+}
+
+# Claude
+clp() {
+  claude -p '${@:2}'
 }
 
 if [ -f ~/.aliases.local ]; then

@@ -57,7 +57,7 @@ vim.opt.lazyredraw = true
 -- Disable swap file for performance, esp on large file
 vim.opt.swapfile = false
 
--- Tabs
+-- TabsFor Lua
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -123,3 +123,6 @@ vim.opt.foldlevelstart = 99 -- Default -1
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Hide Markdown gutter sign
+vim.wo.signcolumn = "no"

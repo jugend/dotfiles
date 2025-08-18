@@ -1,9 +1,10 @@
 -- [[ Functions]]
 --
+--
 local M = {}
 local uv = vim.loop
 
-M.SEVERITY_CONFIG = { min = vim.diagnostic.severity.INFO }
+M.SEVERITY_CONFIG = { min = vim.diagnostic.severity.HINT }
 
 local function reload_files(directory)
   local handle = uv.fs_scandir(directory)
@@ -52,11 +53,22 @@ end
 
 function M.has_diagnostic_error()
   local diagnostics = vim.diagnostic.get(0) -- Get diagnostics for the current buffer
-  for _, diagnostic in ipairs(diagnostics) do
-    if diagnostic.severity == vim.diagnostic.severity.ERROR or diagnostic.severity == vim.diagnostic.severity.WARN then
-      return true
-    end
+
+  if #diagnostics > 0 then
+    return true
   end
+
+  -- To filter diagnostic types, show loclist only when there are errors and warnings
+  -- for _, diagnostic in ipairs(diagnostics) do
+  -- If need to show diagnostic loclist only when there's error/warn
+  -- if
+  --   diagnostic.severity == vim.diagnostic.severity.ERROR
+  --   or diagnostic.severity == vim.diagnostic.severity.WARN
+  -- then
+  --   return true
+  -- end
+  -- end
+
   return false
 end
 

@@ -51,9 +51,9 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  require 'plugins.vim-tmux-navigator',
   -- Theme
   require 'plugins.theme-onedark',
+  require 'plugins.vim-tmux-navigator',
 
   -- Search
   require 'plugins.harpoon',

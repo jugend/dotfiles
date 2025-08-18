@@ -23,6 +23,9 @@ return {
   priority = 1000, -- Make sure to load this before all the other start plugins.
   config = function()
     require('onedark').setup {
+      -- Darker theme somehow doesn't match the screenshot
+      -- https://github.com/navarasu/onedark.nvim/tree/master
+      --
       style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
       -- transparent = false, -- Show/hide background
       -- term_colors = true, -- Change terminal color as per the selected theme style
@@ -101,9 +104,15 @@ return {
       },
     }
 
+    require('onedark').load()
+
     vim.cmd.colorscheme 'onedark'
 
+    -- Co-Pilot
     -- Yellow
     vim.cmd 'highlight CopilotSuggestion guifg=#e5c07b ctermfg=8'
+
+    -- Line Number
+    vim.cmd 'highlight LineNr guifg=#535965 ctermfg=8'
   end,
 }

@@ -21,11 +21,11 @@ alias n='nnvim'
 alias vi='vim'
 alias vimd='vim -D'
 alias c='NODE_TLS_REJECT_UNAUTHORIZED=0 claude'
-alias clp='c -p'
-alias clc='c --continue'
-alias clr='c --resume'
-alias cl='c --debug'
-alias clv='c --verbose'
+alias ccc='c --continue'
+alias ccr='c --resume'
+alias ccd='c --debug'
+alias ccv='c --verbose'
+alias ccdv='c --debug --verbose'
 alias vc='code'
 alias o='open .'
 alias hh='help'
@@ -49,6 +49,7 @@ alias nrud='NODE_TLS_REJECT_UNAUTHORIZED=0'
 
 alias tf='tail -f -n 500'
 alias tfn='tf npm-debug.log'
+alias tscn='tsc --noEmit'
 alias ip='ifconfig | grep broadcast'
 alias cpr='cp -r'
 alias duh='du -sh'
@@ -119,7 +120,10 @@ alias vvulti='dvulti && visnip'
 alias vvsnip='dvsnip && visnip'
 alias vesrc='n ~/.eslintrc'
 alias vslate='n ~/.slate'
-alias vcdesk='n ~/Library/Application Support/Claude/desktop_config.json'
+alias vccd='n ~/Library/Application\ Support/Claude/claude_desktop_config.json'
+alias vccdc='n ~/Library/Application\ Support/Claude/config.json'
+alias vcc='n ~/.claude.json'
+alias vcmcp='n ~/.claude/.mcp.json'
 alias vhosts='sudo -E n /etc/hosts'
 
 # reload scripts
@@ -447,6 +451,8 @@ alias ddesk='cd ~/Desktop'
 alias dlib='cd ~/Library'
 alias dulpref='cd ~/Library/Preferences'
 alias dulaps='cd ~/Library/Application\ Support'
+alias dapc='cd ~/Library/Application\ Support/Claude'
+alias dcc='cd ~/.Claude'
 alias dvol='cd /Volumes'
 alias detc='cd /etc'
 alias dtmp='cd /tmp'
@@ -826,8 +832,8 @@ alias rgp="rg --heading --line-number"
 # Search using glob patterns
 alias rgg="rg -g"
 
-# Search in current directory, including hidden files but excluding .git
-alias rgd="rg --hidden --glob '!.git/*'"
+# Search in current directory, including hidden files but excluding .git, -u unrestricted
+alias rga="rg -u --hidden --glob '!.git/*'"
 
 # Search only within the src/ directory
 alias rgsrc="rg --glob src/"

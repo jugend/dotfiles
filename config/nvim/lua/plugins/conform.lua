@@ -25,7 +25,7 @@ return {
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
         -- local disable_filetypes = { c = true, cpp = true, javascript = true, javascriptreact = true, json = true }
-        local disable_filetypes = { c = true, cpp = true, json = true }
+        local disable_filetypes = { c = true, cpp = true }
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
         else
@@ -44,8 +44,10 @@ return {
         -- NOTE: Need to install eslint_d@13, latest version eslint@14 causing invalid JSON error
         javascript = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
         javascriptreact = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
-        typescript = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = true },
-        -- json = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = false },
+        typescriptreact = { 'eslint_d', 'prettierd', 'prettier', stop_after_first = false },
+        json = { 'prettierd', 'prettier', stop_after_first = true },
+        jsonc = { 'prettierd', 'prettier', stop_after_first = true },
       },
     }
   end,

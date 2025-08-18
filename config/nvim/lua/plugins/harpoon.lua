@@ -42,9 +42,11 @@ return {
       for idx = 1, harpoon_mark.get_length() do
         local file = harpoon_mark.get_marked_file_name(idx)
         if file == '' then
+          -- Condition never not met
           file = '(empty)'
         end
-        table.insert(entries, string.format('%s', file))
+        local file_path = vim.fn.fnamemodify(string.format('%s', file), ':.')
+        table.insert(entries, file_path)
       end
 
       fzf.fzf_exec(entries, {

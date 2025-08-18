@@ -19,6 +19,8 @@ vim.keymap.set('i', 'hh', '<Esc>', { noremap = true })
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
 vim.keymap.set('i', '<C-l>', '<Esc>', { noremap = true })
 vim.keymap.set('v', '<C-l>', '<Esc>', { noremap = true })
+vim.keymap.set('i', '<C-h>', '<Esc>', { noremap = true })
+vim.keymap.set('v', '<C-h>', '<Esc>', { noremap = true })
 
 -- Remove search highlights
 vim.keymap.set('n', '<Esc>', '<vmd>nohlsearch<CR>')
@@ -89,9 +91,11 @@ vim.keymap.set('i', '<M-f>', '<S-Right>', { noremap = true })
 -- vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Map it to a key (e.g., <leader>r to reload)
-vim.keymap.set('n', '<leader>E', '<cmd>e<CR>', { desc = 'Reload current file', noremap = true })
-vim.keymap.set('n', '<leader>rb', f.reload_configs, { desc = 'Reload init.lua config', noremap = true })
-vim.keymap.set('n', '<leader>rl', '<cmd>Lazy sync<CR>', { desc = 'Reload lazy.vim plugins', noremap = true })
+vim.keymap.set('n', '<leader>E', '<cmd>e<CR>', { desc = 'Reload current [e]dited file', noremap = true })
+vim.keymap.set('n', '<leader>rb', f.reload_configs, { desc = '[R]eload init.lua config[b]', noremap = true })
+vim.keymap.set('n', '<leader>rl', '<cmd>Lazy sync<CR>', { desc = '[R]eload [l]azy.vim plugins', noremap = true })
+vim.keymap.set('n', '<leader>ra', '<cmd>Lazy reload avante.nvim<CR>', { desc = '[R]eload [a]vante.vim plugin', noremap = true })
+vim.keymap.set('n', '<leader>rc', ':Lazy reload<space>', { desc = '[R]eload [c]ustom plugin', noremap = true })
 
 -- command Shortcuts
 vim.keymap.set('n', '<leader>l<space>', '<cmd>lua<space>', { desc = 'Run :lua', noremap = true })
@@ -111,6 +115,10 @@ vim.keymap.set('n', '<leader><leader>2', '<cmd>lua vim.opt.foldlevel=2<CR>', { d
 vim.keymap.set('n', '<leader><leader>3', '<cmd>lua vim.opt.foldlevel=3<CR>', { desc = 'Set vim foldlevel=3', noremap = true })
 vim.keymap.set('n', '<leader><leader>4', '<cmd>lua vim.opt.foldlevel=4<CR>', { desc = 'Set vim foldlevel=4', noremap = true })
 vim.keymap.set('n', '<leader><leader>5', '<cmd>lua vim.opt.foldlevel=5<CR>', { desc = 'Set vim foldlevel=5', noremap = true })
+vim.keymap.set('n', '<leader><leader>6', '<cmd>lua vim.opt.foldlevel=6<CR>', { desc = 'Set vim foldlevel=6', noremap = true })
+vim.keymap.set('n', '<leader><leader>7', '<cmd>lua vim.opt.foldlevel=7<CR>', { desc = 'Set vim foldlevel=7', noremap = true })
+vim.keymap.set('n', '<leader><leader>8', '<cmd>lua vim.opt.foldlevel=7<CR>', { desc = 'Set vim foldlevel=8', noremap = true })
+vim.keymap.set('n', '<leader><leader>9', '<cmd>lua vim.opt.foldlevel=7<CR>', { desc = 'Set vim foldlevel=9', noremap = true })
 vim.keymap.set('n', '<leader><leader>o', '<cmd>lua vim.opt.foldlevel=99<CR>', { desc = 'Set vim foldlevel=99', noremap = true })
 
 -- Quick Control Shortcuts
@@ -123,8 +131,8 @@ vim.keymap.set('n', '<leader><leader>tn', '<cmd>tabnew<CR>', { desc = '[T]ab [n]
 vim.keymap.set('n', '<leader><leader>ts', '<cmd>tab split<CR>', { desc = '[T]ab [s]plit', noremap = true })
 vim.keymap.set('n', '<leader><space>', '<cmd>tabnext<CR>', { desc = 'Tab Next', noremap = true })
 vim.keymap.set('n', '<leader><leader><space>', '<cmd>tabprevious<CR>', { desc = 'Tab Previous', noremap = true })
-vim.keymap.set('n', '<leader><leader>q', '<cmd>q<CR>', { desc = '[Q]uite file without save', noremap = true })
-vim.keymap.set('n', '<leader><leader>!', '<cmd>qa!<CR>', { desc = 'Quite all without save[!]', noremap = true })
+vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uite file without save', noremap = true })
+vim.keymap.set('n', '<leader><leader>q', '<cmd>qa!<CR>', { desc = '[Q]uite all without save!', noremap = true })
 
 -- Write files
 vim.keymap.set('n', '<leader>ws', '<cmd>w<CR>', { desc = 'Save file ', noremap = true })
@@ -175,9 +183,9 @@ vim.keymap.set('n', '<leader>cp', '<cmd>cprevious<CR>', { desc = ':[c][p]revious
 vim.keymap.set('n', '<leader>cc', '<cmd>close<CR>', { desc = ':[c][c]lose - Quickfix Close' })
 
 -- Buffer
-vim.keymap.set('n', '<leader>j', '<cmd>bprevious<CR>', { desc = 'Previous Buffer' })
+vim.keymap.set('n', '<leader><leader>j', '<cmd>bprevious<CR>', { desc = 'Previous Buffer' })
 vim.keymap.set('n', '<leader>J', '<cmd>bnext<CR>', { desc = 'Next Buffer' })
-vim.keymap.set('n', 'gb', '<C-^><CR>', { desc = '[G]o to last opened [b]uffer' })
+vim.keymap.set('n', '<leader>j', '<C-^><CR>', { desc = '[G]o to last opened [b]uffer' })
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [d]elte' })
 vim.keymap.set('n', '<leader>bl', '<cmd>ls<CR>', { desc = '[B]uffer [l]ist' })
 
@@ -203,8 +211,8 @@ vim.keymap.set('n', '<leader>fh', '<cmd>FzfLua helptags<CR>', { desc = '[F]zf nv
 vim.keymap.set('n', '<leader>fs', '<cmd>FzfLua keymaps<CR>', { desc = '[F]zf [s]hortcuts', noremap = true })
 vim.keymap.set('n', '<leader>ft', '<cmd>FzfLua treesitter<CR>', { desc = '[F]zf [t]reesitter document symbols', noremap = true })
 vim.keymap.set('n', '<leader>fS', '<cmd>FzfLua lsp_live_workspace_symbols<CR>', { desc = '[F]zf live document [S]ymbols', noremap = true })
-vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document<CR>', { desc = '[F]zf [d]iagnostic in file', noremap = true })
-vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace<CR>', { desc = '[F]zf diagnostic in [w]orkspace', noremap = true })
+vim.keymap.set('n', '<leader>fd', '<cmd>FzfLua diagnostics_document previewer=hidden<CR>', { desc = '[F]zf [d]iagnostic in file', noremap = true })
+vim.keymap.set('n', '<leader>fw', '<cmd>FzfLua diagnostics_workspace previewer=hidden<CR>', { desc = '[F]zf diagnostic in [w]orkspace', noremap = true })
 vim.keymap.set('n', '<leader>/', '<cmd>FzfLua grep_curbuf<CR>', { desc = '[F]zf current [/]file', noremap = true })
 vim.keymap.set('n', '<leader>b', '<cmd>FzfLua buffers sort_mru=true previewer=false<CR>', { desc = '[F]zf [b]uffers', noremap = true })
 vim.keymap.set('n', '<leader>fb', '<cmd>FzfLua buffers sort_mru=true previewer=false<CR>', { desc = '[F]zf [b]uffers', noremap = true })
@@ -236,10 +244,12 @@ vim.keymap.set('i', '<M-p>', '<cmd>Copilot panel<CR>', { desc = 'Copilot panel',
 -- [ Copilot Chat ]
 vim.keymap.set('n', '<C-G>', '<cmd>CopilotChatToggle<CR>i', { noremap = true })
 vim.keymap.set('v', '<C-G>', '<cmd>CopilotChatToggle<CR>', { noremap = true })
+vim.keymap.set('i', '<C-G>', '<Esc><cmd>CopilotChatToggle<CR>', { noremap = true })
 vim.keymap.set('v', '<C-e>', '<cmd>CopilotChatExplain<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>cP', '<cmd>CopilotChatPrompts<CR>', { desc = '[C]opilot [p]rompts', noremap = true })
 vim.keymap.set('n', '<leader>cr', '<cmd>CopilotChatReset<CR>', { desc = '[C]opilot [r]eset', noremap = true })
 vim.keymap.set('n', '<leader>cm', '<cmd>CopilotChatModels<CR>', { desc = '[C]opilot [m]odels', noremap = true })
+vim.keymap.set('n', '<leader>cs', '<cmd>CopilotChatStop<CR>', { desc = '[C]opilot [s]top', noremap = true })
 
 -- Conform Plugin
 vim.keymap.set('n', '<leader>ci', '<cmd>ConformInfo<CR>', { desc = '[C]onform [i]nfo', noremap = true })
@@ -310,8 +320,7 @@ vim.keymap.set('n', '<leader><leader>p', function()
   end
 end, { desc = 'Go to previous FZF-selected buffer' })
 
--- [ Harpoon ]
-local harpoon = require 'harpoon'
+-- [ Harpoon - Bookmark files ]
 local ui = require 'harpoon.ui'
 local mark = require 'harpoon.mark'
 

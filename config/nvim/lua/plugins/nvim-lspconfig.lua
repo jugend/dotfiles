@@ -275,9 +275,12 @@ return {
       -- Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       --
+      -- Server name is shown next to the full name in Mason config sheet.
+      --
       -- But for many setups, the LSP (`ts_ls`) will work just fine
-      -- Shortcut for typescript-language-server, to override LSP server capabilities
+      -- Shortcut for typescript-language-server
       -- ts_ls = {},
+      --
       --
 
       lua_ls = {
@@ -293,6 +296,12 @@ return {
             -- diagnostics = { disable = { 'missing-fields' } },
           },
         },
+      },
+
+      jsonls = {
+        -- Depends on schemastore.nvim plugin
+        -- schemas = require('schemastore').json.schemas(), -- Loads popular schemas like package.json, tsconfig.json
+        validate = { enable = true }, -- Enable validation
       },
     }
 
@@ -314,9 +323,12 @@ return {
       -- LSP
       'stylua', -- Used to format Lua code
       'typescript-language-server',
+      'json-lsp',
+      'lemminx',
 
       -- Linting
       'eslint-lsp',
+
       -- NOTE: latest version of eslint_d causing invalid JSON error
       { 'eslint_d', version = '13.1.2' },
       -- Formatting

@@ -59,8 +59,10 @@ if type __git &> /dev/null && [ -f /opt/homebrew/etc/bash_completion.d/git-compl
     # Add git completion to aliases
     __git_complete g __git_main
     __git_complete gb _git_branch
+    __git_complete grshard _git_branch
     __git_complete gc _git_commit
     __git_complete gd _git_diff
+    __git_complete gdep _git_diff
     __git_complete gl _git_log
     __git_complete gs _git_status
     __git_complete gp _git_push
@@ -167,7 +169,7 @@ export FZF_TMUX_OPTS="-d 40%"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # Add ./local/bin to $PATH
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
 
 # Configuration for node to trust the PayPal Proxy Certificates
 export NODE_EXTRA_CA_CERTS='/usr/local/etc/openssl/certs/paypal_proxy_cacerts.pem'

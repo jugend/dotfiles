@@ -18,6 +18,7 @@ brew install wget
 brew install httpie
 brew install reattach-to-user-namespace
 brew install nginx
+brew install gh
 
 # Neovim
 # gettext blocked by corporate network, 403 response

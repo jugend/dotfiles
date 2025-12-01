@@ -208,6 +208,7 @@ return {
         severity = severity_config,
         source = 'if_many',
         spacing = 2,
+        wrap = true,
         format = function(diagnostic)
           local diagnostic_message = {
             [vim.diagnostic.severity.ERROR] = diagnostic.message,
@@ -279,9 +280,24 @@ return {
       --
       -- But for many setups, the LSP (`ts_ls`) will work just fine
       -- Shortcut for typescript-language-server
-      -- ts_ls = {},
-      --
-      --
+      ts_ls = {
+        capabilities = {
+          -- Disable document formatting capability for ts_ls, we will use eslint/prettier for that
+          documentFormattingProvider = false,
+          documentRangeFormattingProvider = false,
+          diagnosticsProvider = false,
+        },
+        handlers = {
+          -- Disable diagnostics
+          ['textDocument/publishDiagnostics'] = function() end,
+        },
+        on_attach = function(client, bufnr)
+          -- Disable tsserver formatting, use eslint/prettier instead
+          client.server_capabilities.documentFormattingProvider = false
+          client.server_capabilities.documentRangeFormattingProvider = false
+          client.server_capabilities.diagnosticsProvider = false
+        end,
+      },
 
       lua_ls = {
         -- cmd = { ... },
@@ -302,6 +318,35 @@ return {
         -- Depends on schemastore.nvim plugin
         -- schemas = require('schemastore').json.schemas(), -- Loads popular schemas like package.json, tsconfig.json
         validate = { enable = true }, -- Enable validation
+      },
+
+      eslint = {
+        -- If you use nvim-cmp:
+        -- capabilities = require("cmp_nvim_lsp").default_capabilities(),
+
+        -- Helps the server pick the right project root(s)
+        settings = {
+          -- Auto-detect .eslintrc / eslint.config.js per workspace folder
+          workingDirectory = { mode = 'auto' },
+
+          -- If you’re on ESLint v9 flat config, uncomment:
+          -- experimental = { useFlatConfig = true },
+        },
+
+        on_attach = function(client, bufnr)
+          -- Disable tsserver formatting, use eslint/prettier instead
+          -- client.server_capabilities.documentFormattingProvider = false
+
+          -- Requires the ESLint Neovim plugin command `:EslintFixAll` exposed by the server
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            buffer = bufnr,
+            command = 'EslintFixAll',
+          })
+
+          -- Keyboard Shortcuts
+          local opts = { buffer = bufnr }
+          vim.keymap.set('n', '<leader>lf', '<cmd>EslintFixAll<cr>', opts)
+        end,
       },
     }
 
@@ -326,11 +371,8 @@ return {
       'json-lsp',
       'lemminx',
 
-      -- Linting
-      'eslint-lsp',
-
       -- NOTE: latest version of eslint_d causing invalid JSON error
-      { 'eslint_d', version = '13.1.2' },
+      -- { 'eslint_d', version = '13.1.2' },
       -- Formatting
       'prettierd',
 

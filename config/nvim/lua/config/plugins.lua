@@ -90,7 +90,8 @@ require('lazy').setup({
   require 'plugins.blink-cmp-copilot',
 
   -- Claude Code
-  require 'plugins.avante-nvim',
+  -- Issue: keep throwing errors, not reliable, too complex
+  -- require 'plugins.avante-nvim',
 
   -- Too simple, just simple chat, and send to tmux, not working well
   -- require 'plugins.claude-codebridge',
@@ -102,10 +103,12 @@ require('lazy').setup({
   -- Utils
   require 'plugins.nvim-surround',
   require 'plugins.autopairs',
-  require 'plugins.gitsigns',
   require 'plugins.nvim-specter',
-  require 'plugins.lazygit-nvim',
   require 'plugins.markdown-preview',
+
+  -- Git Plugins
+  require 'plugins.gitsigns',
+  require 'plugins.lazygit-nvim',
 
   -- Custom Plugins
   {

@@ -12,9 +12,9 @@ function setup() {
 
   # vim and neovim
   mkdir -p ~/.vim
-  mkdir -p ~/.config/nvim
+  mkdir -p ~/.config
 
-  for dir in {tmuxinator,cheat,vim/UltiSnips,vim/colors,vim/autoload,config/nvim/init.vim}; do
+  for dir in {tmuxinator,cheat,vim/UltiSnips,vim/colors,vim/autoload,config/nvim}; do
     if [ -d "$dir" ]; then
       echo "Link ~/.$dir -> $PWD/$dir"
       ln -sfn $PWD/$dir ~/.$dir

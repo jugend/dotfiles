@@ -6,7 +6,8 @@ return {
   config = function()
     require('copilot').setup {
       panel = {
-        enabled = true,
+        -- Enable only in insert mode, refer to the script below
+        enabled = false,
         auto_refresh = true,
         keymap = {
           jump_prev = '[[',
@@ -84,5 +85,18 @@ return {
       -- },
       -- server_opts_overrides = {},
     }
+
+    -- Toggle Copilot by mode
+    -- vim.api.nvim_create_autocmd('InsertEnter', {
+    --   callback = function()
+    --     vim.cmd 'Copilot enable'
+    --   end,
+    -- })
+    --
+    -- vim.api.nvim_create_autocmd('InsertLeave', {
+    --   callback = function()
+    --     vim.cmd 'Copilot disable'
+    --   end,
+    -- })
   end,
 }

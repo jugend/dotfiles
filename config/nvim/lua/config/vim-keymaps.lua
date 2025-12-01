@@ -192,9 +192,9 @@ vim.keymap.set('n', '<leader>bl', '<cmd>ls<CR>', { desc = '[B]uffer [l]ist' })
 -- [[ PLugins Keymaps ]]
 
 -- [ Fzf Lua ]
-vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files<CR>', { desc = '[F]zf files', noremap = true })
-vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword<CR>', { desc = '[F]zf word under the cursor', noremap = true })
-vim.keymap.set('v', '<C-t>', '<cmd>FzfLua grep_visual<CR>', { desc = '[F]zf selected word', noremap = true })
+vim.keymap.set('n', '<C-p>', '<cmd>FzfLua files previewer=hidden<CR>', { desc = '[F]zf files', noremap = true })
+vim.keymap.set('n', '<C-t>', '<cmd>FzfLua grep_cword previewer=hidden<CR>', { desc = '[F]zf word under the cursor', noremap = true })
+vim.keymap.set('v', '<C-t>', '<cmd>FzfLua grep_visual previewer=hidden<CR>', { desc = '[F]zf selected word', noremap = true })
 vim.keymap.set('n', '<leader>A', '<cmd>FzfLua grep<CR>', { desc = '[F]zf [g]rep text', noremap = true })
 vim.keymap.set('n', '<leader><leader>T', '<cmd>TodoFzfLua<CR>', { desc = '[F]zf [T]ODOs, NOTEs', noremap = true })
 vim.keymap.set('n', '<leader>F', '<cmd>FzfLua<CR>', { desc = '[F]zf list available o[p]tions', noremap = true })
@@ -219,6 +219,7 @@ vim.keymap.set('n', '<leader>fb', '<cmd>FzfLua buffers sort_mru=true previewer=f
 
 -- [ Conform - Formatter ]
 vim.keymap.set('n', '<leader>pp', '<cmd>lua require("conform").format({ formatters = { "prettierd" }})<CR>', { desc = '[p]Format [p]rettierd', noremap = true })
+vim.keymap.set('n', '<leader>fp', '<cmd>lua require("conform").format({ formatters = { "prettier" }})<CR>', { desc = '[p]Format [p]rettier', noremap = true })
 vim.keymap.set('n', '<leader>pe', '<cmd>lua require("conform").format({ formatters = { "eslint_d" }})<CR>', { desc = '[p]Format [e]slint_d', noremap = true })
 
 -- [ Telescope ]

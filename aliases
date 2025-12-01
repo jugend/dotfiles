@@ -14,18 +14,14 @@ alias e='exa -l'
 alias ea='exa -a'
 alias ela='exa -la'
 alias d='cd'
-alias vim='mvim -v'
+alias vim='nvim'
 alias v='vim'
 alias nnvim='node_switch && nvim'
-alias n='nnvim'
+alias n='nvim'
 alias vi='vim'
 alias vimd='vim -D'
-alias c='NODE_TLS_REJECT_UNAUTHORIZED=0 claude'
-alias ccc='c --continue'
-alias ccr='c --resume'
-alias ccd='c --debug'
-alias ccv='c --verbose'
-alias ccdv='c --debug --verbose'
+
+alias cc='c -h'
 alias vc='code'
 alias o='open .'
 alias hh='help'
@@ -62,7 +58,7 @@ alias agu='ag -u' # all, include hidden files
 alias aga='ag -a' # all, exclude hidden files
 alias agg='ag -G' # Search matching file pattern
 alias agga='ag -a -G' # Search matching file pattern
-alias agfa='ag -a -g' # Search filename
+alias agfa='ag -g -a -l' # Search filename
 alias agf='ag -g' # Search filename
 alias agh='ag -h'
 alias his='fc -l'
@@ -576,7 +572,10 @@ alias gconl='git config --list'
 
 alias gd='git diff'
 alias gds='git diff --staged'
-alias gddev='git diff develop'
+alias gdn='git diff --name-only' # Show file names only
+alias gdd='git diff develop'
+alias gddf='git diff develop --' # Filter by file only  git diff develop -- [filename]
+alias gdup='git diff upstream'
 alias gdudev='git diff upstream/develop'
 alias gdh='git diff HEAD'
 alias gdh1='git diff HEAD~1'
@@ -625,6 +624,7 @@ alias gplumas='git pull upstream master'
 alias gplru='git pull --rebase upstream'
 alias gplrudev='git pull --rebase upstream develop'
 alias gplrumas='git pull --rebase upstream master'
+alias gplrodev='git pull --rebase origin develop'
 alias gplromas='git pull --rebase origin master'
 
 alias grs='git reset'
@@ -653,12 +653,13 @@ alias gcrb2='gc "fix" && grb2'
 alias grm='git remote'
 alias grmv='git remote --verbose'
 alias grmr='git remote rename'
+alias grmru='git remote rename origin upstream'
 alias grmls='git for-each-ref --sort=-committerdate refs/remotes/ --format "%(committerdate:short) %(refname:short)"'
 
-alias gs='git status -uno'
+alias gsf='git status -uno'
 alias gsi='git status --ignored'
 # Ignore untracked (new) files, faster
-alias gso='git status'
+alias gs='git status'
 
 alias gsa='git stash -k'
 alias gsaall='git stash'
@@ -686,6 +687,13 @@ alias gsubup='gsub update --init --recursive --remote'
 alias gsubupm='gsub update --init --recursive --remote --merge'
 
 gdpage() { git subtree push --prefix dist $1 gh-pages; }
+
+# Worktree
+alias gw='git worktree'
+alias gwl='git worktree list'
+alias gwa='git worktree add'
+alias gwr='git worktree remove'
+alias gwm='git worktree move'
 
 ###
 # Github Extension

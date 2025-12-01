@@ -83,6 +83,10 @@ gsapply() {
   git stash apply stash@{$1}
 }
 
+gdep() {
+  git diff $1 -- . ':(exclude)package-lock.json'
+}
+
 ftpgetall() {
   # ftp://username:password@host/dir
   wget -r ftp://$1@$2/$3

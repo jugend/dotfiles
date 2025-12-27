@@ -264,6 +264,9 @@ alias dndapp='DEBUG=express:* ndapp'
 
 # Npm
 alias nl='npm list'
+alias nla='npm list --all'
+alias nl2='npm list --depth=2'
+alias nl3='npm list --depth=3'
 alias ni='npm install'
 alias nil='npm install --legacy-peer-deps'
 alias nci='npm ci'
@@ -556,6 +559,8 @@ alias gcop='git checkout -'
 alias gcob='git checkout -b'
 alias gcomas='git checkout master'
 alias gcodev='git checkout develop'
+alias gcoup='git checkout upstream'
+alias gcoudev='git checkout upstream/develop'
 
 alias gcl='git clone'
 alias gcld='git clone --depth=1'
